@@ -5,89 +5,71 @@
 <!-- Page -->
   <div class="page">
     <div class="page-content container-fluid">
-      <div class="row" data-plugin="matchHeight" data-by-row="true">
-        <div class="col-lg-3 col-sm-6">
-          <!-- Widget Linearea One-->
-          <div class="widget widget-shadow" id="widgetLineareaOne">
-            <div class="widget-content">
-              <div class="padding-20 padding-top-10">
-                <div class="clearfix">
-                  <div class="grey-800 pull-left padding-vertical-10">
-                    <i class="icon md-account grey-600 font-size-24 vertical-align-bottom margin-right-5"></i>                    User
+      <h2>Hallo Tarikh Agustia !</h2>
+      <div class="alert alert-warning">
+        <p>{{__('admin.alert.warning.welcome-message')}}</p>
+      </div>
+      <div class="alert alert-info">
+        <p>{{__('admin.alert.info.welcome-message')}}</p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="widget widget-shadow">
+            <div class="widget-header cover overlay">
+              <img src="{{asset("img/admin/open-account.png")}}" class="img-responsive" alt="">
+              {{-- <div class="cover-background height-200" style="background-image: url('{{asset("img/admin/open-account.png")}}')"></div> --}}
+            </div>
+            <div class="widget-footer text-center bg-cyan-700 padding-30 height-100">
+              <a href="#">
+                <div class="row no-space">
+                <div class="col-xs-12">
+                  <div class="counter counter-inverse">
+                    <span class="counter-number">{{ __('admin.opendemoaccount') }}</span>
                   </div>
-                  <span class="pull-right grey-700 font-size-30">1,253</span>
                 </div>
-                <div class="margin-bottom-20 grey-500">
-                  <i class="icon md-long-arrow-up green-500 font-size-16"></i>                  15% From this yesterday
-                </div>
-                <div class="ct-chart height-50"></div>
               </div>
+              </a>
             </div>
           </div>
-          <!-- End Widget Linearea One -->
         </div>
-        <div class="col-lg-3 col-sm-6">
-          <!-- Widget Linearea Two -->
-          <div class="widget widget-shadow" id="widgetLineareaTwo">
-            <div class="widget-content">
-              <div class="padding-20 padding-top-10">
-                <div class="clearfix">
-                  <div class="grey-800 pull-left padding-vertical-10">
-                    <i class="icon md-flash grey-600 font-size-24 vertical-align-bottom margin-right-5"></i>                    VISITS
+        <div class="col-lg-4 col-md-6">
+          <div class="widget widget-shadow">
+            <div class="widget-header cover overlay">
+              <img src="{{asset("img/admin/open-real-account.png")}}" class="img-responsive" alt="">
+              {{-- <div class="cover-background height-200" style="background-image: url('{{asset("img/admin/open-account.png")}}')"></div> --}}
+            </div>
+            <div class="widget-footer text-center bg-indigo-600 padding-30 height-100">
+              <a href="#">
+                <div class="row no-space">
+                <div class="col-xs-12">
+                  <div class="counter counter-inverse">
+                    <span class="counter-number">{{ __('admin.openrealaccount') }}</span>
                   </div>
-                  <span class="pull-right grey-700 font-size-30">2,425</span>
                 </div>
-                <div class="margin-bottom-20 grey-500">
-                  <i class="icon md-long-arrow-up green-500 font-size-16"></i>                  34.2% From this week
-                </div>
-                <div class="ct-chart height-50"></div>
               </div>
+              </a>
             </div>
           </div>
-          <!-- End Widget Linearea Two -->
         </div>
-        <div class="col-lg-3 col-sm-6">
-          <!-- Widget Linearea Three -->
-          <div class="widget widget-shadow" id="widgetLineareaThree">
-            <div class="widget-content">
-              <div class="padding-20 padding-top-10">
-                <div class="clearfix">
-                  <div class="grey-800 pull-left padding-vertical-10">
-                    <i class="icon md-chart grey-600 font-size-24 vertical-align-bottom margin-right-5"></i>                    Total Clicks
+        <div class="col-lg-4 col-md-6">
+          <div class="widget widget-shadow">
+            <div class="widget-header cover overlay">
+              <img src="{{asset("img/admin/download-metatrader.png")}}" class="img-responsive" alt="">
+              {{-- <div class="cover-background height-200" style="background-image: url('{{asset("img/admin/open-account.png")}}')"></div> --}}
+            </div>
+            <div class="widget-footer text-center bg-blue-400 padding-30 height-100">
+              <a href="#">
+                <div class="row no-space">
+                <div class="col-xs-12">
+                  <div class="counter counter-inverse">
+                    <span class="counter-number">{{ __('admin.downloadmt4') }}</span>
                   </div>
-                  <span class="pull-right grey-700 font-size-30">1,864</span>
                 </div>
-                <div class="margin-bottom-20 grey-500">
-                  <i class="icon md-long-arrow-down red-500 font-size-16"></i>                  15% From this yesterday
-                </div>
-                <div class="ct-chart height-50"></div>
               </div>
+              </a>
             </div>
           </div>
-          <!-- End Widget Linearea Three -->
         </div>
-        <div class="col-lg-3 col-sm-6">
-          <!-- Widget Linearea Four -->
-          <div class="widget widget-shadow" id="widgetLineareaFour">
-            <div class="widget-content">
-              <div class="padding-20 padding-top-10">
-                <div class="clearfix">
-                  <div class="grey-800 pull-left padding-vertical-10">
-                    <i class="icon md-view-list grey-600 font-size-24 vertical-align-bottom margin-right-5"></i>                    Items
-                  </div>
-                  <span class="pull-right grey-700 font-size-30">845</span>
-                </div>
-                <div class="margin-bottom-20 grey-500">
-                  <i class="icon md-long-arrow-up green-500 font-size-16"></i>                  18.4% From this yesterday
-                </div>
-                <div class="ct-chart height-50"></div>
-              </div>
-            </div>
-          </div>
-          <!-- End Widget Linearea Four -->
-        </div>
-        <div class="clearfix"></div>
-
       </div>
     </div>
   </div>

@@ -8,7 +8,7 @@
   <meta name="description" content="bootstrap material admin template">
   <meta name="author" content="">
 
-  <title>Admin Panel</title>
+  <title>{{ config('site.name') . ' - ' . config('site.description') }}</title>
 
 
   <!-- Stylesheets -->
@@ -66,7 +66,7 @@
         title="Remark">
         <img class="navbar-brand-logo navbar-brand-logo-special" src="{{ asset('img/logo-admin.png') }}"
         title="Remark">
-        <span class="navbar-brand-text hidden-xs"> Admin</span>
+        <span class="navbar-brand-text hidden-xs">{{ config('site.name') }}</span>
       </a>
     </div>
 
@@ -103,13 +103,7 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li role="presentation">
-                <a href="javascript:void(0)" role="menuitem"><i class="icon md-account" aria-hidden="true"></i> Profile</a>
-              </li>
-              <li role="presentation">
-                <a href="javascript:void(0)" role="menuitem"><i class="icon md-card" aria-hidden="true"></i> Billing</a>
-              </li>
-              <li role="presentation">
-                <a href="javascript:void(0)" role="menuitem"><i class="icon md-settings" aria-hidden="true"></i> Settings</a>
+                <a href="{{ url('admin/profile') }}" role="menuitem"><i class="icon md-account" aria-hidden="true"></i> Profile</a>
               </li>
               <li class="divider" role="presentation"></li>
               <li role="presentation">

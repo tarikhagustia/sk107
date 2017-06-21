@@ -40,6 +40,14 @@ Route::group(['middleware' => ['auth','admin']], function(){
   |--------------------------------------------------------------------------
   */
   Route::get('admin/gallery/top-photo', 'Admin\Gallery\GalleryController@manage_gallery');
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | Profil Router Guest
+  |--------------------------------------------------------------------------
+  */
+  Route::get('admin/profile', 'Admin\Profile\ProfileController@index');
 });
 
 /*
