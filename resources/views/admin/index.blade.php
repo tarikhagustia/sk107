@@ -20,7 +20,7 @@
               {{-- <div class="cover-background height-200" style="background-image: url('{{asset("img/admin/open-account.png")}}')"></div> --}}
             </div>
             <div class="widget-footer text-center bg-cyan-700 padding-30 height-100">
-              <a href="#">
+              <a href="{{ url('admin/demo') }}">
                 <div class="row no-space">
                 <div class="col-xs-12">
                   <div class="counter counter-inverse">
