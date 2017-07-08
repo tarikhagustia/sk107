@@ -11,15 +11,25 @@
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', function (){
     return view('admin.index');
 });
 Route::get('admin/account', 'AccountController@index');
+=======
+
+
+>>>>>>> e230603ad93bdf315e2e3935e82ca2f3b0006d73
 Route::group(['middleware' => ['auth','admin']], function(){
 
+  Route::get('/', function (){
+      return view('admin.index');
+  });
+  
   Route::get('/admin', function () {
       return view('admin.index');
   });
+
 
   /*
   |--------------------------------------------------------------------------
@@ -48,6 +58,17 @@ Route::group(['middleware' => ['auth','admin']], function(){
   |--------------------------------------------------------------------------
   */
   Route::get('admin/profile', 'Admin\Profile\ProfileController@index');
+  Route::post('admin/profile/change-password', 'Admin\Auth\ChangePasswordController@change_password_post')->name('profile.password.change');
+
+  /*
+  |--------------------------------------------------------------------------
+  | Account Router Guest
+  |--------------------------------------------------------------------------
+  */
+  Route::get('admin/demo', 'Admin\Account\OpenDemoAccountController@index');
+  Route::post('admin/demo', 'Admin\Account\OpenDemoAccountController@create_account')->name('create_account_demo');
+
+
 });
 
 /*
@@ -63,13 +84,3 @@ Route::get('/logout', function(){
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-/*
-|--------------------------------------------------------------------------
-| Article Router Guest
-|--------------------------------------------------------------------------
-*/
-Route::get('article/{slug}', 'Website\ArticleController@post_detail');

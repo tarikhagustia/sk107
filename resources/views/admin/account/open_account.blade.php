@@ -30,7 +30,7 @@
 				<!-- Panel Wizard Form -->
 				<div class="panel" id="exampleWizardForm">
 					<div class="panel-heading">
-						<h3 class="panel-title">Wizard Form</h3>
+						<h3 class="panel-title">Aplikasi Pembukaan Rekening Transaksi secara Elektronik On-line</h3>
 					</div>
 					<div class="panel-body">
 						<!-- Steps -->

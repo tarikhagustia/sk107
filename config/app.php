@@ -174,6 +174,7 @@ return [
         /*
          * Application Service Providers...
          */
+        App\Providers\SettingsServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
@@ -232,6 +233,7 @@ return [
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Carbon' => Carbon\Carbon::class,
 
     ],
 

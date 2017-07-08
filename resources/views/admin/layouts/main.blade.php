@@ -130,7 +130,7 @@
                 <span class="site-menu-title">Home</span>
               </a>
             </li>
-            <li class="site-menu-item has-sub @if(Request::segment(2) == 'article') active @endif">
+            {{-- <li class="site-menu-item has-sub @if(Request::segment(2) == 'article') active @endif">
               <a href="javascript:void(0)" data-dropdown-toggle="false">
                 <i class="site-menu-icon md-apps" aria-hidden="true"></i>
                 <span class="site-menu-title">Article</span>
@@ -149,16 +149,51 @@
                 </li>
               </ul>
             </li>
-            <li class="site-menu-item has-sub @if(Request::segment(2) == 'gallery') active @endif">
+            <li class="site-menu-item has-sub @if(Request::segment(2) == 'gallery') active @endif"> --}}
+
+            <li class="site-menu-item has-sub @if(Request::segment(2) == 'article') active @endif">
               <a href="javascript:void(0)" data-dropdown-toggle="false">
-                <i class="site-menu-icon icon md-book-image" aria-hidden="true"></i>
-                <span class="site-menu-title">Gallery</span>
+                <i class="site-menu-icon md-account-box-phone" aria-hidden="true"></i>
+                <span class="site-menu-title">Account</span>
                 <span class="site-menu-arrow"></span>
               </a>
               <ul class="site-menu-sub ">
-                <li class="site-menu-item @if(Request::segment(2) == 'article' && Request::segment(3) == 'top-photo') active @endif">
-                  <a class="animsition-link" href="{{ url('admin/gallery/top-photo') }}">
-                    <span class="site-menu-title">Top Photo</span>
+                <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'real-account') active @endif">
+                  <a class="animsition-link" href="{{ url('admin/account/real-account') }}">
+                    <span class="site-menu-title">Real Account</span>
+                  </a>
+                </li>
+                <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'demo-account') active @endif">
+                  <a class="animsition-link" href="{{ url('admin/account/demo-account') }}">
+                    <span class="site-menu-title">Demo Account</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="site-menu-item has-sub @if(Request::segment(2) == 'deposit') active @endif">
+              <a href="javascript:void(0)" data-dropdown-toggle="false">
+                <i class="site-menu-icon icon md-money-box" aria-hidden="true"></i>
+                <span class="site-menu-title">Deposit</span>
+                <span class="site-menu-arrow"></span>
+              </a>
+              <ul class="site-menu-sub ">
+                <li class="site-menu-item @if(Request::segment(2) == 'deposit' && Request::segment(3) == 'account') active @endif">
+                  <a class="animsition-link" href="{{ url('admin/deposit/account') }}">
+                    <span class="site-menu-title">Deposit Account</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="site-menu-item has-sub @if(Request::segment(2) == 'withdrawal') active @endif">
+              <a href="javascript:void(0)" data-dropdown-toggle="false">
+                <i class="site-menu-icon icon md-money" aria-hidden="true"></i>
+                <span class="site-menu-title">Withdrawal</span>
+                <span class="site-menu-arrow"></span>
+              </a>
+              <ul class="site-menu-sub ">
+                <li class="site-menu-item @if(Request::segment(2) == 'withdrawal' && Request::segment(3) == 'request-withdrawal') active @endif">
+                  <a class="animsition-link" href="{{ url('admin/withdrawal/request-withdrawal') }}">
+                    <span class="site-menu-title">Request Withdrawal</span>
                   </a>
                 </li>
               </ul>
@@ -175,10 +210,7 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="site-footer-legal">© 2016 <a href="http://themeforest.net/item/remark-responsive-bootstrap-admin-template/11989202">Remark</a></div>
-    <div class="site-footer-right">
-      Crafted with <i class="red-600 icon md-favorite"></i> by <a href="http://themeforest.net/user/amazingSurge">amazingSurge</a>
-    </div>
+    <div class="site-footer-legal">© 2016 <a href="#">{{config('app.name')}}</a></div>
   </footer>
   <!-- Core  -->
   <script src="{{ asset('js/admin/jquery.min.js') }}"></script>
