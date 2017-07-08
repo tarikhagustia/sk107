@@ -1,46 +1,52 @@
-@extends('layouts.app')
+@extends('layouts.login')
+
+@section('meta')
+<title>Forgot Password | Remark Material Admin Template</title>
+@endsection
+
+@section('css')
+	<link rel="stylesheet" href="{{ asset('css/admin/forgot-password.min.css') }}">
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+<body class="page-forgot-password layout-full">
+  <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+  <!-- Page -->
+  <div class="page animsition vertical-align text-center" data-animsition-in="fade-in"
+  data-animsition-out="fade-out">
+    <div class="page-content vertical-align-middle">
+      <h2>Forgot Your Password ?</h2>
+      <p>Input your registered email to reset your password</p>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+      <form method="post" role="form" autocomplete="off" action="{{ route('password.email') }}">
+	  {{ csrf_field() }}
+        <div class="form-group form-material floating">
+          <input type="email" class="form-control empty" id="inputEmail" name="email">
+          <label class="floating-label" for="inputEmail">Your Email</label>
         </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Reset Your Password</button>
+        </div>
+      </form>
+
+      <footer class="page-copyright">
+        <p>Copyright &copy; {{ date('Y') }} All RIGHT RESERVED.</p>
+        <div class="social">
+          <a href="javascript:void(0)">
+            <i class="icon bd-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="javascript:void(0)">
+            <i class="icon bd-facebook" aria-hidden="true"></i>
+          </a>
+          <a href="javascript:void(0)">
+            <i class="icon bd-dribbble" aria-hidden="true"></i>
+          </a>
+        </div>
+      </footer>
     </div>
-</div>
+  </div>
 @endsection

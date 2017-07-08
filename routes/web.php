@@ -53,6 +53,13 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::get('admin/profile', 'Admin\Profile\ProfileController@index');
   Route::post('admin/profile/change-password', 'Admin\Auth\ChangePasswordController@change_password_post')->name('profile.password.change');
 
+  /*
+  |--------------------------------------------------------------------------
+  | Account Router Guest
+  |--------------------------------------------------------------------------
+  */
+  Route::get('admin/demo', 'Admin\Account\OpenDemoAccountController@index');
+  Route::post('admin/demo', 'Admin\Account\OpenDemoAccountController@create_account')->name('create_account_demo');
 
 
 });
