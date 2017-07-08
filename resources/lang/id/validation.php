@@ -117,5 +117,6 @@ return [
     */
 
     'attributes' => [],
+    'old_password' => 'Kata sandi lama tidak cocok'
 
 ];

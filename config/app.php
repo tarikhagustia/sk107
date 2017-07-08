@@ -232,6 +232,7 @@ return [
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Carbon' => Carbon\Carbon::class,
 
     ],
 
