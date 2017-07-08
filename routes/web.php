@@ -14,7 +14,7 @@
 Route::get('/', function (){
     return view('admin.index');
 });
-
+Route::get('admin/account', 'AccountController@index');
 Route::group(['middleware' => ['auth','admin']], function(){
 
   Route::get('/admin', function () {
