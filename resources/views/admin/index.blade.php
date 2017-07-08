@@ -5,7 +5,7 @@
 <!-- Page -->
   <div class="page">
     <div class="page-content container-fluid">
-      <h2>Hallo Tarikh Agustia !</h2>
+      <h2>Hallo John doe !</h2>
       <div class="alert alert-warning">
         <p>{{__('admin.alert.warning.welcome-message')}}</p>
       </div>
