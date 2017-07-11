@@ -11,17 +11,10 @@
 |
 */
 
-<<<<<<< HEAD
-Route::get('/', function (){
-    return view('admin.index');
-});
-Route::get('admin/account', 'AccountController@index');
-=======
-
-
->>>>>>> e230603ad93bdf315e2e3935e82ca2f3b0006d73
 Route::group(['middleware' => ['auth','admin']], function(){
 
+  Route::get('admin/account', 'AccountController@index');
+  
   Route::get('/', function (){
       return view('admin.index');
   });
