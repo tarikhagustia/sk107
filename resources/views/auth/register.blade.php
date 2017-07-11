@@ -15,21 +15,21 @@
 		<div class="page-content vertical-align-middle">
 		  <div class="brand">
 			<img class="brand-img" src="{{ asset('img/admin/logo.png') }}" alt="...">
-			<h2 class="brand-text">Remark</h2>
+			<h2 class="brand-text">{{config('settings.company_name')}}</h2>
 		  </div>
-		  <p>CREATE NEW ACCOUNT</p>
+		  <p>Silahkan mendaftar</p>
 		  <form method="POST" role="form" autocomplete="off" action="{{ route('register') }}">
 		  {{ csrf_field() }}
 			<div class="form-group form-material floating {{ $errors->has('name') ? ' has-error' : '' }}">
 			  <input type="text" class="form-control empty" id="inputName" name="name">
-				<label class="floating-label" for="inputName">Full Name</label>
+				<label class="floating-label" for="inputName">Nama lengap</label>
 				@if ($errors->has('name'))
                     <span class="help-block">
                         <strong>{{ $errors->first('name') }}</strong>
                     </span>
                 @endif
 			</div>
-			
+
 			<div class="form-group form-material floating {{ $errors->has('email') ? ' has-error' : '' }}">
 			  <input type="email" class="form-control empty" id="inputEmail" name="email">
 				<label class="floating-label" for="inputEmail">Email</label>
@@ -39,43 +39,43 @@
                     </span>
                 @endif
 			</div>
-			
+
 			<div class="form-group form-material floating {{ $errors->has('password') ? ' has-error' : '' }}">
 			  <input type="password" class="form-control empty" id="inputPassword" name="password">
-				<label class="floating-label" for="inputPassword">Password</label>
+				<label class="floating-label" for="inputPassword">Kata sandi</label>
 				@if ($errors->has('password'))
                     <span class="help-block">
                         <strong>{{ $errors->first('password') }}</strong>
                     </span>
                 @endif
 			</div>
-			
+
 			<div class="form-group form-material floating {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
 			  <input type="password" class="form-control empty" id="inputRepassword" name="password_confirmation">
-				<label class="floating-label" for="inputRepassword">Retype Password</label>
+				<label class="floating-label" for="inputRepassword">Ulangi kata sandi</label>
 				@if ($errors->has('password_confirmation'))
                     <span class="help-block">
                         <strong>{{ $errors->first('password_confirmation') }}</strong>
                     </span>
                 @endif
 			</div>
-			
+
 			<div class="form-group form-material floating {{ $errors->has('phone') ? ' has-error' : '' }}">
 			  <input type="text" class="form-control empty" id="inputPhone" name="phone">
-				<label class="floating-label" for="inputPhone">Phone</label>
+				<label class="floating-label" for="inputPhone">Nomor telepon</label>
 				@if ($errors->has('phone'))
                     <span class="help-block">
                         <strong>{{ $errors->first('phone') }}</strong>
                     </span>
                 @endif
 			</div>
-	
-			<button type="submit" class="btn btn-primary btn-block">Register</button>
+
+			<button type="submit" class="btn btn-primary btn-block">Daftar</button>
 		  </form>
-		  <p>Have account already? Please go to <a href="{{ route('login') }}">Sign In</a></p>
+		  <p>Sudah punya akses untuk masuk ? silahkan <a href="{{ route('login') }}">Masuk</a></p>
 
 		  <footer class="page-copyright page-copyright-inverse">
-			<p>Copyright &copy; {{ date('Y') }} All RIGHT RESERVED.</p>
+			<p>Copyright &copy; {{config('settings.company_name')}} {{ date('Y') }}.</p>
 			<div class="social">
 			  <a href="javascript:void(0)">
 				<i class="icon bd-twitter" aria-hidden="true"></i>

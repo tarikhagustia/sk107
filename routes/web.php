@@ -13,12 +13,11 @@
 
 Route::group(['middleware' => ['auth','admin']], function(){
 
-  Route::get('admin/account', 'AccountController@index');
-  
+
   Route::get('/', function (){
       return view('admin.index');
   });
-  
+
   Route::get('/admin', function () {
       return view('admin.index');
   });
@@ -58,8 +57,10 @@ Route::group(['middleware' => ['auth','admin']], function(){
   | Account Router Guest
   |--------------------------------------------------------------------------
   */
-  Route::get('admin/demo', 'Admin\Account\OpenDemoAccountController@index');
-  Route::post('admin/demo', 'Admin\Account\OpenDemoAccountController@create_account')->name('create_account_demo');
+  Route::get('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@index')->name('account.demo');
+  Route::post('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@create_account')->name('create_account_demo')->name('account.demo.post');;
+
+  Route::get('admin/account/real-account', 'AccountController@index')->name('account.real');
 
 
 });

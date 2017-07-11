@@ -3,7 +3,7 @@
 
 @section('content')
   <!-- Page -->
-  <div class="page animsition">
+  <div class="page">
     <div class="page-content container-fluid">
       <div class="row">
         <div class="col-md-3">
