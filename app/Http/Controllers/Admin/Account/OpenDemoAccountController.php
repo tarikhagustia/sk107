@@ -14,7 +14,7 @@ class OpenDemoAccountController extends Controller
       return view('admin.account.open-demo-account');
     }
 	
-	public function store()
+	public function create_account()
     {
 		$userid = Auth::id();
 		
