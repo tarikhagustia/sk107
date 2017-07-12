@@ -40,7 +40,7 @@
                   </table>
                 </div>
 				<div class="col-md-2">
-			      <a href="{{ url('admin/create-demo') }}" class="btn btn-primary btn-block">Request New Account</button>
+			      <a href="{{ url('admin/account/create-demo') }}" class="btn btn-primary btn-block">Request New Account</button>
 			    </div>
               </div>
               <!-- End Example Basic -->
