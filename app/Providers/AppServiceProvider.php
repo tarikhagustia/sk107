@@ -32,5 +32,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        $this->app->singleton("MetaService", function() {
+            return new \App\Library\MetaService;
+        });
     }
 }

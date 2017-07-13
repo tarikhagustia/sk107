@@ -57,7 +57,6 @@ class MetaService {
                 while(!feof($ptr))
                 {
                     $line=fgets($ptr,128);
-
                     if($line=="end\r\n"):
                         break;
                     else:
@@ -65,6 +64,7 @@ class MetaService {
                         $ret.= $line;
                     endif;
                 }
+				
             }
             fclose($ptr);
             $response['status'] = ($array[0] == "ERROR") ? false : true;
