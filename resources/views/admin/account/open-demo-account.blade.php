@@ -26,9 +26,9 @@
                       </tr>
                     </thead>
                     <tbody>
-					@foreach($logins as $login)
+					@foreach($logins as $key => $login)
                       <tr>
-                        <td>1</td>
+                        <td>{{$key+1}}</td>
                         <td>{{$login->login}}</td>
                         <td>{{$login->password}}</td>
                         <td>{{$login->created_at}}</td>
@@ -45,6 +45,13 @@
                     </tbody>
                   </table>
                 </div>
+				<div class="col-md-12">
+					@if( ! empty($err))
+                    <span class="help-block" style="color:black;">
+                        <strong>{{ $err }}</strong>
+                    </span>
+					@endif
+				</div>
 				<div class="col-md-2">
 			      <a href="{{ url('admin/account/create-demo') }}" class="btn btn-primary btn-block">Request New Account</a>
 			    </div>

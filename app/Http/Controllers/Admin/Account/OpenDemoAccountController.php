@@ -70,7 +70,10 @@ class OpenDemoAccountController extends Controller
 			}
 			return $this->index();
 		}else{
-		    return 'error';
+			$user_id = Auth::user()->id;
+			$logins = Mt4User::where('user_id',$user_id)->get();
+			$err = 'Terlalu banyak request, silahkan coba lagi setelah 60 detik.';
+		    return view('admin.account.open-demo-account',['err'=> $err],['logins'=> $logins]);
 		}		
     }
 }
