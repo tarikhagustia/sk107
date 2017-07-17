@@ -251,6 +251,11 @@
 
   <!-- Page level -->
   <script src="{{ asset('js/admin/custom/toastr.min.js') }}"></script>
+  @if (env('APP_DEBUG'))
+    <script src="{{asset('js/vue.js')}}" charset="utf-8"></script>
+  @else
+    <script src="{{asset('js/vue.min.js')}}" charset="utf-8"></script>
+  @endif
   @yield('js')
 
   <script>
