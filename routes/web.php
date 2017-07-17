@@ -66,6 +66,12 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
   Route::get('admin/account/real-account/form/107-PBK-01', 'Admin\Account\FormController@bpk_01')->name('form.sk107.bpk.01');
   Route::get('admin/account/real-account/form/107-PBK-03', 'Admin\Account\FormController@bpk_03')->name('form.sk107.bpk.03');
+  Route::get('/admin/account/step2', function () {
+      return view('admin.account.step2');
+  });
+  Route::get('/admin/account/step3', function () {
+      return view('admin.account.step3');
+  });
 
 
   Route::group(['prefix' => 'services'], function(){
