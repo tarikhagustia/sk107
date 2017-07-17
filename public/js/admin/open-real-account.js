@@ -12166,7 +12166,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['dataTitle', 'dataUrl'],
     mounted: function mounted() {
         $('.ajax-popup-link').magnificPopup({
-            type: 'ajax'
+            type: 'ajax',
+            closeBtnInside: true,
+            showCloseBtn: true,
+            modal: true
         });
         console.log('Component mounted.');
     }

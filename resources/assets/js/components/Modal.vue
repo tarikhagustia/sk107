@@ -10,7 +10,10 @@
         props : ['dataTitle', 'dataUrl'],
         mounted() {
             $('.ajax-popup-link').magnificPopup({
-              type: 'ajax'
+              type: 'ajax',
+              closeBtnInside : true,
+              showCloseBtn : true,
+              modal : true,
             });
             console.log('Component mounted.')
         }
