@@ -64,9 +64,12 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::get('admin/account/real-account', 'AccountController@index')->name('account.real');
 
 
-
+  Route::get('admin/account/real-account/form/107-PBK-01', 'Admin\Account\FormController@bpk_01')->name('form.sk107.bpk.01');
   Route::get('admin/account/real-account/form/107-PBK-03', 'Admin\Account\FormController@bpk_03')->name('form.sk107.bpk.03');
-
+  Route::get('admin/account/real-account/form/107-PBK-05', 'Admin\Account\FormController@bpk_05')->name('form.sk107.bpk.05');
+  Route::get('admin/account/real-account/form/107-PBK-06', 'Admin\Account\FormController@bpk_06')->name('form.sk107.bpk.06');
+  Route::get('admin/account/real-account/form/107-PBK-07', 'Admin\Account\FormController@bpk_07')->name('form.sk107.bpk.07');
+  Route::get('admin/account/real-account/form/107-PBK-08', 'Admin\Account\FormController@bpk_08')->name('form.sk107.bpk.08');
 });
 
 /*
