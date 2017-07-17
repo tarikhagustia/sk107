@@ -57,10 +57,12 @@ Route::group(['middleware' => ['auth','admin']], function(){
   | Account Router Guest
   |--------------------------------------------------------------------------
   */
-  Route::get('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@index')->name('account.demo');
-  Route::post('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@create_account')->name('create_account_demo')->name('account.demo.post');;
+
+  Route::get('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@index');
+  Route::get('admin/account/create-demo', 'Admin\Account\OpenDemoAccountController@create_account')->name('create.account.demo');
 
   Route::get('admin/account/real-account', 'AccountController@index')->name('account.real');
+
 
 
   Route::get('admin/account/real-account/form/107-PBK-03', 'Admin\Account\FormController@bpk_03')->name('form.sk107.bpk.03');
