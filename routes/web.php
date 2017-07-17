@@ -67,6 +67,11 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
   Route::get('admin/account/real-account/form/107-PBK-03', 'Admin\Account\FormController@bpk_03')->name('form.sk107.bpk.03');
 
+  Route::group(['prefix' => 'services'], function(){
+
+    Route::get('open-account/task', 'Admin\Api\OpenAccountController@get_user_tasks');
+
+  });
 });
 
 /*

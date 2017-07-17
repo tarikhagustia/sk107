@@ -79,7 +79,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jQuery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jQuery__);
 
 
-var API_URL = window.location.origin + '/api/';
+var API_URL = window.location.origin + '/services/';
 
 Vue.component('Modal', __webpack_require__(41));
 
@@ -12158,6 +12158,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -12209,12 +12211,12 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('a', {
+  return _c('h3', [_c('a', {
     staticClass: "ajax-popup-link",
     attrs: {
       "href": _vm.dataUrl
     }
-  }, [_vm._v(_vm._s(_vm.dataTitle))])
+  }, [_vm._v(_vm._s(_vm.dataTitle))])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

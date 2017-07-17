@@ -7,12 +7,20 @@
 <style media="screen">
 .list-group-item .active {
   color: white;
+
 }
-li.active>table>tbody>tr>td>a {
+li.active>table>tbody>tr>td>h3>a {
   color : white !important;
+
+}
+.table a {
+    text-decoration: none;
 }
 li.active>table {
   color : white !important;
+}
+li.list-group-item.disabled {
+  opacity: 0.1;
 }
 </style>
 @endsection
@@ -43,16 +51,24 @@ li.active>table {
                       <table class="table">
                         <tbody>
                           <tr>
-                            <td>
-                              <span class="checkbox-custom checkbox-primary">
-                                <input class="selectable-item" type="checkbox" id="row-619" value="619">
-                                <label for="row-619"></label>
-                              </span>
+                            <td width="5%">
+                              <div class="" v-if="job.status == 'active'">
+                                <span class="checkbox-custom checkbox-primary">
+                                  <input class="selectable-item" type="checkbox" id="row-619" value="619" checked disabled>
+                                  <label for="row-619"></label>
+                                </span>
+                              </div>
+                              <div class="" v-else>
+                                <span class="checkbox-custom checkbox-primary">
+                                  <input class="selectable-item" type="checkbox" id="row-619" value="619" disabled>
+                                  <label for="row-619"></label>
+                                </span>
+                              </div>
                             </td>
                             <td>
                               <Modal :data-title="job.title" :data-url="job.action_url" />
-                              <a class="ajax-popup-link" href="/profile.html">Baca Lebih Lanjut (Formulir Nomor : 102.PBK.01)</a></td>
-                            <td>Print & Download</td>
+                            </td>
+                            <td class="text-right">Print & Download</td>
                           </tr>
                         </tbody>
                       </table>

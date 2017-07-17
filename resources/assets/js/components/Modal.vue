@@ -1,5 +1,7 @@
 <template>
-  <a :href="dataUrl" class="ajax-popup-link">{{dataTitle}}</a>
+  <h3>
+    <a :href="dataUrl" class="ajax-popup-link">{{dataTitle}}</a>
+  </h3>
 </template>
 
 <script>

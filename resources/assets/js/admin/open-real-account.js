@@ -1,6 +1,6 @@
 import axios from 'axios'
 import jQuery from 'jQuery'
-const API_URL = window.location.origin + '/api/';
+const API_URL = window.location.origin + '/services/';
 
 
 Vue.component('Modal', require('../components/Modal.vue'));
