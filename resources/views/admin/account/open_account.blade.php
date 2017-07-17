@@ -3,6 +3,8 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('css/admin/jquery-wizard.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/admin/formValidation.min.css')}}">
+<link rel="stylesheet" href="{{asset('css/admin/lightbox.min.css')}}">
+<link rel="stylesheet" href="{{asset('css/admin/magnific-popup.min.css')}}">
 @endsection
 
 @section('content')
@@ -54,7 +56,7 @@
 		                      </tr>
 		                    </tbody>
 		                  </table></li>
-                  <li class="list-group-item disabled">2. Pernyataan Telah Melakukan Simulasi Perdagangan Berjangka <br>
+                  <li class="list-group-item">2. Pernyataan Telah Melakukan Simulasi Perdagangan Berjangka <br>
 										<table class="table table-hover" style="background-color:white">
 		                    <tbody>
 		                      <tr>
@@ -64,7 +66,7 @@
 		                            <label for="row-619"></label>
 		                          </span>
 		                        </td>
-		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.01)</td>
+		                        <td><a id="examplePopupAjax" href="{{ url('/admin/account/step2') }}">Baca Lebih Lanjut (Formulir Nomor : 107.PBK.02.1)</a></td>
 		                        <td>Print & Download</td>
 		                      </tr>
 		                    </tbody>
@@ -79,7 +81,7 @@
 		                            <label for="row-619"></label>
 		                          </span>
 		                        </td>
-		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.01)</td>
+		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.02.2)</td>
 		                        <td>Print & Download</td>
 		                      </tr>
 		                    </tbody>
@@ -94,7 +96,7 @@
 		                            <label for="row-619"></label>
 		                          </span>
 		                        </td>
-		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.01)</td>
+		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.03)</td>
 		                        <td>Print & Download</td>
 		                      </tr>
 		                    </tbody>
@@ -109,7 +111,7 @@
 		                            <label for="row-619"></label>
 		                          </span>
 		                        </td>
-		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.01)</td>
+		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.04.2)</td>
 		                        <td>Print & Download</td>
 		                      </tr>
 		                    </tbody>
@@ -124,7 +126,7 @@
 		                            <label for="row-619"></label>
 		                          </span>
 		                        </td>
-		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.01)</td>
+		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.05.2)</td>
 		                        <td>Print & Download</td>
 		                      </tr>
 		                    </tbody>
@@ -139,7 +141,7 @@
 		                            <label for="row-619"></label>
 		                          </span>
 		                        </td>
-		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.01)</td>
+		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.06)</td>
 		                        <td>Print & Download</td>
 		                      </tr>
 		                    </tbody>
@@ -154,7 +156,7 @@
 		                            <label for="row-619"></label>
 		                          </span>
 		                        </td>
-		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.01)</td>
+		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.07)</td>
 		                        <td>Print & Download</td>
 		                      </tr>
 		                    </tbody>
@@ -176,7 +178,7 @@
                         </div>
                         <div class="modal-body">
                           <div class="row row-lg">
-														<div class="col-sm-12">
+			<div class="col-sm-12">
               <!-- Example Basic -->
               <div class="example-wrap">
                 <h4 class="example-title">PROFIL PERUSAHAAN PIALANG BERJANGKA</h4>
@@ -693,4 +695,7 @@
 <script src="{{ asset('js/admin/formValidation.min.js') }}"></script>
 <script src="{{ asset('js/admin/jquery.matchHeight-min.js') }}"></script>
 <script src="{{ asset('js/admin/jquery-wizard.min.js') }}"></script>
+<script src="{{ asset('js/admin/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('js/admin/components/magnific-popup.min.js') }}"></script>
+<script src="{{ asset('js/admin/lightbox.min.js') }}"></script>
 @endsection
