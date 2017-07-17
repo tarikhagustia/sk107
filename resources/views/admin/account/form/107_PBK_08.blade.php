@@ -120,4 +120,4 @@
 <script src="{{ asset('js/admin/formValidation.min.js') }}"></script>
 <script src="{{ asset('js/admin/jquery.matchHeight-min.js') }}"></script>
 <script src="{{ asset('js/admin/jquery-wizard.min.js') }}"></script>
-@endsection
+@endsection 

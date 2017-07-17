@@ -1,12 +1,7 @@
-@extends('admin.layouts.main') @section('css')
-<link rel="stylesheet" href="{{asset('css/admin/jquery-wizard.min.css')}}">
-<link rel="stylesheet" href="{{asset('css/admin/formValidation.min.css')}}">
- @endsection @section('content')
+
+
 <!-- Page -->
-<div class="page animsition" style="animation-duration: 800ms; opacity: 1;">
-	<div class="page-header">
-		<h1 class="page-title">Aplikasi Pembukaan Rekening Transaksi secara Elektronik On-line</h1>
-	</div>
+
 	<div class="page-content container-fluid">
 		<div class="row">
 			<div class="col-sm-12">
@@ -550,10 +545,3 @@
 			</div>
 		</div>
 	</div>
-</div>
-<!-- End Page -->
- @endsection @section('js')
-<script src="{{ asset('js/admin/formValidation.min.js') }}"></script>
-<script src="{{ asset('js/admin/jquery.matchHeight-min.js') }}"></script>
-<script src="{{ asset('js/admin/jquery-wizard.min.js') }}"></script>
-@endsection
