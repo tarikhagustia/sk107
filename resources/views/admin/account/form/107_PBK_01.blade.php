@@ -26,8 +26,8 @@
 								<div class="example-wrap">
 									<div class="example">
 										<div class="height-300 scrollable scrollable-shadow is-enabled scrollable-vertical" data-skin="scrollable-shadow" data-plugin="scrollable" style="position: relative;">
-											<div data-role="container" class="scrollable-container" style="height: 300px; width: 510px;">
-												<div data-role="content" class="scrollable-content" style="width: 493px;">
+											<div data-role="container" class="scrollable-container">
+												<div data-role="content" class="scrollable-content">
 													<table>
 													<tbody>
 													<tr>
