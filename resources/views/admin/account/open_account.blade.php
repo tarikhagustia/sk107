@@ -1,8 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('css')
-<link rel="stylesheet" href="{{asset('css/admin/jquery-wizard.min.css')}}">
-<link rel="stylesheet" href="{{asset('css/admin/formValidation.min.css')}}">
+<link rel="stylesheet" href="{{asset('css/admin/magnific-popup.css')}}">
 @endsection
 
 @section('content')
@@ -64,7 +63,7 @@
 		                            <label for="row-619"></label>
 		                          </span>
 		                        </td>
-		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.01)</td>
+		                        <td>Baca Lebih Lanjut (Formulir Nomor : 102.PBK.01)</td>
 		                        <td>Print & Download</td>
 		                      </tr>
 		                    </tbody>
@@ -79,7 +78,7 @@
 		                            <label for="row-619"></label>
 		                          </span>
 		                        </td>
-		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.01)</td>
+		                        <td>Baca Lebih Lanjut (Formulir Nomor : 103.PBK.01)</td>
 		                        <td>Print & Download</td>
 		                      </tr>
 		                    </tbody>
@@ -690,7 +689,5 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('js/admin/formValidation.min.js') }}"></script>
-<script src="{{ asset('js/admin/jquery.matchHeight-min.js') }}"></script>
-<script src="{{ asset('js/admin/jquery-wizard.min.js') }}"></script>
+<script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
 @endsection
