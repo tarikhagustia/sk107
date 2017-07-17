@@ -12,4 +12,5 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/admin/gallery.js', 'public/js/gallery.js')
+.js('resources/assets/js/admin/open-real-account.js', 'public/js/admin/open-real-account.js')
     .sass('resources/assets/sass/bootstrap-extend.scss', 'public/css/admin/bootstrap-extend.min.css');
