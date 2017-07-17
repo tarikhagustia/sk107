@@ -66,12 +66,12 @@
 		                            <label for="row-619"></label>
 		                          </span>
 		                        </td>
-		                        <td><a id="examplePopupAjax" href="{{ url('/admin/account/step2') }}">Baca Lebih Lanjut (Formulir Nomor : 107.PBK.02.1)</a></td>
+		                        <td><a id="examplePopupAjax2" href="{{ url('/admin/account/step2') }}">Baca Lebih Lanjut (Formulir Nomor : 107.PBK.02.1)</a></td>
 		                        <td>Print & Download</td>
 		                      </tr>
 		                    </tbody>
 		                  </table></li>
-                  <li class="list-group-item disabled">3. Pernyataan Telah Berpengalaman Dalam Melaksanakan Transaksi Perdagangan Berjangka <br>
+                  <li class="list-group-item">3. Pernyataan Telah Berpengalaman Dalam Melaksanakan Transaksi Perdagangan Berjangka <br>
 										<table class="table table-hover" style="background-color:white">
 		                    <tbody>
 		                      <tr>
@@ -81,7 +81,7 @@
 		                            <label for="row-619"></label>
 		                          </span>
 		                        </td>
-		                        <td>Baca Lebih Lanjut (Formulir Nomor : 107.PBK.02.2)</td>
+		                        <td><a id="examplePopupAjax3" href="{{ url('/admin/account/step3') }}">Baca Lebih Lanjut (Formulir Nomor : 107.PBK.02.2)</a></td>
 		                        <td>Print & Download</td>
 		                      </tr>
 		                    </tbody>

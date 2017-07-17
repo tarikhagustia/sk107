@@ -69,6 +69,9 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::get('/admin/account/step2', function () {
       return view('admin.account.step2');
   });
+  Route::get('/admin/account/step3', function () {
+      return view('admin.account.step3');
+  });
 
 });
 
