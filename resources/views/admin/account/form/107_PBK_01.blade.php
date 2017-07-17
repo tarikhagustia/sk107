@@ -1,7 +1,9 @@
 
-
 <!-- Page -->
-
+<div class="page animsition" style="animation-duration: 800ms; opacity: 1;">
+	<div class="page-header">
+		<h1 class="page-title">Aplikasi Pembukaan Rekening Transaksi secara Elektronik On-line</h1>
+	</div>
 	<div class="page-content container-fluid">
 		<div class="row">
 			<div class="col-sm-12">
@@ -26,7 +28,7 @@
 								<div class="example-wrap">
 									<div class="example">
 										<div class="height-300 scrollable scrollable-shadow is-enabled scrollable-vertical" data-skin="scrollable-shadow" data-plugin="scrollable" style="position: relative;">
-											<div data-role="container" class="scrollable-container">
+											<div data-role="container" class="scrollable-container" style="height: 300px;">
 												<div data-role="content" class="scrollable-content">
 													<table>
 													<tbody>
@@ -545,3 +547,5 @@
 			</div>
 		</div>
 	</div>
+</div>
+<!-- End Page -->
