@@ -11,4 +11,5 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/admin/gallery.js', 'public/js/gallery.js');
+mix.js('resources/assets/js/admin/gallery.js', 'public/js/gallery.js')
+    .sass('resources/assets/sass/bootstrap-extend.scss', 'public/css/admin/bootstrap-extend.min.css');
