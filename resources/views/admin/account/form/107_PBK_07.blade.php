@@ -76,7 +76,7 @@
 							<p class="text-center">
 								<b>Demikian Pernyataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.</b>
 							</p>
-			<form class="form-horizontal">
+			<form class="form-horizontal" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-07-check') }}">
 				<div class="form-group form-material">
 					Pernyataan menerima *)
 					<div class="radio-custom radio-default radio-inline center">
@@ -89,11 +89,11 @@
 					</div>
 				</div>
 				<div class="form-group form-material">	
-					Menyatakan pada Tanggal 
+					Menyatakan pada Tanggal <span id="date"></span>
 				</div>
 				<div class="form-group form-material">	
 					<div class="col-sm-9 col-sm-offset-3">
-						<button type="button" class="btn btn-primary">Submit </button>
+						<button type="submit" class="btn btn-primary">Submit </button>
 					</div>
 				</div>
 			</form>
@@ -101,3 +101,19 @@
 	</div>
 </div>
 
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd = '0'+dd
+} 
+
+if(mm<10) {
+    mm = '0'+mm
+} 
+
+today = dd + '/' + mm + '/' + yyyy;
+document.getElementById("date").innerHTML = today;
+</script>

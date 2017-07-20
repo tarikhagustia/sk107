@@ -503,27 +503,47 @@
 			<p style="text-align:center;">
 				Dengan mengisi kolom “YA” di bawah ini, saya menyatakan bahwa saya telah membaca dan menerima informasi <b>PROFIL PERUSAHAAN PIALANG BERJANGKA, </b> mengerti dan memahami isinya.
 			</p>
-			<form class="form-horizontal">
+			<form class="form-horizontal" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-01-check') }}">
+				{{ csrf_field() }}
 				<div class="form-group form-material">
 					Pernyataan menerima *)
 					<div class="radio-custom radio-default radio-inline center">
-						<input type="radio" id="inputHorizontalYa" name="inputRadiosPersetujuan" />
+						<input type="radio" id="inputHorizontalYa" name="inputRadiosPersetujuan" value="yes"/>
 						<label for="inputHorizontalMale">Ya</label>
 					</div>
 					<div class="radio-custom radio-default radio-inline center">
-						<input type="radio" id="inputHorizontalTidak" name="inputRadiosPersetujuan" checked />
+						<input type="radio" id="inputHorizontalTidak" name="inputRadiosPersetujuan" value="no" checked />
 						<label for="inputHorizontalFemale">Tidak</label>
 					</div>
 				</div>
+				
 				<div class="form-group form-material">	
-					Menyatakan pada Tanggal 
+					Menyatakan pada Tanggal <span id="date"></span>
 				</div>
 				<div class="form-group form-material">	
 					<div class="col-sm-9 col-sm-offset-3">
-						<button type="button" class="btn btn-primary">Submit </button>
+						<button type="submit" class="btn btn-primary">Submit </button>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd = '0'+dd
+} 
+
+if(mm<10) {
+    mm = '0'+mm
+} 
+
+today = dd + '/' + mm + '/' + yyyy;
+document.getElementById("date").innerHTML = today;
+</script>

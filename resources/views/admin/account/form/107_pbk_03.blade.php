@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="panel-body">
-            <form action="index.html" method="post" class="form-horizontal">
+            <form class="form-horizontal" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-03-check') }}">
               <div class="row">
                 <div class="col-sm-6">
 
@@ -454,7 +454,7 @@
 
 										<label class="col-sm-3 control-label">Menyatakan Tanggal</label>
 										<div class="col-sm-9">
-											<p class="form-control-static">1 Juni</p>
+											<p class="form-control-static" id="date"></p>
 										</div>
 									</div>
 								</div>
@@ -478,3 +478,21 @@
 <script src="{{ asset('js/admin/jquery.matchHeight-min.js') }}"></script>
 <script src="{{ asset('js/admin/jquery-wizard.min.js') }}"></script>
 @endsection
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd = '0'+dd
+} 
+
+if(mm<10) {
+    mm = '0'+mm
+} 
+
+today = dd + '/' + mm + '/' + yyyy;
+document.getElementById("date").innerHTML = today;
+</script>

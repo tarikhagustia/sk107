@@ -22,7 +22,7 @@
 							<div class="height-400 scrollable scrollable-shadow is-enabled scrollable-vertical" data-skin="scrollable-shadow" data-plugin="scrollable" style="position: relative;">
 								<div data-role="container" class="scrollable-container" style="height: 400px;">
 									<div data-role="content" class="scrollable-content" style="height: 400px;">
-									<form class="form-horizontal">
+									<form class="form-horizontal" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-04-2-check') }}">
 										<table class="risk" cellspacing="0">
 													<tbody>
 													<tr>
@@ -47,7 +47,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check1"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -74,7 +74,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check2"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -95,7 +95,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check3"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -116,7 +116,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check4"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -137,7 +137,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check5"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -158,7 +158,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check6"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -179,7 +179,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check7"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -200,7 +200,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check8"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -221,7 +221,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check9"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -242,7 +242,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check10"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -263,7 +263,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check11"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -281,7 +281,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check12"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -300,7 +300,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check13"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -319,7 +319,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check14"></td>
 													</tr>
 													</tbody>
 													</table>
@@ -347,14 +347,32 @@
 					</div>
 				</div>
 				<div class="form-group form-material">	
-					Menyatakan pada Tanggal 
+					Menyatakan pada Tanggal <span id="date"></span>
 				</div>
 				<div class="form-group form-material">	
 					<div class="col-sm-9 col-sm-offset-3">
-						<button type="button" class="btn btn-primary">Submit </button>
+						<button type="submit" class="btn btn-primary">Submit </button>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
+
+<script>
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd = '0'+dd
+} 
+
+if(mm<10) {
+    mm = '0'+mm
+} 
+
+today = dd + '/' + mm + '/' + yyyy;
+document.getElementById("date").innerHTML = today;
+</script>
