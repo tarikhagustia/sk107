@@ -2,7 +2,6 @@
 		<div>
 			<div class="modal-header">
 				<a class="popup-modal-dismiss pull-right" href="javascript:void(0)">x</a>
-				</button>
 				<br><br>
 				<div class="pull-left" style="font-size:11px;font-weight:700;">
 					<p>Formulir Nomor : 107.PBK.02.1</p>

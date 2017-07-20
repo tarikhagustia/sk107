@@ -1,43 +1,29 @@
-@extends('admin.layouts.main') @section('css')
-<link rel="stylesheet" href="{{asset('css/admin/jquery-wizard.min.css')}}">
-<link rel="stylesheet" href="{{asset('css/admin/formValidation.min.css')}}">
- @endsection @section('content')
-<!-- Page -->
-<div class="page animsition" style="animation-duration: 800ms; opacity: 1;">
-	<div class="page-header">
-		<h1 class="page-title">Aplikasi Pembukaan Rekening Transaksi secara Elektronik On-line</h1>
-	</div>
-	<div class="page-content container-fluid">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="panel">
-					<div class="panel-heading">
-						<div class="panel-title">
-							 DOKUMEN PEMBERITAHUAN ADANYA RISIKO<br>
-							 YANG HARUS DISAMPAIKAN OLEH PIALANG BERJANGKA<br>
-							 UNTUK TRANSAKSI KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF
-						</div>
-					</div>
-					<div class="panel-body">
-						<form action="index.html" method="post" class="form-horizontal">
-							<div class="row">
-								<div class="col-sm-6">
-									<span><strong>Formulir Nomor : 107.PBK.04.2</strong></span>
-								</div>
-								<div class="col-sm-6">
-									<p class="pull-right">
-										Lampiran Peraturan Kepala Badan Pengawas Perdagangan Berjangka Komoditi <br/>Nomor : 107/BAPPEBTI/PER/11/2013</p>
-								</div>
-							</div>
-							<div class="col-sm-12">
-								<!-- Example Shadow -->
-								<hr/>
-								<div class="example-wrap">
-									<div class="example">
-										<div class="height-300 scrollable scrollable-shadow is-enabled scrollable-vertical" data-skin="scrollable-shadow" data-plugin="scrollable" style="position: relative;">
-											<div data-role="container" class="scrollable-container" style="height: 300px; width: 510px;">
-												<div data-role="content" class="scrollable-content" style="width: 493px;">
-													<table class="risk" cellspacing="0">
+
+ <div class="lightbox-block" id="custom-content">
+	<div>
+		<div class="modal-header">
+			<a class="popup-modal-dismiss pull-right" href="javascript:void(0)">x</a>
+			<br><br>
+			<div class="pull-left" style="font-size:11px;font-weight:700;">
+				<p>Formulir Nomor : 107.PBK.04.2</p>
+			</div>
+			<div class="pull-right" style="font-size:11px;text-align:right;">
+				Lampiran Peraturan Kepala Badan Pengawas<br>Perdagangan Berjangka Komoditi<br>Nomor : 107/BAPPEBTI/PER/11/2013
+			</div>
+		</div>
+		<div class="modal-body">
+			<div class="row row-lg">
+				<div class="col-sm-12">
+					<div class="example-wrap">
+						<!--<p style="font-size=11px;">Nasabah wajib mengisi Surat Pernyataan Telah Melakukan Simulasi Perdagangan Berjangka yang dilakukan setelah Nasabah dinyatakan lulus melakukan simulasi Perdagangan Berjangka oleh Pialang Berjangka sebagaimana yang ada di Formulir Nomor : 107.PBK.02.1</p>-->
+						<h4 class="example-title" style="font-weight:700;text-align:center;font-size:14px;">DOKUMEN PEMBERITAHUAN ADANYA RISIKO YANG HARUS DISAMPAIKAN OLEH PIALANG BERJANGKA UNTUK TRANSAKSI KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF</h4>
+						<hr>
+						<div class="example">
+							<div class="height-400 scrollable scrollable-shadow is-enabled scrollable-vertical" data-skin="scrollable-shadow" data-plugin="scrollable" style="position: relative;">
+								<div data-role="container" class="scrollable-container" style="height: 400px;">
+									<div data-role="content" class="scrollable-content" style="height: 400px;">
+									<form class="form-horizontal">
+										<table class="risk" cellspacing="0">
 													<tbody>
 													<tr>
 														<td colspan="2" class="just">
@@ -337,57 +323,38 @@
 													</tr>
 													</tbody>
 													</table>
-												</div>
-											</div>
-											<div class="scrollable-bar scrollable-bar-vertical scrollable-bar-hide" draggable="false">
-												<div class="scrollable-bar-handle" style="height: 81.2616px; transform: translate3d(0px, 210.738px, 0px);"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- End Example Shadow -->
-								<hr/>
-							</div>
-							<!-- <legend class="text-center">PERNYATAAN TELAH MEMBACA PROFIL PERUSAHAAN PIALANG BERJANGKA</legend> -->
-							<p class="text-center">
-								Dengan mengisi kolom “YA” di bawah, saya menyatakan bahwa saya telah menerima, <b>”DOKUMEN PEMBERITAHUAN ADANYA RISIKO”, </b> mengerti dan menyetujui isinya.
-							</p>
-							<div class="row">
-								<div class="col-sm-8 col-sm-offset-4">
-									<div class="form-group">
-										<label class="col-sm-3 control-label">Pernyataan menerima <span class="text-danger">*)</span></label>
-										<div class="col-sm-9">
-											<div class="radio-custom radio-primary">
-												<input type="radio" id="aproval_yes" name="inputRadios">
-												<label for="aproval_yes">Ya</label>
-											</div>
-											<div class="radio-custom radio-primary">
-												<input type="radio" id="aproval_no" name="inputRadios">
-												<label for="aproval_yes">Tidak</label>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-3 control-label">Menyatakan pada Tanggal</label>
-										<div class="col-sm-9">
-											<p class="form-control-static">1 Juni</p>
-										</div>
 									</div>
 								</div>
 							</div>
-						</form>
-					</div>
-					<div class="panel-footer">
-						<button type="submit" class="btn btn-primary " name="button">Submit</button>
+						</div>	
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="modal-footer">
+			<p style="text-align:center;">
+				Dengan mengisi kolom “YA” di bawah ini, saya menyatakan bahwa saya telah membaca dan menerima informasi <b>ADANYA RISIKO TRANSAKSI KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF, </b> mengerti dan memahami isinya.
+			</p>
+				<div class="form-group form-material">
+					Pernyataan menerima *)
+					<div class="radio-custom radio-default radio-inline center">
+						<input type="radio" id="inputHorizontalYa" name="inputRadiosPersetujuan" />
+						<label for="inputHorizontalMale">Ya</label>
+					</div>
+					<div class="radio-custom radio-default radio-inline center">
+						<input type="radio" id="inputHorizontalTidak" name="inputRadiosPersetujuan" checked />
+						<label for="inputHorizontalFemale">Tidak</label>
+					</div>
+				</div>
+				<div class="form-group form-material">	
+					Menyatakan pada Tanggal 
+				</div>
+				<div class="form-group form-material">	
+					<div class="col-sm-9 col-sm-offset-3">
+						<button type="button" class="btn btn-primary">Submit </button>
+					</div>
+				</div>
+			</form>
+		</div>
 	</div>
 </div>
-<!-- End Page -->
- @endsection @section('js')
-<script src="{{ asset('js/admin/formValidation.min.js') }}"></script>
-<script src="{{ asset('js/admin/jquery.matchHeight-min.js') }}"></script>
-<script src="{{ asset('js/admin/jquery-wizard.min.js') }}"></script>
-@endsection
