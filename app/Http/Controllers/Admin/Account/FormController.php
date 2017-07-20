@@ -11,6 +11,14 @@ class FormController extends Controller
     {
       return view('admin.account.form.107_pbk_03');
     }
+	public function bpk_02_1()
+    {
+      return view('admin.account.form.107_pbk_02_1');
+    }
+	public function bpk_02_2()
+    {
+      return view('admin.account.form.107_pbk_02_2');
+    }
     public function bpk_01()
     {
       return view('admin.account.form.107_pbk_01');

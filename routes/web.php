@@ -60,19 +60,15 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
   Route::get('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@index');
   Route::get('admin/account/create-demo', 'Admin\Account\OpenDemoAccountController@create_account')->name('create.account.demo');
+  Route::get('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
 
   Route::get('admin/account/real-account', 'AccountController@index')->name('account.real');
 
 
   Route::get('admin/account/real-account/form/107-PBK-01', 'Admin\Account\FormController@bpk_01')->name('form.sk107.bpk.01');
   Route::get('admin/account/real-account/form/107-PBK-03', 'Admin\Account\FormController@bpk_03')->name('form.sk107.bpk.03');
-  Route::get('/admin/account/step2', function () {
-      return view('admin.account.step2');
-  });
-  Route::get('/admin/account/step3', function () {
-      return view('admin.account.step3');
-  });
-
+  Route::get('admin/account/real-account/form/107-PBK-02-1', 'Admin\Account\FormController@bpk_02_1')->name('form.sk107.bpk.02.1');
+  Route::get('admin/account/real-account/form/107-PBK-02-2', 'Admin\Account\FormController@bpk_02_2')->name('form.sk107.bpk.02.2');
 
   Route::group(['prefix' => 'services'], function(){
 

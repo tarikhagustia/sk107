@@ -5,15 +5,24 @@ namespace App\Http\Controllers\Admin\Account;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use Mail;
+use App\Mail\DemoAccount;
 use App\User;
 use App\Models\Mt4User;
+use App\Models\Mt4Setting;
 class OpenDemoAccountController extends Controller
 {
     public function index()
     {
 	  $user_id = Auth::user()->id;
 	  $logins = Mt4User::where('user_id',$user_id)->get();
-      return view('admin.account.open-demo-account',['logins'=> $logins]);
+	  if($logins){
+		  $create = 'false';
+	  }else{
+		  $create = 'true';
+	  }
+	  $manual = config('settings.demo_manual');
+      return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create],['manual'=> $manual]);
     }
 	
 	public function create_account(Request $request)
@@ -26,7 +35,7 @@ class OpenDemoAccountController extends Controller
 		$password = $names[0].$rng;
 		$investor_pass = 'abc123';
 		$leverage = 100;
-		$deposit = 100000;
+		$deposit = 5000;
 		$host = config('settings.mt4_host');
 		$port = config('settings.mt4_port');
 		
@@ -72,8 +81,26 @@ class OpenDemoAccountController extends Controller
 		}else{
 			$user_id = Auth::user()->id;
 			$logins = Mt4User::where('user_id',$user_id)->get();
+			if($logins){
+				$create = 'false';
+			}else{
+				$create = 'true';
+			}
 			$err = 'Terlalu banyak request, silahkan coba lagi setelah 60 detik.';
-		    return view('admin.account.open-demo-account',['err'=> $err],['logins'=> $logins]);
+		    $manual = config('settings.demo_manual');
+			return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create],['manual'=> $manual]);
 		}		
+    }
+	
+	public function create_account(Request $request)
+    {
+			$name = Auth::user()->name;
+			$email = Auth::user()->email;
+			Mail::to(env('REGISTER_EMAIL'))->send(new DemoAccount($name, $email));
+
+			$manual = config('settings.demo_manual');
+			return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create],['manual'=> $manual]);
+
+    }
     }
 }
