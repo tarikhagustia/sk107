@@ -98,7 +98,8 @@ class OpenDemoAccountController extends Controller
 			$email = Auth::user()->email;
 			Mail::to(env('REGISTER_EMAIL'))->send(new DemoAccount($name, $email));
 
-        return redirect('register/thankyou');
+			$manual = config('settings.demo_manual');
+			return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create],['manual'=> $manual]);
 
     }
     }
