@@ -67,15 +67,14 @@ class FormController extends Controller
 	}
 	public function bpk_02_2_check(Request $request)
 	{
-		$this->validate($request, [
           $this->validate($request, [
           'name' => 'required|string|max:50',
-		  'place' => 'required|string|max:30',
-		  'dob' => 'required|date_format:"d-m-Y',
-		  'alamat' => 'required|string|max:255',
-		  'id' => 'required',
-		  'noid' => 'required|numeric',
-		  'inputRadiosPersetujuan' => 'accepted',
+    		  'place' => 'required|string|max:30',
+    		  'dob' => 'required|date_format:"d-m-Y',
+    		  'alamat' => 'required|string|max:255',
+    		  'id' => 'required',
+    		  'noid' => 'required|numeric',
+    		  'inputRadiosPersetujuan' => 'accepted',
       ]);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->update(['status' => 'active']);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'current']);
@@ -86,7 +85,7 @@ class FormController extends Controller
 		$this->validate($request, [
 		  'inputRadios' => 'accepted',
           'inputRadiosPersetujuan' => 'accepted',
-		  
+
       ]);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'active']);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->update(['status' => 'current']);

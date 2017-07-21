@@ -66,7 +66,7 @@ li.list-group-item.disabled {
                               </div>
                             </td>
                             <td>
-                              <Modal :data-title="job.title" :data-url="job.action_url" />
+                              <Modal :data-title="job.title" :data-url="job.action_url" :data-action="job.action" />
                             </td>
                             <td class="text-right">Print & Download</td>
                           </tr>

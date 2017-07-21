@@ -23,7 +23,7 @@ class CreateTaskSeeder extends Seeder
           'task_title' => 'Pernyataan Telah Melakukan Simulasi Perdagangan Berjangka',
           'task_form_number' => '107.PBK.02.01',
           'task_action' => 'ajax',
-          'task_url' => '/admin/account/real-account/form/107-PBK-03',
+          'task_url' => '/admin/account/real-account/form/107-PBK-02-01',
           'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.02.01)'
         ],
         [
