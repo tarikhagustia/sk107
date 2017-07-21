@@ -18,6 +18,7 @@
           </div>
 					<form class="form-horizontal" id="form-real" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-03-check') }}">
           <div class="panel-body">
+            <form class="form-horizontal" method="POST" id="pbk03" action="{{ url('admin/account/real-account/form/107-PBK-03-check') }}">
               <div class="row">
                 <div class="col-sm-6">
 
@@ -80,7 +81,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama Lengkap <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="name" value="">
                     </div>
                   </div>
                   <div class="form-group">
@@ -88,12 +89,12 @@
                     <div class="col-sm-9">
                       <div class="row">
                         <div class="col-sm-3">
-                          <select class="form-control" name="">
+                          <select class="form-control" name="id">
 
                           </select>
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="" value="">
+                          <input type="text" class="form-control" name="noid" value="">
                         </div>
                       </div>
                     </div>
@@ -101,13 +102,13 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">No. Handphone <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="phone" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Pengalaman Investas <span class="text-danger">*)</span></label>
                     <div class="col-sm-4">
-                      <select class="form-control" name="">
+                      <select class="form-control" name="pengalaman">
 
                       </select>
                     </div>
@@ -115,7 +116,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Tuj. Buka Rekening <span class="text-danger">*)</span></label>
                     <div class="col-sm-4">
-                      <select class="form-control" name="">
+                      <select class="form-control" name="tujuan">
 
                       </select>
                     </div>
@@ -123,7 +124,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">NPWP <span class="text-danger">*)</span></label>
                     <div class="col-sm-4">
-                      <select class="form-control" name="">
+                      <select class="form-control" name="npwp">
 
                       </select>
                     </div>
@@ -131,7 +132,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Jenis Kelamin <span class="text-danger">*)</span></label>
                     <div class="col-sm-4">
-                      <select class="form-control" name="">
+                      <select class="form-control" name="kelamin">
 
                       </select>
                     </div>
@@ -139,7 +140,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Status Perkawinan <span class="text-danger">*)</span></label>
                     <div class="col-sm-4">
-                      <select class="form-control" name="">
+                      <select class="form-control" name="status">
 
                       </select>
                     </div>
@@ -154,10 +155,10 @@
                     <div class="col-sm-9">
                       <div class="row">
                         <div class="col-sm-6">
-                          <input type="text" class="form-control" name="" value="">
+                          <input type="text" class="form-control" name="place" value="">
                         </div>
                         <div class="col-sm-6">
-                          <input type="text" class="form-control" name="" value="">
+                          <input type="text" class="form-control" name="dob" value="">
                         </div>
                       </div>
                     </div>
@@ -165,25 +166,25 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama Ibu Kandung <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="ibu" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Alamat Rumah <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <textarea name="name" class="form-control" rows="4" cols="80"></textarea>
+                      <textarea name="alamat" class="form-control" rows="4" cols="80"></textarea>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Kode POS </label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="postcode" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Status Rumah </label>
                     <div class="col-sm-4">
-                      <select class="form-control" name="">
+                      <select class="form-control" name="home_stat">
 
                       </select>
                     </div>
@@ -191,7 +192,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">No. Telp Rumah</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="telp" value="">
                     </div>
                   </div>
                 </div>
@@ -203,11 +204,11 @@
                 </div>
                 <div class="col-sm-2">
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="inputRadiosUnchecked" name="inputRadios" />
+                    <input type="radio" id="inputRadiosUnchecked" name="inputRadios2" />
                     <label for="inputRadiosUnchecked">Ya</label>
                   </div>
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="inputRadiosUnchecked" name="inputRadios" />
+                    <input type="radio" id="inputRadiosUnchecked" name="inputRadios2" />
                     <label for="inputRadiosUnchecked">Tidak</label>
                   </div>
                 </div>
@@ -218,11 +219,11 @@
                 </div>
                 <div class="col-sm-2">
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="inputRadiosUnchecked" name="inputRadios" />
+                    <input type="radio" id="inputRadiosUnchecked" name="inputRadios3" />
                     <label for="inputRadiosUnchecked">Ya</label>
                   </div>
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="inputRadiosUnchecked" name="inputRadios" />
+                    <input type="radio" id="inputRadiosUnchecked" name="inputRadios3" />
                     <label for="inputRadiosUnchecked">Tidak</label>
                   </div>
                 </div>
@@ -238,19 +239,19 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="name_darurat" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">No. Telp <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="telp_darurat" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Hubungan <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="hubungan" value="">
                     </div>
                   </div>
                 </div>
@@ -258,13 +259,13 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Alamat <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <textarea name="name" class="form-control" rows="3" cols="80"></textarea>
+                      <textarea name="alamat_darurat" class="form-control" rows="3" cols="80"></textarea>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">No. Telp <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="telp_darurat2" value="">
                     </div>
                   </div>
                 </div>
@@ -281,7 +282,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Pekerjaan Profesional <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <select class="form-control" name="">
+                      <select class="form-control" name="pekerjaan">
 												<option value="">Swasta</option>
 												<option value="">Wiraswasta</option>
 												<option value="">IBU RT</option>
@@ -293,25 +294,25 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama Perusahaan</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="nama_perusahaan" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Bidang Usaha</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="bidang_usaha" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Jabatan</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="jabatan" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Lama Bekerja</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="lama_bekerja" value="">
                     </div>
                   </div>
                 </div>
@@ -319,25 +320,25 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Alamat Kantor</label>
                     <div class="col-sm-9">
-                      <textarea name="name" class="form-control" rows="3" cols="80"></textarea>
+                      <textarea name="alamat_kantor" class="form-control" rows="3" cols="80"></textarea>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Kode POS <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="postcode_kantor" value="">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Nomor Kantor <span class="text-danger">*)</span></label>
+                    <label class="col-sm-3 control-label">Nomor Telepon Kantor <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="telp_kantor" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Kantor Sebelumnya <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="kantor_sebelum" value="">
                     </div>
                   </div>
                 </div>
@@ -351,19 +352,19 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama Bank <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="nama_bank" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Cabang <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="cabang" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">No. Telepon</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="telp_bank" value="">
                     </div>
                   </div>
                 </div>
@@ -371,19 +372,19 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nomor Rekening <span class="text-danger">*)</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="" value="">
+                        <input type="text" class="form-control" name="no_rek" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Atas Nama <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="" value="">
+                      <input type="text" class="form-control" name="nama_rek" value="">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Jenis Tabungan<span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-											<select class="form-control">
+											<select class="form-control" name="jenis_tabungan">
 												<option value="0" selected="selected"></option>
 												<option value="1">Giro</option>
 												<option value="2">Tabungan</option>
@@ -403,13 +404,13 @@
 									<div class="form-group">
                     <label class="col-sm-3 control-label">KTP/Passport/SIM <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="file" name="" value="">
+                      <input type="file" name="id_card" value="">
                     </div>
                   </div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Rekening Koran Bank <span class="text-danger">*)</span></label>
 										<div class="col-sm-9">
-											<input type="file" name="" value="">
+											<input type="file" name="rek_koran" value="">
 											<span class="help-block">Rekening Koran Bank 3 Bulan terakhir / Surat Keterangan Bekerja / Surat Keterangan Pendapatan atau Laporan Keuangan 3 Bulan Terakhir / Tagihan Kartu Kredit / Rekening Listrik atau Telepon *)</span>
 										</div>
 									</div>
@@ -418,7 +419,7 @@
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Foto berwarna terbaru <span class="text-danger">*)</span></label>
 										<div class="col-sm-9">
-											<input type="file" name="" value="">
+											<input type="file" name="foto" value="">
 										</div>
 									</div>
 								</div>
@@ -436,12 +437,12 @@
 										<div class="col-sm-9">
 
 												<div class="radio-custom radio-primary">
-													<input type="radio" id="aproval_yes" name="inputRadios">
+													<input type="radio" id="aproval_yes" name="inputRadios4">
 													<label for="aproval_yes">Ya</label>
 												</div>
 
 												<div class="radio-custom radio-primary">
-													<input type="radio" id="aproval_no" name="inputRadios">
+													<input type="radio" id="aproval_no" name="inputRadios4">
 													<label for="aproval_yes">Tidak</label>
 												</div>
 											</div>
@@ -479,37 +480,154 @@
 
 @section('js')
 
-  <script src="{{asset('js/admin/formValidation.min.js')}}" charset="utf-8"></script>
-  <script src="{{ asset('js/admin/formvalidation-bootstrap.min.js') }}" charset="utf-8"></script>
-  <script type="text/javascript">
-  $(document).ready(function() {
-    $('#form-real').formValidation({
-      framework: 'bootstrap',
-      icon: {
-          valid: 'glyphicon glyphicon-ok',
-          invalid: 'glyphicon glyphicon-remove',
-          validating: 'glyphicon glyphicon-refresh'
-      },
-      fields: {
-          name: {
-              validators: {
-                  notEmpty: {
-                      message: 'The name is required'
-                  },
-                  stringLength: {
-                      min: 6,
-                      max: 30,
-                      message: 'The name must be more than 6 and less than 30 characters long'
-                  },
-                  regexp: {
-                      regexp: /^[a-zA-Z0-9_]+$/,
-                      message: 'The name can only consist of alphabetical, number and underscore'
-                  }
-              }
-          }
-      }
-  });
-  });
-  </script>
+today = dd + '/' + mm + '/' + yyyy;
+document.getElementById("date").innerHTML = today;
+</script>
 
-@endsection
+<script>
+$(document).ready(function() {
+    $('#pbk03').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            name: {
+                validators: {
+                    notEmpty: {
+                        message: 'Nama harus diisi'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'Nama harus minimal 6 karakter dan maksimal 30 karakter'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z\s]+$/,
+                        message: 'Nama hanya boleh diisi dengan huruf dan spasi'
+                    }
+                }
+            },
+			pengalaman: {
+                validators: {
+                    notEmpty: {
+                        message: 'Pengalaman harus diisi'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'Pengalaman harus minimal 6 karakter dan maksimal 30 karakter'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z\s]+$/,
+                        message: 'Nama hanya boleh diisi dengan huruf dan spasi'
+                    }
+                }
+            },
+			tujuan: {
+                validators: {
+                    notEmpty: {
+                        message: 'Pengalaman harus diisi'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'Pengalaman harus minimal 6 karakter dan maksimal 30 karakter'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z\s]+$/,
+                        message: 'Nama hanya boleh diisi dengan huruf dan spasi'
+                    }
+                }
+            },
+			place: {
+                validators: {
+                    notEmpty: {
+                        message: 'Pengalaman harus diisi'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'Pengalaman harus minimal 6 karakter dan maksimal 30 karakter'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z\s]+$/,
+                        message: 'Nama hanya boleh diisi dengan huruf dan spasi'
+                    }
+                }
+            },
+			dob: {
+                validators: {
+                    notEmpty: {
+                        message: 'The date of birth is required'
+                    },
+                    date: {
+                        format: 'YYYY/MM/DD',
+                        message: 'The date of birth is not valid'
+                    }
+                }
+            }
+            noid: {
+                validators: {
+                    notEmpty: {
+                        message: 'Nomor identitas harus diisi'
+                    },
+                    numeric: {
+                        message: 'Nomor identitas hanya boleh angka'
+                    }
+                }
+            },
+			npwp: {
+                validators: {
+                    notEmpty: {
+                        message: 'NPWP harus diisi'
+                    },
+                    numeric: {
+                        message: 'NPWP hanya boleh angka'
+                    }
+                }
+            },
+			phone: {
+                validators: {
+                    notEmpty: {
+                        message: 'Nomor telepon harus diisi'
+                    },
+                    numeric: {
+                        message: 'Nomor telepon hanya boleh angka'
+                    }
+                }
+            },
+			kelamin: {
+                validators: {
+                    notEmpty: {
+                        message: 'The availability option is required'
+                    }
+                }
+            },
+			status: {
+                validators: {
+                    notEmpty: {
+                        message: 'The availability option is required'
+                    }
+                }
+            },
+            'size[]': {
+                validators: {
+                    notEmpty: {
+                        message: 'The size is required'
+                    }
+                }
+            },
+            availability: {
+                validators: {
+                    notEmpty: {
+                        message: 'The availability option is required'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

@@ -69,10 +69,11 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::post('admin/account/real-account/form/107-PBK-01-check', 'Admin\Account\FormController@bpk_01_check')->name('form.sk107.bpk.01.check');
   Route::get('admin/account/real-account/form/107-PBK-03', 'Admin\Account\FormController@bpk_03')->name('form.sk107.bpk.03');
   Route::post('admin/account/real-account/form/107-PBK-03-check', 'Admin\Account\FormController@bpk_03_check')->name('form.sk107.bpk.03.check');
-  Route::get('admin/account/real-account/form/107-PBK-02-01', 'Admin\Account\FormController@bpk_02_1')->name('form.sk107.bpk.02.1');
-  Route::post('admin/account/real-account/form/107-PBK-02-1-check', 'Admin\Account\FormController@bpk_02_2_check')->name('form.sk107.bpk.02.1.check');
-  Route::get('admin/account/real-account/form/107-PBK-02-02', 'Admin\Account\FormController@bpk_02_2')->name('form.sk107.bpk.02.2');
-  Route::post('admin/account/real-account/form/107-PBK-02-01-check', 'Admin\Account\FormController@bpk_02_2_check')->name('form.sk107.bpk.02.1.check');
+
+  Route::get('admin/account/real-account/form/107-PBK-02-1', 'Admin\Account\FormController@bpk_02_1')->name('form.sk107.bpk.02.1');
+  Route::post('admin/account/real-account/form/107-PBK-02-1-check', 'Admin\Account\FormController@bpk_02_1_check')->name('form.sk107.bpk.02.1.check');
+  Route::get('admin/account/real-account/form/107-PBK-02-2', 'Admin\Account\FormController@bpk_02_2')->name('form.sk107.bpk.02.2');
+  Route::post('admin/account/real-account/form/107-PBK-02-2-check', 'Admin\Account\FormController@bpk_02_2_check')->name('form.sk107.bpk.02.2.check');
 
   Route::group(['prefix' => 'services'], function(){
 
