@@ -115,7 +115,6 @@ class FormController extends Controller
 		  'rek_koran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 		  'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 		  'inputRadios4' => 'accepted',
-		  
       ]);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'active']);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->update(['status' => 'current']);

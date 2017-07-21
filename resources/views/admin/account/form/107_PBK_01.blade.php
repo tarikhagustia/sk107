@@ -1,7 +1,7 @@
 <div class="lightbox-block" id="custom-content">
 	<div>
 		<div class="modal-header">
-			<a class="popup-modal-dismiss pull-right" href="javascript:void(0)">x</a>
+			<a class="popup-modal-dismiss pull-right" href="#">x</a>
 			<br><br>
 			<div class="pull-left" style="font-size:11px;font-weight:700;">
 				<p>Formulir Nomor : 107.PBK.01</p>
@@ -494,7 +494,7 @@
 									</div>
 								</div>
 							</div>
-						</div>	
+						</div>
 					</div>
 				</div>
 			</div>
@@ -516,11 +516,11 @@
 						<label for="inputHorizontalFemale">Tidak</label>
 					</div>
 				</div>
-				
-				<div class="form-group form-material">	
+
+				<div class="form-group form-material">
 					Menyatakan pada Tanggal <span id="date"></span>
 				</div>
-				<div class="form-group form-material">	
+				<div class="form-group form-material">
 					<div class="col-sm-9 col-sm-offset-3">
 						<button type="submit" class="btn btn-primary">Submit </button>
 					</div>
@@ -538,12 +538,20 @@ var yyyy = today.getFullYear();
 
 if(dd<10) {
     dd = '0'+dd
-} 
+}
 
 if(mm<10) {
     mm = '0'+mm
-} 
+}
 
 today = dd + '/' + mm + '/' + yyyy;
 document.getElementById("date").innerHTML = today;
+
+$(function () {
+  $(document).on('click', '.popup-modal-dismiss', function (e) {
+		console.log(e);
+    e.preventDefault();
+    $.magnificPopup.close();
+  });
+});
 </script>
