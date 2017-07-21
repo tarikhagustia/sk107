@@ -10,6 +10,8 @@
 					Lampiran Peraturan Kepala Badan Pengawas<br>Perdagangan Berjangka Komoditi<br>Nomor : 107/BAPPEBTI/PER/11/2013
 				</div>
 			</div>
+			<form class="form-horizontal" method="POST" id="pbk02.1" action="{{ url('admin/account/real-account/form/107-PBK-02-1-check') }}">
+			{{ csrf_field() }}
 			<div class="modal-body">
 				<div class="row row-lg">
 					<div class="col-sm-12">
@@ -21,7 +23,6 @@
 								<div data-role="container" class="scrollable-container" style="height: 300px; width: 510px;">
 									<div data-role="content" class="scrollable-content" style="width: 493px;">
 										Yang mengisi formulir di bawah ini ;
-										<form class="form-horizontal" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-02-1-check') }}">
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Nama: </label>
 												<div class="col-sm-7">
@@ -97,6 +98,7 @@
 		</div>
 </div>
 
+
 <script>
 var today = new Date();
 var dd = today.getDate();
@@ -113,4 +115,87 @@ if(mm<10) {
 
 today = dd + '/' + mm + '/' + yyyy;
 document.getElementById("date").innerHTML = today;
+</script>
+
+<script>
+$(document).ready(function() {
+    $('#pbk02.1').formValidation({
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            name: {
+                validators: {
+                    notEmpty: {
+                        message: 'Nama harus diisi'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'Nama harus minimal 6 karakter dan maksimal 30 karakter'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z\s]+$/,
+                        message: 'Nama hanya boleh diisi dengan huruf dan spasi'
+                    }
+                }
+            },
+			place: {
+                validators: {
+                    notEmpty: {
+                        message: 'Pengalaman harus diisi'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'Pengalaman harus minimal 6 karakter dan maksimal 30 karakter'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z\s]+$/,
+                        message: 'Nama hanya boleh diisi dengan huruf dan spasi'
+                    }
+                }
+            },
+			dob: {
+                validators: {
+                    notEmpty: {
+                        message: 'The date of birth is required'
+                    },
+                    date: {
+                        format: 'YYYY/MM/DD',
+                        message: 'The date of birth is not valid'
+                    }
+                }
+            },
+            noid: {
+                validators: {
+                    notEmpty: {
+                        message: 'Nomor identitas harus diisi'
+                    },
+                    numeric: {
+                        message: 'Nomor identitas hanya boleh angka'
+                    }
+                }
+            },
+			alamat: {
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9\.]+$/,
+                        message: 'The username can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            }
+        }
+    });
+});
 </script>
