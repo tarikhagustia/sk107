@@ -92,6 +92,13 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
 /*
 |--------------------------------------------------------------------------
+| Withdrawal & Deposit Router Guest
+|--------------------------------------------------------------------------
+*/
+Route::get('admin/withdrawal', 'Admin\Withdrawal\WithdrawalController@index')->name('withdrawal');
+Route::get('admin/deposit', 'Admin\Deposit\DepositController@index')->name('deposit');
+/*
+|--------------------------------------------------------------------------
 | SK107
 |--------------------------------------------------------------------------
 */
