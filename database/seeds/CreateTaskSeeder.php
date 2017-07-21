@@ -36,7 +36,7 @@ class CreateTaskSeeder extends Seeder
         [
           'task_title' => 'Form Aplikasi Pembukaan Rekening Transaksi Secara Elektronik On-Line',
           'task_form_number' => '107.PBK.03',
-          'task_action' => 'ajax',
+          'task_action' => 'http',
           'task_url' => '/admin/account/real-account/form/107-PBK-03',
           'task_description' => 'Baca Lebih Lanjut (Formulir Nomor :107.PBK.03)'
         ],
