@@ -5,7 +5,9 @@
 <!-- Page -->
   <div class="page">
     <div class="page-content container-fluid">
-      <h2>Hallo John doe !</h2>
+      <h2>Hallo {{Auth::user()->name}} !</h2>
+      @include('admin.includes.dashboard-status')
+      @include('admin.includes.message')
       <div class="alert alert-warning">
         <p>{{__('admin.alert.warning.welcome-message')}}</p>
       </div>
@@ -39,7 +41,7 @@
               {{-- <div class="cover-background height-200" style="background-image: url('{{asset("img/admin/open-account.png")}}')"></div> --}}
             </div>
             <div class="widget-footer text-center bg-indigo-600 padding-30 height-100">
-              <a href="#">
+              <a href="{{route('create.account.real')}}">
                 <div class="row no-space">
                 <div class="col-xs-12">
                   <div class="counter counter-inverse">
