@@ -5,7 +5,9 @@
 <!-- Page -->
   <div class="page">
     <div class="page-content container-fluid">
-      <h2>Hallo John doe !</h2>
+      <h2>Hallo {{Auth::user()->name}} !</h2>
+      @include('admin.includes.dashboard-status')
+      @include('admin.includes.message')
       <div class="alert alert-warning">
         <p>{{__('admin.alert.warning.welcome-message')}}</p>
       </div>

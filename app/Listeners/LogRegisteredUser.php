@@ -10,6 +10,7 @@ use App\Models\RequestAccount;
 use App\Models\Task;
 use App\Models\UserTask;
 use App\Services\ActivationService;
+use Carbon\Carbon;
 class LogRegisteredUser
 {
     /**
@@ -36,6 +37,7 @@ class LogRegisteredUser
         /* Register User Real Account */
         $request = RequestAccount::create([
           'user_id' => $user->id,
+          'order_number' => Carbon::now()->timestamp,
           'account' => null,
           'status' => 'request'
         ]);

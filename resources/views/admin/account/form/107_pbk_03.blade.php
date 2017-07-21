@@ -1,9 +1,5 @@
 @extends('admin.layouts.main')
 
-@section('css')
-<link rel="stylesheet" href="{{asset('css/admin/jquery-wizard.min.css')}}">
-<link rel="stylesheet" href="{{asset('css/admin/formValidation.min.css')}}">
-@endsection
 
 @section('content')
 <!-- Page -->
@@ -20,8 +16,8 @@
               Data Pribadi Nasabah
             </div>
           </div>
+					<form class="form-horizontal" id="form-real" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-03-check') }}">
           <div class="panel-body">
-            <form class="form-horizontal" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-03-check') }}">
               <div class="row">
                 <div class="col-sm-6">
 
@@ -39,11 +35,11 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nomor Order : </label>
                     <div class="col-sm-9">
-                      <p class="form-control-static">email@example.com</p>
+                      <p class="form-control-static">{{$order->order_number}}</p>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Jenis akun</label>
+                    <label class="col-sm-3 control-label">Jenis akun : </label>
                     <div class="col-sm-9">
                       {{-- <p class="form-control-static">email@example.com</p> --}}
                       <div class="radio-custom radio-primary">
@@ -62,7 +58,7 @@
                   <div class="form-group">
                     <label class="col-sm-4 control-label">Tanggal :</label>
                     <div class="col-sm-8">
-                      <p class="form-control-static"> 1 Juni 2016</p>
+                      <p class="form-control-static"> {{$order->created_at->toDateTimeString()}}</p>
                     </div>
                   </div>
                   <div class="form-group">
@@ -460,11 +456,12 @@
 								</div>
 
 							</div>
-            </form>
+
           </div>
 					<div class="panel-footer">
 							<button type="submit" class="btn btn-primary " name="button">Submit</button>
 					</div>
+					</form>
         </div>
       </div>
 		</div>
@@ -473,26 +470,46 @@
 <!-- End Page -->
 @endsection
 
-@section('js')
-<script src="{{ asset('js/admin/formValidation.min.js') }}"></script>
-<script src="{{ asset('js/admin/jquery.matchHeight-min.js') }}"></script>
-<script src="{{ asset('js/admin/jquery-wizard.min.js') }}"></script>
+
+
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/admin/formValidation.min.css') }}">
 @endsection
 
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
+@section('js')
 
-if(dd<10) {
-    dd = '0'+dd
-} 
+  <script src="{{asset('js/admin/formValidation.min.js')}}" charset="utf-8"></script>
+  <script src="{{ asset('js/admin/formvalidation-bootstrap.min.js') }}" charset="utf-8"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('#form-real').formValidation({
+      framework: 'bootstrap',
+      icon: {
+          valid: 'glyphicon glyphicon-ok',
+          invalid: 'glyphicon glyphicon-remove',
+          validating: 'glyphicon glyphicon-refresh'
+      },
+      fields: {
+          name: {
+              validators: {
+                  notEmpty: {
+                      message: 'The name is required'
+                  },
+                  stringLength: {
+                      min: 6,
+                      max: 30,
+                      message: 'The name must be more than 6 and less than 30 characters long'
+                  },
+                  regexp: {
+                      regexp: /^[a-zA-Z0-9_]+$/,
+                      message: 'The name can only consist of alphabetical, number and underscore'
+                  }
+              }
+          }
+      }
+  });
+  });
+  </script>
 
-if(mm<10) {
-    mm = '0'+mm
-} 
-
-today = dd + '/' + mm + '/' + yyyy;
-document.getElementById("date").innerHTML = today;
-</script>
+@endsection

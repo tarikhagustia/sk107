@@ -16,6 +16,7 @@ class CreateRequestAccountsTable extends Migration
         Schema::create('request_accounts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->string('order_number')->nullable();
             $table->integer('account_number')->nullable();
             $table->enum('status', ['approved', 'pending', 'request']);
             $table->timestamps();
