@@ -38,7 +38,6 @@ li.list-group-item.disabled {
           <h3 class="panel-title">Aplikasi Pembukaan Rekening Transaksi secara Elektronik On-line</h3>
         </div>
         <div class="panel-body container-fluid">
-          <a class="ajax-popup-link" href="/profile.html">Baca Lebih Lanjut (Formulir Nomor : 102.PBK.01)</a>
           <div class="row row-lg">
             <div class="col-sm-12">
               <!-- Example Bordered -->
