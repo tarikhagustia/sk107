@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('meta')
-<title>Login | Remark Material Admin Template</title>
+<title>IMS - {{config('settings.company_name')}}</title>
 @endsection
 
 @section('css')

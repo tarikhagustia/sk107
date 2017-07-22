@@ -57,11 +57,12 @@ Route::group(['middleware' => ['auth','admin']], function(){
   | Account Router Guest
   |--------------------------------------------------------------------------
   */
-  Route::get('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@index')->name('account.demo');
-  Route::post('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@create_account')->name('create_account_demo')->name('account.demo.post');;
 
-  Route::get('admin/account/real-account', 'AccountController@index')->name('account.real');
+  Route::get('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@index');
+  Route::get('admin/account/create-demo', 'Admin\Account\OpenDemoAccountController@create_account')->name('create.account.demo');
+  Route::get('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
 
+<<<<<<< HEAD
   /*
   |--------------------------------------------------------------------------
   | User Management
@@ -69,9 +70,44 @@ Route::group(['middleware' => ['auth','admin']], function(){
   */
 
   Route::get('admin/user', 'Admin\User\UserController@index')->name('admin.user');
+=======
+  Route::get('admin/account/real-account', 'AccountController@index')->name('create.account.real');
+
+
+  Route::get('admin/account/real-account/form/107-PBK-01', 'Admin\Account\FormController@bpk_01')->name('form.sk107.bpk.01');
+  Route::post('admin/account/real-account/form/107-PBK-01-check', 'Admin\Account\FormController@bpk_01_check')->name('form.sk107.bpk.01.check');
+  Route::get('admin/account/real-account/form/107-PBK-03', 'Admin\Account\FormController@bpk_03')->name('form.sk107.bpk.03');
+  Route::post('admin/account/real-account/form/107-PBK-03-check', 'Admin\Account\FormController@bpk_03_check')->name('form.sk107.bpk.03.check');
+
+  Route::get('admin/account/real-account/form/107-PBK-02-1', 'Admin\Account\FormController@bpk_02_1')->name('form.sk107.bpk.02.1');
+  Route::post('admin/account/real-account/form/107-PBK-02-1-check', 'Admin\Account\FormController@bpk_02_1_check')->name('form.sk107.bpk.02.1.check');
+  Route::get('admin/account/real-account/form/107-PBK-02-2', 'Admin\Account\FormController@bpk_02_2')->name('form.sk107.bpk.02.2');
+  Route::post('admin/account/real-account/form/107-PBK-02-2-check', 'Admin\Account\FormController@bpk_02_2_check')->name('form.sk107.bpk.02.2.check');
+
+  Route::group(['prefix' => 'services'], function(){
+
+    Route::get('open-account/task', 'Admin\Api\OpenAccountController@get_user_tasks');
+
+  });
+  Route::get('admin/account/real-account/form/107-PBK-04-02', 'Admin\Account\FormController@bpk_04_2')->name('form.sk107.bpk.04.2');
+  Route::post('admin/account/real-account/form/107-PBK-04-2-check', 'Admin\Account\FormController@bpk_04_2_check')->name('form.sk107.bpk.04.2.check');
+  Route::get('admin/account/real-account/form/107-PBK-05-02', 'Admin\Account\FormController@bpk_05_2')->name('form.sk107.bpk.05.2');
+  Route::post('admin/account/real-account/form/107-PBK-05-2-check', 'Admin\Account\FormController@bpk_05_2_check')->name('form.sk107.bpk.05.2.check');
+  Route::get('admin/account/real-account/form/107-PBK-06', 'Admin\Account\FormController@bpk_06')->name('form.sk107.bpk.06');
+  Route::post('admin/account/real-account/form/107-PBK-06-check', 'Admin\Account\FormController@bpk_06_check')->name('form.sk107.bpk.06.check');
+  Route::get('admin/account/real-account/form/107-PBK-07', 'Admin\Account\FormController@bpk_07')->name('form.sk107.bpk.07');
+  Route::post('admin/account/real-account/form/107-PBK-07-check', 'Admin\Account\FormController@bpk_07_check')->name('form.sk107.bpk.07.check');
+>>>>>>> fb283b50d1d96dc98bd8972a0fb076907d741f46
 
 });
 
+/*
+|--------------------------------------------------------------------------
+| Withdrawal & Deposit Router Guest
+|--------------------------------------------------------------------------
+*/
+Route::get('admin/withdrawal', 'Admin\Withdrawal\WithdrawalController@index')->name('withdrawal');
+Route::get('admin/deposit', 'Admin\Deposit\DepositController@index')->name('deposit');
 /*
 |--------------------------------------------------------------------------
 | SK107
@@ -85,3 +121,4 @@ Route::get('/logout', function(){
 });
 
 Auth::routes();
+Route::get('user/activation/{token}', 'Auth\RegisterController@activateUser')->name('user.activate');

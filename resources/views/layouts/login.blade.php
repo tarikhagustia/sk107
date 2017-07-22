@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="{{ asset('fonts/material-design.min.css') }}">
 
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700'>
-  
+
   <!--[if lt IE 9]>
     <script src="../../global/vendor/html5shiv/html5shiv.min.js"></script>
     <![endif]-->
@@ -43,7 +43,7 @@
     <script src="../../global/vendor/media-match/media.match.min.js"></script>
     <script src="../../global/vendor/respond/respond.min.js"></script>
     <![endif]-->
-	
+
   @yield('css')
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>

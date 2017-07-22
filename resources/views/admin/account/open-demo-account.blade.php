@@ -26,22 +26,46 @@
                       </tr>
                     </thead>
                     <tbody>
+					@foreach($logins as $key => $login)
                       <tr>
-                        <td>1</td>
-                        <td>1102011022</td>
-                        <td>John347</td>
-                        <td>Jul 8, 2017, 11:07:24</td>
-                        <td>Jul 8, 2017, 11:07:27</td>
+                        <td>{{$key+1}}</td>
+                        <td>{{$login->login}}</td>
+                        <td>{{$login->password}}</td>
+                        <td>{{$login->created_at}}</td>
+                        <td>{{$login->updated_at}}</td>
 						<td>
-						  <span class="label label-success">Active</span>
+						  @if($login->is_active == 'yes')
+							  <span class="label label-success">Active</span>
+					      @else
+							  <span class="label label-default">Not Active</span>
+						  @endif
 						</td>
                       </tr>
+					@endforeach
                     </tbody>
                   </table>
                 </div>
-				<div class="col-md-2">
-			      <button type="submit" class="btn btn-primary btn-block">Request New Account</button>
-			    </div>
+				<div class="col-md-12">
+					@if( ! empty($err))
+                    <span class="help-block" style="color:black;">
+                        <strong>{{ $err }}</strong>
+                    </span>
+					@endif
+				</div>
+				@if( $create != 'true' )
+				<p>*) Maksimal demo account adalah 1 untuk setiap user <br>*) Silahkan contact support kami untuk menambah balance demo account anda</p>
+				@else
+					@if($manual == 1)
+						<div class="col-md-2">
+							<a href="{{ url('admin/account/create-demo') }}" class="btn btn-primary btn-block" >Request New Account</a>
+						</div>
+					@else
+						<div class="col-md-2">
+							<a href="{{ url('admin/account/create-demo-manual') }}" class="btn btn-primary btn-block" >Request New Account</a>
+						</div>
+					@endif
+				@endif
+				
               </div>
               <!-- End Example Basic -->
             </div>
