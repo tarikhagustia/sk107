@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Setting;
+
 class SettingsServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +15,9 @@ class SettingsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+      if (Schema::hasTable('users')) {
         config()->set('settings', Setting::pluck('value', 'name')->all());
+      }
     }
 
     /**

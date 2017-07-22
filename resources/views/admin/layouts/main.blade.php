@@ -198,6 +198,20 @@
                 </li>
               </ul>
             </li>
+            <li class="site-menu-item has-sub @if(Request::segment(2) == 'user') active @endif">
+              <a href="javascript:void(0)" data-dropdown-toggle="false">
+                <i class="site-menu-icon icon md-settings" aria-hidden="true"></i>
+                <span class="site-menu-title">Pengguna</span>
+                <span class="site-menu-arrow"></span>
+              </a>
+              <ul class="site-menu-sub ">
+                <li class="site-menu-item @if(Request::segment(2) == 'user' && Request::segment(3) == 'manage') active @endif">
+                  <a class="animsition-link" href="{{ route('admin.user') }}">
+                    <span class="site-menu-title">Atur pengguna</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>

@@ -62,6 +62,13 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
   Route::get('admin/account/real-account', 'AccountController@index')->name('account.real');
 
+  /*
+  |--------------------------------------------------------------------------
+  | User Management
+  |--------------------------------------------------------------------------
+  */
+
+  Route::get('admin/user', 'Admin\User\UserController@index')->name('admin.user');
 
 });
 
