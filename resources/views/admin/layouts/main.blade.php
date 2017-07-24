@@ -263,6 +263,8 @@
   <script src="{{ asset('js/admin/tabs.min.js') }}"></script>
   <script src="{{ asset('js/admin/toastr.min.js') }}"></script>
 
+  <script src="{{ mix('js/admin/app.js') }}" charset="utf-8"></script>
+
   <!-- Page level -->
   <script src="{{ asset('js/admin/custom/toastr.min.js') }}"></script>
   @if (env('APP_DEBUG'))

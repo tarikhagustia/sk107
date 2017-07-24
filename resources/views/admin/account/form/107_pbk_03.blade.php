@@ -18,7 +18,6 @@
           </div>
 					<form class="form-horizontal" id="form-real" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-03-check') }}">
           <div class="panel-body">
-            <form class="form-horizontal" method="POST" id="pbk03" action="{{ url('admin/account/real-account/form/107-PBK-03-check') }}">
               <div class="row">
                 <div class="col-sm-6">
 
@@ -44,13 +43,13 @@
                     <div class="col-sm-9">
                       {{-- <p class="form-control-static">email@example.com</p> --}}
                       <div class="radio-custom radio-primary">
-                        <input type="radio" id="inputRadiosUnchecked" name="inputRadios" />
-                        <label for="inputRadiosUnchecked">Mini</label>
+                        <input type="radio" id="account_type_mini" name="account_type" />
+                        <label for="account_type_mini">Mini</label>
                       </div>
 
                       <div class="radio-custom radio-primary">
-                        <input type="radio" id="inputRadiosUnchecked" name="inputRadios" />
-                        <label for="inputRadiosUnchecked">Reguler</label>
+                        <input type="radio" id="account_type_reguler" name="account_type" />
+                        <label for="account_type_reguler">Reguler</label>
                       </div>
                     </div>
                   </div>
@@ -81,7 +80,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama Lengkap <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="name" value="">
+                      <input type="text" class="form-control" name="name" id="name" value="">
                     </div>
                   </div>
                   <div class="form-group">
@@ -89,12 +88,13 @@
                     <div class="col-sm-9">
                       <div class="row">
                         <div class="col-sm-3">
-                          <select class="form-control" name="id">
-
+                          <select class="form-control" name="identity_type" id="identity_type">
+														<option value="ktp">KTP</option>
+														<option value="sim">SIM</option>
                           </select>
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="noid" value="">
+                          <input type="text" class="form-control" name="indentity_number" value="">
                         </div>
                       </div>
                     </div>
@@ -102,46 +102,51 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">No. Handphone <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="phone" value="">
+                      <input type="text" class="form-control" name="phone_number" value="">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Pengalaman Investas <span class="text-danger">*)</span></label>
+                    <label class="col-sm-3 control-label">Pengalaman Investasi <span class="text-danger">*)</span></label>
                     <div class="col-sm-4">
                       <select class="form-control" name="pengalaman">
-
+												<option value="yes">Ya</option>
+												<option value="no">Tidak</option>
                       </select>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Tuj. Buka Rekening <span class="text-danger">*)</span></label>
                     <div class="col-sm-4">
-                      <select class="form-control" name="tujuan">
-
+                      <select class="form-control" name="tujuan" id="tujuan">
+												<option value="sim">Hedging</option>
+												<option value="sim">Gain</option>
+												<option value="sim">Spekulasi</option>
                       </select>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">NPWP <span class="text-danger">*)</span></label>
+                    <label class="col-sm-3 control-label">NPWP</label>
                     <div class="col-sm-4">
-                      <select class="form-control" name="npwp">
-
+                      <input type="text" name="npwp" value="" id="npwp">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Jenis Kelamin</label>
+                    <div class="col-sm-4">
+                      <select class="form-control" name="jeni_kelamin" id="jenis_kelamin">
+												<option value="male">Laki-laki</option>
+												<option value="female">Perempuan</option>
                       </select>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Jenis Kelamin <span class="text-danger">*)</span></label>
+                    <label class="col-sm-3 control-label">Status Perkawinan</label>
                     <div class="col-sm-4">
-                      <select class="form-control" name="kelamin">
-
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Status Perkawinan <span class="text-danger">*)</span></label>
-                    <div class="col-sm-4">
-                      <select class="form-control" name="status">
-
+                      <select class="form-control" name="status_perkawinan">
+													<option value="tidak_kawin">Tidak Kawin</option>
+													<option value="kawin">Kawin</option>
+													<option value="janda">Janda</option>
+													<option value="duda">Duda</option>
                       </select>
                     </div>
                   </div>
@@ -158,7 +163,7 @@
                           <input type="text" class="form-control" name="place" value="">
                         </div>
                         <div class="col-sm-6">
-                          <input type="text" class="form-control" name="dob" value="">
+                          <input type="text" class="form-control datepicker" name="dob" value="">
                         </div>
                       </div>
                     </div>
@@ -184,15 +189,17 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Status Rumah </label>
                     <div class="col-sm-4">
-                      <select class="form-control" name="home_stat">
-
+                      <select class="form-control" name="status_rumah">
+												<option value="1">Pribadi</option>
+												<option value="2">Keluarga</option>
+												<option value="3">Sewa/Kontrak</option>
                       </select>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">No. Telp Rumah</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" name="telp" value="">
+                      <input type="text" class="form-control" name="telpon_rumah" value="">
                     </div>
                   </div>
                 </div>
@@ -203,14 +210,16 @@
                   Memiliki anggota keluarga yang bekerja di BAPPEBTI/Bursa Berjangka/Kliring Berjangka ? <span class="text-danger">*)</span>
                 </div>
                 <div class="col-sm-2">
+									<div class="form-group">
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="inputRadiosUnchecked" name="inputRadios2" />
-                    <label for="inputRadiosUnchecked">Ya</label>
+                    <input type="radio" id="keluarga_kbi" name="keluarga_kbi" value="yes"/>
+                    <label for="keluarga_kbi">Ya</label>
                   </div>
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="inputRadiosUnchecked" name="inputRadios2" />
-                    <label for="inputRadiosUnchecked">Tidak</label>
+                    <input type="radio" id="keluarga_kbi" name="keluarga_kbi" value="no"/>
+                    <label for="keluarga_kbi">Tidak</label>
                   </div>
+									</div>
                 </div>
               </div>
               <div class="row">
@@ -218,14 +227,16 @@
                   Apakah anda telah dinyatakan pailit oleh Pengadilan ? <span class="text-danger">*)</span>
                 </div>
                 <div class="col-sm-2">
+									<div class="form-group">
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="inputRadiosUnchecked" name="inputRadios3" />
-                    <label for="inputRadiosUnchecked">Ya</label>
+                    <input type="radio" id="pailit" name="pailit" value="yes"/>
+                    <label for="pailit">Ya</label>
                   </div>
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="inputRadiosUnchecked" name="inputRadios3" />
-                    <label for="inputRadiosUnchecked">Tidak</label>
+                    <input type="radio" id="pailit" name="pailit" value="no"/>
+                    <label for="pailit">Tidak</label>
                   </div>
+									</div>
                 </div>
               </div>
 
@@ -239,7 +250,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="name_darurat" value="">
+                      <input type="text" class="form-control" name="name_darurat" id="name_darurat" value="">
                     </div>
                   </div>
                   <div class="form-group">
@@ -251,7 +262,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Hubungan <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="hubungan" value="">
+                      <input type="text" class="form-control" name="hubungan_darurat" id="hubungan_darurat" value="">
                     </div>
                   </div>
                 </div>
@@ -260,12 +271,6 @@
                     <label class="col-sm-3 control-label">Alamat <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
                       <textarea name="alamat_darurat" class="form-control" rows="3" cols="80"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label">No. Telp <span class="text-danger">*)</span></label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" name="telp_darurat2" value="">
                     </div>
                   </div>
                 </div>
@@ -283,6 +288,7 @@
                     <label class="col-sm-3 control-label">Pekerjaan Profesional <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
                       <select class="form-control" name="pekerjaan">
+												<option required disabled>-- pilih pekerjaan --</option>
 												<option value="">Swasta</option>
 												<option value="">Wiraswasta</option>
 												<option value="">IBU RT</option>
@@ -324,19 +330,19 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Kode POS <span class="text-danger">*)</span></label>
+                    <label class="col-sm-3 control-label">Kode POS </label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" name="postcode_kantor" value="">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Nomor Telepon Kantor <span class="text-danger">*)</span></label>
+                    <label class="col-sm-3 control-label">Nomor Telepon Kantor </label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" name="telp_kantor" value="">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Kantor Sebelumnya <span class="text-danger">*)</span></label>
+                    <label class="col-sm-3 control-label">Kantor Sebelumnya </label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" name="kantor_sebelum" value="">
                     </div>
@@ -382,10 +388,10 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label">Jenis Tabungan<span class="text-danger">*)</span></label>
+                    <label class="col-sm-3 control-label">Jenis Tabungan</label>
                     <div class="col-sm-9">
 											<select class="form-control" name="jenis_tabungan">
-												<option value="0" selected="selected"></option>
+												<option disabled required selected></option>
 												<option value="1">Giro</option>
 												<option value="2">Tabungan</option>
 												<option value="3">Lainnya</option>
@@ -404,13 +410,13 @@
 									<div class="form-group">
                     <label class="col-sm-3 control-label">KTP/Passport/SIM <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="file" name="id_card" value="">
+                      <input type="file" name="id_card" id="id_card" value="" data-fv-file-extension="jpg,jpeg,png">
                     </div>
                   </div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Rekening Koran Bank <span class="text-danger">*)</span></label>
 										<div class="col-sm-9">
-											<input type="file" name="rek_koran" value="">
+											<input type="file" name="rek_koran" id="rek_koran" value="">
 											<span class="help-block">Rekening Koran Bank 3 Bulan terakhir / Surat Keterangan Bekerja / Surat Keterangan Pendapatan atau Laporan Keuangan 3 Bulan Terakhir / Tagihan Kartu Kredit / Rekening Listrik atau Telepon *)</span>
 										</div>
 									</div>
@@ -419,7 +425,7 @@
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Foto berwarna terbaru <span class="text-danger">*)</span></label>
 										<div class="col-sm-9">
-											<input type="file" name="foto" value="">
+											<input type="file" name="foto" id="foto" value="">
 										</div>
 									</div>
 								</div>
@@ -476,17 +482,30 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/admin/formValidation.min.css') }}">
+<link rel="stylesheet" href="{{asset('css/admin/bootstrap-datepicker.min.css')}}" media="screen" title="no title" charset="utf-8">
+<style media="screen">
+	b, strong {
+		font-weight: bold !important;
+	}
+</style>
 @endsection
 
 @section('js')
-
-today = dd + '/' + mm + '/' + yyyy;
-document.getElementById("date").innerHTML = today;
-</script>
-
+<script src="{{asset('js/admin/bootstrap-datepicker.min.js')}}" charset="utf-8"></script>
+<script src="{{asset('js/admin/formValidation.min.js')}}" charset="utf-8"></script>
+<script src="{{asset('js/admin/formvalidation-bootstrap.min.js')}}" charset="utf-8"></script>
 <script>
 $(document).ready(function() {
-    $('#pbk03').formValidation({
+
+
+		const DATEPICKER = $('.datepicker');
+		DATEPICKER.each(function(key, item){
+			$(item).datepicker();
+		})
+
+
+
+    $('#form-real').formValidation({
         framework: 'bootstrap',
         icon: {
             valid: 'glyphicon glyphicon-ok',
@@ -510,7 +529,21 @@ $(document).ready(function() {
                     }
                 }
             },
-			pengalaman: {
+						pengalaman: {
+                validators: {
+                    notEmpty: {
+                        message: 'Pengalaman harus diisi'
+                    }
+                }
+            },
+						tujuan: {
+                validators: {
+                    notEmpty: {
+                        message: 'Pengalaman harus diisi'
+                    }
+                }
+            },
+						place: {
                 validators: {
                     notEmpty: {
                         message: 'Pengalaman harus diisi'
@@ -526,39 +559,7 @@ $(document).ready(function() {
                     }
                 }
             },
-			tujuan: {
-                validators: {
-                    notEmpty: {
-                        message: 'Pengalaman harus diisi'
-                    },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'Pengalaman harus minimal 6 karakter dan maksimal 30 karakter'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z\s]+$/,
-                        message: 'Nama hanya boleh diisi dengan huruf dan spasi'
-                    }
-                }
-            },
-			place: {
-                validators: {
-                    notEmpty: {
-                        message: 'Pengalaman harus diisi'
-                    },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'Pengalaman harus minimal 6 karakter dan maksimal 30 karakter'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z\s]+$/,
-                        message: 'Nama hanya boleh diisi dengan huruf dan spasi'
-                    }
-                }
-            },
-			dob: {
+						dob: {
                 validators: {
                     notEmpty: {
                         message: 'The date of birth is required'
@@ -568,8 +569,8 @@ $(document).ready(function() {
                         message: 'The date of birth is not valid'
                     }
                 }
-            }
-            noid: {
+            },
+            indentity_number: {
                 validators: {
                     notEmpty: {
                         message: 'Nomor identitas harus diisi'
@@ -579,7 +580,7 @@ $(document).ready(function() {
                     }
                 }
             },
-			npwp: {
+						npwp: {
                 validators: {
                     notEmpty: {
                         message: 'NPWP harus diisi'
@@ -589,7 +590,7 @@ $(document).ready(function() {
                     }
                 }
             },
-			phone: {
+						phone_number: {
                 validators: {
                     notEmpty: {
                         message: 'Nomor telepon harus diisi'
@@ -599,14 +600,14 @@ $(document).ready(function() {
                     }
                 }
             },
-			kelamin: {
+						kelamin: {
                 validators: {
                     notEmpty: {
                         message: 'The availability option is required'
                     }
                 }
             },
-			status: {
+						status: {
                 validators: {
                     notEmpty: {
                         message: 'The availability option is required'
@@ -620,14 +621,118 @@ $(document).ready(function() {
                     }
                 }
             },
-            availability: {
+          	availability: {
                 validators: {
                     notEmpty: {
                         message: 'The availability option is required'
                     }
                 }
-            }
+            },
+						alamat : {
+							validators : {
+								notEmpty : {
+									message : 'Alamat harus diisi'
+								}
+							}
+						},
+						ibu : {
+							validators : {
+								notEmpty : {
+									message : 'Nama Ibu kandung harus diisi'
+								}
+							}
+						},
+						keluarga_kbi : {
+							validators : {
+								notEmpty : {
+									message : 'Pilih salah satu	'
+								}
+							}
+						},
+						pailit : {
+							validators : {
+								notEmpty : {
+									message : 'Pilih salah satu	'
+								}
+							}
+						},
+						name_darurat : {
+							validators : {
+								notEmpty : {
+									message : 'Nama harap diisi'
+								}
+							}
+						},
+						telp_darurat : {
+							validators : {
+								notEmpty : {
+									message : 'Nomor telphon harap disi'
+								}
+							}
+						},
+						hubungan_darurat : {
+							validators : {
+								notEmpty : {
+									message : 'Nomor telphon harap disi'
+								}
+							}
+						},
+						alamat_darurat : {
+							validators : {
+								notEmpty : {
+									message : 'Nomor telphon harap disi'
+								}
+							}
+						},
+						pekerjaan : {
+							validators : {
+								notEmpty : {
+									message : 'Harap pilih pekerjaan'
+								}
+							}
+						},
+						nama_bank : {
+							validators : {
+								notEmpty : {
+									message : 'Isi nama bank'
+								}
+							}
+						},
+						no_rek : {
+							validators : {
+								notEmpty : {
+									message : 'Harap isi nomor rekening'
+								}
+							}
+						},
+						nama_rek : {
+							validators : {
+								notEmpty : {
+									message : 'Harap isi pekerjaan'
+								}
+							}
+						},
+						cabang : {
+							validators : {
+								notEmpty : {
+									message : 'Harap pilih cabang'
+								}
+							}
+						},
+						id_card : {
+							validators : {
+								notEmpty : {
+									message : 'Identitas diperlukan'
+								},
+								file: {
+                    extension: 'jpg,jpeg,png',
+                    type: 'image/png,/image/jpg,image/jpeg',
+                    message: 'Hanya file gambar'
+                }
+							}
+						},
         }
     });
 });
 </script>
+@endsection

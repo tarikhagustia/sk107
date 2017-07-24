@@ -3,5 +3,6 @@
   "/css/app.css": "/css/app.css",
   "/js/gallery.js": "/js/gallery.js",
   "/css/admin/bootstrap-extend.min.css": "/css/admin/bootstrap-extend.min.css",
-  "/js/admin/open-real-account.js": "/js/admin/open-real-account.js"
+  "/js/admin/open-real-account.js": "/js/admin/open-real-account.js",
+  "/js/admin/app.js": "/js/admin/app.js"
 }

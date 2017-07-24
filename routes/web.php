@@ -62,7 +62,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::get('admin/account/create-demo', 'Admin\Account\OpenDemoAccountController@create_account')->name('create.account.demo');
   Route::get('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
 
-<<<<<<< HEAD
+
   /*
   |--------------------------------------------------------------------------
   | User Management
@@ -70,7 +70,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
   */
 
   Route::get('admin/user', 'Admin\User\UserController@index')->name('admin.user');
-=======
+
   Route::get('admin/account/real-account', 'AccountController@index')->name('create.account.real');
 
 
@@ -97,7 +97,6 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::post('admin/account/real-account/form/107-PBK-06-check', 'Admin\Account\FormController@bpk_06_check')->name('form.sk107.bpk.06.check');
   Route::get('admin/account/real-account/form/107-PBK-07', 'Admin\Account\FormController@bpk_07')->name('form.sk107.bpk.07');
   Route::post('admin/account/real-account/form/107-PBK-07-check', 'Admin\Account\FormController@bpk_07_check')->name('form.sk107.bpk.07.check');
->>>>>>> fb283b50d1d96dc98bd8972a0fb076907d741f46
 
 });
 

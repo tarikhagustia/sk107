@@ -1,5 +1,5 @@
 import axios from 'axios'
-import jQuery from 'jQuery'
+import jQuery from 'jquery'
 const API_URL = window.location.origin + '/services/';
 
 
