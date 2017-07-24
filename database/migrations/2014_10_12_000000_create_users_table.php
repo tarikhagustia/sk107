@@ -19,6 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
 			      $table->string('phone');
+
+            $table->enum('identity_type', ['ktp', 'sim', 'passport']);
+            $table->string('indentity_number', 50);
+
             $table->enum('sex', ['male', 'female'])->nullable();
             $table->enum('role', ['user', 'admin'])->default('user')->nullable();
             $table->boolean('activated')->default(false)->nullable();
