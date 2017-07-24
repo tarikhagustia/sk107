@@ -3,8 +3,7 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('css/admin/lightbox.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/admin/magnific-popup.min.css')}}">
-<link rel="stylesheet" href="{{asset('css/admin/formValidation.min.css')}}">
-<link rel="stylesheet" href="{{asset('css/admin/validation.min.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/formvalidation/formValidation.min.css')}}">
 
 <style media="screen">
 .list-group-item .active {
@@ -91,9 +90,9 @@ li.list-group-item.disabled {
 @endsection
 
 @section('js')
+<script src="{{ asset('vendor/formvalidation/formValidation.min.js') }}"></script>
+<script src="{{ asset('vendor/formvalidation/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('js/admin/formValidation.min.js') }}"></script>
-<script src="{{ asset('js/admin/validation.min.js') }}"></script>
 <script src="{{ mix('js/admin/open-real-account.js') }}" charset="utf-8"></script>
 <script type="text/javascript">
 

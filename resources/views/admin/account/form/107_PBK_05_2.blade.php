@@ -793,3 +793,185 @@ if(mm<10) {
 today = dd + '/' + mm + '/' + yyyy;
 document.getElementById("date").innerHTML = today;
 </script>
+<script>
+$(document).ready(function() {
+    $('#pbk02Form').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+			check1: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check2: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check3: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check4: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check5: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check6: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check7: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check8: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check9: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check10: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check11: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check12: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check13: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check14: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check15: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check16: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check17: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check18: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check19: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check20: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check21: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check22: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check23: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check24: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>

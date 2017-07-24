@@ -92,7 +92,7 @@ class OpenDemoAccountController extends Controller
 		}		
     }
 	
-	public function create_account(Request $request)
+	public function create_account_manual(Request $request)
     {
 			$name = Auth::user()->name;
 			$email = Auth::user()->email;

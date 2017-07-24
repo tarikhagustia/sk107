@@ -35,7 +35,7 @@
 															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
 														</td>
 														<td class="tick">
-															<input type="checkbox" class="tick"></td>
+															<input type="checkbox" class="tick" name="check"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -375,4 +375,123 @@ if(mm<10) {
 
 today = dd + '/' + mm + '/' + yyyy;
 document.getElementById("date").innerHTML = today;
+</script>
+<script>
+$(document).ready(function() {
+    $('#pbk04Form').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            check: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check1: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check2: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check3: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check4: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check5: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check6: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check7: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check8: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check9: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check10: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check11: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check12: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check13: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+			check14: {
+                validators: {
+                    notEmpty: {
+                        message: 'Harus dicentang'
+                    }
+                }
+            },
+        }
+    });
+});
 </script>
