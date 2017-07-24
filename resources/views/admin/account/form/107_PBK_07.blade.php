@@ -1,7 +1,7 @@
 <div class="lightbox-block" id="custom-content">
 	<div>
 		<div class="modal-header">
-			<a class="popup-modal-dismiss pull-right" href="javascript:void(0)">x</a>
+			<a class="popup-modal-dismiss pull-right" href="#">x</a>
 			<br><br>
 			<div class="pull-left" style="font-size:11px;font-weight:700;">
 				<p>Formulir Nomor : 107.PBK.01</p>
@@ -63,9 +63,6 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<p style="text-align:center;">
-				Dengan mengisi kolom “YA” di bawah ini, saya menyatakan bahwa saya bertanggungjawab sepenuhnya terhadap kode akses transaksi Nasabah (Personal Access Password) dan tidak menyerahkan kode akses transaksi Nasabah (Personal Access Password) ke pihak lain, terutama kepada pegawai Pialang Berjangka atau pihak yang memiliki kepentingan dengan Pialang Berjangka.
-			</p>
 			<div class="alert dark alert-primary alert-dismissible text-center" role="alert">
 								<!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">×</span>
@@ -76,16 +73,13 @@
 							<p class="text-center">
 								<b>Demikian Pernyataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.</b>
 							</p>
-			<form class="form-horizontal" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-07-check') }}">
+			<form class="form-horizontal" method="POST" id="pbk07Form" action="{{ url('admin/account/real-account/form/107-PBK-07-check') }}">
+			{{ csrf_field() }}
 				<div class="form-group form-material">
-					Pernyataan menerima *)
-					<div class="radio-custom radio-default radio-inline center">
-						<input type="radio" id="inputHorizontalYa" name="inputRadiosPersetujuan" />
-						<label for="inputHorizontalMale">Ya</label>
-					</div>
-					<div class="radio-custom radio-default radio-inline center">
-						<input type="radio" id="inputHorizontalTidak" name="inputRadiosPersetujuan" checked />
-						<label for="inputHorizontalFemale">Tidak</label>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya bertanggungjawab sepenuhnya terhadap kode akses transaksi Nasabah (Personal Access Password) dan tidak menyerahkan kode akses transaksi Nasabah (Personal Access Password) ke pihak lain, terutama kepada pegawai Pialang Berjangka atau pihak yang memiliki kepentingan dengan Pialang Berjangka.
+						</label>
 					</div>
 				</div>
 				<div class="form-group form-material">	
@@ -101,6 +95,7 @@
 	</div>
 </div>
 
+<script>
 var today = new Date();
 var dd = today.getDate();
 var mm = today.getMonth()+1; //January is 0!
@@ -116,4 +111,32 @@ if(mm<10) {
 
 today = dd + '/' + mm + '/' + yyyy;
 document.getElementById("date").innerHTML = today;
+
+$(function () {
+  $(document).on('click', '.popup-modal-dismiss', function (e) {
+		console.log(e);
+    e.preventDefault();
+    $.magnificPopup.close();
+  });
+});
+
+$(document).ready(function() {
+    $('#pbk07Form').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+			agree: {
+                validators: {
+                    notEmpty: {
+                        message: 'Anda harus menyetujui pernyataan pada form ini'
+                    }
+                }
+            }
+        }
+    });
+});
 </script>

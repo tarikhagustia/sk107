@@ -89,9 +89,9 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::get('open-account/task', 'Admin\Api\OpenAccountController@get_user_tasks');
 
   });
-  Route::get('admin/account/real-account/form/107-PBK-04-02', 'Admin\Account\FormController@bpk_04_2')->name('form.sk107.bpk.04.2');
+  Route::get('admin/account/real-account/form/107-PBK-04-2', 'Admin\Account\FormController@bpk_04_2')->name('form.sk107.bpk.04.2');
   Route::post('admin/account/real-account/form/107-PBK-04-2-check', 'Admin\Account\FormController@bpk_04_2_check')->name('form.sk107.bpk.04.2.check');
-  Route::get('admin/account/real-account/form/107-PBK-05-02', 'Admin\Account\FormController@bpk_05_2')->name('form.sk107.bpk.05.2');
+  Route::get('admin/account/real-account/form/107-PBK-05-2', 'Admin\Account\FormController@bpk_05_2')->name('form.sk107.bpk.05.2');
   Route::post('admin/account/real-account/form/107-PBK-05-2-check', 'Admin\Account\FormController@bpk_05_2_check')->name('form.sk107.bpk.05.2.check');
   Route::get('admin/account/real-account/form/107-PBK-06', 'Admin\Account\FormController@bpk_06')->name('form.sk107.bpk.06');
   Route::post('admin/account/real-account/form/107-PBK-06-check', 'Admin\Account\FormController@bpk_06_check')->name('form.sk107.bpk.06.check');

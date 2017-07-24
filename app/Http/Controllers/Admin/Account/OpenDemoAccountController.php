@@ -102,5 +102,4 @@ class OpenDemoAccountController extends Controller
 			return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create],['manual'=> $manual]);
 
     }
-    }
 }

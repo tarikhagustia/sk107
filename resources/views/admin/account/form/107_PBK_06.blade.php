@@ -1,7 +1,7 @@
 <div class="lightbox-block" id="custom-content">
 	<div>
 		<div class="modal-header">
-			<a class="popup-modal-dismiss pull-right" href="javascript:void(0)">x</a>
+			<a class="popup-modal-dismiss pull-right" href="#">x</a>
 			<br><br>
 			<div class="pull-left" style="font-size:11px;font-weight:700;">
 				<p>Formulir Nomor : 107.PBK.06</p>
@@ -71,19 +71,13 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<p style="text-align:center;">
-				Dengan mengisi kolom “YA” di bawah ini, saya menyatakan bahwa saya telah membaca, <b>PERATURAN PERDAGANGAN (TRADING RULES), </b> mengerti dan menerima ketentuan dalam bertransaksi.
-			</p>
-			<form class="form-horizontal" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-06-check') }}">
+			<form class="form-horizontal" method="POST" id="pbk06Form" action="{{ url('admin/account/real-account/form/107-PBK-06-check') }}">
+			{{ csrf_field() }}
 				<div class="form-group form-material">
-					Pernyataan menerima *)
-					<div class="radio-custom radio-default radio-inline center">
-						<input type="radio" id="inputHorizontalYa" name="inputRadiosPersetujuan" />
-						<label for="inputHorizontalMale">Ya</label>
-					</div>
-					<div class="radio-custom radio-default radio-inline center">
-						<input type="radio" id="inputHorizontalTidak" name="inputRadiosPersetujuan" checked />
-						<label for="inputHorizontalFemale">Tidak</label>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah membaca, <b>PERATURAN PERDAGANGAN (TRADING RULES), </b> mengerti dan menerima ketentuan dalam bertransaksi.
+						</label>
 					</div>
 				</div>
 				<div class="form-group form-material">	
@@ -115,4 +109,32 @@ if(mm<10) {
 
 today = dd + '/' + mm + '/' + yyyy;
 document.getElementById("date").innerHTML = today;
+
+$(function () {
+  $(document).on('click', '.popup-modal-dismiss', function (e) {
+		console.log(e);
+    e.preventDefault();
+    $.magnificPopup.close();
+  });
+});
+
+$(document).ready(function() {
+    $('#pbk06Form').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+			agree: {
+                validators: {
+                    notEmpty: {
+                        message: 'Anda harus menyetujui pernyataan pada form ini'
+                    }
+                }
+            }
+        }
+    });
+});
 </script>

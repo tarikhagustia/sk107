@@ -2,7 +2,7 @@
 <div class="lightbox-block" id="custom-content">
 		<div>
 			<div class="modal-header">
-				<a class="popup-modal-dismiss pull-right" href="javascript:void(0)">x</a>
+				<a class="popup-modal-dismiss pull-right" href="#">x</a>
 				<br><br>
 				<div class="pull-left" style="font-size:11px;font-weight:700;">
 					<p>Formulir Nomor : 107.PBK.02.1</p>
@@ -28,7 +28,7 @@
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Nama: </label>
 												<div class="col-sm-7">
-													<input type="text" class="form-control" name="name" id="name" autocomplete="off" placeholder="Nama Lengkap" data-fv-notempty="true" data-fv-notempty-message="Nama harus diisi" />
+													<input type="text" class="form-control" name="name" id="name" autocomplete="off" placeholder="Nama Lengkap" />
 												</div>
 											</div>
 											<div class="form-group form-material">
@@ -72,19 +72,12 @@
 					</div>
 				</div>
 			</div>
-			<div class="modal-footer">
-			<p style="text-align:center;">
-				Dengan mengisi kolom "YA" di bawah ini, saya menyatakan bahwa saya telah melakukan simulasi bertransaksi di bidang Perdagangan Berjangka Komoditi pada PT. ASKAP FUTURES, dan telah memahami tentang tata cara bertransaksi di bidang Perdagangan Berjangka Komoditi.
-			</p>	
+			<div class="modal-footer">	
 				<div class="form-group form-material">
-					Pernyataan menerima *)
-					<div class="radio-custom radio-default radio-inline center">
-						<input type="radio" id="inputHorizontalYa" name="inputRadiosPersetujuan" />
-						<label for="inputHorizontalMale">Ya</label>
-					</div>
-					<div class="radio-custom radio-default radio-inline center">
-						<input type="radio" id="inputHorizontalTidak" name="inputRadiosPersetujuan" checked />
-						<label for="inputHorizontalFemale">Tidak</label>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah melakukan simulasi bertransaksi di bidang Perdagangan Berjangka Komoditi pada PT. ASKAP FUTURES, dan telah memahami tentang tata cara bertransaksi di bidang Perdagangan Berjangka Komoditi.
+						</label>
 					</div>
 				</div>
 				<div class="form-group form-material">	
@@ -92,7 +85,7 @@
 				</div>
 				<div class="form-group form-material">	
 					<div class="col-sm-9 col-sm-offset-3">
-						<button type="submit" class="btn btn-primary" id="submit" >Submit </button>
+						<button type="submit" class="btn btn-primary" >Submit </button>
 					</div>
 				</div>
 			</div>
@@ -117,6 +110,14 @@ if(mm<10) {
 
 today = dd + '/' + mm + '/' + yyyy;
 document.getElementById("date").innerHTML = today;
+
+$(function () {
+  $(document).on('click', '.popup-modal-dismiss', function (e) {
+		console.log(e);
+    e.preventDefault();
+    $.magnificPopup.close();
+  });
+});
 </script>
 <script>
 $(document).ready(function() {
@@ -166,8 +167,16 @@ $(document).ready(function() {
                         message: 'Nomor Identitas harus diisi'
                     }
                 }
+            },
+			agree: {
+                validators: {
+                    notEmpty: {
+                        message: 'Anda harus menyetujui pernyataan pada form ini'
+                    }
+                }
             }
         }
     });
 });
+
 </script>
