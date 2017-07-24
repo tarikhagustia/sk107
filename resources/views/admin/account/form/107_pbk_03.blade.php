@@ -16,7 +16,9 @@
               Data Pribadi Nasabah
             </div>
           </div>
-					<form class="form-horizontal" id="form-real" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-03-check') }}">
+					<form class="form-horizontal" id="form-real" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-03-check') }}" enctype="multipart/form-data">
+
+						{{ csrf_field() }}
           <div class="panel-body">
               <div class="row">
                 <div class="col-sm-6">
@@ -127,7 +129,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">NPWP</label>
                     <div class="col-sm-4">
-                      <input type="text" name="npwp" value="" id="npwp">
+                      <input type="text" class="form-control" name="npwp" value="" id="npwp">
                     </div>
                   </div>
                   <div class="form-group">
@@ -216,7 +218,7 @@
                     <label for="keluarga_kbi">Ya</label>
                   </div>
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="keluarga_kbi" name="keluarga_kbi" value="no"/>
+                    <input type="radio" id="keluarga_kbi" name="keluarga_kbi" value="no"  checked="checked"	/>
                     <label for="keluarga_kbi">Tidak</label>
                   </div>
 									</div>
@@ -233,7 +235,7 @@
                     <label for="pailit">Ya</label>
                   </div>
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="pailit" name="pailit" value="no"/>
+                    <input type="radio" id="pailit" name="pailit" value="no"  checked="checked"/>
                     <label for="pailit">Tidak</label>
                   </div>
 									</div>
@@ -289,11 +291,11 @@
                     <div class="col-sm-9">
                       <select class="form-control" name="pekerjaan">
 												<option required disabled>-- pilih pekerjaan --</option>
-												<option value="">Swasta</option>
-												<option value="">Wiraswasta</option>
-												<option value="">IBU RT</option>
-												<option value="">Peg Negeri</option>
-												<option value="">Mahasiswa</option>
+												<option value="swasta">Swasta</option>
+												<option value="wiraswasta">Wiraswasta</option>
+												<option value="irt">IBU RT</option>
+												<option value="negeri">Peg Negeri</option>
+												<option value="mahasiswa">Mahasiswa</option>
                       </select>
                     </div>
                   </div>
@@ -500,7 +502,9 @@ $(document).ready(function() {
 
 		const DATEPICKER = $('.datepicker');
 		DATEPICKER.each(function(key, item){
-			$(item).datepicker();
+			$(item).datepicker({
+				format: 'yyyy-mm-dd',
+			});
 		})
 
 
@@ -546,16 +550,7 @@ $(document).ready(function() {
 						place: {
                 validators: {
                     notEmpty: {
-                        message: 'Pengalaman harus diisi'
-                    },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'Pengalaman harus minimal 6 karakter dan maksimal 30 karakter'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z\s]+$/,
-                        message: 'Nama hanya boleh diisi dengan huruf dan spasi'
+                        message: 'Tempat lahir harus diisi'
                     }
                 }
             },
@@ -563,10 +558,6 @@ $(document).ready(function() {
                 validators: {
                     notEmpty: {
                         message: 'The date of birth is required'
-                    },
-                    date: {
-                        format: 'YYYY/MM/DD',
-                        message: 'The date of birth is not valid'
                     }
                 }
             },
@@ -577,16 +568,6 @@ $(document).ready(function() {
                     },
                     numeric: {
                         message: 'Nomor identitas hanya boleh angka'
-                    }
-                }
-            },
-						npwp: {
-                validators: {
-                    notEmpty: {
-                        message: 'NPWP harus diisi'
-                    },
-                    numeric: {
-                        message: 'NPWP hanya boleh angka'
                     }
                 }
             },
@@ -642,20 +623,6 @@ $(document).ready(function() {
 								}
 							}
 						},
-						keluarga_kbi : {
-							validators : {
-								notEmpty : {
-									message : 'Pilih salah satu	'
-								}
-							}
-						},
-						pailit : {
-							validators : {
-								notEmpty : {
-									message : 'Pilih salah satu	'
-								}
-							}
-						},
 						name_darurat : {
 							validators : {
 								notEmpty : {
@@ -673,14 +640,14 @@ $(document).ready(function() {
 						hubungan_darurat : {
 							validators : {
 								notEmpty : {
-									message : 'Nomor telphon harap disi'
+									message : 'Hubungan harap disi'
 								}
 							}
 						},
 						alamat_darurat : {
 							validators : {
 								notEmpty : {
-									message : 'Nomor telphon harap disi'
+									message : 'Alamat harap disi'
 								}
 							}
 						},
@@ -708,7 +675,7 @@ $(document).ready(function() {
 						nama_rek : {
 							validators : {
 								notEmpty : {
-									message : 'Harap isi pekerjaan'
+									message : 'Harap isi nama'
 								}
 							}
 						},
@@ -731,6 +698,30 @@ $(document).ready(function() {
                 }
 							}
 						},
+						rek_koran : {
+							validators : {
+								notEmpty : {
+									message : 'Identitas diperlukan'
+								},
+								file: {
+                    extension: 'jpg,jpeg,png',
+                    type: 'image/png,/image/jpg,image/jpeg',
+                    message: 'Hanya file gambar'
+                }
+							}
+						},
+						foto : {
+							validators : {
+								notEmpty : {
+									message : 'Identitas diperlukan'
+								},
+								file: {
+                    extension: 'jpg,jpeg,png',
+                    type: 'image/png,/image/jpg,image/jpeg',
+                    message: 'Hanya file gambar'
+                }
+							}
+						}
         }
     });
 });
