@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+
+use App\Services\ActivationService;
 class RegisterController extends Controller
 {
     /*
@@ -22,6 +24,8 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+    protected $activationService;
+
     /**
      * Where to redirect users after registration.
      *
@@ -34,9 +38,10 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ActivationService $service)
     {
-        $this->middleware('guest');
+        $this->middleware('guest', ['except' => ['activateUser']]);
+        $this->activationService = $service;
     }
 
     /**
@@ -69,5 +74,13 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
 			'phone' => $data['phone'],
         ]);
+    }
+
+    public function activateUser($token)
+    {
+        if ($user = $this->activationService->activateUser($token)) {
+            return redirect($this->redirectPath());
+        }
+        abort(404);
     }
 }

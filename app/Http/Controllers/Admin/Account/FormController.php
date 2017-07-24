@@ -11,7 +11,10 @@ class FormController extends Controller
 {
     public function bpk_03()
     {
-      return view('admin.account.form.107_pbk_03');
+      $order = Auth::user()->lastRequestAccount();
+      return view('admin.account.form.107_pbk_03', [
+        'order' => $order
+      ]);
     }
 	public function bpk_02_1()
     {
@@ -59,6 +62,7 @@ class FormController extends Controller
 	}
 	public function bpk_03_check(Request $request)
 	{
+    dd($request);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'active']);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->update(['status' => 'current']);
 	  return back();

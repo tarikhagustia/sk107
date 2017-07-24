@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserTasksTable extends Migration
+class CreateRequestAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,21 @@ class CreateUserTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_tasks', function (Blueprint $table) {
+        Schema::create('request_accounts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('request_account_id')->unsigned()->nullable();
-            $table->integer('task_id')->unsigned();
-            $table->enum('status', ['active', 'disabled', 'current']);
+            $table->integer('account_type_id')->unsigned();
+            $table->string('order_number')->nullable();
+            $table->integer('account_number')->nullable();
+            $table->string('account_password', 50)->nullable();
+            $table->enum('status', ['approved', 'pending', 'request']);
             $table->timestamps();
         });
 
-        Schema::table('user_tasks', function (Blueprint $table) {
+        Schema::table('request_accounts', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade')->onUpdate('cascade');
-        });
 
+        });
     }
 
     /**
@@ -36,6 +37,6 @@ class CreateUserTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_tasks');
+        Schema::dropIfExists('request_accounts');
     }
 }
