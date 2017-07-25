@@ -37,12 +37,12 @@
 					      @else
 							  <td></td>
 						  @endif
-                        
+
 						<td>
 						  @if($login->is_active == 'yes')
 							  <span class="label label-success">Active</span>
 					      @else
-							  <span class="label label-default">Not Active</span>
+							  <span class="label label-danger">Not Active</span>
 						  @endif
 						</td>
                       </tr>
@@ -61,16 +61,19 @@
 				<p>*) Maksimal demo account adalah 1 untuk setiap user <br>*) Silahkan contact support kami untuk menambah balance demo account anda</p>
 				@else
 					@if(config('settings.demo_manual') == 0)
-						<div class="col-md-2">
+						<div class="col-md-3">
 							<a href="{{ url('admin/account/create-demo') }}" class="btn btn-primary btn-block" >Request New Account</a>
 						</div>
 					@else
-						<div class="col-md-2">
-							<a href="{{ url('admin/account/create-demo-manual') }}" class="btn btn-primary btn-block" >Request New Account</a>
+						<div class="col-md-3">
+							<form class="" action="{{route('create.account.demo.manual')}}" method="post">
+								{{ csrf_field() }}
+								<button type="submit" class="btn btn-primary btn-block"  name="button">Request New Account</button>
+							</form>
 						</div>
 					@endif
 				@endif
-				
+
               </div>
               <!-- End Example Basic -->
             </div>
@@ -79,7 +82,7 @@
 	  </div>
 	</div>
   </div>
-  
+
         </div>
           </div>
         </div>

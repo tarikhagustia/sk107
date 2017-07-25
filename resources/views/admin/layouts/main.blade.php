@@ -158,17 +158,27 @@
                 <span class="site-menu-arrow"></span>
               </a>
               <ul class="site-menu-sub ">
-                <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'real-account') active @endif">
-                  <a class="animsition-link" href="{{ url('admin/account/real-account') }}">
-                    <span class="site-menu-title">Real Account</span>
+              @if (Auth::user()->role == "user")
+                  <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'real-account') active @endif">
+                    <a class="animsition-link" href="{{ url('admin/account/real-account') }}">
+                      <span class="site-menu-title">Real Account</span>
+                    </a>
+                  </li>
+                  <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'demo-account') active @endif">
+                    <a class="animsition-link" href="{{ url('admin/account/demo-account') }}">
+                      <span class="site-menu-title">Demo Account</span>
+                    </a>
+                  </li>
+              @endif
+
+              @if (Auth::user()->role == "admin")
+                <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'manage-demo-account') active @endif">
+                  <a class="animsition-link" href="{{ url('admin/account/manage-demo-account') }}">
+                    <span class="site-menu-title">Manage Demo Account</span>
                   </a>
                 </li>
-                <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'demo-account') active @endif">
-                  <a class="animsition-link" href="{{ url('admin/account/demo-account') }}">
-                    <span class="site-menu-title">Demo Account</span>
-                  </a>
-                </li>
-              </ul>
+              @endif
+            </ul>
             </li>
             <li class="site-menu-item has-sub @if(Request::segment(2) == 'deposit') active @endif">
               <a href="javascript:void(0)" data-dropdown-toggle="false">
@@ -177,11 +187,23 @@
                 <span class="site-menu-arrow"></span>
               </a>
               <ul class="site-menu-sub ">
-                <li class="site-menu-item @if(Request::segment(2) == 'deposit' && Request::segment(3) == 'account') active @endif">
-                  <a class="animsition-link" href="{{ url('admin/deposit/account') }}">
-                    <span class="site-menu-title">Deposit Account</span>
-                  </a>
-                </li>
+                @if (Auth::user()->role == "user")
+                  <li class="site-menu-item @if(Request::segment(2) == 'deposit' && Request::segment(3) == 'account') active @endif">
+                    <a class="animsition-link" href="{{ url('admin/deposit/account') }}">
+                      <span class="site-menu-title">Deposit Account</span>
+                    </a>
+                  </li>
+                @endif
+
+                @if (Auth::user()->role == "admin")
+                  <li class="site-menu-item @if(Request::segment(2) == 'deposit' && Request::segment(3) == 'manage-deposit') active @endif">
+                    <a class="animsition-link" href="{{ url('admin/deposit/manage-deposit') }}">
+                      <span class="site-menu-title">Manage Deposit</span>
+                    </a>
+                  </li>
+                @endif
+
+
               </ul>
             </li>
             <li class="site-menu-item has-sub @if(Request::segment(2) == 'withdrawal') active @endif">
@@ -191,27 +213,40 @@
                 <span class="site-menu-arrow"></span>
               </a>
               <ul class="site-menu-sub ">
-                <li class="site-menu-item @if(Request::segment(2) == 'withdrawal' && Request::segment(3) == 'request-withdrawal') active @endif">
-                  <a class="animsition-link" href="{{ url('admin/withdrawal/request-withdrawal') }}">
-                    <span class="site-menu-title">Request Withdrawal</span>
-                  </a>
-                </li>
+                @if (Auth::user()->role == "user")
+                  <li class="site-menu-item @if(Request::segment(2) == 'withdrawal' && Request::segment(3) == 'request-withdrawal') active @endif">
+                    <a class="animsition-link" href="{{ url('admin/withdrawal/request-withdrawal') }}">
+                      <span class="site-menu-title">Request Withdrawal</span>
+                    </a>
+                  </li>
+                @endif
+
+                @if (Auth::user()->role == "admin")
+                  <li class="site-menu-item @if(Request::segment(2) == 'withdrawal' && Request::segment(3) == 'manage-withdrawal') active @endif">
+                    <a class="animsition-link" href="{{ url('admin/withdrawal/manage-withdrawal') }}">
+                      <span class="site-menu-title">Manage Request Withdrawal</span>
+                    </a>
+                  </li>
+                @endif
+
               </ul>
             </li>
-            <li class="site-menu-item has-sub @if(Request::segment(2) == 'user') active @endif">
-              <a href="javascript:void(0)" data-dropdown-toggle="false">
-                <i class="site-menu-icon icon md-settings" aria-hidden="true"></i>
-                <span class="site-menu-title">Pengguna</span>
-                <span class="site-menu-arrow"></span>
-              </a>
-              <ul class="site-menu-sub ">
-                <li class="site-menu-item @if(Request::segment(2) == 'user' && Request::segment(3) == 'manage') active @endif">
-                  <a class="animsition-link" href="{{ route('admin.user') }}">
-                    <span class="site-menu-title">Atur pengguna</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
+            @if (Auth::user()->role == "admin")
+              <li class="site-menu-item has-sub @if(Request::segment(2) == 'user') active @endif">
+                <a href="javascript:void(0)" data-dropdown-toggle="false">
+                  <i class="site-menu-icon icon md-settings" aria-hidden="true"></i>
+                  <span class="site-menu-title">Pengguna</span>
+                  <span class="site-menu-arrow"></span>
+                </a>
+                <ul class="site-menu-sub ">
+                  <li class="site-menu-item @if(Request::segment(2) == 'user' && Request::segment(3) == 'manage') active @endif">
+                    <a class="animsition-link" href="{{ route('admin.user') }}">
+                      <span class="site-menu-title">Atur pengguna</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            @endif
           </ul>
         </div>
       </div>

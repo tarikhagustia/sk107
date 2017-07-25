@@ -37,6 +37,7 @@ class LogRegisteredUser
         /* Register User Real Account */
         $request = RequestAccount::create([
           'user_id' => $user->id,
+          'account_type_id' => 1,
           'order_number' => Carbon::now()->timestamp,
           'account' => null,
           'status' => 'request'

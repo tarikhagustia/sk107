@@ -16,7 +16,7 @@ class CreateRequestAccountsTable extends Migration
         Schema::create('request_accounts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('account_type_id')->unsigned();
+            $table->integer('account_type_id')->nullable()->unsigned();
             $table->string('order_number')->nullable();
             $table->integer('account_number')->nullable();
             $table->string('account_password', 50)->nullable();
