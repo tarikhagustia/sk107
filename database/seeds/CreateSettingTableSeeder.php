@@ -16,7 +16,8 @@ class CreateSettingTableSeeder extends Seeder
           ['name' => 'company_name', 'value' => 'PT. Naik Turun'],
           ['name' => 'company_address', 'value' => 'Your example long address'],
           ['name' => 'company_logo_location', 'value' => 'img/admin/logo.png'],
-          ['name' => 'favicon', 'value' => 'Your example long address']
+          ['name' => 'favicon', 'value' => 'Your example long address'],
+          ['name' => 'demo_manual', 'value' => true]
         ];
 
         foreach($settings as $key => $row):

@@ -23,10 +23,10 @@ class OpenDemoAccountController extends Controller
 	  }
       return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create]);
     }
-	
+
 	public function create_account(Request $request)
     {
-		
+
 		$name = Auth::user()->name;
 		$email = Auth::user()->email;
 		$names = explode(" ",$name);
@@ -37,7 +37,7 @@ class OpenDemoAccountController extends Controller
 		$deposit = 5000;
 		$host = config('settings.mt4_host');
 		$port = config('settings.mt4_port');
-		
+
         $data = [
             "IP" => $request->ip(),
             "GROUP" => 1,
@@ -62,7 +62,7 @@ class OpenDemoAccountController extends Controller
         ];
         $run = app('MetaService')->setHost($host, $port)->createAccount($data);
 		if($run['status'] == true){
-			$login = '';		
+			$login = '';
 			foreach($run['result'] as $result){
 					$login = $result;
 					$active = 'yes';
@@ -80,10 +80,11 @@ class OpenDemoAccountController extends Controller
 		}else{
 
 			$err = 'Terlalu banyak request, silahkan coba lagi setelah 60 detik.';
+
 			return back();
 		}		
     }
-	
+
 	public function create_account_manual(Request $request)
     {
 			$name = Auth::user()->name;
