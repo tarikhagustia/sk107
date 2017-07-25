@@ -55,7 +55,7 @@
 				@if( $create != 'true' )
 				<p>*) Maksimal demo account adalah 1 untuk setiap user <br>*) Silahkan contact support kami untuk menambah balance demo account anda</p>
 				@else
-					@if($manual == 1)
+					@if(config('settings.demo_manual') == 0)
 						<div class="col-md-2">
 							<a href="{{ url('admin/account/create-demo') }}" class="btn btn-primary btn-block" >Request New Account</a>
 						</div>
