@@ -20,7 +20,8 @@ class CreateMt4UsersTable extends Migration
             $table->string('login');
       			$table->string('password');
       			$table->string('group');
-            $table->boolean('is_real')->nullable();
+			$table->enum('is_real', ['no', 'yes']);
+			$table->enum('is_active', ['no', 'yes']);
             $table->timestamps();
         });
     }
