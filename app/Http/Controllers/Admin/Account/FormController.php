@@ -17,7 +17,7 @@ class FormController extends Controller
     {
       $order = Auth::user()->lastRequestAccount();
 	  $datas = RequestData::where('user_id',Auth::user()->id)->get();
-      return view('admin.account.form.107_pbk_03', [
+      return view('admin.account.form.107_PBK_03', [
         'order' => $order
       ],[
         'datas' => $datas
@@ -25,32 +25,32 @@ class FormController extends Controller
     }
 	public function bpk_02_1()
     {
-      return view('admin.account.form.107_pbk_02_1');
+      return view('admin.account.form.107_PBK_02_1');
     }
 	public function bpk_02_2()
     {
 	  $datas = RequestData::where('user_id',Auth::user()->id)->get();
-      return view('admin.account.form.107_pbk_02_2', ['datas'=> $datas]);
+      return view('admin.account.form.107_PBK_02_2', ['datas'=> $datas]);
     }
     public function bpk_01()
     {
-      return view('admin.account.form.107_pbk_01');
+      return view('admin.account.form.107_PBK_01');
     }
     public function bpk_04_2()
     {
-      return view('admin.account.form.107_pbk_04_2');
+      return view('admin.account.form.107_PBK_04_2');
     }
     public function bpk_05_2()
     {
-      return view('admin.account.form.107_pbk_05_2');
+      return view('admin.account.form.107_PBK_05_2');
     }
     public function bpk_06()
     {
-      return view('admin.account.form.107_pbk_06');
+      return view('admin.account.form.107_PBK_06');
     }
     public function bpk_07()
     {
-      return view('admin.account.form.107_pbk_07');
+      return view('admin.account.form.107_PBK_07');
     }
 	public function bpk_01_check()
 	{
@@ -89,21 +89,21 @@ class FormController extends Controller
   	    $image->move($destinationPath, $input['imagename']);
   	    $fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
   	    $id_card = $fullpath;
-		
+
 		$image = Input::file('rek_koran');
         $input['imagename'] = 'rek_koran.'.$image->getClientOriginalExtension();
   	    $destinationPath = public_path('/uploads/'.Auth::user()->id.'/rek_koran');
   	    $image->move($destinationPath, $input['imagename']);
   	    $fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
   	    $rek_koran = $fullpath;
-		
+
 		$image = Input::file('foto');
         $input['imagename'] = 'foto.'.$image->getClientOriginalExtension();
   	    $destinationPath = public_path('/uploads/'.Auth::user()->id.'/foto');
   	    $image->move($destinationPath, $input['imagename']);
   	    $fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
   	    $foto = $fullpath;
-		
+
 	  RequestData::where('user_id', Auth::user()->id)->update([
             'user_id' => Auth::user()->id,
 			'jenis_akun' => $request->account_type,

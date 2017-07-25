@@ -16,13 +16,13 @@ class OpenDemoAccountController extends Controller
     {
 	  $user_id = Auth::user()->id;
 	  $logins = Mt4User::where('user_id',$user_id)->get();
-	  if($logins){
+	  if(!empty($logins)){
 		  $create = 'false';
 	  }else{
 		  $create = 'true';
 	  }
-	  $manual = config('settings.demo_manual');
-      return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create],['manual'=> $manual]);
+
+      return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create]);
     }
 
 	public function create_account(Request $request)
@@ -87,19 +87,33 @@ class OpenDemoAccountController extends Controller
 				$create = 'true';
 			}
 			$err = 'Terlalu banyak request, silahkan coba lagi setelah 60 detik.';
-		    $manual = config('settings.demo_manual');
-			return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create],['manual'=> $manual]);
+			return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create]);
 		}
     }
 
 	public function create_account_manual(Request $request)
     {
+			$user_id = Auth::user()->id;
 			$name = Auth::user()->name;
 			$email = Auth::user()->email;
+			$active = 'no';
+			$real = 'no';
 			Mail::to(env('REGISTER_EMAIL'))->send(new DemoAccount($name, $email));
-
-			$manual = config('settings.demo_manual');
-			return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create],['manual'=> $manual]);
+			$logins = Mt4User::where('user_id',$user_id)->get();
+			if($logins){
+				$create = 'false';
+			}else{
+				$create = 'true';
+			}
+			Mt4User::create([
+					'user_id' => Auth::user()->id,
+					'login' => '',
+					'password' => '',
+					'group' => 'demoforex',
+					'is_active' => $active,
+					'is_real' => $real
+				  ]);
+			return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create]);
 
     }
 }
