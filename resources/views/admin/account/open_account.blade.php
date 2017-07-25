@@ -92,7 +92,7 @@ li.list-group-item.disabled {
 <script src="{{ asset('vendor/formvalidation/formValidation.min.js') }}"></script>
 <script src="{{ asset('vendor/formvalidation/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ mix('js/admin/open-real-account.js') }}" charset="utf-8"></script>
+<script src="{{ asset('js/admin/open-real-account.js') }}"></script>
 <script type="text/javascript">
 
 </script>

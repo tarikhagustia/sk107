@@ -32,7 +32,12 @@
                         <td>{{$login->login}}</td>
                         <td>{{$login->password}}</td>
                         <td>{{$login->created_at}}</td>
-                        <td>{{$login->updated_at}}</td>
+						@if($login->is_active == 'yes')
+							  <td>{{$login->updated_at}}</td>
+					      @else
+							  <td></td>
+						  @endif
+                        
 						<td>
 						  @if($login->is_active == 'yes')
 							  <span class="label label-success">Active</span>

@@ -16,12 +16,11 @@ class OpenDemoAccountController extends Controller
     {
 	  $user_id = Auth::user()->id;
 	  $logins = Mt4User::where('user_id',$user_id)->get();
-	  if(!empty($logins)){
-		  $create = 'false';
-	  }else{
+	  if(empty($logins[0])){
 		  $create = 'true';
+	  }else{
+		  $create = 'false';
 	  }
-
       return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create]);
     }
 
@@ -79,32 +78,20 @@ class OpenDemoAccountController extends Controller
 			}
 			return $this->index();
 		}else{
-			$user_id = Auth::user()->id;
-			$logins = Mt4User::where('user_id',$user_id)->get();
-			if($logins){
-				$create = 'false';
-			}else{
-				$create = 'true';
-			}
+
 			$err = 'Terlalu banyak request, silahkan coba lagi setelah 60 detik.';
-			return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create]);
-		}
+
+			return back();
+		}		
     }
 
 	public function create_account_manual(Request $request)
     {
-			$user_id = Auth::user()->id;
 			$name = Auth::user()->name;
 			$email = Auth::user()->email;
 			$active = 'no';
 			$real = 'no';
 			Mail::to(env('REGISTER_EMAIL'))->send(new DemoAccount($name, $email));
-			$logins = Mt4User::where('user_id',$user_id)->get();
-			if($logins){
-				$create = 'false';
-			}else{
-				$create = 'true';
-			}
 			Mt4User::create([
 					'user_id' => Auth::user()->id,
 					'login' => '',
@@ -113,7 +100,7 @@ class OpenDemoAccountController extends Controller
 					'is_active' => $active,
 					'is_real' => $real
 				  ]);
-			return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create]);
+			return back();
 
     }
 }

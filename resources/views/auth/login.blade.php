@@ -8,6 +8,11 @@
 	<link rel="stylesheet" href="{{ asset('css/admin/login.min.css') }}">
 @endsection
 
+<style typle="text/css">
+	.page-login:before{background-image:url({{asset('img/admin/login.jpg')}})
+</style>
+
+
 @section('content')
 <body class="page-login layout-full page-dark">
   <div class="page animsition vertical-align text-center" data-animsition-in="fade-in"
