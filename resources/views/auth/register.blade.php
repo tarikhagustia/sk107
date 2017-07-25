@@ -7,7 +7,11 @@
 @section('css')
 	<link rel="stylesheet" href="{{ asset('css/admin/register.min.css') }}">
 @endsection
-
+<style typle="text/css">
+	.page-register:before{
+	 background-image:url({{asset('img/admin/login.jpg')}});
+	 }
+</style>
 @section('content')
 <body class="page-register layout-full page-dark">
   <div class="page animsition vertical-align text-center" data-animsition-in="fade-in"
@@ -22,7 +26,7 @@
 		  {{ csrf_field() }}
 			<div class="form-group form-material floating {{ $errors->has('name') ? ' has-error' : '' }}">
 			  <input type="text" class="form-control empty" id="inputName" name="name">
-				<label class="floating-label" for="inputName">Nama lengap</label>
+				<label class="floating-label" for="inputName">Nama lengkap</label>
 				@if ($errors->has('name'))
                     <span class="help-block">
                         <strong>{{ $errors->first('name') }}</strong>

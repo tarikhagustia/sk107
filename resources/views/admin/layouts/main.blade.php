@@ -51,7 +51,7 @@
     <![endif]-->
 
   <nav class="site-navbar navbar navbar-inverse navbar-fixed-top navbar-mega" role="navigation">
-    <div class="navbar-header">
+    <div class="navbar-header" style="width:auto;">
       <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided"
       data-toggle="menubar">
         <span class="sr-only">Toggle navigation</span>
@@ -263,7 +263,7 @@
   <script src="{{ asset('js/admin/tabs.min.js') }}"></script>
   <script src="{{ asset('js/admin/toastr.min.js') }}"></script>
 
-  <script src="{{ mix('js/admin/app.js') }}" charset="utf-8"></script>
+  <script src="{{ asset('js/admin/app.js') }}"></script>
 
   <!-- Page level -->
   <script src="{{ asset('js/admin/custom/toastr.min.js') }}"></script>
