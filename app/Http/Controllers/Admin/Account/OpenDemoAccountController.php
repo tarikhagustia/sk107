@@ -96,6 +96,8 @@ class OpenDemoAccountController extends Controller
 					'user_id' => Auth::user()->id,
 					'login' => '',
 					'password' => '',
+					'nama' => $name,
+					'email' => $email,
 					'group' => 'demoforex',
 					'is_active' => $active,
 					'is_real' => $real
