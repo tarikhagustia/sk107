@@ -18,7 +18,7 @@ class CreateMt4UsersTable extends Migration
             $table->increments('id');
             $table->string('user_id');
             $table->string('login');
-			$table->string('nama');
+			$table->string('name');
 			$table->string('email');
       		$table->string('password');
       		$table->string('group');
