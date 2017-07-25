@@ -1,6 +1,5 @@
 @extends('admin.layouts.main')
 
-
 @section('content')
 <!-- Page -->
 <div class="page">
@@ -47,6 +46,13 @@
                     </tbody>
                   </table>
                 </div>
+				<div class="col-md-12">
+					@if($errors->any())
+                    <span class="help-block" style="color:red;">
+                        <strong>{{$errors->first()}}</strong>
+                    </span>
+					@endif
+				</div>
               </div>
               <!-- End Example Basic -->
             </div>

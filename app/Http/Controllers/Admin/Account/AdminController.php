@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Account;
 
 use Auth;
 use Mail;
-use App\Mail\RealAccount;
+use App\Mail\DemoAccountActivated;
 use App\Models\UserTask;
 use App\Models\RequestData;
 use Illuminate\Http\Request;
@@ -23,7 +23,17 @@ class AdminController extends Controller
 	
 	public function update(Request $request)
     {
-	  Mt4User::where('id', $request->id)->update(['is_active' => 'yes','login' => $request->login,'password' => $request->password]);
-	  return back();
+	  if(empty($request->login) || empty($request->password)){
+		  $err = 'The Login and Password required!';
+		  return back()->withErrors($err);
+	  }else{
+		Mt4User::where('id', $request->id)->update(['is_active' => 'yes','login' => $request->login,'password' => $request->password]);
+		$demos = Mt4User::where('id',$request->id)->first();
+		$name = $demos->name;
+		$login = $request->login;
+		$password = $request->password;
+		Mail::to($demos->email)->send(new DemoAccountActivated($name, $login, $password));  
+		return back();
+	  }
     }
 }
