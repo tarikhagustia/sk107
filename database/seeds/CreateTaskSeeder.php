@@ -21,17 +21,17 @@ class CreateTaskSeeder extends Seeder
         ],
         [
           'task_title' => 'Pernyataan Telah Melakukan Simulasi Perdagangan Berjangka',
-          'task_form_number' => '107.PBK.02.01',
+          'task_form_number' => '107.PBK.02.1',
           'task_action' => 'ajax',
-          'task_url' => '/admin/account/real-account/form/107-PBK-02-01',
-          'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.02.01)'
+          'task_url' => '/admin/account/real-account/form/107-PBK-02-1',
+          'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.02.1)'
         ],
         [
           'task_title' => 'Pernyataan Telah Berpengalaman Dalam Melaksanakan Transaksi Perdagangan Berjangka',
-          'task_form_number' => '107.PBK.02.02',
+          'task_form_number' => '107.PBK.02.2',
           'task_action' => 'ajax',
-          'task_url' => '/admin/account/real-account/form/107-PBK-02-02',
-          'task_description' => 'Baca Lebih Lanjut (Formulir Nomor :107.PBK.02.02)'
+          'task_url' => '/admin/account/real-account/form/107-PBK-02-2',
+          'task_description' => 'Baca Lebih Lanjut (Formulir Nomor :107.PBK.02.2)'
         ],
         [
           'task_title' => 'Form Aplikasi Pembukaan Rekening Transaksi Secara Elektronik On-Line',
@@ -42,18 +42,18 @@ class CreateTaskSeeder extends Seeder
         ],
         [
           'task_title' => 'Dokumen Pemberitahuan Adanya Resiko Yang Harus Disampaikan Oleh Pialang Berjangka Untuk Transaksi Kontrak Derivatif Dalam Sistem Perdagangan Alternatif',
-          'task_form_number' => '107.PBK.04.02',
+          'task_form_number' => '107.PBK.04.2',
           'task_action' => 'ajax',
-          'task_url' => '/admin/account/real-account/form/107-PBK-04-02',
-          'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.04.02)'
+          'task_url' => '/admin/account/real-account/form/107-PBK-04-2',
+          'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.04.2)'
         ],
         [
           'task_title' => 'Perjanjian Pemberian Amanat Secara Elektronik On-Line Untuk Transaksi Kontrak Derivatif
  Dalam Sistem Perdagangan Alternatif',
-          'task_form_number' => '107.PBK.05.02',
+          'task_form_number' => '107.PBK.05.2',
           'task_action' => 'ajax',
-          'task_url' => '/admin/account/real-account/form/107-PBK-05-02',
-          'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.05.02)'
+          'task_url' => '/admin/account/real-account/form/107-PBK-05-2',
+          'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.05.2)'
         ],
         [
           'task_title' => 'Peraturan Perdagangan (Trading Rules) dalam Sistem Aplikasi Penerimaan Nasabah

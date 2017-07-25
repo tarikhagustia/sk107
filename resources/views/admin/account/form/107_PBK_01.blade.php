@@ -500,20 +500,13 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<p style="text-align:center;">
-				Dengan mengisi kolom “YA” di bawah ini, saya menyatakan bahwa saya telah membaca dan menerima informasi <b>PROFIL PERUSAHAAN PIALANG BERJANGKA, </b> mengerti dan memahami isinya.
-			</p>
-			<form class="form-horizontal" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-01-check') }}">
+			<form class="form-horizontal" method="POST" id="pbk01Form" action="{{ url('admin/account/real-account/form/107-PBK-01-check') }}">
 				{{ csrf_field() }}
 				<div class="form-group form-material">
-					Pernyataan menerima *)
-					<div class="radio-custom radio-default radio-inline center">
-						<input type="radio" id="inputHorizontalYa" name="inputRadiosPersetujuan" value="yes"/>
-						<label for="inputHorizontalMale">Ya</label>
-					</div>
-					<div class="radio-custom radio-default radio-inline center">
-						<input type="radio" id="inputHorizontalTidak" name="inputRadiosPersetujuan" value="no" checked />
-						<label for="inputHorizontalFemale">Tidak</label>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah membaca dan menerima informasi <b>PROFIL PERUSAHAAN PIALANG BERJANGKA, </b> mengerti dan memahami isinya.
+						</label>
 					</div>
 				</div>
 
@@ -553,5 +546,25 @@ $(function () {
     e.preventDefault();
     $.magnificPopup.close();
   });
+});
+
+$(document).ready(function() {
+    $('#pbk01Form').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+			agree: {
+                validators: {
+                    notEmpty: {
+                        message: 'Anda harus menyetujui pernyataan pada form ini'
+                    }
+                }
+            }
+        }
+    });
 });
 </script>

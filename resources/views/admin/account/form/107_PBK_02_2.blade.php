@@ -1,7 +1,7 @@
 <div class="lightbox-block" id="custom-content">
 		<div>
 			<div class="modal-header">
-				<a class="popup-modal-dismiss pull-right" href="javascript:void(0)">x</a>
+				<a class="popup-modal-dismiss pull-right" href="#">x</a>
 				</button>
 				<br><br>
 				<div class="pull-left" style="font-size:11px;font-weight:700;">
@@ -22,32 +22,29 @@
 								<div data-role="container" class="scrollable-container" style="height: 300px; width: 510px;">
 									<div data-role="content" class="scrollable-content" style="width: 493px;">
 										Yang mengisi formulir di bawah ini ;
-										<form class="form-horizontal" method="POST" action="{{ url('admin/account/real-account/form/107-PBK-02-2-check') }}">
+										@foreach($datas as $data)
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Nama: </label>
 												<div class="col-sm-7">
-													Nama saya
+													{{$data->nama}}
 												</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Tempat/Tanggal Lahir: </label>
-													<div class="col-sm-4">
-														Tempat Lahir saya
-													</div>
-													<div class="col-sm-3">
-															tanggal lahir saya
+													<div class="col-sm-7">
+														{{$data->tempat_lahir}}, {{$data->dob}}
 													</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Alamat: </label>
 												<div class="col-sm-7">
-													alamat saya
+													{{$data->alamat}}
 												</div>
 											</div>
 											<div class="form-group form-material">
-												<label class="col-sm-5 control-label">Nomor KTP/SIM/Passport: </label>
+												<label class="col-sm-5 control-label">Nomor {{$data->tie_id}}: </label>
 												<div class="col-sm-7">
-													No Identitas Saya
+													{{$data->no_id}}
 												</div>
 											</div>
 											<div class="form-group form-material">
@@ -56,6 +53,7 @@
 													Nomor Demo Account saya
 												</div>
 											</div>
+										@endforeach
 									</div>
 								</div>
 							</div>
@@ -63,19 +61,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="modal-footer">
-			<p style="text-align:center;">
-				Dengan mengisi kolom "YA" di bawah ini, saya menyatakan bahwa saya telah memiliki pengalaman yang mencukupi dalam melaksanakan transaksi Perdagangan Berjangka karena pernah bertransaksi pada Perusahaan Pialang Berjangka PT. ASKAP FUTURES, dan telah memahami tentang tata cara bertransaksi Perdagangan Berjangka. <br>Demikian Pernyataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.
-			</p>	
+			<div class="modal-footer">	
+				<form class="form-horizontal" method="POST" id="pbk022Form" action="{{ url('admin/account/real-account/form/107-PBK-02-2-check') }}">
+				{{ csrf_field() }}
 				<div class="form-group form-material">
-					Pernyataan menerima *)
-					<div class="radio-custom radio-default radio-inline center">
-						<input type="radio" id="inputHorizontalYa" name="inputRadiosPersetujuan" />
-						<label for="inputHorizontalMale">Ya</label>
-					</div>
-					<div class="radio-custom radio-default radio-inline center">
-						<input type="radio" id="inputHorizontalTidak" name="inputRadiosPersetujuan" checked />
-						<label for="inputHorizontalFemale">Tidak</label>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah memiliki pengalaman yang mencukupi dalam melaksanakan transaksi Perdagangan Berjangka karena pernah bertransaksi pada Perusahaan Pialang Berjangka PT. ASKAP FUTURES, dan telah memahami tentang tata cara bertransaksi Perdagangan Berjangka. <br>Demikian Pernyataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.
+						</label>
 					</div>
 				</div>
 				<div class="form-group form-material">	
@@ -107,4 +100,32 @@ if(mm<10) {
 
 today = dd + '/' + mm + '/' + yyyy;
 document.getElementById("date").innerHTML = today;
+
+$(function () {
+  $(document).on('click', '.popup-modal-dismiss', function (e) {
+		console.log(e);
+    e.preventDefault();
+    $.magnificPopup.close();
+  });
+});
+
+$(document).ready(function() {
+    $('#pbk022Form').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+			agree: {
+                validators: {
+                    notEmpty: {
+                        message: 'Anda harus menyetujui pernyataan pada form ini'
+                    }
+                }
+            }
+        }
+    });
+});
 </script>

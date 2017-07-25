@@ -3,17 +3,24 @@
 namespace App\Http\Controllers\Admin\Account;
 
 use Auth;
+use Mail;
+use App\Mail\RealAccount;
 use App\Models\UserTask;
+use App\Models\RequestData;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 class FormController extends Controller
 {
     public function bpk_03()
     {
       $order = Auth::user()->lastRequestAccount();
+	  $datas = RequestData::where('user_id',Auth::user()->id)->get();
       return view('admin.account.form.107_pbk_03', [
         'order' => $order
+      ],[
+        'datas' => $datas
       ]);
     }
 	public function bpk_02_1()
@@ -22,7 +29,8 @@ class FormController extends Controller
     }
 	public function bpk_02_2()
     {
-      return view('admin.account.form.107_pbk_02_2');
+	  $datas = RequestData::where('user_id',Auth::user()->id)->get();
+      return view('admin.account.form.107_pbk_02_2', ['datas'=> $datas]);
     }
     public function bpk_01()
     {
@@ -44,159 +52,129 @@ class FormController extends Controller
     {
       return view('admin.account.form.107_pbk_07');
     }
-	public function bpk_01_check(Request $request)
+	public function bpk_01_check()
 	{
-		$this->validate($request, [
-          'inputRadiosPersetujuan' => 'accepted',
-      ]);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 1)->update(['status' => 'active']);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 2)->update(['status' => 'current']);
 	  return back();
 	}
 	public function bpk_02_1_check(Request $request)
 	{
-		$this->validate($request, [
-          'name' => 'required|string|max:50',
-		  'place' => 'required|string|max:30',
-		  'dob' => 'required|date_format:"d-m-Y',
-		  'alamat' => 'required|string|max:255',
-		  'id' => 'required',
-		  'noid' => 'required|numeric',
-		  'inputRadiosPersetujuan' => 'accepted',
-      ]);
+		$date=date_create($request->dob);
+		$dob= date_format($date,"Y-m-d");
+		RequestData::create([
+            'user_id' => Auth::user()->id,
+            'nama' => $request->name,
+            'tempat_lahir' => $request->place,
+			'dob' => $dob,
+			'alamat' => $request->alamat,
+			'tipe_id' => $request->id,
+			'no_id' => $request->noid,
+        ]);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 2)->update(['status' => 'active']);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->update(['status' => 'current']);
 	  return back();
 	}
 	public function bpk_02_2_check(Request $request)
 	{
-          $this->validate($request, [
-          'name' => 'required|string|max:50',
-		  'place' => 'required|string|max:30',
-		  'dob' => 'required|date_format:d-m-Y',
-		  'alamat' => 'required|string|max:255',
-		  'id' => 'required',
-		  'noid' => 'required|numeric',
-		  'inputRadiosPersetujuan' => 'accepted',
-      ]);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->update(['status' => 'active']);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'current']);
 	  return back();
 	}
 	public function bpk_03_check(Request $request)
 	{
-		// $this->validate($request, [
-		//   'dob' => 'required',
-		//   'ibu' => 'required|string|max:50',
-		//   'alamat' => 'required|string|max:155',
-		//   'postcode' => 'required|numeric|max:6',
-		//   'home_stat' => 'accepted',
-		//   'telp' => 'required|numeric|max:20',
-		//   'inputRadios2' => 'accepted',
-		//   'inputRadios3' => 'accepted',
-		//   'name_darurat' => 'required|string|max:50',
-		//   'telp_darurat' => 'required|numeric|max:20',
-		//   'hubungan' => 'required|string|max:30',
-		//   'alamat_darurat' => 'required|string|max:155',
-		//   'telp_darurat2' => 'required|numeric|max:20',
-		//   'pekerjaan' => 'required|string|max:100',
-		//   'nama_perusahaan' => 'required|string|max:100',
-		//   'bidang_usaha' => 'required|string|max:100',
-		//   'jabatan' => 'required|string|max:100',
-		//   'lama_bekerja' => 'required|string|max:20',
-		//   'alamat_kantor' => 'required|string|max:155',
-		//   'postcode_kantor' => 'required|numeric|max:6',
-		//   'telp_kantor' => 'required|numeric|max:20',
-		//   'kantor_sebelum' => 'required|string|max:50',
-		//   'nama_bank' => 'required|string|max:50',
-		//   'cabang' => 'required|string|max:50',
-		//   'telp_kantor' => 'required|numeric|max:20',
-		//   'no_rek' => 'required|numeric|max:20',
-		//   'nama_rek' => 'required|string|max:50',
-		//   'jenis_tabungan' => 'accepted',
-		//   'id_card' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-		//   'rek_koran' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-		//   'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-		//   'inputRadios4' => 'accepted',
-    //   ]);
-
-    dd($request);
+	    $image = Input::file('id_card');
+        $input['imagename'] = 'id_card.'.$image->getClientOriginalExtension();
+  	    $destinationPath = public_path('/uploads/'.Auth::user()->id.'/id');
+  	    $image->move($destinationPath, $input['imagename']);
+  	    $fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
+  	    $id_card = $fullpath;
+		
+		$image = Input::file('rek_koran');
+        $input['imagename'] = 'rek_koran.'.$image->getClientOriginalExtension();
+  	    $destinationPath = public_path('/uploads/'.Auth::user()->id.'/rek_koran');
+  	    $image->move($destinationPath, $input['imagename']);
+  	    $fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
+  	    $rek_koran = $fullpath;
+		
+		$image = Input::file('foto');
+        $input['imagename'] = 'foto.'.$image->getClientOriginalExtension();
+  	    $destinationPath = public_path('/uploads/'.Auth::user()->id.'/foto');
+  	    $image->move($destinationPath, $input['imagename']);
+  	    $fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
+  	    $foto = $fullpath;
+		
+	  RequestData::where('user_id', Auth::user()->id)->update([
+            'user_id' => Auth::user()->id,
+			'jenis_akun' => $request->account_type,
+            'nama' => $request->name,
+            'tempat_lahir' => $request->place,
+			'dob' => $request->dob,
+			'alamat' => $request->alamat,
+			'tipe_id' => $request->identity_type,
+			'no_id' => $request->indentity_number,
+			'phone' => $request->phone_number,
+			'pengalaman' => $request->pengalaman,
+			'tujuan' => $request->tujuan,
+			'npwp' => $request->npwp,
+			'jenis_kelamin' => $request->jenis_kelamin,
+			'status_perkawinan' => $request->status_perkawinan,
+			'nama_ibu' => $request->ibu,
+			'kode_pos' => $request->postcode,
+			'status_rumah' => $request->status_rumah,
+			'telp_rumah' => $request->telpon_rumah,
+			'keluarga_kbi' => $request->keluarga_kbi,
+			'pailit' => $request->pailit,
+			'nama_darurat' => $request->name_darurat,
+			'telp_darurat' => $request->telp_darurat,
+			'hubungan' => $request->hubungan_darurat,
+			'alamat_darurat' => $request->alamat_darurat,
+			'pekerjaan' => $request->pekerjaan,
+			'nama_perusahaan' => $request->nama_perusahaan,
+			'bidang_usaha' => $request->bidang_usaha,
+			'jabatan' => $request->jabatan,
+			'lama_bekerja' => $request->lama_bekerja,
+			'alamat_kantor' => $request->alamat_kantor,
+			'kode_pos_kantor' => $request->postcode_kantor,
+			'telp_kantor' => $request->telp_kantor,
+			'kantor_sebelum' => $request->kantor_sebelum,
+			'nama_bank' => $request->nama_bank,
+			'cabang' => $request->cabang,
+			'telp_bank' => $request->telp_bank,
+			'no_rek' => $request->no_rek,
+			'nama_rek' => $request->nama_rek,
+			'jenis_tabungan' => $request->jenis_tabungan,
+			'id_card' => $id_card,
+			'rek_koran' => $rek_koran,
+			'foto' => $foto,
+        ]);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'active']);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->update(['status' => 'current']);
 	  return back();
 	}
-	public function bpk_04_2_check(Request $request)
+	public function bpk_04_2_check()
 	{
-		$this->validate($request, [
-		  'check1' => 'accepted',
-		  'check2' => 'accepted',
-		  'check3' => 'accepted',
-		  'check4' => 'accepted',
-		  'check5' => 'accepted',
-		  'check6' => 'accepted',
-		  'check7' => 'accepted',
-		  'check8' => 'accepted',
-		  'check9' => 'accepted',
-		  'check10' => 'accepted',
-		  'check11' => 'accepted',
-		  'check12' => 'accepted',
-		  'check13' => 'accepted',
-		  'check14' => 'accepted',
-          'inputRadiosPersetujuan' => 'accepted',
-      ]);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->update(['status' => 'active']);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 6)->update(['status' => 'current']);
 	  return back();
 	}
-	public function bpk_05_2_check(Request $request)
+	public function bpk_05_2_check()
 	{
-		$this->validate($request, [
-		  'check1' => 'accepted',
-		  'check2' => 'accepted',
-		  'check3' => 'accepted',
-		  'check4' => 'accepted',
-		  'check5' => 'accepted',
-		  'check6' => 'accepted',
-		  'check7' => 'accepted',
-		  'check8' => 'accepted',
-		  'check9' => 'accepted',
-		  'check10' => 'accepted',
-		  'check11' => 'accepted',
-		  'check12' => 'accepted',
-		  'check13' => 'accepted',
-		  'check14' => 'accepted',
-		  'check15' => 'accepted',
-		  'check16' => 'accepted',
-		  'check17' => 'accepted',
-		  'check18' => 'accepted',
-		  'check19' => 'accepted',
-		  'check20' => 'accepted',
-		  'check21' => 'accepted',
-		  'check22' => 'accepted',
-		  'check23' => 'accepted',
-		  'check24' => 'accepted',
-		  'selisih' => 'accepted',
-		  'kantor' => 'accepted',
-          'inputRadiosPersetujuan' => 'accepted',
-      ]);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 6)->update(['status' => 'active']);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 7)->update(['status' => 'current']);
 	  return back();
 	}
-	public function bpk_06_check(Request $request)
+	public function bpk_06_check()
 	{
-		$this->validate($request, [
-          'inputRadiosPersetujuan' => 'accepted',
-      ]);
+
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 7)->update(['status' => 'active']);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 8)->update(['status' => 'current']);
 	  return back();
 	}
 	public function bpk_07_check(Request $request)
 	{
-		$this->validate($request, [
-          'inputRadiosPersetujuan' => 'accepted',
-      ]);
+	  $datas = RequestData::where('user_id',Auth::user()->id)->get();
+	  Mail::to(env('OPENREAL_EMAIL'))->send(new RealAccount($datas));
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 8)->update(['status' => 'active']);
 	  return back();
 	}

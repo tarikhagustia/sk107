@@ -45,12 +45,12 @@
                     <div class="col-sm-9">
                       {{-- <p class="form-control-static">email@example.com</p> --}}
                       <div class="radio-custom radio-primary">
-                        <input type="radio" id="account_type_mini" name="account_type" />
+                        <input type="radio" id="account_type_mini" name="account_type" value="mini" />
                         <label for="account_type_mini">Mini</label>
                       </div>
 
                       <div class="radio-custom radio-primary">
-                        <input type="radio" id="account_type_reguler" name="account_type" />
+                        <input type="radio" id="account_type_reguler" name="account_type" value="reguler" checked />
                         <label for="account_type_reguler">Reguler</label>
                       </div>
                     </div>
@@ -75,14 +75,14 @@
               <hr/>
 
               <p class="text-center"><em>––– List 1 of 3 » Data Pribadi & Keluarga yang Dapat Dihubungi –––</em></p>
-
+				@foreach($datas as $data)
               <legend>Data Pribadi</legend>
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama Lengkap <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="name" id="name" value="">
+                      <input type="text" class="form-control" name="name" id="name" value="{{$data->nama}}">
                     </div>
                   </div>
                   <div class="form-group">
@@ -91,12 +91,23 @@
                       <div class="row">
                         <div class="col-sm-3">
                           <select class="form-control" name="identity_type" id="identity_type">
-														<option value="ktp">KTP</option>
-														<option value="sim">SIM</option>
+														@if($data->tipe_id == 'KTP')
+															<option value="ktp" selected >KTP</option>
+															<option value="sim">SIM</option>
+															<option value="passport">Passport</option>
+														@elseif($data->tipe_id == 'SIM')
+															<option value="ktp">KTP</option>
+															<option value="sim" selected >SIM</option>
+															<option value="passport">Passport</option>
+														@elseif($data->tipe_id == 'Passport')
+															<option value="ktp">KTP</option>
+															<option value="sim">SIM</option>
+															<option value="Passport" selected >Passport</option>
+														@endif
                           </select>
                         </div>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="indentity_number" value="">
+                          <input type="text" class="form-control" name="indentity_number" value="{{$data->no_id}}">
                         </div>
                       </div>
                     </div>
@@ -111,8 +122,8 @@
                     <label class="col-sm-3 control-label">Pengalaman Investasi <span class="text-danger">*)</span></label>
                     <div class="col-sm-4">
                       <select class="form-control" name="pengalaman">
-												<option value="yes">Ya</option>
-												<option value="no">Tidak</option>
+												<option value="ya">Ya</option>
+												<option value="tidak">Tidak</option>
                       </select>
                     </div>
                   </div>
@@ -120,9 +131,9 @@
                     <label class="col-sm-3 control-label">Tuj. Buka Rekening <span class="text-danger">*)</span></label>
                     <div class="col-sm-4">
                       <select class="form-control" name="tujuan" id="tujuan">
-												<option value="sim">Hedging</option>
-												<option value="sim">Gain</option>
-												<option value="sim">Spekulasi</option>
+												<option value="hedging">Hedging</option>
+												<option value="gain">Gain</option>
+												<option value="spekulasi">Spekulasi</option>
                       </select>
                     </div>
                   </div>
@@ -135,9 +146,9 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Jenis Kelamin</label>
                     <div class="col-sm-4">
-                      <select class="form-control" name="jeni_kelamin" id="jenis_kelamin">
-												<option value="male">Laki-laki</option>
-												<option value="female">Perempuan</option>
+                      <select class="form-control" name="jenis_kelamin" id="jenis_kelamin">
+												<option value="laki-laki">Laki-laki</option>
+												<option value="perempuan">Perempuan</option>
                       </select>
                     </div>
                   </div>
@@ -145,7 +156,7 @@
                     <label class="col-sm-3 control-label">Status Perkawinan</label>
                     <div class="col-sm-4">
                       <select class="form-control" name="status_perkawinan">
-													<option value="tidak_kawin">Tidak Kawin</option>
+													<option value="tidak kawin">Tidak Kawin</option>
 													<option value="kawin">Kawin</option>
 													<option value="janda">Janda</option>
 													<option value="duda">Duda</option>
@@ -162,7 +173,7 @@
                     <div class="col-sm-9">
                       <div class="row">
                         <div class="col-sm-6">
-                          <input type="text" class="form-control" name="place" value="">
+                          <input type="text" class="form-control" name="place" value="{{$data->tempat_lahir}}">
                         </div>
                         <div class="col-sm-6">
                           <input type="text" class="form-control datepicker" name="dob" value="">
@@ -179,7 +190,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Alamat Rumah <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <textarea name="alamat" class="form-control" rows="4" cols="80"></textarea>
+                      <textarea name="alamat" class="form-control" rows="4" cols="80">{{$data->alamat}}</textarea>
                     </div>
                   </div>
                   <div class="form-group">
@@ -192,9 +203,9 @@
                     <label class="col-sm-3 control-label">Status Rumah </label>
                     <div class="col-sm-4">
                       <select class="form-control" name="status_rumah">
-												<option value="1">Pribadi</option>
-												<option value="2">Keluarga</option>
-												<option value="3">Sewa/Kontrak</option>
+												<option value="pribadi">Pribadi</option>
+												<option value="keluarga">Keluarga</option>
+												<option value="sewa/kontrak">Sewa/Kontrak</option>
                       </select>
                     </div>
                   </div>
@@ -214,11 +225,11 @@
                 <div class="col-sm-2">
 									<div class="form-group">
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="keluarga_kbi" name="keluarga_kbi" value="yes"/>
+                    <input type="radio" id="keluarga_kbi" name="keluarga_kbi" value="ya"/>
                     <label for="keluarga_kbi">Ya</label>
                   </div>
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="keluarga_kbi" name="keluarga_kbi" value="no"  checked="checked"	/>
+                    <input type="radio" id="keluarga_kbi" name="keluarga_kbi" value="tidak"  checked="checked"	/>
                     <label for="keluarga_kbi">Tidak</label>
                   </div>
 									</div>
@@ -231,11 +242,11 @@
                 <div class="col-sm-2">
 									<div class="form-group">
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="pailit" name="pailit" value="yes"/>
+                    <input type="radio" id="pailit" name="pailit" value="ya"/>
                     <label for="pailit">Ya</label>
                   </div>
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="pailit" name="pailit" value="no"  checked="checked"/>
+                    <input type="radio" id="pailit" name="pailit" value="tidak"  checked="checked"/>
                     <label for="pailit">Tidak</label>
                   </div>
 									</div>
@@ -394,15 +405,15 @@
                     <div class="col-sm-9">
 											<select class="form-control" name="jenis_tabungan">
 												<option disabled required selected></option>
-												<option value="1">Giro</option>
-												<option value="2">Tabungan</option>
-												<option value="3">Lainnya</option>
+												<option value="giro">Giro</option>
+												<option value="tabungan">Tabungan</option>
+												<option value="lainnya">Lainnya</option>
 											</select>
                     </div>
                   </div>
                 </div>
               </div>
-
+				@endforeach
 							<hr/>
 							<legend>DOKUMEN YANG DILAMPIRKAN</legend>
 							<p>Upload Dokumen Hasil Foto/Scan (JPG/GIF/PNG –1 file max. 1024 kb / 1mb)</p>
@@ -451,7 +462,7 @@
 
 												<div class="radio-custom radio-primary">
 													<input type="radio" id="aproval_no" name="inputRadios4">
-													<label for="aproval_yes">Tidak</label>
+													<label for="aproval_no">Tidak</label>
 												</div>
 											</div>
 									</div>
