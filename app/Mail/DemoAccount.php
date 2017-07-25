@@ -36,6 +36,7 @@ class DemoAccount extends Mailable
     {
 
         return $this->view('emails.DemoAccount')
+                    ->subject('Permohonan pembuatan akun demo')
                     ->with(['name' => $this->name],['email' => $this->email]);
     }
 }

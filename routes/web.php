@@ -60,7 +60,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
   Route::get('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@index');
   Route::get('admin/account/create-demo', 'Admin\Account\OpenDemoAccountController@create_account')->name('create.account.demo');
-  Route::get('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
+  Route::post('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
 
 
   /*
