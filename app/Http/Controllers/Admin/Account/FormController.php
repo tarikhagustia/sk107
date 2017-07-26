@@ -6,7 +6,7 @@ use Auth;
 use Mail;
 use App\Mail\RealAccount;
 use App\Models\UserTask;
-use App\Models\RequestData;
+use App\Models\RequestAccount;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -29,7 +29,7 @@ class FormController extends Controller
     }
 	public function bpk_02_2()
     {
-	  $datas = RequestData::where('user_id',Auth::user()->id)->get();
+	  $datas = Auth::user()->lastRequestAccount();
       return view('admin.account.form.107_PBK_02_2', ['datas'=> $datas]);
     }
     public function bpk_01()
@@ -62,7 +62,7 @@ class FormController extends Controller
 	{
 		$date=date_create($request->dob);
 		$dob= date_format($date,"Y-m-d");
-		RequestData::create([
+		RequestAccount::where('user_id', Auth::user()->id)->update([
             'user_id' => Auth::user()->id,
             'nama' => $request->name,
             'tempat_lahir' => $request->place,
@@ -104,7 +104,7 @@ class FormController extends Controller
   	    $fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
   	    $foto = $fullpath;
 
-	  RequestData::where('user_id', Auth::user()->id)->update([
+	  RequestAccount::where('user_id', Auth::user()->id)->update([
             'user_id' => Auth::user()->id,
 			'jenis_akun' => $request->account_type,
             'nama' => $request->name,
@@ -173,7 +173,7 @@ class FormController extends Controller
 	}
 	public function bpk_07_check(Request $request)
 	{
-	  $datas = RequestData::where('user_id',Auth::user()->id)->get();
+	  $datas = RequestAccount::where('user_id',Auth::user()->id)->get();
 	  Mail::to(env('OPENREAL_EMAIL'))->send(new RealAccount($datas));
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 8)->update(['status' => 'active']);
 	  return back();
