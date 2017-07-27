@@ -19,32 +19,32 @@
 							<h4 class="example-title" style="font-weight:700;text-align:center;font-size:14px;">SURAT PERNYATAAN TELAH BERPENGALAMAN MELAKSANAKAN TRANSAKSI PERDAGANGAN BERJANGKA KOMODITI</h4>
 							<hr>
 							<div class="example">
-								<div data-role="container" class="scrollable-container" style="height: 300px; width: 510px;">
+								<div data-role="container" class="scrollable-container" style="width: 510px;">
 									<div data-role="content" class="scrollable-content" style="width: 493px;">
 										Yang mengisi formulir di bawah ini ;
-										@foreach($datas as $data)
+
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Nama: </label>
 												<div class="col-sm-7">
-													{{$data->nama}}
+													{{$datas->nama}}
 												</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Tempat/Tanggal Lahir: </label>
 													<div class="col-sm-7">
-														{{$data->tempat_lahir}}, {{$data->dob}}
+														{{$datas->tempat_lahir}}, {{$datas->dob}}
 													</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Alamat: </label>
 												<div class="col-sm-7">
-													{{$data->alamat}}
+													{{$datas->alamat}}
 												</div>
 											</div>
 											<div class="form-group form-material">
-												<label class="col-sm-5 control-label">Nomor {{$data->tie_id}}: </label>
+												<label class="col-sm-5 control-label">Nomor {{$datas->tie_id}}: </label>
 												<div class="col-sm-7">
-													{{$data->no_id}}
+													{{$datas->no_id}}
 												</div>
 											</div>
 											<div class="form-group form-material">
@@ -53,7 +53,6 @@
 													Nomor Demo Account saya
 												</div>
 											</div>
-										@endforeach
 									</div>
 								</div>
 							</div>
@@ -61,7 +60,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="modal-footer">	
+			<div class="modal-footer">
 				<form class="form-horizontal" method="POST" id="pbk022Form" action="{{ url('admin/account/real-account/form/107-PBK-02-2-check') }}">
 				{{ csrf_field() }}
 				<div class="form-group form-material">
@@ -71,10 +70,10 @@
 						</label>
 					</div>
 				</div>
-				<div class="form-group form-material">	
+				<div class="form-group form-material">
 					Menyatakan pada Tanggal <span id="date"></span>
 				</div>
-				<div class="form-group form-material">	
+				<div class="form-group form-material">
 					<div class="col-sm-9 col-sm-offset-3">
 						<button type="submit" class="btn btn-primary">Submit </button>
 					</div>
@@ -92,11 +91,11 @@ var yyyy = today.getFullYear();
 
 if(dd<10) {
     dd = '0'+dd
-} 
+}
 
 if(mm<10) {
     mm = '0'+mm
-} 
+}
 
 today = dd + '/' + mm + '/' + yyyy;
 document.getElementById("date").innerHTML = today;

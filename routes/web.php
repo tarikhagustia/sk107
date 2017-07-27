@@ -64,6 +64,13 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::post('admin/account/manage-demo-account', 'Admin\Account\AdminController@update');
   Route::get('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
   Route::post('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
+  Route::get('admin/account/real-account', 'AccountController@index')->name('create.account.real');
+  Route::post('admin/account/real-account', 'AccountController@post_request_account_real')->name('create.account.real.post');
+  Route::get('admin/account/real-account/finish', 'AccountController@request_finish')->name('create.account.real.finish');
+
+
+
+
   /*
   |--------------------------------------------------------------------------
   | User Management
@@ -71,10 +78,6 @@ Route::group(['middleware' => ['auth','admin']], function(){
   */
 
   Route::get('admin/user', 'Admin\User\UserController@index')->name('admin.user');
-
-  Route::get('admin/account/real-account', 'AccountController@index')->name('create.account.real');
-
-
   Route::get('admin/account/real-account/form/107-PBK-01', 'Admin\Account\FormController@bpk_01')->name('form.sk107.bpk.01');
   Route::post('admin/account/real-account/form/107-PBK-01-check', 'Admin\Account\FormController@bpk_01_check')->name('form.sk107.bpk.01.check');
   Route::get('admin/account/real-account/form/107-PBK-03', 'Admin\Account\FormController@bpk_03')->name('form.sk107.bpk.03');
