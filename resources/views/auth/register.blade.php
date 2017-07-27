@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('meta')
-<title>Register | Remark Material Admin Template</title>
+<title>Register | {{config('settings.company_name')}}</title>
 @endsection
 
 @section('css')

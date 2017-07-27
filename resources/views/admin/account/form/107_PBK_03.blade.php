@@ -44,15 +44,14 @@
                     <label class="col-sm-3 control-label">Jenis akun : </label>
                     <div class="col-sm-9">
                       {{-- <p class="form-control-static">email@example.com</p> --}}
-                      <div class="radio-custom radio-primary">
-                        <input type="radio" id="account_type_mini" name="account_type" value="mini" />
-                        <label for="account_type_mini">Mini</label>
-                      </div>
+											@foreach ($accountType as $key => $value)
 
                       <div class="radio-custom radio-primary">
-                        <input type="radio" id="account_type_reguler" name="account_type" value="reguler" checked />
-                        <label for="account_type_reguler">Reguler</label>
+                        <input type="radio" id="account_type_mini" name="account_type" value="{{$value->id}}" @if ($value->id == $order->account_type_id) checked="true" @endif />
+                        <label for="account_type_mini">{{$value->account_name}}</label>
                       </div>
+										@endforeach
+
                     </div>
                   </div>
                 </div>
@@ -75,39 +74,39 @@
               <hr/>
 
               <p class="text-center"><em>––– List 1 of 3 » Data Pribadi & Keluarga yang Dapat Dihubungi –––</em></p>
-				@foreach($datas as $data)
+
               <legend>Data Pribadi</legend>
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama Lengkap <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="name" id="name" value="{{$data->nama}}">
+                      <input type="text" class="form-control" name="name" id="name" value="{{$order->nama}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nomor Identitas <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
                       <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <select class="form-control" name="identity_type" id="identity_type">
-														@if($data->tipe_id == 'KTP')
+														@if($order->tipe_id == 'KTP')
 															<option value="ktp" selected >KTP</option>
 															<option value="sim">SIM</option>
 															<option value="passport">Passport</option>
-														@elseif($data->tipe_id == 'SIM')
+														@elseif($order->tipe_id == 'SIM')
 															<option value="ktp">KTP</option>
 															<option value="sim" selected >SIM</option>
 															<option value="passport">Passport</option>
-														@elseif($data->tipe_id == 'Passport')
+														@elseif($order->tipe_id == 'Passport')
 															<option value="ktp">KTP</option>
 															<option value="sim">SIM</option>
 															<option value="Passport" selected >Passport</option>
 														@endif
                           </select>
                         </div>
-                        <div class="col-sm-9">
-                          <input type="text" class="form-control" name="indentity_number" value="{{$data->no_id}}">
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="indentity_number" value="{{$order->no_id}}">
                         </div>
                       </div>
                     </div>
@@ -115,15 +114,15 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">No. Handphone <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="phone_number" value="">
+                      <input type="text" class="form-control" name="phone_number" value="{{$order->phone_number}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Pengalaman Investasi <span class="text-danger">*)</span></label>
                     <div class="col-sm-4">
                       <select class="form-control" name="pengalaman">
-												<option value="ya">Ya</option>
-												<option value="tidak">Tidak</option>
+												<option value="ya" @if ($order->pengalaman == "ya") selected @endif>Ya</option>
+												<option value="tidak" @if ($order->pengalaman == "tidak") selected @endif>Tidak</option>
                       </select>
                     </div>
                   </div>
@@ -131,24 +130,24 @@
                     <label class="col-sm-3 control-label">Tuj. Buka Rekening <span class="text-danger">*)</span></label>
                     <div class="col-sm-4">
                       <select class="form-control" name="tujuan" id="tujuan">
-												<option value="hedging">Hedging</option>
-												<option value="gain">Gain</option>
-												<option value="spekulasi">Spekulasi</option>
+												<option value="hedging" @if($order->tujuan == "hedging") selected @endif>Hedging</option>
+												<option value="gain" @if($order->tujuan == "gain") selected @endif>Gain</option>
+												<option value="spekulasi" @if($order->tujuan == "spekulasi") selected @endif>Spekulasi</option>
                       </select>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">NPWP</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" name="npwp" value="" id="npwp">
+                      <input type="text" class="form-control" name="npwp" value="{{$order->npwp}}" id="npwp">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Jenis Kelamin</label>
                     <div class="col-sm-4">
                       <select class="form-control" name="jenis_kelamin" id="jenis_kelamin">
-												<option value="laki-laki">Laki-laki</option>
-												<option value="perempuan">Perempuan</option>
+												<option value="laki-laki" @if($order->jenis_kelamin == "laki-laki") selected @endif>Laki-laki</option>
+												<option value="perempuan" @if($order->jenis_kelamin == "perempuan") selected @endif>Perempuan</option>
                       </select>
                     </div>
                   </div>
@@ -156,10 +155,10 @@
                     <label class="col-sm-3 control-label">Status Perkawinan</label>
                     <div class="col-sm-4">
                       <select class="form-control" name="status_perkawinan">
-													<option value="tidak kawin">Tidak Kawin</option>
-													<option value="kawin">Kawin</option>
-													<option value="janda">Janda</option>
-													<option value="duda">Duda</option>
+													<option value="tidak kawin" @if($order->status_perkawinan == "tidak kawin") selected @endif>Tidak Kawin</option>
+													<option value="kawin" @if($order->status_perkawinan == "kawin") selected @endif>Kawin</option>
+													<option value="janda" @if($order->status_perkawinan == "janda") selected @endif>Janda</option>
+													<option value="duda" @if($order->status_perkawinan == "duda") selected @endif>Duda</option>
                       </select>
                     </div>
                   </div>
@@ -173,10 +172,10 @@
                     <div class="col-sm-9">
                       <div class="row">
                         <div class="col-sm-6">
-                          <input type="text" class="form-control" name="place" value="{{$data->tempat_lahir}}">
+                          <input type="text" class="form-control" name="place" value="{{$order->tempat_lahir}}">
                         </div>
                         <div class="col-sm-6">
-                          <input type="text" class="form-control datepicker" name="dob" value="">
+                          <input type="text" class="form-control datepicker" name="dob" value="{{$order->dob}}">
                         </div>
                       </div>
                     </div>
@@ -184,35 +183,35 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama Ibu Kandung <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="ibu" value="">
+                      <input type="text" class="form-control" name="ibu" value="{{$order->nama_ibu}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Alamat Rumah <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <textarea name="alamat" class="form-control" rows="4" cols="80">{{$data->alamat}}</textarea>
+                      <textarea name="alamat" class="form-control" rows="4" cols="80">{{$order->alamat}}</textarea>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Kode POS </label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" name="postcode" value="">
+                      <input type="text" class="form-control" name="postcode" value="{{$order->kode_pos}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Status Rumah </label>
                     <div class="col-sm-4">
                       <select class="form-control" name="status_rumah">
-												<option value="pribadi">Pribadi</option>
-												<option value="keluarga">Keluarga</option>
-												<option value="sewa/kontrak">Sewa/Kontrak</option>
+												<option value="pribadi" @if($order->status_rumah == "pribadi") selected @endif>Pribadi</option>
+												<option value="keluarga" @if($order->status_rumah == "keluarga") selected @endif>Keluarga</option>
+												<option value="sewa/kontrak" @if($order->status_rumah == "sewa/kontrak") selected @endif>Sewa/Kontrak</option>
                       </select>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">No. Telp Rumah</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" name="telpon_rumah" value="">
+                      <input type="text" class="form-control" name="telpon_rumah" value="{{$order->telp_rumah}}">
                     </div>
                   </div>
                 </div>
@@ -225,11 +224,11 @@
                 <div class="col-sm-2">
 									<div class="form-group">
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="keluarga_kbi" name="keluarga_kbi" value="ya"/>
+                    <input type="radio" id="keluarga_kbi" name="keluarga_kbi" value="ya" @if($order->keluarga_kbi == "ya") checked="checked" @endif/>
                     <label for="keluarga_kbi">Ya</label>
                   </div>
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="keluarga_kbi" name="keluarga_kbi" value="tidak"  checked="checked"	/>
+                    <input type="radio" id="keluarga_kbi" name="keluarga_kbi" value="tidak"  @if($order->keluarga_kbi == "tidak") checked="checked" @endif	/>
                     <label for="keluarga_kbi">Tidak</label>
                   </div>
 									</div>
@@ -242,11 +241,11 @@
                 <div class="col-sm-2">
 									<div class="form-group">
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="pailit" name="pailit" value="ya"/>
+                    <input type="radio" id="pailit" name="pailit" value="ya" @if($order->pailit == "ya") checked="checked" @endif/>
                     <label for="pailit">Ya</label>
                   </div>
                   <div class="radio-custom radio-primary">
-                    <input type="radio" id="pailit" name="pailit" value="tidak"  checked="checked"/>
+                    <input type="radio" id="pailit" name="pailit" value="tidak"  @if($order->pailit == "tidak") checked="checked" @endif/>
                     <label for="pailit">Tidak</label>
                   </div>
 									</div>
@@ -263,19 +262,19 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="name_darurat" id="name_darurat" value="">
+                      <input type="text" class="form-control" name="name_darurat" id="name_darurat" value="{{$order->nama_darurat}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">No. Telp <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="telp_darurat" value="">
+                      <input type="text" class="form-control" name="telp_darurat" value="{{$order->telp_darurat}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Hubungan <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="hubungan_darurat" id="hubungan_darurat" value="">
+                      <input type="text" class="form-control" name="hubungan_darurat" id="hubungan_darurat" value="{{$order->hubungan}}">
                     </div>
                   </div>
                 </div>
@@ -283,7 +282,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Alamat <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <textarea name="alamat_darurat" class="form-control" rows="3" cols="80"></textarea>
+                      <textarea name="alamat_darurat" class="form-control" rows="3" cols="80">{{$order->alamat_darurat}}</textarea>
                     </div>
                   </div>
                 </div>
@@ -302,36 +301,36 @@
                     <div class="col-sm-9">
                       <select class="form-control" name="pekerjaan">
 												<option required disabled>-- pilih pekerjaan --</option>
-												<option value="swasta">Swasta</option>
-												<option value="wiraswasta">Wiraswasta</option>
-												<option value="irt">IBU RT</option>
-												<option value="negeri">Peg Negeri</option>
-												<option value="mahasiswa">Mahasiswa</option>
+												<option value="swasta" @if($order->pekerjaan == "swasta") selected @endif>Swasta</option>
+												<option value="wiraswasta" @if($order->pekerjaan == "wiraswasta") selected @endif>Wiraswasta</option>
+												<option value="irt" @if($order->pekerjaan == "irt") selected @endif>IBU RT</option>
+												<option value="negeri" @if($order->pekerjaan == "negeri") selected @endif>Peg Negeri</option>
+												<option value="mahasiswa" @if($order->pekerjaan == "mahasiswa") selected @endif>Mahasiswa</option>
                       </select>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama Perusahaan</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="nama_perusahaan" value="">
+                      <input type="text" class="form-control" name="nama_perusahaan" value="{{$order->nama_perusahaan}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Bidang Usaha</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="bidang_usaha" value="">
+                      <input type="text" class="form-control" name="bidang_usaha" value="{{$order->bidang_usaha}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Jabatan</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="jabatan" value="">
+                      <input type="text" class="form-control" name="jabatan" value="{{$order->jabatan}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Lama Bekerja</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="lama_bekerja" value="">
+                      <input type="text" class="form-control" name="lama_bekerja" value="{{$order->lama_bekerja}}">
                     </div>
                   </div>
                 </div>
@@ -339,25 +338,25 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Alamat Kantor</label>
                     <div class="col-sm-9">
-                      <textarea name="alamat_kantor" class="form-control" rows="3" cols="80"></textarea>
+                      <textarea name="alamat_kantor" class="form-control" rows="3" cols="80">{{$order->alamat_kantor}}</textarea>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Kode POS </label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="postcode_kantor" value="">
+                      <input type="text" class="form-control" name="postcode_kantor" value="{{$order->kode_pos_kantor}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nomor Telepon Kantor </label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="telp_kantor" value="">
+                      <input type="text" class="form-control" name="telp_kantor" value="{{$order->telp_kantor}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Kantor Sebelumnya </label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="kantor_sebelum" value="">
+                      <input type="text" class="form-control" name="kantor_sebelum" value="{{$order->kantor_sebelum}}">
                     </div>
                   </div>
                 </div>
@@ -371,19 +370,19 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nama Bank <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="nama_bank" value="">
+                      <input type="text" class="form-control" name="nama_bank" value="{{$order->nama_bank}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Cabang <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="cabang" value="">
+                      <input type="text" class="form-control" name="cabang" value="{{$order->cabang}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">No. Telepon</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="telp_bank" value="">
+                      <input type="text" class="form-control" name="telp_bank" value="{{$order->telp_bank}}">
                     </div>
                   </div>
                 </div>
@@ -391,29 +390,27 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Nomor Rekening <span class="text-danger">*)</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="no_rek" value="">
+                        <input type="text" class="form-control" name="no_rek" value="{{$order->no_rek}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Atas Nama <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" name="nama_rek" value="">
+                      <input type="text" class="form-control" name="nama_rek" value="{{$order->nama_rek}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Jenis Tabungan</label>
                     <div class="col-sm-9">
 											<select class="form-control" name="jenis_tabungan">
-												<option disabled required selected></option>
-												<option value="giro">Giro</option>
-												<option value="tabungan">Tabungan</option>
-												<option value="lainnya">Lainnya</option>
+												<option value="giro" @if($order->jenis_tabungan == "giro") selected @endif>Giro</option>
+												<option value="tabungan" @if($order->jenis_tabungan == "tabungan") selected @endif>Tabungan</option>
+												<option value="lainnya" @if($order->jenis_tabungan == "lainnya") selected @endif>Lainnya</option>
 											</select>
                     </div>
                   </div>
                 </div>
               </div>
-				@endforeach
 							<hr/>
 							<legend>DOKUMEN YANG DILAMPIRKAN</legend>
 							<p>Upload Dokumen Hasil Foto/Scan (JPG/GIF/PNG –1 file max. 1024 kb / 1mb)</p>
@@ -424,12 +421,14 @@
                     <label class="col-sm-3 control-label">KTP/Passport/SIM <span class="text-danger">*)</span></label>
                     <div class="col-sm-9">
                       <input type="file" name="id_card" id="id_card" value="" data-fv-file-extension="jpg,jpeg,png">
+											<img src="{{asset($order->id_card)}}" class="img-responsive" alt="" />
                     </div>
                   </div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Rekening Koran Bank <span class="text-danger">*)</span></label>
 										<div class="col-sm-9">
 											<input type="file" name="rek_koran" id="rek_koran" value="">
+											<img src="{{asset($order->rek_koran)}}" class="img-responsive" alt="" />
 											<span class="help-block">Rekening Koran Bank 3 Bulan terakhir / Surat Keterangan Bekerja / Surat Keterangan Pendapatan atau Laporan Keuangan 3 Bulan Terakhir / Tagihan Kartu Kredit / Rekening Listrik atau Telepon *)</span>
 										</div>
 									</div>
@@ -439,6 +438,7 @@
 										<label class="col-sm-3 control-label">Foto berwarna terbaru <span class="text-danger">*)</span></label>
 										<div class="col-sm-9">
 											<input type="file" name="foto" id="foto" value="">
+											<img src="{{asset($order->foto)}}" class="img-responsive" alt="" />
 										</div>
 									</div>
 								</div>
@@ -456,12 +456,12 @@
 										<div class="col-sm-9">
 
 												<div class="radio-custom radio-primary">
-													<input type="radio" id="aproval_yes" name="inputRadios4">
+													<input type="radio" id="aproval_yes" name="approval_yes" value="ya" @if($order->approval_yes == "ya") checked="true" @endif>
 													<label for="aproval_yes">Ya</label>
 												</div>
 
 												<div class="radio-custom radio-primary">
-													<input type="radio" id="aproval_no" name="inputRadios4">
+													<input type="radio" id="aproval_no" name="approval_yes" value="tidak" @if($order->approval_yes == "tidak") checked="true" @endif>
 													<label for="aproval_no">Tidak</label>
 												</div>
 											</div>
@@ -470,7 +470,7 @@
 
 										<label class="col-sm-3 control-label">Menyatakan Tanggal</label>
 										<div class="col-sm-9">
-											<p class="form-control-static" id="date"></p>
+											<p class="form-control-static" id="date">{{$order->created_at->formatLocalized('%A %d %B %Y')}}</p>
 										</div>
 									</div>
 								</div>

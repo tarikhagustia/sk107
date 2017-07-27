@@ -35,6 +35,9 @@ li.list-group-item.disabled {
     <div class="page-content">
       <!-- Panle List -->
       <div class="panel">
+        <form class="" action="{{route('create.account.real.post')}}" method="post">
+          <input type="hidden" name="order_id" value="{{$order->id}}">
+        {{ csrf_field() }}
         <div class="panel-heading">
           <h3 class="panel-title">Aplikasi Pembukaan Rekening Transaksi secara Elektronik On-line</h3>
         </div>
@@ -81,7 +84,13 @@ li.list-group-item.disabled {
             </div>
           </div>
         </div>
-      </div>
+        <div class="panel-footer">
+          @if($order->tasks()->where('task_id', 8)->first()->status == "active")
+            <button type="submit" class="btn btn-primary btn-lg" name="button">Lanjutkan</button>
+          @endif
+        </div>
+      </form>
+
       <!-- End Panle List -->
     </div>
   </div>

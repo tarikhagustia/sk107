@@ -19,10 +19,6 @@ class RealAccount extends Mailable
 
     public $datas;
 
-    public $idpath;
-	public $rekpath;
-	public $fotopath;
-
     public function __construct($datas)
     {
         $this->datas = $datas;
@@ -35,8 +31,8 @@ class RealAccount extends Mailable
      */
     public function build()
     {
-
-        return $this->view('emails.RealAccount')
-                    ->with(['datas' => $this->datas])->attach($datas->id_card)->attach($datas->rek_koran)->attach($datas->foto);
+        return $this->subject('Permintaan pembukaan akun real')
+                    ->view('emails.RealAccount')
+                    ->with(['datas' => $this->datas])->attach($this->datas->id_card)->attach($this->datas->rek_koran)->attach($this->datas->foto);
     }
 }
