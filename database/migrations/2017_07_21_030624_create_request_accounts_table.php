@@ -47,7 +47,7 @@ class CreateRequestAccountsTable extends Migration
       			$table->string('nama_perusahaan', 100)->default('');
       			$table->string('bidang_usaha', 100)->default('');
       			$table->string('jabatan', 100)->default('');
-            $table->integer('lama_bekerja',3)->nullable();
+            $table->integer('lama_bekerja')->nullable();
             $table->text('alamat_kantor')->nullable();
             $table->string('kode_pos_kantor',6)->nullable();
       			$table->string('telp_kantor',20)->nullable();
@@ -61,16 +61,16 @@ class CreateRequestAccountsTable extends Migration
       			$table->string('id_card',100)->nullable();
       			$table->string('rek_koran',100)->nullable();
       			$table->string('foto',100)->nullable();
-            $table->string('phone_number', 50);
+            $table->string('phone_number', 50)->nullable();
             $table->enum('aproval_yes', ['ya', 'tidak']);
 
             $table->timestamps();
         });
 
-        Schema::table('request_accounts', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-
-        });
+        // Schema::table('request_accounts', function (Blueprint $table) {
+        //     $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+        //
+        // });
     }
 
     /**
