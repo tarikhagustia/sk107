@@ -11,4 +11,9 @@ class RequestAccount extends Model
       'nama_perusahaan', 'bidang_usaha', 'jabatan', 'lama_bekerja', 'alamat_kantor', 'kode_pos_kantor', 'telp_kantor', 'kantor_sebelum', 'nama_bank', 'cabang', 'telp_bank', 'no_rek', 'nama_rek', 'id_card', 'rek_koran', 'foto', 'pekerjaan',
       'approval_yes'
     ];
+
+
+    public function tasks(){
+      return $this->hasMany('App\Models\UserTask');
+    }
 }

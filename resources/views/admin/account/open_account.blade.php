@@ -85,7 +85,9 @@ li.list-group-item.disabled {
           </div>
         </div>
         <div class="panel-footer">
-          <button type="submit" class="btn btn-primary btn-lg" name="button">Lanjutkan</button>
+          @if($order->tasks()->where('task_id', 8)->first()->status == "active")
+            <button type="submit" class="btn btn-primary btn-lg" name="button">Lanjutkan</button>
+          @endif
         </div>
       </form>
 
