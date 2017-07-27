@@ -21,7 +21,6 @@ class CreateRequestAccountsTable extends Migration
             $table->integer('account_number')->nullable();
             $table->string('account_password', 50)->nullable();
             $table->enum('status', ['approved', 'pending', 'request']);
-
             $table->string('nama', 30)->default('');
       			$table->string('tempat_lahir', 30)->default('');
       			$table->date('dob')->nullable();
@@ -47,9 +46,9 @@ class CreateRequestAccountsTable extends Migration
       			$table->string('nama_perusahaan', 100)->default('');
       			$table->string('bidang_usaha', 100)->default('');
       			$table->string('jabatan', 100)->default('');
-            $table->string('lama_bekerja',2)->nullable();
-            $table->text('alamat_kantor')->nullable();
-            $table->string('kode_pos_kantor',6)->nullable();
+				$table->string('lama_bekerja',2)->nullable();
+				$table->text('alamat_kantor')->nullable();
+				$table->string('kode_pos_kantor',6)->nullable();
       			$table->string('telp_kantor',20)->nullable();
       			$table->string('kantor_sebelum',2)->nullable();
       			$table->string('nama_bank',100)->nullable();
@@ -61,7 +60,7 @@ class CreateRequestAccountsTable extends Migration
       			$table->string('id_card',100)->nullable();
       			$table->string('rek_koran',100)->nullable();
       			$table->string('foto',100)->nullable();
-
+				$table->enum('approval_yes', ['tidak','ya']);
 
             $table->timestamps();
         });
