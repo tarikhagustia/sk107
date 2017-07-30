@@ -20,6 +20,7 @@ class CreateTasksTable extends Migration
             $table->string('task_description');
             $table->string('task_url');
             $table->enum('task_action', ['ajax', 'http']);
+			$table->string('download_url');
             $table->timestamps();
         });
     }
