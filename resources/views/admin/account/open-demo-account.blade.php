@@ -51,9 +51,9 @@
                   </table>
                 </div>
 				<div class="col-md-12">
-					@if( ! empty($err))
-                    <span class="help-block" style="color:black;">
-                        <strong>{{ $err }}</strong>
+					@if($errors->any())
+                    <span class="help-block" style="color:red;">
+                        <strong>{{$errors->first()}}</strong>
                     </span>
 					@endif
 				</div>

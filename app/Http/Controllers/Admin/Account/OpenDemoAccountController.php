@@ -69,6 +69,8 @@ class OpenDemoAccountController extends Controller
 					$real = 'no';
 					Mt4User::create([
 					'user_id' => Auth::user()->id,
+					'name' => $name,
+					'email' => $email,
 					'login' => $login,
 					'password' => $password,
 					'group' => 'demoforex',
@@ -81,7 +83,7 @@ class OpenDemoAccountController extends Controller
 
 			$err = 'Terlalu banyak request, silahkan coba lagi setelah 60 detik.';
 
-			return back();
+			return back()->withErrors([$err]);
 		}		
     }
 

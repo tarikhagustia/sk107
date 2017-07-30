@@ -14,6 +14,10 @@ li.active>table>tbody>tr>td>h3>a {
   color : white !important;
 
 }
+li.active>table>tbody>tr>td>a {
+  color : white !important;
+
+}
 .table a {
     text-decoration: none;
 }
@@ -71,7 +75,7 @@ li.list-group-item.disabled {
                             <td>
                               <Modal :data-title="job.title" :data-url="job.action_url" :data-action="job.action" />
                             </td>
-                            <td class="text-right">Print & Download</td>
+                            <td class="text-right"><a v-bind:href="job.download_url">Print & Download</a></td>
                           </tr>
                         </tbody>
                       </table>

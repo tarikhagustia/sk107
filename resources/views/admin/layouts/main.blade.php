@@ -8,7 +8,7 @@
   <meta name="description" content="bootstrap material admin template">
   <meta name="author" content="">
 
-  <title>{{ config('site.name') . ' - ' . config('site.description') }}</title>
+  <title>{{ config('settings.company_name') . ' - ' . config('site.description') }}</title>
 
 
   <!-- Stylesheets -->
@@ -66,7 +66,7 @@
         title="Remark">
         <img class="navbar-brand-logo navbar-brand-logo-special" src="{{ asset('img/logo-admin.png') }}"
         title="Remark">
-        <span class="navbar-brand-text hidden-xs">{{ config('site.name') }}</span>
+        <span class="navbar-brand-text hidden-xs">{{ config('settings.company_name') }}</span>
       </a>
     </div>
 

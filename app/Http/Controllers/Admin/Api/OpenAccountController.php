@@ -16,6 +16,7 @@ class OpenAccountController extends Controller
         $response[$key]['action'] = $row->task->task_action;
         $response[$key]['status'] = $row->status;
         $response[$key]['action_url'] = url($row->task->task_url);
+		$response[$key]['download_url'] = url($row->task->download_url);
         $response[$key]['description'] = $row->task->task_description;
       endforeach;
       return response()->json($response);

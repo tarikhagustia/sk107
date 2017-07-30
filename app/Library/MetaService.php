@@ -13,7 +13,7 @@ class MetaService {
     public $response;
     public function __construct()
     {
-        $this->attributes['MASTER'] = env('MT_MASTER_PASSWORD');
+        $this->attributes['MASTER'] = config('settings.master_pass');
     }
     public function setHost($host, $port)
     {
@@ -21,8 +21,8 @@ class MetaService {
         $this->port = $port;
 
         $this->__sockOpen($this->host, $this->port);
-
         return $this;
+		
     }
     public function createAccount($array)
     {
@@ -35,7 +35,7 @@ class MetaService {
     }
     public function __sockOpen($host, $port)
     {
-        $this->socket = fsockopen($host, 443);
+        $this->socket = fsockopen($host, $port);
         return $this;
     }
     private function __run()
@@ -47,8 +47,6 @@ class MetaService {
         endforeach;
         $request = "W" . $this->request_type . " " . $line . "\nQUIT\n";
         $ptr = $this->socket;
-
-        // dd($request);
         if($ptr)
         {
             if(fputs($ptr,  $request) != FALSE)
@@ -64,7 +62,6 @@ class MetaService {
                         $ret.= $line;
                     endif;
                 }
-				
             }
             fclose($ptr);
             $response['status'] = ($array[0] == "ERROR") ? false : true;

@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin\Account;
 
 use Auth;
 use Mail;
+use PDF;
 use App\Mail\RealAccount;
 use App\Models\UserTask;
 use App\Models\RequestAccount;
+use App\Models\Mt4User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -23,12 +25,14 @@ class FormController extends Controller
     }
 	public function bpk_02_1()
     {
-      return view('admin.account.form.107_PBK_02_1');
+	  $demos = Mt4User::where('user_id',Auth::user()->id)->get();	
+      return view('admin.account.form.107_PBK_02_1',['demos' => $demos[0]]);
     }
 	public function bpk_02_2()
     {
 	    $datas = Auth::user()->lastRequestAccount();
-      return view('admin.account.form.107_PBK_02_2', ['datas'=> $datas]);
+		$demos = Mt4User::where('user_id',Auth::user()->id)->get();	
+      return view('admin.account.form.107_PBK_02_2', ['datas'=> $datas, 'demos'=>$demos[0]]);
     }
     public function bpk_01()
     {
@@ -177,4 +181,44 @@ class FormController extends Controller
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 8)->update(['status' => 'active']);
 	  return back();
 	}
+	public function bpk_03_download()
+    {
+      $pdf = PDF::loadView('admin.account.form.107_PBK_03_download');
+	  return $pdf->download('PBK03.pdf');
+    }
+	public function bpk_02_1_download()
+    {
+	  $pdf = PDF::loadView('admin.account.form.107_PBK_02_1_download');
+	  return $pdf->download('PBK02-1.pdf');
+    }
+	public function bpk_02_2_download()
+    {
+	  $pdf = PDF::loadView('admin.account.form.107_PBK_02_2_download');
+	  return $pdf->download('PBK02-2.pdf');
+    }
+    public function bpk_01_download()
+    {
+      $pdf = PDF::loadView('admin.account.form.107_PBK_01_download');
+	  return $pdf->download('PBK01.pdf');
+    }
+    public function bpk_04_2_download()
+    {
+      $pdf = PDF::loadView('admin.account.form.107_PBK_04_2_download');
+	  return $pdf->download('PBK04-2.pdf');
+    }
+    public function bpk_05_2_download()
+    {
+      $pdf = PDF::loadView('admin.account.form.107_PBK_05_2_download');
+	  return $pdf->download('PBK05-2.pdf');
+    }
+    public function bpk_06_download()
+    {
+      $pdf = PDF::loadView('admin.account.form.107_PBK_06_download');
+	  return $pdf->download('PBK06.pdf');
+    }
+    public function bpk_07_download()
+    {
+      $pdf = PDF::loadView('admin.account.form.107_PBK_07_download');
+	  return $pdf->download('PBK07.pdf');
+    }
 }
