@@ -18,9 +18,9 @@ class CreateSettingTableSeeder extends Seeder
           ['name' => 'company_logo_location', 'value' => 'img/admin/logo.png'],
           ['name' => 'favicon', 'value' => 'Your example long address'],
           ['name' => 'demo_manual', 'value' => true],
-		  ['name' => 'mt4_host', 'value' => '202.59.167.52']
-		  ['name' => 'mt4_port', 'value' => '443'],
-		  ['name' => 'master_pass', 'value' => 'MABMMB123!@#']
+    		  ['name' => 'mt4_host', 'value' => '202.59.167.52'],
+    		  ['name' => 'mt4_port', 'value' => '443'],
+    		  ['name' => 'master_pass', 'value' => 'MABMMB123!@#']
         ];
 
         foreach($settings as $key => $row):

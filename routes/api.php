@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('article', 'Api\Article\ArticleAPIController@list_article');
+Route::get('notifications', 'Admin\Api\NotificationsApiController@get_notifications');

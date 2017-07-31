@@ -20,7 +20,8 @@ class CreateRequestAccountsTable extends Migration
             $table->string('order_number')->nullable();
             $table->integer('account_number')->nullable();
             $table->string('account_password', 50)->nullable();
-            $table->enum('status', ['approved', 'pending', 'request']);
+            $table->enum('status', ['approved', 'pending', 'request', 'rejected', 'filling']);
+            $table->text('rejected_reason')->nullable();
             $table->string('nama', 30)->default('');
       			$table->string('tempat_lahir', 30)->default('');
       			$table->date('dob')->nullable();
