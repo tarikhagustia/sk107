@@ -36,6 +36,6 @@ class User extends Authenticatable
       return $this->hasMany('App\Models\RequestAccount');
     }
     public function lastRequestAccount(){
-      return $this->hasMany('App\Models\RequestAccount')->where('status', 'request')->firstOrFail();
+      return $this->hasMany('App\Models\RequestAccount')->where('status', 'filling')->first();
     }
 }

@@ -10,6 +10,7 @@ class AccountController extends Controller
 {
   public function index()
   {
+
     $order = Auth::user()->lastRequestAccount();
     return view('admin.account.open_account', ['order' => $order]);
   }

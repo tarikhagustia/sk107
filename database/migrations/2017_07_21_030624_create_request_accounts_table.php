@@ -26,7 +26,6 @@ class CreateRequestAccountsTable extends Migration
       			$table->string('tempat_lahir', 30)->default('');
       			$table->date('dob')->nullable();
       			$table->text('alamat')->nullable();
-				$table->string('phone_number', 20)->default('');
       			$table->enum('tipe_id', ['KTP', 'SIM', 'Passport'])->nullable();
       			$table->string('no_id', 20)->default('');
       			$table->enum('pengalaman', ['ya', 'tidak'])->default('tidak');
