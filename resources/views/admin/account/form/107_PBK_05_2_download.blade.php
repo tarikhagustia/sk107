@@ -1,8 +1,6 @@
 <div class="lightbox-block" id="custom-content">
 	<div>
 		<div class="modal-header">
-			<a class="popup-modal-dismiss pull-right" href="#">x</a>
-			<br><br>
 			<div class="pull-left" style="font-size:11px;font-weight:700;">
 				<p>Formulir Nomor : 107.PBK.05.2</p>
 			</div>
@@ -10,8 +8,6 @@
 				Lampiran Peraturan Kepala Badan Pengawas<br>Perdagangan Berjangka Komoditi<br>Nomor : 107/BAPPEBTI/PER/11/2013
 			</div>
 		</div>
-		<form class="form-horizontal" method="POST" id="pbk05Form" action="{{ url('admin/account/real-account/form/107-PBK-05-2-check') }}">
-		{{ csrf_field() }}
 		<div class="modal-body">
 			<div class="row row-lg">
 				<div class="col-sm-12">
@@ -20,9 +16,6 @@
 						<h4 class="example-title" style="font-weight:700;text-align:center;font-size:14px;">PERJANJIAN PEMBERIAN AMANAT SECARA ELETRONIK ON-LINE UNTUK TRANSAKSI KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF</h4>
 						<hr>
 						<div class="example">
-							<div class="height-400 scrollable scrollable-shadow is-enabled scrollable-vertical" data-skin="scrollable-shadow" data-plugin="scrollable" style="position: relative;">
-								<div data-role="container" class="scrollable-container" style="height: 400px;">
-									<div data-role="content" class="scrollable-content" style="height: 400px;">
 													<table class="risk" cellspacing="0">
 													<tbody>
 													<tr>
@@ -77,13 +70,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check1"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold">
 																<li>
@@ -99,13 +85,6 @@
 																</li>
 															</ol>
 														</td>
-													</tr>
-													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check2"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -126,13 +105,6 @@
 																</li>
 															</ol>
 														</td>
-													</tr>
-													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check3"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -161,13 +133,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check4"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold" start="4">
 																<li>
@@ -176,13 +141,6 @@
 																</li>
 															</ol>
 														</td>
-													</tr>
-													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check5"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -195,13 +153,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check6"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold" start="6">
 																<li>
@@ -210,13 +161,6 @@
 																</li>
 															</ol>
 														</td>
-													</tr>
-													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check7"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -240,13 +184,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check8"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold" start="8">
 																<li>
@@ -264,13 +201,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check9"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold" start="9">
 																<li>
@@ -281,13 +211,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check10"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold" start="10">
 																<li>
@@ -296,13 +219,6 @@
 																</li>
 															</ol>
 														</td>
-													</tr>
-													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check11"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -331,13 +247,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check12"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold" start="12">
 																<li>
@@ -346,13 +255,6 @@
 																</li>
 															</ol>
 														</td>
-													</tr>
-													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check13"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -365,13 +267,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check14"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold" start="14">
 																<li>
@@ -382,13 +277,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check15"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold" start="15">
 																<li>
@@ -397,13 +285,6 @@
 																</li>
 															</ol>
 														</td>
-													</tr>
-													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check16"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -543,13 +424,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check16"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold" start="17">
 																<li>
@@ -558,13 +432,6 @@
 																</li>
 															</ol>
 														</td>
-													</tr>
-													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check17"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -585,13 +452,6 @@
 																</li>
 															</ol>
 														</td>
-													</tr>
-													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check18"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -624,13 +484,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check19"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold" start="20">
 																<li>
@@ -641,28 +494,14 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check20"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold" start="21">
 																<li>
-																	<b>Perubahan Atas lsian dalam Perjanjian Pemberian Amanat</b><br>
+																	<b>Perubahan Atas Isian dalam Perjanjian Pemberian Amanat</b><br>
 																	<span class="normal">Perubahan atas isian dalam Perjanjian pemberian ini hanya dapat dilakukan atas persetujuan Para Pihak, atau Pialang Berjangka telah memberitahukan secara tertulis perubahan yang diinginkan, dan Nasabah tetap memberikan perintah untuk transaksi dengan tanpa memberikan tanggapan secara tertulis atas usul perubahan tersebut. Tindakan Nasabah tersebut dianggap setuju atas usul perubahan tersebut.</span>
 																</li>
 															</ol>
 														</td>
-													</tr>
-													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check21"></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -701,13 +540,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check22"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop">
 															<ol class="bold" start="23">
 																<li>
@@ -718,13 +550,6 @@
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check23"></td>
-													</tr>
-													<tr>
 														<td colspan="2" class="just notop" style="text-align:center">
 															<span class="normal">Demikian Perjanjian Pemberian Amanat ini dibuat oleh Para Pihak dalam keadaan sadar, sehat jasmani rohani dan tanpa unsur paksaan dari pihak manapun. </span>
 															<br>
@@ -732,255 +557,31 @@
 															<b>“ Saya telah membaca, mengerti dan setuju terhadap semua ketentuan yang tercantum dalam perjanjian ini ”.</b>
 														</td>
 													</tr>
-													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check24"></td>
-													</tr>
 													</tbody>
 													</table>
-									</div>
-								</div>
-							</div>
 						</div>	
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="modal-footer">
-				<div class="form-group form-material">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" name="agree" value="agree" /> saya menyatakan bahwa saya telah menerima, <b>“PERJANJIAN PEMBERIAN AMANAT TRANSAKSI KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF”, </b> mengerti dan menyetujui isinya.
-						</label>
-					</div>
+			<hr>
+			<div class="modal-footer">
+				<div class="form-group form-material" style="text-align:center;">
+					Saya menyatakan bahwa saya telah menerima, <b>“PERJANJIAN PEMBERIAN AMANAT TRANSAKSI KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF”, </b> mengerti dan menyetujui isinya.
 				</div>
-				<div class="form-group form-material">	
-					Menyatakan pada Tanggal <span id="date"></span>
+				<br>
+				<br>
+				<br>
+				<div class="pull-right" style="text-align:right;">
+					{{$data->today->formatLocalized('%A %d %B %Y')}}
+					<br>
+					Menyatakan,
+					<br>
+					<br>
+					<br>
+					<br>
+					({{$data->nama}})
 				</div>
-				<div class="form-group form-material">	
-					<div class="col-sm-9 col-sm-offset-3">
-						<button type="submit" class="btn btn-primary">Submit </button>
-					</div>
-				</div>
-			</form>
-		</div>
+			</div>
 	</div>
 </div>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
-
-if(dd<10) {
-    dd = '0'+dd
-} 
-
-if(mm<10) {
-    mm = '0'+mm
-} 
-
-today = dd + '/' + mm + '/' + yyyy;
-document.getElementById("date").innerHTML = today;
-
-$(function () {
-  $(document).on('click', '.popup-modal-dismiss', function (e) {
-		console.log(e);
-    e.preventDefault();
-    $.magnificPopup.close();
-  });
-});
-</script>
-<script>
-$(document).ready(function() {
-    $('#pbk05Form').formValidation({
-        framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-			check1: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 1'
-                    }
-                }
-            },
-			check2: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 2'
-                    }
-                }
-            },
-			check3: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 3'
-                    }
-                }
-            },
-			check4: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 4'
-                    }
-                }
-            },
-			check5: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 5'
-                    }
-                }
-            },
-			check6: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 6'
-                    }
-                }
-            },
-			check7: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 7'
-                    }
-                }
-            },
-			check8: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 8'
-                    }
-                }
-            },
-			check9: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 9'
-                    }
-                }
-            },
-			check10: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 10'
-                    }
-                }
-            },
-			check11: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 11'
-                    }
-                }
-            },
-			check12: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 12'
-                    }
-                }
-            },
-			check13: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 13'
-                    }
-                }
-            },
-			check14: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 14'
-                    }
-                }
-            },
-			check15: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 15'
-                    }
-                }
-            },
-			check16: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 16' 
-                    }
-                }
-            },
-			check17: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 17'
-                    }
-                }
-            },
-			check18: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 18'
-                    }
-                }
-            },
-			check19: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 19'
-                    }
-                }
-            },
-			check20: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 20'
-                    }
-                }
-            },
-			check21: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 21'
-                    }
-                }
-            },
-			check22: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 22'
-                    }
-                }
-            },
-			check23: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 23'
-                    }
-                }
-            },
-			check24: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan 24'
-                    }
-                }
-            },
-			agree: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan pada form ini'
-                    }
-                }
-            }
-        }
-    });
-});
-</script>

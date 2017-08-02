@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin\Account;
 use Auth;
 use Mail;
 use PDF;
+use File;
+use Carbon;
+use DB;
 use App\Mail\RealAccount;
 use App\Models\UserTask;
 use App\Models\RequestAccount;
@@ -149,7 +152,7 @@ class FormController extends Controller
       			'id_card' => $id_card,
       			'rek_koran' => $rek_koran,
       			'foto' => $foto,
-            'approval_yes' => $request->approval_yes
+            'aproval_yes' => $request->approval_yes
         ]);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'active']);
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->update(['status' => 'current']);
@@ -183,42 +186,160 @@ class FormController extends Controller
 	}
 	public function bpk_03_download()
     {
-      $pdf = PDF::loadView('admin.account.form.107_PBK_03_download');
+	  $today = Carbon::now();	
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+	  
+	  $tipe = DB::table('request_accounts')
+            ->join('account_types', 'request_accounts.account_type_id', '=', 'account_types.id')
+            ->select('account_types.account_name')
+			->where('request_accounts.user_id',Auth::user()->id)
+            ->first();
+			
+	  $data['account_type'] = $tipe->account_name;
+	  if($data['account_type'] == 'mini'){
+		$data['account_nominal'] = '0.1';
+	  }elseif($data['account_type'] == 'reguler'){
+		$data['account_nominal'] = '1';
+	  }
+	  $data['id_card'] = public_path($data['id_card']);
+	  $data['rek_koran'] = public_path($data['rek_koran']);
+	  $data['foto'] = public_path($data['foto']);
+	  $dob = strtotime($data['dob']);
+	  $data['dob'] = date('j F Y',$dob);
+      $pdf = PDF::loadView('admin.account.form.107_PBK_03_download',compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/PBK03.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK03.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK03.pdf'), $output);  
+	  }
 	  return $pdf->download('PBK03.pdf');
     }
 	public function bpk_02_1_download()
     {
-	  $pdf = PDF::loadView('admin.account.form.107_PBK_02_1_download');
+	  $today = Carbon::now();	
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+	  $demos = Mt4User::where('user_id',Auth::user()->id)->get();
+	  $demo	= $demos[0];
+	  $pdf = PDF::loadView('admin.account.form.107_PBK_02_1_download',compact('demo'),compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/PBK02-1.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK02-1.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK02-1.pdf'), $output);  
+	  }
 	  return $pdf->download('PBK02-1.pdf');
     }
 	public function bpk_02_2_download()
     {
-	  $pdf = PDF::loadView('admin.account.form.107_PBK_02_2_download');
+	  $today = Carbon::now();	
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+	  $demos = Mt4User::where('user_id',Auth::user()->id)->get();
+	  $demo	= $demos[0];
+	  $pdf = PDF::loadView('admin.account.form.107_PBK_02_2_download',compact('demo'),compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/PBK02-2.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK02-2.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK02-2.pdf'), $output);  
+	  }
 	  return $pdf->download('PBK02-2.pdf');
     }
     public function bpk_01_download()
     {
-      $pdf = PDF::loadView('admin.account.form.107_PBK_01_download');
+	  $today = Carbon::now();	
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+      $pdf = PDF::loadView('admin.account.form.107_PBK_01_download',compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/PBK01.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK01.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK01.pdf'), $output);  
+	  }
 	  return $pdf->download('PBK01.pdf');
     }
     public function bpk_04_2_download()
     {
-      $pdf = PDF::loadView('admin.account.form.107_PBK_04_2_download');
+	  $today = Carbon::now();	
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;	
+      $pdf = PDF::loadView('admin.account.form.107_PBK_04_2_download',compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/PBK04-2.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK04-2.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK04-2.pdf'), $output);  
+	  }
 	  return $pdf->download('PBK04-2.pdf');
     }
     public function bpk_05_2_download()
     {
-      $pdf = PDF::loadView('admin.account.form.107_PBK_05_2_download');
+	  $today = Carbon::now();	
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+      $pdf = PDF::loadView('admin.account.form.107_PBK_05_2_download',compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/PBK05-2.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK05-2.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK05-2.pdf'), $output);  
+	  }
 	  return $pdf->download('PBK05-2.pdf');
     }
     public function bpk_06_download()
     {
-      $pdf = PDF::loadView('admin.account.form.107_PBK_06_download');
+	  $today = Carbon::now();	
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+      $pdf = PDF::loadView('admin.account.form.107_PBK_06_download',compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/PBK06.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK06.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK06.pdf'), $output);  
+	  }
 	  return $pdf->download('PBK06.pdf');
     }
     public function bpk_07_download()
     {
-      $pdf = PDF::loadView('admin.account.form.107_PBK_07_download');
+	  $today = Carbon::now();	
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+      $pdf = PDF::loadView('admin.account.form.107_PBK_07_download',compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/PBK07.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK07.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/PBK07.pdf'), $output);  
+	  }
 	  return $pdf->download('PBK07.pdf');
     }
 }

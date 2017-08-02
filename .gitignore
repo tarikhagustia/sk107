@@ -9,3 +9,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
+public/pdf/
+public/uploads/2/rek_koran.jpg
+public/uploads/2/id_card.jpg
+public/uploads/2/foto.jpg
