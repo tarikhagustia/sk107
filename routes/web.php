@@ -67,6 +67,9 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::get('admin/account/real-account', 'AccountController@index')->middleware('demo')->name('create.account.real');
   Route::post('admin/account/real-account', 'AccountController@post_request_account_real')->name('create.account.real.post');
   Route::get('admin/account/real-account/finish', 'AccountController@request_finish')->name('create.account.real.finish');
+  Route::get('admin/account/manage-real-account', 'Admin\Account\AdminController@manage_real_account')->name('manage.real.account');
+  Route::post('admin/account/manage-real-account', 'Admin\Account\AdminController@manage_real_account_post')->name('manage.real.account.post');
+  Route::get('admin/account/manage-real-account/{id}', 'Admin\Account\AdminController@manage_real_account')->name('account.real.manage');
 
 
 

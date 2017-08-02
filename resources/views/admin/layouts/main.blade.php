@@ -46,6 +46,10 @@
   </script>
 </head>
 <body class=" site-navbar-small">
+  <audio id="audio">
+    <source src="{{ url('alarm.mp3') }}" type="audio/mp3">
+    Your browser does not support the audio tag.
+  </audio>
   <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -91,8 +95,43 @@
         </ul>
         <!-- End Navbar Toolbar -->
 
+
         <!-- Navbar Toolbar Right -->
         <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+
+          <li class="dropdown" id="notify">
+             <a data-toggle="dropdown" href="javascript:void(0)" title="Notifications" aria-expanded="false"
+                data-animation="scale-up" role="button">
+             <i class="icon md-notifications" aria-hidden="true"></i>
+             <span class="badge badge-danger up">@{{countNotify}}</span>
+             </a>
+             <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
+                <li class="dropdown-menu-header" role="presentation">
+                   <h5>NOTIFICATIONS</h5>
+                   <span class="label label-round label-danger">New @{{countNotify}}</span>
+                </li>
+                <li class="list-group" role="presentation">
+                   <div data-role="container">
+                      <div data-role="content">
+                        <div  v-for="row in notifications">
+                         <a class="list-group-item" :href="row.url" role="menuitem">
+                            <div class="media">
+                               <div class="media-left padding-right-10">
+                                  <i class="icon md-account bg-green-600 white icon-circle" aria-hidden="true"></i>
+                               </div>
+                               <div class="media-body">
+                                  <h6 class="media-heading">@{{row.title}}</h6>
+                                  <time class="media-meta">@{{row.timestamp}}</time>
+                               </div>
+                            </div>
+                         </a>
+                       </div>
+                      </div>
+                   </div>
+                </li>
+             </ul>
+          </li>
+
           <li class="dropdown">
             <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"
             data-animation="scale-up" role="button">
@@ -102,6 +141,7 @@
               </span>
             </a>
             <ul class="dropdown-menu" role="menu">
+
               <li role="presentation">
                 <a href="{{ url('admin/profile') }}" role="menuitem"><i class="icon md-account" aria-hidden="true"></i> Profile</a>
               </li>
@@ -111,6 +151,10 @@
               </li>
             </ul>
           </li>
+
+
+
+
         </ul>
         <!-- End Navbar Toolbar Right -->
       </div>
@@ -175,6 +219,11 @@
                 <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'manage-demo-account') active @endif">
                   <a class="animsition-link" href="{{ url('admin/account/manage-demo-account') }}">
                     <span class="site-menu-title">Manage Demo Account</span>
+                  </a>
+                </li>
+                <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'manage-real-account') active @endif">
+                  <a class="animsition-link" href="{{ route('manage.real.account') }}">
+                    <span class="site-menu-title">Manage Real Account</span>
                   </a>
                 </li>
               @endif
@@ -329,6 +378,69 @@
       });
 
     })(document, window, jQuery);
+    var aid = document.getElementById("audio");
+
+
+
+    var vo = new Vue({
+      el : '#notify',
+      data : {
+        notifications : []
+      },
+      mounted : function() {
+        @if(Auth::user()->role == "admin")
+        this.getNotify();
+
+        // this.playAlarm();
+        // alarm.mp3
+        // if(this.notifications.length > 0 ){
+        //   this.playAlarm();
+        // }
+        setInterval(this.getNotify, 3000);
+        @endif
+
+      },
+      methods : {
+        getNotify(){
+
+          $.ajax({
+            url : "{{url('api/notifications')}}",
+            success: (response) => {
+                this.notifications = response;
+            }
+          });
+
+
+        },
+        audioInstance(){
+          var audio = new Audio('alarm.mp3');
+          audio.loop = true;
+          return audio;
+        },
+        playAlarm(){
+          var audio = this.audioInstance();
+
+          audio.play();
+        },
+        stopAlarm(){
+          var audio = this.audioInstance();
+          audio.pause();
+        }
+      },
+      computed: {
+        countNotify: function(){
+          if(this.notifications.length > 0){
+            aid.play();
+          }else{
+            aid.pause();
+          }
+          return this.notifications.length;
+        }
+      }
+    });
+
+
+
   </script>
 
 </body>

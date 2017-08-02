@@ -28,7 +28,7 @@ class CreateUsersTableSeeder extends Seeder
           'account_type_id' => 1,
           'order_number' => Carbon::now()->timestamp,
           'account_number' => null,
-          'status' => 'request'
+          'status' => 'filling'
         ]);
 
         $tasks = Task::all();
