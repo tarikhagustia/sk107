@@ -55,7 +55,7 @@
 			</div>
 			<button type="submit" class="btn btn-primary btn-block">Masuk</button>
 		  </form>
-		  <p>Belum punya akun ? silahkan <a href="{{ route('register') }}">Mendaftar</a></p>
+		  <p style="color:white;">Belum punya akun ? silahkan <a href="{{ route('register') }}">Mendaftar</a></p>
 
 
 		  <footer class="page-copyright page-copyright-inverse">

@@ -22,6 +22,7 @@ class CheckDemo
 			$err = 'Anda harus membuat demo account terlebih dahulu sebelum membuat real account';
             return redirect('admin/account/demo-account')->withErrors([$err]);
         }
+
         return $next($request);
     }
 }

@@ -8,6 +8,11 @@
       <!-- Panel -->
       <div class="panel">
         <div class="panel-body container-fluid">
+		  @if($errors->any())
+		  <div class="alert alert-warning">
+			<p>{{$errors->first()}}</p>
+		  </div>
+		  @endif
           <div class="row row-lg">
             <div class="col-md-12">
               <!-- Example Basic -->
@@ -50,13 +55,6 @@
                     </tbody>
                   </table>
                 </div>
-				<div class="col-md-12">
-					@if($errors->any())
-                    <span class="help-block" style="color:red;">
-                        <strong>{{$errors->first()}}</strong>
-                    </span>
-					@endif
-				</div>
 				@if( $create != 'true' )
 				<p>*) Maksimal demo account adalah 1 untuk setiap user <br>*) Silahkan contact support kami untuk menambah balance demo account anda</p>
 				@else

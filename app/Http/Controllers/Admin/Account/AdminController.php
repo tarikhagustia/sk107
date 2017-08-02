@@ -39,7 +39,6 @@ class AdminController extends Controller
 	  }
     }
 
-
     public function manage_real_account($id = false){
 
       if(!$id):
