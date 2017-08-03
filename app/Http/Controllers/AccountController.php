@@ -22,7 +22,7 @@ class AccountController extends Controller
       return redirect()->back()->with(['error' => 'Invalid Order ID']);
     }
 
-    Mail::to(env('OPENREAL_EMAIL'))->send(new RealAccount($order));
+    Mail::to(env('OPENREAL_MAIL'))->send(new RealAccount($order));
 
     return redirect()->route('create.account.real.finish');
 

@@ -70,7 +70,8 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::get('admin/account/manage-real-account', 'Admin\Account\AdminController@manage_real_account')->name('manage.real.account');
   Route::post('admin/account/manage-real-account', 'Admin\Account\AdminController@manage_real_account_post')->name('manage.real.account.post');
   Route::get('admin/account/manage-real-account/{id}', 'Admin\Account\AdminController@manage_real_account')->name('account.real.manage');
-
+  Route::get('admin/account/demo-account-list', 'Admin\Account\AdminController@list_demo');
+  Route::get('admin/account/real-account-list', 'Admin\Account\AdminController@list_real');
 
 
 
