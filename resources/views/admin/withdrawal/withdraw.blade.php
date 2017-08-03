@@ -6,6 +6,10 @@
 
 @section('content')
 <!-- Page -->
+<!-- <?php
+// var_dump($account);
+?> -->
+
  <div class="page">
    <div class="page-header">
      <h1 class="page-title">Permintaan Withdraw</h1>
@@ -14,7 +18,8 @@
      <!-- Panel Full Example -->
      <div class="panel">
        <div class="panel-body">
-         <form id="exampleFullForm" autocomplete="on" method="POST">
+         <form id="exampleFullForm" autocomplete="on" action="{{ url('admin/subwithdrawal') }}" method="post">
+           {{ csrf_field() }}
            <div class="row row-lg">
              <div class="col-lg-6">
                <div class="form-group form-material">
@@ -22,7 +27,7 @@
                    <span class="required">*</span>
                  </label>
                  <div class=" col-lg-12 col-sm-9">
-                   <input type="text" class="form-control" name="username" placeholder="John Fish"
+                   <input type="text" class="form-control" name="username" value="{{ Auth::user()->name }}"
                    required="">
                  </div>
                </div>
@@ -32,14 +37,15 @@
                    <span class="required">*</span>
                  </label>
                  <div class="col-lg-12 col-sm-9">
-                     <input type="email" class="form-control" name="email" placeholder="email@email.com"
+                     <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}"
                      required="">
                  </div>
                </div>
                <div class="form-group form-material">
-                <label class="col-lg-12 col-sm-3 control-label">No Tlp</label>
+                <label class="col-lg-12 col-sm-3 control-label">No Telepon/Hp
+                <span class="required">*</span></label>
                 <div class="col-lg-12 col-sm-9">
-                  <input type="text" class="form-control" name="type_phone" placeholder="(XXX) XXXX XXX" data-fv-field="type_phone">
+                  <input type="text" class="form-control" name="type_phone" value="{{ Auth::user()->phone }}" data-fv-field="type_phone" required="">
                 <small class="help-block" data-fv-validator="phone" data-fv-for="type_phone" data-fv-result="NOT_VALIDATED" style="display: none;">The value is not an phone(US)</small></div>
               </div>
              </div>
@@ -51,31 +57,21 @@
                  </label>
                  <div class="col-lg-12 col-sm-9">
                    <div class="input-group">
+                     @foreach ($account as $row)
                      <div>
                        <div class="radio-custom radio-primary">
-                         <input type="radio" id="inputAwesome" name="porto_is" value="awesome" required="">
-                         <label for="inputAwesome">123</label>
+                         <input type="radio" id="inputUltraAwesome" name="noaccount" value="{{ $row->login }}" required="">
+                         <label for="inputUltraAwesome">{{ $row->login }}</label>
                        </div>
                      </div>
-                     <div>
-                       <div class="radio-custom radio-primary">
-                         <input type="radio" id="inputVeryAwesome" name="porto_is" value="very-awesome">
-                         <label for="inputVeryAwesome">456</label>
-                       </div>
-                     </div>
-                     <div>
-                       <div class="radio-custom radio-primary">
-                         <input type="radio" id="inputUltraAwesome" name="porto_is" value="ultra-awesome">
-                         <label for="inputUltraAwesome">789</label>
-                       </div>
-                     </div>
+                     @endforeach
                    </div>
                  </div>
                </div>
                <div class="form-group form-material">
                 <label class="col-lg-12 col-sm-3 control-label">Saya Ingin Withdraw Sebanyak</label>
                 <div class="col-lg-12 col-sm-9">
-                  <input type="text" class="form-control" name="type_numberic" placeholder="Rp." data-fv-field="type_numberic">
+                  <input type="text" class="form-control" name="amount" placeholder="Rp." data-fv-field="type_numberic" required="">
                 <small class="help-block" data-fv-validator="integer" data-fv-for="type_numberic" data-fv-result="VALID" style="display: none;">The value is not an number</small></div>
               </div>
              </div>
