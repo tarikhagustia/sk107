@@ -256,7 +256,7 @@
 
                 @if (Auth::user()->role == "admin")
                   <li class="site-menu-item @if(Request::segment(2) == 'deposit' && Request::segment(3) == 'manage-deposit') active @endif">
-                    <a class="animsition-link" href="{{ url('admin/deposit/manage-deposit') }}">
+                    <a class="animsition-link" href="{{ url('admin/managedeposit') }}">
                       <span class="site-menu-title">Manage Deposit</span>
                     </a>
                   </li>
@@ -282,7 +282,7 @@
 
                 @if (Auth::user()->role == "admin")
                   <li class="site-menu-item @if(Request::segment(2) == 'withdrawal' && Request::segment(3) == 'manage-withdrawal') active @endif">
-                    <a class="animsition-link" href="{{ url('admin/withdrawal/manage-withdrawal') }}">
+                    <a class="animsition-link" href="{{ url('admin/managewithdrawal') }}">
                       <span class="site-menu-title">Manage Request Withdrawal</span>
                     </a>
                   </li>
