@@ -42,7 +42,7 @@
 												</div>
 											</div>
 											<div class="form-group form-material">
-												<label class="col-sm-5 control-label">Nomor {{$datas->tie_id}}: </label>
+												<label class="col-sm-5 control-label">Nomor {{$datas->tipe_id}}: </label>
 												<div class="col-sm-7">
 													{{$datas->no_id}}
 												</div>
@@ -66,7 +66,7 @@
 				<div class="form-group form-material">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah memiliki pengalaman yang mencukupi dalam melaksanakan transaksi Perdagangan Berjangka karena pernah bertransaksi pada Perusahaan Pialang Berjangka PT. ASKAP FUTURES, dan telah memahami tentang tata cara bertransaksi Perdagangan Berjangka. <br>Demikian Pernyataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.
+							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah memiliki pengalaman yang mencukupi dalam melaksanakan transaksi Perdagangan Berjangka karena pernah bertransaksi pada Perusahaan Pialang Berjangka {{config('settings.company_name')}}, dan telah memahami tentang tata cara bertransaksi Perdagangan Berjangka. <br>Demikian Pernyataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.
 						</label>
 					</div>
 				</div>

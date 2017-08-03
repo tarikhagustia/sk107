@@ -91,6 +91,10 @@ class FormController extends Controller
 	    $image = Input::file('id_card');
         $input['imagename'] = 'id_card.'.$image->getClientOriginalExtension();
   	    $destinationPath = public_path('/uploads/'.Auth::user()->id);
+		if(!file_exists($destinationPath)){
+	    $result = File::makeDirectory($destinationPath, 0775, true);
+	  }else{
+	  }
   	    $image->move($destinationPath, $input['imagename']);
   	    $fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
   	    $id_card = $fullpath;
@@ -98,6 +102,10 @@ class FormController extends Controller
 		$image = Input::file('rek_koran');
         $input['imagename'] = 'rek_koran.'.$image->getClientOriginalExtension();
   	    $destinationPath = public_path('/uploads/'.Auth::user()->id);
+				if(!file_exists($destinationPath)){
+	    $result = File::makeDirectory($destinationPath, 0775, true);
+	  }else{
+	  }
   	    $image->move($destinationPath, $input['imagename']);
   	    $fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
   	    $rek_koran = $fullpath;
@@ -105,6 +113,10 @@ class FormController extends Controller
 		$image = Input::file('foto');
         $input['imagename'] = 'foto.'.$image->getClientOriginalExtension();
   	    $destinationPath = public_path('/uploads/'.Auth::user()->id);
+				if(!file_exists($destinationPath)){
+	    $result = File::makeDirectory($destinationPath, 0775, true);
+	  }else{
+	  }
   	    $image->move($destinationPath, $input['imagename']);
   	    $fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
   	    $foto = $fullpath;

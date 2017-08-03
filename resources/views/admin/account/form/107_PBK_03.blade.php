@@ -447,7 +447,7 @@
 							<hr/>
 
 							<legend class="text-center">PERNYATAAN KEBENARAN DAN TANGGUNG JAWAB</legend>
-							<p class="text-justify">Dengan mengisi kolom “YA” di bawah ini, saya menyatakan bahwa semua informasi dan semua dokumen yang saya lampirkan dalam <b>APLIKASI PEMBUKAAN REKENING TRANSAKSI SECARA ELEKTRONIK ON-LINE</b>  adalah benar dan tepat, Saya akan bertanggung jawab penuh apabila dikemudian hari terjadi sesuatu hal sehubungan dengan ketidakbenaran data yang saya berikan.</p>
+							<p class="text-justify">Dengan mengisi kolom “YA” di bawah ini, saya menyatakan bahwa semua informasi dan semua dokumen yang saya lampirkan dalam <b>APLIKASI PEMBUKAAN REKENING TRANSAKSI SECARA ELEKTRONIK ON-LINE</b>  adalah benar dan tepat, Saya akan bertanggung jawab penuh apabila dikemudian hari terjadi sesuatu hal sehubungan dengan ketidak benaran data yang saya berikan.</p>
 
 							<div class="row">
 								<div class="col-sm-8 col-sm-offset-4">
@@ -509,48 +509,45 @@
 <script src="{{asset('js/admin/formvalidation-bootstrap.min.js')}}" charset="utf-8"></script>
 <script>
 $(document).ready(function() {
-		var today = new Date();
+				var today = new Date();
 		var date = new Date();
 		date.setFullYear( date.getFullYear() - 21 );
 		date.setMonth( date.getMonth() + 1 );
 		var stat = document.getElementById("status_perkawinan");
 		var status = stat.options[stat.selectedIndex].value;
+		if(date.getMonth()<10){var limit_month = '0'+date.getMonth();}else{var limit_month = date.getMonth();}
+		if(today.getMonth()<10){var today_month = '0'+today.getMonth();}else{var today_month = today.getMonth();}
+		if(date.getDate()<10){var limit_date = '0'+date.getDate();}else{var limit_date = date.getDate();}
+		if(today.getDate()<10){var today_date = '0'+today.getDate();}else{var today_date = today.getDate();}
 		if(status=='tidak kawin'){
-			var limit = (date.getFullYear() ) + '-' + (date.getMonth()) + '-' + (date.getDate());
+			var limit = (date.getFullYear() ) + '-' + (limit_month) + '-' + (limit_date);
 		}else{
-			var limit = (today.getFullYear() ) + '-' + (today.getMonth()) + '-' + (today.getDate());
+			var limit = (today.getFullYear() ) + '-' + (today_month) + '-' + (today_date);
 		}
+	
+		const DATEPICKER = $('.datepicker');
+		DATEPICKER.each(function(key, item){
+			$(item).datepicker({
+				format: 'yyyy-mm-dd',
+			})
+			.on('changeDate', function(e) {
+            // Revalidate the date field
+            $('#form-register').formValidation('revalidateField', 'dob');
+        });
+		})
 		
-		const DATEPICKER = $('.datepicker');
-		DATEPICKER.each(function(key, item){
-			$(item).datepicker({
-				format: 'yyyy-mm-dd',
-				endDate: limit,
-				
-			});
-		})
-
 	$('#status_perkawinan').change(function () {
-        var today = new Date();
-		var date = new Date();
-		date.setFullYear( date.getFullYear() - 21 );
-		date.setMonth( date.getMonth() + 1 );
 		var stat = document.getElementById("status_perkawinan");
 		var status = stat.options[stat.selectedIndex].value;
+		if(date.getMonth()<10){limit_month = '0'+date.getMonth();}else{limit_month = date.getMonth();}
+		if(today.getMonth()<10){today_month = '0'+today.getMonth();}else{today_month = today.getMonth();}
+		if(date.getDate()<10){limit_date = '0'+date.getDate();}else{limit_date = date.getDate();}
+		if(today.getDate()<10){today_date = '0'+today.getDate();}else{today_date = today.getDate();}
 		if(status=='tidak kawin'){
-			var limit = (date.getFullYear() ) + '-' + (date.getMonth()) + '-' + (date.getDate());
+			 limit = (date.getFullYear() ) + '-' + (limit_month) + '-' + (limit_date);
 		}else{
-			var limit = (today.getFullYear() ) + '-' + (today.getMonth()) + '-' + (today.getDate());
+			 limit = (today.getFullYear() ) + '-' + (today_month) + '-' + (today_date);
 		}
-		const DATEPICKER = $('.datepicker');
-		DATEPICKER.datepicker('remove');
-		DATEPICKER.each(function(key, item){
-			$(item).datepicker({
-				format: 'yyyy-mm-dd',
-				endDate: limit,
-				
-			});
-		})
     });	
 		
     $('#form-real').formValidation({
@@ -587,7 +584,7 @@ $(document).ready(function() {
 						tujuan: {
                 validators: {
                     notEmpty: {
-                        message: 'Pengalaman harus diisi'
+                        message: 'Tujuan harus diisi'
                     }
                 }
             },
@@ -602,6 +599,12 @@ $(document).ready(function() {
                 validators: {
                     notEmpty: {
                         message: 'Tanggal lahir harus diisi'
+                    },
+                    },
+                    date: {
+                        format: 'YYYY-MM-DD',
+                        max: limit,
+                        message: 'Tanggal lahir tidak memenuhi persyaratan'
                     }
                 }
             },
@@ -625,31 +628,41 @@ $(document).ready(function() {
                     }
                 }
             },
-						kelamin: {
+			kelamin: {
                 validators: {
                     notEmpty: {
                         message: 'The availability option is required'
                     }
                 }
             },
-						status: {
+			status: {
                 validators: {
                     notEmpty: {
                         message: 'The availability option is required'
                     }
                 }
             },
-            'size[]': {
+			keluarga_kbi: {
                 validators: {
-                    notEmpty: {
-                        message: 'The size is required'
+                    stringLength: {
+                        message: 'Maaf anda tidak bisa lanjut karena memiliki anggota keluarga yang bekerja di BAPPEBTI/Bursa Berjangka/Kliring Berjangka',
+                        min: 5;
                     }
                 }
             },
-          	availability: {
+			pailit: {
                 validators: {
-                    notEmpty: {
-                        message: 'The availability option is required'
+                    stringLength: {
+                        message: 'Maaf anda tidak bisa lanjut karena telah dinyatakan pailit oleh Pengadilan',
+                        min: 5;
+                    }
+                }
+            },
+			approval_yes: {
+                validators: {
+                    stringLength: {
+                        message: 'Anda harus menyetujui dan menerima pernyataan diatas',
+                        max: 2;
                     }
                 }
             },
@@ -766,7 +779,10 @@ $(document).ready(function() {
                 }
 							}
 						}
-        }
+        }).on('change', '[name="status_perkawinan"]', function(e) {
+
+            $('#form-real').formValidation('updateOption', 'dob', 'date', 'max', limit);
+        });
     });
 });
 </script>
