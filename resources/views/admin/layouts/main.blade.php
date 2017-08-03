@@ -221,9 +221,19 @@
                     <span class="site-menu-title">Manage Demo Account</span>
                   </a>
                 </li>
+				<li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'demo-account-list') active @endif">
+                  <a class="animsition-link" href="{{ url('admin/account/demo-account-list') }}">
+                    <span class="site-menu-title">Demo Account List</span>
+                  </a>
+                </li>
                 <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'manage-real-account') active @endif">
                   <a class="animsition-link" href="{{ route('manage.real.account') }}">
                     <span class="site-menu-title">Manage Real Account</span>
+                  </a>
+                </li>
+				<li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'real-account-list') active @endif">
+                  <a class="animsition-link" href="{{ url('admin/account/real-account-list') }}">
+                    <span class="site-menu-title">Real Account List</span>
                   </a>
                 </li>
               @endif

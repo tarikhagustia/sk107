@@ -45,6 +45,18 @@ class AdminController extends Controller
       return view('admin.account.approve-demo',['demos'=> $demos]);
     }
 	
+	public function list_demo()
+    {
+	  $demos = Mt4User::where('is_real','no')->get();
+      return view('admin.account.demo-account-list',['demos'=> $demos]);
+    }
+	
+	public function list_real()
+    {
+	  $reals = Mt4User::where('is_real','yes')->get();
+      return view('admin.account.real-account-list',['reals'=> $reals]);
+    }
+	
 	public function approve_demo_post(Request $request)
     {
 		Mt4User::where('id', $request->id)->update(['is_approved' => 'yes']);

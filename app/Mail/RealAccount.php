@@ -33,6 +33,6 @@ class RealAccount extends Mailable
     {
         return $this->subject('Permintaan pembukaan akun real')
                     ->view('emails.RealAccount')
-                    ->with(['datas' => $this->datas])->attach($this->datas->id_card)->attach($this->datas->rek_koran)->attach($this->datas->foto);
+                    ->with(['datas' => $this->datas])->attach(public_path($this->datas->id_card))->attach(public_path($this->datas->rek_koran))->attach(public_path($this->datas->foto));
     }
 }
