@@ -20,4 +20,14 @@ class ManagewithdrawalController extends Controller
       // dd($data);
     return view('admin.Withdrawal.manageWithdrawal', ['Withdrawal' => $data]);
   }
+
+  public function submanagewithdrawal(Request $r)
+  {
+    $cre = date("Y-m-d h:i:s");
+    DB::table('Withdrawal')
+      ->where('id', $r->id)
+      ->update(['status'=>'approve',
+                'updated_at'=>$cre]);
+    return redirect()->back()->with('success', 'Success Approve Withdrawal');
+  }
 }

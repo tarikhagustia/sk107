@@ -124,9 +124,11 @@ Route::group(['middleware' => ['auth','admin']], function(){
 Route::get('admin/withdrawal', 'Admin\Withdrawal\WithdrawalController@index')->name('withdrawal');
 Route::post('admin/subwithdrawal','Admin\Withdrawal\WithdrawalController@Withdrawal')->name('withdrawal');
 Route::get('admin/managewithdrawal', 'Admin\Withdrawal\ManagewithdrawalController@index')->name('manage.withdrawal');
+Route::post('admin/submanagewithdrawal', 'Admin\Withdrawal\ManagewithdrawalController@submanagewithdrawal')->name('submanage.withdrawal');
 Route::get('admin/deposit', 'Admin\Deposit\DepositController@index')->name('deposit');
 Route::post('admin/subdeposit', 'Admin\Deposit\DepositController@deposit')->name('deposit');
 Route::get('admin/managedeposit', 'Admin\Deposit\ManagedepositController@index')->name('manage.deposit');
+Route::post('admin/submanagedeposit', 'Admin\Deposit\ManagedepositController@submanagedeposit')->name('submanage.deposit');
 /*
 |--------------------------------------------------------------------------
 | SK107
