@@ -18,7 +18,8 @@
                       <tr>
                         <th>No</th>
                         <th>Name</th>
-                        <th>Email</th>
+												<th>Email</th>
+                        <th>Mt4 Login</th>
                         <th>Amount</th>
             						<th>Status</th>
             						<th>Created At</th>
@@ -26,22 +27,25 @@
                       </tr>
                     </thead>
                     <tbody>
+											<?php  $no = 1?>
+													@foreach ($deposit as $row)
                       <tr>
 					    <form class="form-horizontal" id="" method="POST" action="#">
 						{{ csrf_field() }}
-						<input type="hidden" value="" name="id">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-            						<td></td>
-            						<td></td>
+						<input type="hidden" value="{{ $row->id }}" name="id">
+                        <td>{{ $no++ }}</td>
+												<td>{{ $row->name }}</td>
+                        <td>{{ $row->email }}</td>
+                        <td>{{ $row->account_id }}</td>
+                        <td>{{ $row->amount }}</td>
+            						<td>{{ $row->status }}</td>
+            						<td>{{ $row->created_at }}</td>
             						<td>
-            							<button type="submit" class="btn btn-primary btn-block">Update</button>
+            							<button type="submit" class="btn btn-primary btn-block">Approve</button>
             						</td>
 						</form>
                       </tr>
-
+											@endforeach
                     </tbody>
                   </table>
                 </div>
