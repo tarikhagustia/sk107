@@ -28,35 +28,35 @@
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Nama: </label>
 												<div class="col-sm-7">
-													<input type="text" class="form-control" name="name" id="name" autocomplete="off" placeholder="Nama Lengkap" />
+													<input type="text" class="form-control" name="name" id="name" autocomplete="off" placeholder="Nama Lengkap" value="{{$order->nama}}" />
 												</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Tempat/Tanggal Lahir: </label>
 													<div class="col-sm-4">
-														<input type="text" class="form-control" name="place" id="place" placeholder="Tempat Lahir" autocomplete="off" />
+														<input type="text" class="form-control" name="place" id="place" placeholder="Tempat Lahir" autocomplete="off" value="{{$order->tempat_lahir}}" />
 													</div>
 													<div class="col-sm-3">
-															<input type="text" class="form-control" name="dob" id="dob" placeholder="dd-mm-yyyy">
+															<input type="text" class="form-control" name="dob" id="dob" placeholder="dd-mm-yyyy" value="{{$order->dob}}">
 													</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Alamat: </label>
 												<div class="col-sm-7">
-													<textarea class="form-control" placeholder="Alamat" name="alamat" id="alamat"></textarea>
+													<textarea class="form-control" placeholder="Alamat" name="alamat" id="alamat">{{$order->alamat}}</textarea>
 												</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Nomor Identitas: </label>
 												<div class="col-sm-3">
 													<select class="form-control" name="id">
-														<option value="ktp">KTP</option>
-														<option value="sim">SIM</option>
-														<option value="passport">Passport</option>
+														<option value="ktp" @if($order->tipe_id == "KTP") selected @endif >KTP</option>
+														<option value="sim" @if($order->tipe_id == "SIM") selected @endif >SIM</option>
+														<option value="passport" @if($order->tipe_id == "Passport") selected @endif >Passport</option>
 													</select>
 												</div>	
 												<div class="col-sm-4">
-													<input type="text" class="form-control" name="noid" id="noid" placeholder="Nomor Identitas" autocomplete="off" />
+													<input type="text" class="form-control" name="noid" id="noid" placeholder="Nomor Identitas" autocomplete="off" value="{{$order->no_id}}"/>
 												</div>
 											</div>
 											<div class="form-group form-material">

@@ -80,12 +80,4 @@
 	  </div>
 	</div>
   </div>
-
-        </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Page -->
 @endsection

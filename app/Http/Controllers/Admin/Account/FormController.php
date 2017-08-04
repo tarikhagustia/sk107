@@ -29,7 +29,10 @@ class FormController extends Controller
 	public function bpk_02_1()
     {
 	  $demos = Mt4User::where('user_id',Auth::user()->id)->get();	
-      return view('admin.account.form.107_PBK_02_1',['demos' => $demos[0]]);
+	  $order = Auth::user()->lastRequestAccount();
+	  $date = date_create($order->dob);
+	  $order->dob = date_format($date,"d-m-Y");
+      return view('admin.account.form.107_PBK_02_1',['demos' => $demos[0],'order' => $order]);
     }
 	public function bpk_02_2()
     {

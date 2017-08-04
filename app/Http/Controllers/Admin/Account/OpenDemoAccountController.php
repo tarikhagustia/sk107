@@ -32,7 +32,7 @@ class OpenDemoAccountController extends Controller
 		$names = explode(" ",$name);
 		$rng = str_pad(rand(0, pow(10,3)-1),3, '0', STR_PAD_LEFT);
 		$password = $names[0].$rng;
-		$investor_pass = 'abc123';
+		$investor_pass = 'abcd1234';
 		$leverage = 100;
 		$deposit = 5000;
 		$host = config('settings.mt4_host');
@@ -61,6 +61,7 @@ class OpenDemoAccountController extends Controller
             "DEPOSIT"    => $deposit,
         ];
         $run = app('MetaService')->setHost($host, $port)->createAccount($data);
+		dd($run);
 		if($run['status'] == true){
 			$login = '';
 			foreach($run['result'] as $result){

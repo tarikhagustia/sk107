@@ -90,19 +90,9 @@
                       <div class="row">
                         <div class="col-sm-4">
                           <select class="form-control" name="identity_type" id="identity_type">
-														@if($order->tipe_id == 'KTP')
-															<option value="ktp" selected >KTP</option>
-															<option value="sim">SIM</option>
-															<option value="passport">Passport</option>
-														@elseif($order->tipe_id == 'SIM')
-															<option value="ktp">KTP</option>
-															<option value="sim" selected >SIM</option>
-															<option value="passport">Passport</option>
-														@elseif($order->tipe_id == 'Passport')
-															<option value="ktp">KTP</option>
-															<option value="sim">SIM</option>
-															<option value="Passport" selected >Passport</option>
-														@endif
+															<option value="ktp" @if($order->tipe_id == "KTP") selected @endif >KTP</option>
+															<option value="sim" @if($order->tipe_id == "SIM") selected @endif >SIM</option>
+															<option value="passport"@if($order->tipe_id == "Passport") selected @endif >Passport</option>
                           </select>
                         </div>
                         <div class="col-sm-8">
