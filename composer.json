@@ -13,7 +13,8 @@
         "laravelcollective/html": "^5.4.0",
         "nesbot/carbon": "^1.22",
         "unisharp/laravel-filemanager": "^1.7",
-        "yajra/laravel-datatables-oracle": "7.1"
+        "yajra/laravel-datatables-oracle": "7.1",
+		"chumper/zipper": "1.0.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
