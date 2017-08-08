@@ -47,7 +47,6 @@ class MetaService {
         endforeach;
         $request = "W" . $this->request_type . " " . $line . "\nQUIT\n";
         $ptr = $this->socket;
-		dd($request);
         if($ptr)
         {	
             if(fputs($ptr,  $request) != FALSE)
@@ -63,7 +62,6 @@ class MetaService {
                         $ret.= $line;
                     endif;
                 }
-				dd($ret);
             }
             fclose($ptr);
             $response['status'] = ($array[0] == "ERROR") ? false : true;

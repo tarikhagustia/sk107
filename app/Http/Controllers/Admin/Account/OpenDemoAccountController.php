@@ -61,7 +61,6 @@ class OpenDemoAccountController extends Controller
             "DEPOSIT"    => $deposit,
         ];
         $run = app('MetaService')->setHost($host, $port)->createAccount($data);
-		dd($run);
 		if($run['status'] == true){
 			$login = '';
 			foreach($run['result'] as $result){
