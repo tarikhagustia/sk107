@@ -20,4 +20,15 @@ class ManagedepositController extends Controller
       // dd($data);
     return view('admin.deposit.managedeposit', ['deposit' => $data]);
   }
+
+  public function submanagedeposit(Request $r)
+  {
+    // dd($r);
+    $cre = date("Y-m-d h:i:s");
+    DB::table('deposit')
+      ->where('id', $r->id)
+      ->update(['status'=>'approve',
+                'updated_at'=>$cre]);
+    return redirect()->back()->with('success', 'Success Approve Deposit');
+  }
 }

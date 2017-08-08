@@ -30,9 +30,13 @@
 											<?php  $no = 1?>
 													@foreach ($Withdrawal as $row)
                       <tr>
-					    <form class="form-horizontal" id="" method="POST" action="#">
+					    <form class="form-horizontal" id="" method="post" action="{{ url('admin/submanagewithdrawal') }}">
 						{{ csrf_field() }}
 						<input type="hidden" value="{{ $row->id }}" name="id">
+						<input type="hidden" value="{{ $row->name }}" name="name">
+						<input type="hidden" value="{{ $row->email }}" name="email">
+						<input type="hidden" value="{{ $row->account_id }}" name="account_id">
+						<input type="hidden" value="{{ $row->amount }}" name="amount">
 											<td>{{ $no++ }}</td>
 											<td>{{ $row->name }}</td>
 											<td>{{ $row->email }}</td>
