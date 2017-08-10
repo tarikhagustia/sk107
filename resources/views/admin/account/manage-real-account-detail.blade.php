@@ -170,7 +170,7 @@
                     <div class="col-sm-9">
                       <div class="row">
                         <div class="col-sm-6">
-                          <input disabled type="text" class="form-control" name="place" value="">
+                          <input disabled type="text" class="form-control" name="place" value="{{$order->tempat_lahir}}">
                         </div>
                         <div class="col-sm-6">
                           <input disabled type="text" class="form-control datepicker" name="dob" id="dob" value="{{$order->dob}}">

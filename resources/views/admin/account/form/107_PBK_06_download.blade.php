@@ -25,26 +25,26 @@
 												<b>TRADING RULES KONTRAK BERJANGKA :</b><br>
 												<ul>
 													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/TRADING RULES KONTRAK GULIR EMAS US DOLLAR.pdf" target="_blank">TRADING RULES KONTRAK GULIR EMAS US DOLLAR</a>
+														<img class="doc2pdf"><a href="#" target="_blank">TRADING RULES KONTRAK GULIR EMAS US DOLLAR</a>
 													</li>
 													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/TRADING RULES KONTRAK GULIR MINI EMAS US DOLLAR.pdf" target="_blank">TRADING RULES KONTRAK GULIR MINI EMAS US DOLLAR</a>
+														<img class="doc2pdf"><a href="#" target="_blank">TRADING RULES KONTRAK GULIR MINI EMAS US DOLLAR</a>
 													</li>
 													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/TRADING RULES KONTRAK BERJANGKA EMAS 100 GRAM.pdf" target="_blank">TRADING RULES KONTRAK BERJANGKA EMAS 100 GRAM</a>
+														<img class="doc2pdf"><a href="#" target="_blank">TRADING RULES KONTRAK BERJANGKA EMAS 100 GRAM</a>
 													</li>
 													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/TRADING RULES KONTRAK KOPI ARABIKA.pdf" target="_blank">TRADING RULES KONTRAK KOPI ARABIKA</a>
+														<img class="doc2pdf"><a href="#" target="_blank">TRADING RULES KONTRAK KOPI ARABIKA</a>
 													</li>
 													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/TRADING RULES KONTRAK KOPI ROBUSTA.pdf" target="_blank">TRADING RULES KONTRAK KOPI ROBUSTA</a>
+														<img class="doc2pdf"><a href="#" target="_blank">TRADING RULES KONTRAK KOPI ROBUSTA</a>
 													</li>
 												</ul>
 												<br>
 												<b>TRADING RULES KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF :</b><br>
 												<ul>
 													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/TRADING-RULES-FOREX-dan-LLG-ONLINE-Reguler-Online-Summer-Time-Revisi-13062017.pdf" target="_blank">TRADING RULES FOREIGN EXCHANGE (MATA UANG ASING) &amp; LOCO LONDON GOLD (EMAS LOCO LONDON)</a>
+														<img class="doc2pdf"><a href="#" target="_blank">TRADING RULES FOREIGN EXCHANGE (MATA UANG ASING) &amp; LOCO LONDON GOLD (EMAS LOCO LONDON)</a>
 													</li>
 													<!--<li><img class="doc2pdf" src="/images/pdf-icon.png"><a href="/docs/FOREX-dan-LLG-ONLINE-Reguler-Online-Summer-Time-10032017.pdf" target="_blank">TRADING RULES FOREIGN EXCHANGE (MATA UANG ASING) & LOCO LONDON GOLD (EMAS LOCO LONDON)</a></li>-->
 													<!--<li><img class="doc2pdf" src="/images/pdf-icon.png"><a href="/docs/TRADING RULES STOCK INDEX (INDEKS SAHAM) REGULER.pdf" target="_blank">TRADING RULES STOCK INDEX (INDEKS SAHAM)</a></li>-->
@@ -55,7 +55,7 @@
 												 Dengan volume 0,1 (nol koma satu) lot yang diperdagangkan :<br></b>
 												<ul>
 													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/WINTER-TRADING-RULES-FOREX-dan-LLG-ONLINE-Lot-kecil-Online-Summer-Time-13062017.pdf" target="_blank">TRADING RULES FOREIGN EXCHANGE (MATA UANG ASING) &amp; LOCO LONDON GOLD (EMAS LOCO LONDON)</a>
+														<img class="doc2pdf"><a href="#" target="_blank">TRADING RULES FOREIGN EXCHANGE (MATA UANG ASING) &amp; LOCO LONDON GOLD (EMAS LOCO LONDON)</a>
 													</li>
 													<!--<li><img class="doc2pdf" src="/images/pdf-icon.png"><a href="/docs/FOREX-dan-LLG-ONLINE-Lot-Kecil-Online-Summer-Time-10032017.pdf" target="_blank">TRADING RULES FOREIGN EXCHANGE (MATA UANG ASING) & LOCO LONDON GOLD (EMAS LOCO LONDON)</a></li>-->
 													<!--<li><img class="doc2pdf" src="/images/pdf-icon.png"><a href="/docs/TRADING RULES STOCK INDEX (INDEKS SAHAM) MINI.pdf" target="_blank">TRADING RULES STOCK INDEX (INDEKS SAHAM)</a></li>-->
@@ -71,70 +71,22 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<form class="form-horizontal" method="POST" id="pbk06Form" action="{{ url('admin/account/real-account/form/107-PBK-06-check') }}">
-			{{ csrf_field() }}
-				<div class="form-group form-material">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah membaca, <b>PERATURAN PERDAGANGAN (TRADING RULES), </b> mengerti dan menerima ketentuan dalam bertransaksi.
-						</label>
-					</div>
+			<div class="form-group form-material" style="text-align:center;">
+					Saya menyatakan bahwa saya telah membaca, <b>PERATURAN PERDAGANGAN (TRADING RULES), </b> mengerti dan menerima ketentuan dalam bertransaksi.
 				</div>
-				<div class="form-group form-material">	
-					Menyatakan pada Tanggal <span id="date"></span>
+				<br>
+				<br>
+				<br>
+				<div class="pull-right" style="text-align:right;">
+					{{$data->today->formatLocalized('%A %d %B %Y')}}
+					<br>
+					Menyatakan,
+					<br>
+					<br>
+					<br>
+					<br>
+					({{$data->nama}})
 				</div>
-				<div class="form-group form-material">	
-					<div class="col-sm-9 col-sm-offset-3">
-						<button type="submit" class="btn btn-primary">Submit </button>
-					</div>
-				</div>
-			</form>
 		</div>
 	</div>
 </div>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
-
-if(dd<10) {
-    dd = '0'+dd
-} 
-
-if(mm<10) {
-    mm = '0'+mm
-} 
-
-today = dd + '/' + mm + '/' + yyyy;
-document.getElementById("date").innerHTML = today;
-
-$(function () {
-  $(document).on('click', '.popup-modal-dismiss', function (e) {
-		console.log(e);
-    e.preventDefault();
-    $.magnificPopup.close();
-  });
-});
-
-$(document).ready(function() {
-    $('#pbk06Form').formValidation({
-        framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-			agree: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan pada form ini'
-                    }
-                }
-            }
-        }
-    });
-});
-</script>

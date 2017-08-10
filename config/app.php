@@ -181,6 +181,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 		Barryvdh\DomPDF\ServiceProvider::class,
+		Chumper\Zipper\ZipperServiceProvider::class,
     ],
 
     /*
@@ -235,6 +236,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Carbon' => Carbon\Carbon::class,
 		'PDF' => Barryvdh\DomPDF\Facade::class,
+		'Zipper' => Chumper\Zipper\Zipper::class,
     ],
 
 ];

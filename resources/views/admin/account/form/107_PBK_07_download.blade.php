@@ -26,19 +26,19 @@
 											<tbody>
 												<tr>
 													<td>Nama</td>
-													<td>: Tarikh</td>
+													<td>: {{$data->nama}}</td>
 												</tr>
 												<tr>
 													<td>Tempat/Tanggal Lahir</td>
-													<td>: sukabumi, 1 Januari 1996</td>
+													<td>: {{$data->tempat_lahir}}, {{$data->dob}}</td>
 												</tr>
 												<tr>
 													<td>Alamat</td>
-													<td>: sukabumi 0</td>
+													<td>: {{$data->alamat}}</td>
 												</tr>
 												<tr>
-													<td>No KTP</td>
-													<td>: 10191291201201</td>
+													<td>No {{$data->tipe_id}}</td>
+													<td>: {{$data->no_id}}</td>
 												</tr>
 												<tr>
 													<td>No Account</td>
@@ -73,70 +73,22 @@
 							<p class="text-center">
 								<b>Demikian Pernyataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.</b>
 							</p>
-			<form class="form-horizontal" method="POST" id="pbk07Form" action="{{ url('admin/account/real-account/form/107-PBK-07-check') }}">
-			{{ csrf_field() }}
-				<div class="form-group form-material">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya bertanggungjawab sepenuhnya terhadap kode akses transaksi Nasabah (Personal Access Password) dan tidak menyerahkan kode akses transaksi Nasabah (Personal Access Password) ke pihak lain, terutama kepada pegawai Pialang Berjangka atau pihak yang memiliki kepentingan dengan Pialang Berjangka.
-						</label>
-					</div>
+				<div class="form-group form-material" style="text-align:center;">
+					Saya menyatakan bahwa saya bertanggungjawab sepenuhnya terhadap kode akses transaksi Nasabah (Personal Access Password) dan tidak menyerahkan kode akses transaksi Nasabah (Personal Access Password) ke pihak lain, terutama kepada pegawai Pialang Berjangka atau pihak yang memiliki kepentingan dengan Pialang Berjangka.
 				</div>
-				<div class="form-group form-material">	
-					Menyatakan pada Tanggal <span id="date"></span>
+				<br>
+				<br>
+				<br>
+				<div class="pull-right" style="text-align:right;">
+					{{$data->today->formatLocalized('%A %d %B %Y')}}
+					<br>
+					Menyatakan,
+					<br>
+					<br>
+					<br>
+					<br>
+					({{$data->nama}})
 				</div>
-				<div class="form-group form-material">	
-					<div class="col-sm-9 col-sm-offset-3">
-						<button type="submit" class="btn btn-primary">Submit </button>
-					</div>
-				</div>
-			</form>
 		</div>
 	</div>
 </div>
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
-
-if(dd<10) {
-    dd = '0'+dd
-} 
-
-if(mm<10) {
-    mm = '0'+mm
-} 
-
-today = dd + '/' + mm + '/' + yyyy;
-document.getElementById("date").innerHTML = today;
-
-$(function () {
-  $(document).on('click', '.popup-modal-dismiss', function (e) {
-		console.log(e);
-    e.preventDefault();
-    $.magnificPopup.close();
-  });
-});
-
-$(document).ready(function() {
-    $('#pbk07Form').formValidation({
-        framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-			agree: {
-                validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan pada form ini'
-                    }
-                }
-            }
-        }
-    });
-});
-</script>

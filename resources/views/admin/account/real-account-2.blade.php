@@ -11,7 +11,7 @@
             <div class="col-md-12">
               <!-- Example Basic -->
               <div class="example-wrap">
-                <h4 class="example-title">Real Account List</h4>
+                <h4 class="example-title">Real Account</h4>
                 <div class="example table-responsive">
                   <table class="table">
                     <thead>
@@ -21,29 +21,30 @@
                         <th>Email</th>
                         <th>Request Time</th>
 						<th>Login</th>
+						<th>Password</th>
 						<th>Status</th>
-						<th>Agreement</th>
                       </tr>
                     </thead>
                     <tbody>
 					@foreach($reals as $key => $real)
                       <tr>
                         <td>{{$key+1}}</td>
-                        <td>{{$real->name}}</td>
+                        <td>{{$real->nama}}</td>
                         <td>{{$real->email}}</td>
                         <td>{{$real->created_at}}</td>
-						<td>{{$real->login}}</td>
+						<td>{{$real->account_login}}</td>
+						<td>{{$real->account_password}}</td>
 						<td>
-						@if($real->is_active == 'yes')
+						@if($real->status == 'approved')
 							<span class="label label-success">Active</span>
-						@else
-							<span class="label label-danger">Suspend</span>
+						@elseif($real->status == 'rejected')
+							<span class="label label-danger">Rejected</span>
+						@elseif($real->status == 'pending')
+							<span class="label label-default">Pending</span>
+						@elseif($real->status == 'filling' || $real->status == 'request')
+							<span class="label label-primary">On Process</span>								
 						@endif
 						</td>
-						<td>
-							<a class="btn btn-primary" href="{{$real->docs}}" style="text-decoration: none;">Download</a>
-						</td>
-						</form>
                       </tr>
 					@endforeach
                     </tbody>

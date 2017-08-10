@@ -28,7 +28,7 @@ class User extends Authenticatable
 
     public function tasks()
     {
-      return $this->hasMany('App\Models\UserTask');
+      return $this->hasMany('App\Models\UserTask')->orderBy('task_id', 'asc');
     }
 
     public function account_request()
@@ -37,5 +37,8 @@ class User extends Authenticatable
     }
     public function lastRequestAccount(){
       return $this->hasMany('App\Models\RequestAccount')->where('status', 'filling')->first();
+    }
+	public function approvedRequestAccount(){
+      return $this->hasMany('App\Models\RequestAccount')->where('status', 'approved')->first();
     }
 }

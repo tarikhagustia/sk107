@@ -60,11 +60,11 @@
 						</tr>
 						<tr>
 							<td>NPWP</td>
-							<td>: {{$data->no_id}}</td>
+							<td>: {{$data->npwp}}</td>
 						</tr>
 						<tr>
 							<td>Jenis Kelamin</td>
-							<td>: {{$data->npwp}}</td>
+							<td>: {{$data->jenis_kelamin}}</td>
 						</tr>
 						<tr>
 							<td>Nama Ibu Kandung *)</td>

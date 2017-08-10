@@ -39,7 +39,8 @@ class OpenDemoAccountController extends Controller
 		$port = config('settings.mt4_port');
 
         $data = [
-            "IP" => $request->ip(),
+            //"IP" => $request->ip(),
+			"IP" => '203.173.92.102',
             "GROUP" => 1,
             "NAME" => $name,
             "PASSWORD"  => $password,

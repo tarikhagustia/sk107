@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Mail;
+use Zipper;
 use App\Mail\RealAccount;
+use App\Models\RequestAccount;
 class AccountController extends Controller
 {
   public function index()
   {
-
     $order = Auth::user()->lastRequestAccount();
     return view('admin.account.open_account', ['order' => $order]);
   }
@@ -21,8 +22,12 @@ class AccountController extends Controller
     if($request->order_id != $order->id){
       return redirect()->back()->with(['error' => 'Invalid Order ID']);
     }
-
-    Mail::to(env('OPENREAL_MAIL'))->send(new RealAccount($order));
+	$path = public_path('/pdf/'.Auth::user()->id.'/'.$order['order_number']);
+	$files = glob($path.'/*');
+	  Zipper::make($path.'/RequestAccount-'.$order['nama'].'-'.$order['order_number'].'.zip')->add($files)->close();
+	  $zippath = $path.'/RequestAccount-'.$order['nama'].'-'.$order['order_number'].'.zip';
+	  RequestAccount::where('order_number',$order['order_number'])->update(['docs' => $zippath]);
+	  Mail::to(env('OPENREAL_EMAIL'))->send(new RealAccount($order, $zippath));
 
     return redirect()->route('create.account.real.finish');
 

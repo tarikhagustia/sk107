@@ -3,14 +3,17 @@
 namespace App\Http\Controllers\Admin\Account;
 
 use Auth;
+use Carbon;
 use Mail;
 use App\Mail\DemoAccountActivated;
+use App\Models\Task;
 use App\Models\UserTask;
 use App\Models\RequestData;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Models\Mt4User;
+use App\User;
 use App\Models\RequestAccount;
 use App\Models\AccountType;
 
@@ -88,7 +91,39 @@ class AdminController extends Controller
           $sql->status = "approved";
           $sql->account_password = $request->login_password;
           $sql->save();
-
+		  
+		  
+		  $data = RequestAccount::where('id',$request->request_id)->first();
+		  $user = User::where('id',$data['user_id'])->first();
+		  Mt4User::create([
+            'user_id' => $data['user_id'],
+            'order_number' => $data['order_number'],
+            'login' => $request->login_number,
+			'password' => $request->login_password,
+			'email' => $user['email'],
+			'name' => $data['nama'],
+			'is_real' => 'yes',
+			'is_active' => 'yes',
+			'docs' => $data['docs']
+        ]);
+		
+		$requests = RequestAccount::create([
+          'user_id' => $data['user_id'],
+          'account_type_id' => 1,
+          'order_number' => Carbon::now()->timestamp,
+          'account' => null,
+          'status' => 'filling'
+        ]);
+		UserTask::where('request_account_id',$request->request_id)->delete();
+        $tasks = Task::all();
+        foreach($tasks as $row){
+          UserTask::create([
+            'user_id' => $data['user_id'],
+            'request_account_id' => $requests->id,
+            'task_id' => $row->id,
+            'status' => ($row->task_form_number == '107.PBK.01') ? "current" : "disabled",
+          ]);
+        }
           return redirect()->route('manage.real.account')->with(['success' => 'Berhasil input data']);
       }
 

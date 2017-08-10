@@ -26,19 +26,19 @@
 											<tbody>
 												<tr>
 													<td>Nama</td>
-													<td>: Tarikh</td>
+													<td>: {{$datas->nama}}</td>
 												</tr>
 												<tr>
 													<td>Tempat/Tanggal Lahir</td>
-													<td>: sukabumi, 1 Januari 1996</td>
+													<td>: {{$datas->tempat_lahir}}, {{$datas->dob}}</td>
 												</tr>
 												<tr>
 													<td>Alamat</td>
-													<td>: sukabumi 0</td>
+													<td>: {{$datas->alamat}}</td>
 												</tr>
 												<tr>
-													<td>No KTP</td>
-													<td>: 10191291201201</td>
+													<td>No {{$datas->tipe_id}}</td>
+													<td>: {{$datas->no_id}}</td>
 												</tr>
 												<tr>
 													<td>No Account</td>

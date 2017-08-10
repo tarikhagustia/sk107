@@ -8,6 +8,6 @@ class Mt4User extends Model
 {
     //
 	protected $fillable = [
-      'user_id', 'login', 'password', 'group','is_active','is_real','name','email'
+      'user_id', 'login', 'password', 'group','is_active','is_real','name','email','order_number'
     ];
 }

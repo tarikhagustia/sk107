@@ -20,24 +20,23 @@
 													<tbody>
 													<tr>
 														<td colspan="2" class="just">
-															<input type="text" name="focus" value="" style="width: 1px;height: 1px;position: relative;top: -16px;float: right;">
 															Pada hari ini Senin, tanggal 17, bulan Juli, tahun 2017, bertempat di Kantor Pusat atau Kantor Cabang resmi Pialang Berjangka PT. Askap Futures dengan alamat Senayan City, Panin Tower Lt. 22, Jl. Asia Afrika Lot 19, Jakarta. Kami yang bertandatangan di bawah ini :
 															<table cellspacing="0" class="inner">
 															<tbody>
 															<tr>
 																<td>1.</td>
 																<td>Nama</td>
-																<td>&nbsp;: Tarikh.</td>
+																<td>&nbsp;: {{$data->nama}}</td>
 															</tr>
 															<tr>
 																<td></td>
 																<td>Pekerjaan / Jabatan</td>
-																<td>&nbsp;: Swasta</td>
+																<td>&nbsp;: {{$data->pekerjaan}}/{{$data->jabatan}}</td>
 															</tr>
 															<tr>
 																<td></td>
 																<td>Alamat</td>
-																<td>&nbsp;: sukabumi</td>
+																<td>&nbsp;: {{$data->alamat}}</td>
 															</tr>
 															<tr>
 																<td colspan="3" style="padding:5px 0">
@@ -47,19 +46,18 @@
 															<tr>
 																<td>2.</td>
 																<td>Nama</td>
-																<td>&nbsp;: PT. Askap Futures</td>
+																<td>&nbsp;: {{config('settings.company_name')}}</td>
 															</tr>
 															<tr>
 																<td></td>
 																<td>Alamat</td>
 																<td>
-																	&nbsp;: Senayan City, Panin Tower Lt. 22, Jl. Asia Afrika Lot 19, Jakarta
-																</td>
+																	&nbsp;: {{config('settings.company_address')}}																</td>
 															</tr>
 															</tbody>
 															</table>
 															<p>
-																dalam hal ini bertindak untuk dan atas nama <b>PT. Askap Futures</b> yang selanjutnya disebut <b>Pialang Berjangka</b>.
+																dalam hal ini bertindak untuk dan atas nama <b>{{config('settings.company_name')}}</b> yang selanjutnya disebut <b>Pialang Berjangka</b>.
 															</p>
 															<p>
 																Nasabah dan Pialang Berjangka secara bersama-sama selanjutnya disebut <b>Para Pihak</b>.
@@ -302,14 +300,13 @@
 																			<tr>
 																				<td>Nama</td>
 																				<td>&nbsp;:&nbsp;</td>
-																				<td>PT. Askap Futures</td>
+																				<td>{{config('settings.company_name')}}</td>
 																			</tr>
 																			<tr>
 																				<td>Alamat</td>
 																				<td>&nbsp;:&nbsp;</td>
 																				<td>
-																					 Senayan City, Panin Tower Lt. 22, Jl. Asia Afrika Lot 19, Jakarta
-																				</td>
+																					 {{config('settings.company_address')}}																				</td>
 																			</tr>
 																			<tr>
 																				<td>Bank</td>
@@ -390,29 +387,28 @@
 																			<tr>
 																				<td style="width:123px">Nama</td>
 																				<td>&nbsp;:&nbsp;</td>
-																				<td>PT. Askap Futures</td>
+																				<td>{{config('settings.company_name')}}</td>
 																			</tr>
 																			<tr>
 																				<td>Alamat</td>
 																				<td>&nbsp;:&nbsp;</td>
 																				<td>
-																					 Senayan City, Panin Tower Lt. 22, Jl. Asia Afrika Lot 19, Jakarta
-																				</td>
+																					 {{config('settings.company_address')}}																				</td>
 																			</tr>
 																			<tr>
 																				<td>Telepon</td>
 																				<td>&nbsp;:&nbsp;</td>
-																				<td>021 - 72781710 (Hunting)</td>
+																				<td>021 - 57906525 (Hunting)</td>
 																			</tr>
 																			<tr>
 																				<td>Faksimile</td>
 																				<td>&nbsp;:&nbsp;</td>
-																				<td>021 - 72781721</td>
+																				<td>021 - 57906526</td>
 																			</tr>
 																			<tr>
 																				<td>E-mail</td>
 																				<td>&nbsp;:&nbsp;</td>
-																				<td>customercare@askapfutures.co.id</td>
+																				<td>futures@phillip.co.id</td>
 																			</tr>
 																			</tbody>
 																			</table>
@@ -529,10 +525,10 @@
 																		<li>
 																			Kantor atau kantor cabang Pialang Berjangka terdekat dengan domisili Nasabah tempat penyelesaian dalam hal terjadi perselisihan.<br>
 																			<b>Daftar Kantor (Pilih salah satu) :</b><br>
-																			<input id="pusat" type="radio" name="kantor" value="0" checked="checked"><label for="pusat"> Pusat : Senayan City, Panin Tower Lt. 22 Jl. Asia Afrika Lot 19 Jakarta</label><br>
-																			<!--<input id="cabang1" type="radio" name="kantor" value="1"/><label for="cabang1"> Cabang : Gedung Graha HSBC Jl. Basuki Rachmat No. 58-60 Surabaya</label><br/>-->
-																			<input id="cabang2" type="radio" name="kantor" value="2"><label for="cabang2"> Cabang : Jl. Budi Karya Komplek Villa Gamma Blok D/27 Pontianak</label><br>
-																			<input id="cabang3" type="radio" name="kantor" value="3"><label for="cabang3"> Cabang : Menara Imperium Lt. 17 Jl. HR. Rasuna Said Kav.1 Kuningan-Jakarta 12980</label>
+																			<input id="pusat" type="radio" name="kantor" value="0" checked="checked"><label for="pusat"> Pusat : {{config('settings.company_address')}}</label><br>
+																			<!--<input id="cabang1" type="radio" name="kantor" value="1"/><label for="cabang1"> Cabang : 1</label><br/>-->
+																			<input id="cabang2" type="radio" name="kantor" value="2"><label for="cabang2"> Cabang : 2</label><br>
+																			<input id="cabang3" type="radio" name="kantor" value="3"><label for="cabang3"> Cabang : 3</label>
 																		</li>
 																	</ol>
 																</li>

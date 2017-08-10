@@ -34,7 +34,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check"></td>
@@ -46,7 +46,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check1"></td>
@@ -73,7 +73,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check2"></td>
@@ -94,7 +94,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check3"></td>
@@ -115,7 +115,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check4"></td>
@@ -136,7 +136,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check5"></td>
@@ -157,7 +157,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check6"></td>
@@ -178,7 +178,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check7"></td>
@@ -199,7 +199,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check8"></td>
@@ -220,7 +220,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check9"></td>
@@ -241,7 +241,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check10"></td>
@@ -262,7 +262,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check11"></td>
@@ -280,7 +280,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check12"></td>
@@ -299,7 +299,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check13"></td>
@@ -318,7 +318,7 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td class="tick">
 															<input type="checkbox" class="tick" name="check14"></td>
