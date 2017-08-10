@@ -221,11 +221,13 @@
               @endif
 
               @if (Auth::user()->role == "admin")
+				@if (config('settings.demo_manual') == 1)  
                 <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'manage-demo-account') active @endif">
                   <a class="animsition-link" href="{{ url('admin/account/manage-demo-account') }}">
                     <span class="site-menu-title">Manage Demo Account</span>
                   </a>
                 </li>
+				@endif
 				<li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'demo-account-list') active @endif">
                   <a class="animsition-link" href="{{ url('admin/account/demo-account-list') }}">
                     <span class="site-menu-title">Demo Account List</span>

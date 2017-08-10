@@ -15,7 +15,7 @@ class OpenDemoAccountController extends Controller
     public function index()
     {
 	  $user_id = Auth::user()->id;
-	  $logins = Mt4User::where('user_id',$user_id)->get();
+	  $logins = Mt4User::where('user_id',$user_id)->where('is_real','no')->get();
 	  if(empty($logins[0])){
 		  $create = 'true';
 	  }else{
