@@ -8,6 +8,7 @@ use Mail;
 use Zipper;
 use App\Mail\RealAccount;
 use App\Models\RequestAccount;
+use App\Models\Mt4User;
 class AccountController extends Controller
 {
   public function index()
@@ -26,7 +27,9 @@ class AccountController extends Controller
 	$files = glob($path.'/*');
 	  Zipper::make($path.'/RequestAccount-'.$order['nama'].'-'.$order['order_number'].'.zip')->add($files)->close();
 	  $zippath = $path.'/RequestAccount-'.$order['nama'].'-'.$order['order_number'].'.zip';
-	  RequestAccount::where('order_number',$order['order_number'])->update(['docs' => $zippath]);
+	  $filepath = 'pdf/'.Auth::user()->id.'/'.$order['order_number'].'/RequestAccount-'.$order['nama'].'-'.$order['order_number'].'.zip';
+	  RequestAccount::where('order_number',$order['order_number'])->update(['docs' => $filepath]);
+	  Mt4User::where('order_number', $order['order_number'])->update(['docs' => $filepath]);
 	  Mail::to(env('OPENREAL_EMAIL'))->send(new RealAccount($order, $zippath));
 
     return redirect()->route('create.account.real.finish');

@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="{{asset('vendor/formvalidation/formValidation.min.css')}}">
 <div class="lightbox-block" id="custom-content">
 		<div>
 			<div class="modal-header">

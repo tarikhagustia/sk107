@@ -56,7 +56,13 @@
 							<span class="label label-primary">On Process</span>								
 						@endif
 						</td>
-						<td><div class="btn btn-primary btn-block buttons" data-toggle="modal" data-name="{{$real->nama}}" data-tempat="{{$real->tempat_lahir}}" data-dob="{{$real->dob}}" data-alamat="{{$real->alamat}}" data-tipe_id="{{$real->tipe_id}}" data-no_id="{{$real->no_id}}" data-account="{{$real->account_number}}" data-target="#agreement">Persetujuan</div></td>
+						<td>
+						@if($real->agreement == 'tidak')
+							<div class="btn btn-primary btn-block buttons" data-toggle="modal" data-name="{{$real->nama}}" data-tempat="{{$real->tempat_lahir}}" data-dob="{{$real->dob}}" data-alamat="{{$real->alamat}}" data-tipe_id="{{$real->tipe_id}}" data-no_id="{{$real->no_id}}" data-account="{{$real->account_number}}" data-target="#agreement">Persetujuan</div>
+						@else
+							
+						@endif
+						</td>
                       </tr>
 					@endforeach
                     </tbody>

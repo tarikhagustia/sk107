@@ -41,7 +41,7 @@
 						@endif
 						</td>
 						<td>
-							<a class="btn btn-primary" href="{{$real->docs}}" style="text-decoration: none;">Download</a>
+							<a class="btn btn-primary" href="{{asset($real->docs)}}" style="text-decoration: none;">Download</a>
 						</td>
 						</form>
                       </tr>

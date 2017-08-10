@@ -27,8 +27,7 @@ class RealAccountController extends Controller
 	public function agreement_post(Request $request)
 	{
 	  $today = Carbon::now();	
-	  $data = Auth::user()->lastRequestAccount();
-	  dd($data);
+	  $data = Auth::user()->approvedRequestAccount();
 	  $data['today'] = $today;
       $pdf = PDF::loadView('admin.account.form.107_PBK_07_download',compact('data'));
 	  $output = $pdf->output();
@@ -40,11 +39,13 @@ class RealAccountController extends Controller
 	  }else{
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK07.pdf'), $output);  
 	  }
-	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$order['order_number']);
+	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
 	  $files = glob($path.'/*');
-	  Zipper::make($path.'/RequestAccount-'.$order['nama'].'-'.$order['order_number'].'.zip')->add($files)->close();
-	  $zippath = $path.'/RequestAccount-'.$order['nama'].'-'.$order['order_number'].'.zip';
-	  RequestAccount::where('order_number', $data['order_number'])->update(['agreement' => 'ya']);
+	  Zipper::make($path.'/RequestAccount-'.$data['nama'].'-'.$data['order_number'].'.zip')->add($files)->close();
+	  $zippath = $path.'/RequestAccount-'.$data['nama'].'-'.$data['order_number'].'.zip';
+	  $filepath = 'pdf/'.Auth::user()->id.'/'.$data['order_number'].'/RequestAccount-'.$data['nama'].'-'.$data['order_number'].'.zip';
+	  RequestAccount::where('order_number', $data['order_number'])->update(['agreement' => 'ya','docs' => $filepath]);
+	  Mt4User::where('order_number', $data['order_number'])->update(['docs' => $filepath]);
 	  return back();
 	}
 }

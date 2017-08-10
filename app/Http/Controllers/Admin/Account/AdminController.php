@@ -57,6 +57,7 @@ class AdminController extends Controller
 	public function list_real()
     {
 	  $reals = Mt4User::where('is_real','yes')->get();
+	  $datas = RequestAccount::where('status','approved')->get();
       return view('admin.account.real-account-list',['reals'=> $reals]);
     }
 	
