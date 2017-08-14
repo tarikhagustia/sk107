@@ -31,10 +31,53 @@ li.list-group-item.disabled {
 @endsection
 
 @section('content')
+<!-- Trigger the modal with a button -->
+@if($order->pengalaman_yes == 'tidak')
+<!-- Modal -->
+<div id="pengalamanModal" class="modal fade" role="dialog">
+	<form id="pengalamanForm" action="{{ url('admin/account/pengalaman') }}" method="post">
+	<input type="hidden" name="request_id" value="{{$order->id}}">
+		{{ csrf_field() }}
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Pernyataan Berpengalaman</h4>
+      </div>
+      <div class="modal-body">
+				<p>
+					Berpengalaman Dalam Melaksanakan Transaksi Perdagangan Berjangka ?
+				</p>
+				<br>
+				<div class="form-group">
+					<div class="col-sm-9">
+						<div class="radio-custom radio-primary">
+							<input type="radio" name="pengalaman" value="ya" @if($order->pengalaman_yes == "ya") checked="true" @endif>
+							<label for="pengalaman">Ya</label>
+						</div>
+						<div class="radio-custom radio-primary">
+							<input type="radio" name="pengalaman" value="tidak" @if($order->pengalaman_yes == "tidak") checked="true" @endif>
+							<label for="pengalaman">Tidak</label>
+						</div>
+					</div>
+				</div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-main">Lanjutkan </button>
+
+      </div>
+    </div>
+
+  </div>
+	</form>
+</div>
+<!-- Approve Modal -->
+@endif
+
 <!-- Page -->
   <div class="page animsition" style="animation-duration: 800ms; opacity: 1;" id="open-account-real">
     <div class="page-header">
-      <h1 class="page-title">Buka Akun</h1>
+      <h1 class="page-title">Buka Akun {{$order->pengalaman_yes}}</h1>
     </div>
     <div class="page-content">
       <!-- Panle List -->
@@ -107,6 +150,32 @@ li.list-group-item.disabled {
 <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
 <script src="{{ asset('js/admin/open-real-account.js') }}"></script>
 <script type="text/javascript">
-
+$(document).ready(function() {
+	console.log($order->pengalaman_yes);
+	@if($order->pengalaman_yes == 'tidak')
+	$('#pengalamanModal').modal({
+		backdrop: 'static',
+ 		keyboard: false,
+		show : true
+	});
+	@endif
+    $('#pengalamanForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            pengalaman: {
+                validators: {
+                    notEmpty: {
+                        message: 'Silahkan pilih salah satu'
+                    }
+                }
+            }
+        }
+    });
+});
 </script>
 @endsection

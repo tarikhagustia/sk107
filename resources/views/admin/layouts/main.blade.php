@@ -227,6 +227,11 @@
                     <span class="site-menu-title">Manage Demo Account</span>
                   </a>
                 </li>
+				<li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'approve-demo-account') active @endif">
+                  <a class="animsition-link" href="{{ url('admin/account/approve-demo-account') }}">
+                    <span class="site-menu-title">Approve Demo Account</span>
+                  </a>
+                </li>
 				@endif
 				<li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'demo-account-list') active @endif">
                   <a class="animsition-link" href="{{ url('admin/account/demo-account-list') }}">

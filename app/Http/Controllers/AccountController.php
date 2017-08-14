@@ -9,6 +9,7 @@ use Zipper;
 use App\Mail\RealAccount;
 use App\Models\RequestAccount;
 use App\Models\Mt4User;
+use App\Models\UserTask;
 class AccountController extends Controller
 {
   public function index()
@@ -35,6 +36,18 @@ class AccountController extends Controller
     return redirect()->route('create.account.real.finish');
 
   }
+  
+  public function pengalaman_check(Request $request)
+  {	
+	$order = Auth::user()->lastRequestAccount();
+	if($request->pengalaman == 'tidak'){
+	  UserTask::where('request_account_id',$request->request_id)->where('task_id','3')->update('is_active','no');
+	}else{
+	  RequestAccount::where('id',$request->request_id)->update('pengalaman_yes','ya');	  
+	}
+	return redirect()->url('admin/account/real-account');
+  }
+  
   public function request_finish(Request $request){
     return view('admin.account.create-account-finish');
   }

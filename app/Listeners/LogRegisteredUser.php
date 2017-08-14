@@ -54,6 +54,7 @@ class LogRegisteredUser
             'request_account_id' => $request->id,
             'task_id' => $row->id,
             'status' => ($row->task_form_number == '107.PBK.01') ? "current" : "disabled",
+			'is_active' => 'yes'
           ]);
         }
 
