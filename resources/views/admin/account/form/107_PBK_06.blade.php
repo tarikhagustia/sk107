@@ -73,18 +73,18 @@
 		<div class="modal-footer">
 			<form class="form-horizontal" method="POST" id="pbk06Form" action="{{ url('admin/account/real-account/form/107-PBK-06-check') }}">
 			{{ csrf_field() }}
-				<div class="form-group form-material">
+				<div class="form-group form-material" style="text-align:center;">
 					<div class="checkbox">
 						<label>
 							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah membaca, <b>PERATURAN PERDAGANGAN (TRADING RULES), </b> mengerti dan menerima ketentuan dalam bertransaksi.
 						</label>
 					</div>
 				</div>
-				<div class="form-group form-material">	
+				<div class="form-group form-material" style="text-align:center;">	
 					Menyatakan pada Tanggal <span id="date"></span>
 				</div>
-				<div class="form-group form-material">	
-					<div class="col-sm-9 col-sm-offset-3">
+				<div class="form-group form-material" style="text-align:center;">	
+					<div class="col-sm-12">
 						<button type="submit" class="btn btn-primary">Submit </button>
 					</div>
 				</div>

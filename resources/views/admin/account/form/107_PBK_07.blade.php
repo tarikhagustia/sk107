@@ -75,18 +75,18 @@
 							</p>
 			<form class="form-horizontal" method="POST" id="pbk07Form" action="{{ url('admin/account/real-account/form/107-PBK-07-check') }}">
 			{{ csrf_field() }}
-				<div class="form-group form-material">
+				<div class="form-group form-material" style="text-align:center;">
 					<div class="checkbox">
 						<label>
 							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya bertanggungjawab sepenuhnya terhadap kode akses transaksi Nasabah (Personal Access Password) dan tidak menyerahkan kode akses transaksi Nasabah (Personal Access Password) ke pihak lain, terutama kepada pegawai Pialang Berjangka atau pihak yang memiliki kepentingan dengan Pialang Berjangka.
 						</label>
 					</div>
 				</div>
-				<div class="form-group form-material">	
+				<div class="form-group form-material" style="text-align:center;">	
 					Menyatakan pada Tanggal <span id="date"></span>
 				</div>
-				<div class="form-group form-material">	
-					<div class="col-sm-9 col-sm-offset-3">
+				<div class="form-group form-material" style="text-align:center;">	
+					<div class="col-sm-12">
 						<button type="submit" class="btn btn-primary">Submit </button>
 					</div>
 				</div>

@@ -63,18 +63,18 @@
 			<div class="modal-footer">
 				<form class="form-horizontal" method="POST" id="pbk022Form" action="{{ url('admin/account/real-account/form/107-PBK-02-2-check') }}">
 				{{ csrf_field() }}
-				<div class="form-group form-material">
+				<div class="form-group form-material" style="text-align:center;">
 					<div class="checkbox">
 						<label>
 							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah memiliki pengalaman yang mencukupi dalam melaksanakan transaksi Perdagangan Berjangka karena pernah bertransaksi pada Perusahaan Pialang Berjangka {{config('settings.company_name')}}, dan telah memahami tentang tata cara bertransaksi Perdagangan Berjangka. <br>Demikian Pernyataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.
 						</label>
 					</div>
 				</div>
-				<div class="form-group form-material">
+				<div class="form-group form-material" style="text-align:center;">
 					Menyatakan pada Tanggal <span id="date"></span>
 				</div>
-				<div class="form-group form-material">
-					<div class="col-sm-9 col-sm-offset-3">
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="col-sm-12">
 						<button type="submit" class="btn btn-primary">Submit </button>
 					</div>
 				</div>

@@ -73,18 +73,18 @@
 				</div>
 			</div>
 			<div class="modal-footer">	
-				<div class="form-group form-material">
+				<div class="form-group form-material" style="text-align:center;">
 					<div class="checkbox">
 						<label>
 							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah melakukan simulasi bertransaksi di bidang Perdagangan Berjangka Komoditi pada {{config('settings.company_name')}}, dan telah memahami tentang tata cara bertransaksi di bidang Perdagangan Berjangka Komoditi.
 						</label>
 					</div>
 				</div>
-				<div class="form-group form-material">	
+				<div class="form-group form-material" style="text-align:center;">	
 					Menyatakan pada Tanggal <span id="date"></span>
 				</div>
-				<div class="form-group form-material">	
-					<div class="col-sm-9 col-sm-offset-3">
+				<div class="form-group form-material" style="text-align:center;">	
+					<div class="col-sm-12">
 						<button type="submit" class="btn btn-primary" >Submit </button>
 					</div>
 				</div>
