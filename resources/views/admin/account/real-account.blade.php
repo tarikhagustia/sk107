@@ -58,7 +58,7 @@
 						</td>
 						<td>
 						@if($real->agreement == 'tidak')
-							<div class="btn btn-primary btn-block buttons" data-toggle="modal" data-name="{{$real->nama}}" data-tempat="{{$real->tempat_lahir}}" data-dob="{{$real->dob}}" data-alamat="{{$real->alamat}}" data-tipe_id="{{$real->tipe_id}}" data-no_id="{{$real->no_id}}" data-account="{{$real->account_number}}" data-target="#agreement">Persetujuan</div>
+							<div class="btn btn-primary btn-block buttons" data-toggle="modal" data-order="{{$real->order_number}}" data-name="{{$real->nama}}" data-tempat="{{$real->tempat_lahir}}" data-dob="{{$real->dob}}" data-alamat="{{$real->alamat}}" data-tipe_id="{{$real->tipe_id}}" data-no_id="{{$real->no_id}}" data-account="{{$real->account_number}}" data-target="#agreement">Persetujuan</div>
 						@else
 							
 						@endif
@@ -155,19 +155,20 @@
 																	<b>Demikian Pernyataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.</b>
 																</p>
 												<form class="form-horizontal" method="POST" id="agreementForm" action="{{ url('admin/account/real-account-user') }}">
+												<input type="hidden" id="order" name="order"></input>
 												{{ csrf_field() }}
-													<div class="form-group form-material">
+													<div class="form-group form-material" style="text-align:center;">
 														<div class="checkbox">
 															<label>
 																<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya bertanggungjawab sepenuhnya terhadap kode akses transaksi Nasabah (Personal Access Password) dan tidak menyerahkan kode akses transaksi Nasabah (Personal Access Password) ke pihak lain, terutama kepada pegawai Pialang Berjangka atau pihak yang memiliki kepentingan dengan Pialang Berjangka.
 															</label>
 														</div>
 													</div>
-													<div class="form-group form-material">	
+													<div class="form-group form-material" style="text-align:center;">	
 														Menyatakan pada Tanggal <span id="date"></span>
 													</div>
-													<div class="form-group form-material">	
-														<div class="col-sm-9 col-sm-offset-3">
+													<div class="form-group form-material" style="text-align:center;">	
+														<div class="col-sm-12">
 															<button type="submit" class="btn btn-primary">Submit </button>
 														</div>
 													</div>
@@ -190,6 +191,7 @@
 		var tipe_id = $(this).data('tipe_id');
 		var no_id = $(this).data('no_id');
 		var account = $(this).data('account');
+		var order = $(this).data('order');
 		$("#nama").html(name);
 		$("#tempat").html(tempat);
 		$("#tgl").html(dob);
@@ -197,6 +199,7 @@
 		$("#tipe").html(tipe_id);
 		$("#no").html(no_id);
 		$("#login").html(account);
+		$("#order").val(order);
 	});
 	
 var today = new Date();

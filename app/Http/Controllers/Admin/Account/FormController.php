@@ -110,7 +110,12 @@ class FormController extends Controller
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK02-1.pdf'), $output);  
 	  }
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 2)->update(['status' => 'active']);
-	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->update(['status' => 'current']);
+	  $task3 = UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->first();
+	  if($task3->is_active == 'yes'){
+		UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->update(['status' => 'current']);  
+	  }else{
+		UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'current']);  
+	  }
 	  return back();
 	}
 	public function bpk_02_2_check(Request $request)

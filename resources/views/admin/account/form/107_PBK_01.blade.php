@@ -502,7 +502,7 @@
 		<div class="modal-footer">
 			<form class="form-horizontal" method="POST" id="pbk01Form" action="{{ url('admin/account/real-account/form/107-PBK-01-check') }}">
 				{{ csrf_field() }}
-				<div class="form-group form-material">
+				<div class="form-group form-material" style="text-align:center;">
 					<div class="checkbox">
 						<label>
 							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah membaca dan menerima informasi <b>PROFIL PERUSAHAAN PIALANG BERJANGKA, </b> mengerti dan memahami isinya.
@@ -510,11 +510,11 @@
 					</div>
 				</div>
 
-				<div class="form-group form-material">
+				<div class="form-group form-material" style="text-align:center;">
 					Menyatakan pada Tanggal <span id="date"></span>
 				</div>
-				<div class="form-group form-material">
-					<div class="col-sm-9 col-sm-offset-3">
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="col-sm-12">
 						<button type="submit" class="btn btn-primary">Submit </button>
 					</div>
 				</div>

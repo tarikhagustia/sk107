@@ -9,6 +9,7 @@ use Mail;
 use Zipper;
 use Carbon;
 use PDF;
+use File;
 use App\Mail\DemoAccount;
 use App\User;
 use App\Models\Mt4User;
@@ -31,21 +32,24 @@ class RealAccountController extends Controller
 	  $data['today'] = $today;
       $pdf = PDF::loadView('admin.account.form.107_PBK_07_download',compact('data'));
 	  $output = $pdf->output();
-	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
-	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK07.pdf');
+	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$request->order);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/'.$request->order.'/PBK07.pdf');
 	  if(!file_exists($path)){
 	    $result = File::makeDirectory($path, 0775, true);
-		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK07.pdf'), $output);  
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$request->order.'/PBK07.pdf'), $output);  
 	  }else{
-		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK07.pdf'), $output);  
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$request->order.'/PBK07.pdf'), $output);  
 	  }
-	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
+	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$request->order);
+
+	  $filepath = 'pdf/'.Auth::user()->id.'/'.$request->order.'/RequestAccount-'.$data['nama'].'-'.$request->order.'.zip';
+	  if(file_exists($filepath)){
+	    File::delete($filepath);
+	  }
 	  $files = glob($path.'/*');
-	  Zipper::make($path.'/RequestAccount-'.$data['nama'].'-'.$data['order_number'].'.zip')->add($files)->close();
-	  $zippath = $path.'/RequestAccount-'.$data['nama'].'-'.$data['order_number'].'.zip';
-	  $filepath = 'pdf/'.Auth::user()->id.'/'.$data['order_number'].'/RequestAccount-'.$data['nama'].'-'.$data['order_number'].'.zip';
-	  RequestAccount::where('order_number', $data['order_number'])->update(['agreement' => 'ya','docs' => $filepath]);
-	  Mt4User::where('order_number', $data['order_number'])->update(['docs' => $filepath]);
+	  Zipper::make($filepath)->add($files)->close();
+	  RequestAccount::where('order_number', $request->order)->update(['agreement' => 'ya','docs' => $filepath]);
+	  Mt4User::where('order_number', $request->order)->update(['docs' => $filepath]);
 	  return back();
 	}
 }

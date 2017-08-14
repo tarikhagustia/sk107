@@ -32,7 +32,7 @@ li.list-group-item.disabled {
 
 @section('content')
 <!-- Trigger the modal with a button -->
-@if($order->pengalaman_yes == 'tidak')
+@if($order->pengalaman_yes == 'undefined')
 <!-- Modal -->
 <div id="pengalamanModal" class="modal fade" role="dialog">
 	<form id="pengalamanForm" action="{{ url('admin/account/pengalaman') }}" method="post">
@@ -52,11 +52,11 @@ li.list-group-item.disabled {
 				<div class="form-group">
 					<div class="col-sm-9">
 						<div class="radio-custom radio-primary">
-							<input type="radio" name="pengalaman" value="ya" @if($order->pengalaman_yes == "ya") checked="true" @endif>
+							<input type="radio" name="pengalaman" value="ya">
 							<label for="pengalaman">Ya</label>
 						</div>
 						<div class="radio-custom radio-primary">
-							<input type="radio" name="pengalaman" value="tidak" @if($order->pengalaman_yes == "tidak") checked="true" @endif>
+							<input type="radio" name="pengalaman" value="tidak">
 							<label for="pengalaman">Tidak</label>
 						</div>
 					</div>
@@ -77,7 +77,7 @@ li.list-group-item.disabled {
 <!-- Page -->
   <div class="page animsition" style="animation-duration: 800ms; opacity: 1;" id="open-account-real">
     <div class="page-header">
-      <h1 class="page-title">Buka Akun {{$order->pengalaman_yes}}</h1>
+      <h1 class="page-title">Buka Akun</h1>
     </div>
     <div class="page-content">
       <!-- Panle List -->
@@ -148,11 +148,9 @@ li.list-group-item.disabled {
 <script src="{{ asset('vendor/formvalidation/formValidation.min.js') }}"></script>
 <script src="{{ asset('vendor/formvalidation/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('js/admin/open-real-account.js') }}"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	console.log($order->pengalaman_yes);
-	@if($order->pengalaman_yes == 'tidak')
+	@if($order->pengalaman_yes == 'undefined')
 	$('#pengalamanModal').modal({
 		backdrop: 'static',
  		keyboard: false,
@@ -161,11 +159,6 @@ $(document).ready(function() {
 	@endif
     $('#pengalamanForm').formValidation({
         framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
         fields: {
             pengalaman: {
                 validators: {
@@ -178,4 +171,5 @@ $(document).ready(function() {
     });
 });
 </script>
+<script src="{{ asset('js/admin/open-real-account.js') }}"></script>
 @endsection

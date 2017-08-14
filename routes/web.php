@@ -59,9 +59,12 @@ Route::group(['middleware' => ['auth','admin']], function(){
   */
 
   Route::get('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@index');
+  Route::post('admin/account/pengalaman', 'AccountController@pengalaman_check');
   Route::get('admin/account/create-demo', 'Admin\Account\OpenDemoAccountController@create_account')->name('create.account.demo');
   Route::get('admin/account/manage-demo-account', 'Admin\Account\AdminController@index');
   Route::post('admin/account/manage-demo-account', 'Admin\Account\AdminController@update');
+  Route::get('admin/account/approve-demo-account', 'Admin\Account\AdminController@approve_demo');
+  Route::post('admin/account/approve-demo-account', 'Admin\Account\AdminController@approve_demo_post');
   Route::get('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
   Route::post('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
   Route::get('admin/account/real-account-user', 'Admin\Account\RealAccountController@index');

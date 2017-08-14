@@ -28,7 +28,7 @@ class User extends Authenticatable
 
     public function tasks()
     {
-      return $this->hasMany('App\Models\UserTask')->orderBy('task_id', 'asc');
+      return $this->hasMany('App\Models\UserTask')->where('is_active','yes')->orderBy('task_id', 'asc');
     }
 
     public function account_request()
