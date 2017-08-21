@@ -76,7 +76,7 @@
 				<div class="form-group form-material" style="text-align:center;">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah membaca, <b>PERATURAN PERDAGANGAN (TRADING RULES), </b> mengerti dan menerima ketentuan dalam bertransaksi.
+							<input type="checkbox" name="agree" value="agree" @if($task->status == 'active')checked @endif /> Saya menyatakan bahwa saya telah membaca, <b>PERATURAN PERDAGANGAN (TRADING RULES), </b> mengerti dan menerima ketentuan dalam bertransaksi.
 						</label>
 					</div>
 				</div>

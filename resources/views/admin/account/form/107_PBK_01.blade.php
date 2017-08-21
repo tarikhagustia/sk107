@@ -505,7 +505,7 @@
 				<div class="form-group form-material" style="text-align:center;">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah membaca dan menerima informasi <b>PROFIL PERUSAHAAN PIALANG BERJANGKA, </b> mengerti dan memahami isinya.
+							<input type="checkbox" name="agree" value="agree" @if($task->status == 'active')checked @endif /> Saya menyatakan bahwa saya telah membaca dan menerima informasi <b>PROFIL PERUSAHAAN PIALANG BERJANGKA, </b> mengerti dan memahami isinya.
 						</label>
 					</div>
 				</div>

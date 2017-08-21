@@ -45,19 +45,19 @@ class AdminController extends Controller
 	
 	public function approve_demo()
     {
-	  $demos = Mt4User::where('is_approved','no')->get();
+	  $demos = Mt4User::where('is_approved','no')->where('is_active','yes')->get();
       return view('admin.account.approve-demo',['demos'=> $demos]);
     }
 	
 	public function list_demo()
     {
-	  $demos = Mt4User::where('is_real','no')->get();
+	  $demos = Mt4User::where('is_real','no')->where('is_active','yes')->get();
       return view('admin.account.demo-account-list',['demos'=> $demos]);
     }
 	
 	public function list_real()
     {
-	  $reals = Mt4User::where('is_real','yes')->get();
+	  $reals = Mt4User::where('is_real','yes')->where('is_active','yes')->get();
       return view('admin.account.real-account-list',['reals'=> $reals]);
     }
 	
@@ -152,7 +152,7 @@ class AdminController extends Controller
     public function manage_real_account($id = false){
 
       if(!$id):
-        $accounts = RequestAccount::orderBy('updated_at')->paginate();
+        $accounts = RequestAccount::where('status','pending')->orWhere('status','request')->orderBy('updated_at')->paginate();
         return view('admin.account.manage-real-account', ['accounts' => $accounts]);
       else:
         $accountType = accountType::all();

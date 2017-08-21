@@ -22,45 +22,53 @@ class FormController extends Controller
 {
     public function bpk_03()
     {
+	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->first();	
       $accountType = AccountType::all();
       $order = Auth::user()->lastRequestAccount();
-      return view('admin.account.form.107_PBK_03', ['order' => $order, 'accountType' => $accountType]);
+      return view('admin.account.form.107_PBK_03', ['order' => $order, 'accountType' => $accountType, 'task' => $task]);
     }
 	public function bpk_02_1()
     {
+	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 2)->first();
 	  $demos = Mt4User::where('user_id',Auth::user()->id)->get();	
 	  $order = Auth::user()->lastRequestAccount();
 	  $date = date_create($order->dob);
 	  $order->dob = date_format($date,"d-m-Y");
-      return view('admin.account.form.107_PBK_02_1',['demos' => $demos[0],'order' => $order]);
+      return view('admin.account.form.107_PBK_02_1',['demos' => $demos[0],'order' => $order, 'task' => $task]);
     }
 	public function bpk_02_2()
     {
+		$task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 2)->first();
 	    $datas = Auth::user()->lastRequestAccount();
 		$demos = Mt4User::where('user_id',Auth::user()->id)->get();	
-      return view('admin.account.form.107_PBK_02_2', ['datas'=> $datas, 'demos'=>$demos[0]]);
+      return view('admin.account.form.107_PBK_02_2', ['datas'=> $datas, 'demos'=>$demos[0], 'task' => $task]);
     }
     public function bpk_01()
     {
-      return view('admin.account.form.107_PBK_01');
+	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 1)->first();
+      return view('admin.account.form.107_PBK_01',['task' => $task]);
     }
     public function bpk_04_2()
     {
-      return view('admin.account.form.107_PBK_04_2');
+	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->first();
+      return view('admin.account.form.107_PBK_04_2',['task' => $task]);
     }
     public function bpk_05_2()
     {
+	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 6)->first();
 	  $datas = Auth::user()->lastRequestAccount();	
-      return view('admin.account.form.107_PBK_05_2', ['datas'=> $datas]);
+      return view('admin.account.form.107_PBK_05_2', ['datas'=> $datas,'task' => $task]);
     }
     public function bpk_06()
     {
-      return view('admin.account.form.107_PBK_06');
+	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 7)->first();
+      return view('admin.account.form.107_PBK_06',['task' => $task]);
     }
     public function bpk_07()
     {
+	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 8)->first();
 	  $datas = Auth::user()->lastRequestAccount();
-      return view('admin.account.form.107_PBK_07', ['datas'=> $datas]);
+      return view('admin.account.form.107_PBK_07', ['datas'=> $datas,'task' => $task]);
     }
 	public function bpk_01_check()
 	{
@@ -83,6 +91,7 @@ class FormController extends Controller
 	}
 	public function bpk_02_1_check(Request $request)
 	{
+		$request->flash();
 		$order = Auth::user()->lastRequestAccount();
 		$date=date_create($request->dob);
 		$dob= date_format($date,"Y-m-d");
@@ -121,6 +130,7 @@ class FormController extends Controller
 	}
 	public function bpk_02_2_check(Request $request)
 	{
+		$request->flash();
 		$today = Carbon::now();	
 	  $data = Auth::user()->lastRequestAccount();	
 	  $data['today'] = $today;
@@ -142,7 +152,7 @@ class FormController extends Controller
 	}
 	public function bpk_03_check(Request $request)
 	{
-	    
+		$request->flash();
 		if(!empty(Input::file('id_card'))){
 			$image = Input::file('id_card');
 			$input['imagename'] = 'id_card.'.$image->getClientOriginalExtension();
@@ -192,7 +202,7 @@ class FormController extends Controller
       			'dob' => $request->dob,
       			'alamat' => $request->alamat,
       			'tipe_id' => $request->identity_type,
-      			'no_id' => $request->indentity_number,
+      			'no_id' => $request->identity_number,
       			'phone_number' => $request->phone_number,
       			'pengalaman' => $request->pengalaman,
       			'tujuan' => $request->tujuan,
@@ -324,6 +334,7 @@ class FormController extends Controller
 	}
 	public function bpk_07_check(Request $request)
 	{
+	  $request->flash();
 	  $today = Carbon::now();	
 	  $data = Auth::user()->lastRequestAccount();	
 	  $data['today'] = $today;

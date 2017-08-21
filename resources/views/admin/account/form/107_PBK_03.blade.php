@@ -96,7 +96,7 @@
                           </select>
                         </div>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="indentity_number" value="{{$order->no_id}}">
+                          <input type="text" class="form-control" name="identity_number" value="{{$order->no_id}}">
                         </div>
                       </div>
                     </div>
@@ -446,12 +446,12 @@
 										<div class="col-sm-9">
 
 												<div class="radio-custom radio-primary">
-													<input type="radio" id="aproval_yes" name="approval_yes" value="ya" @if($order->approval_yes == "ya") checked="true" @endif>
+													<input type="radio" id="aproval_yes" name="approval_yes" value="ya" @if($order->aproval_yes == "ya") checked="true" @endif>
 													<label for="aproval_yes">Ya</label>
 												</div>
 
 												<div class="radio-custom radio-primary">
-													<input type="radio" id="aproval_no" name="approval_yes" value="tidak" @if($order->approval_yes == "tidak") checked="true" @endif>
+													<input type="radio" id="aproval_no" name="approval_yes" value="tidak" @if($order->aproval_yes == "tidak") checked="true" @endif>
 													<label for="aproval_no">Tidak</label>
 												</div>
 											</div>
@@ -524,7 +524,6 @@ $(document).ready(function() {
             // Revalidate the date field
             $('#form-register').formValidation('revalidateField', 'dob');
         });
-		})
 		
 	$('#status_perkawinan').change(function () {
 		var stat = document.getElementById("status_perkawinan");
@@ -553,11 +552,6 @@ $(document).ready(function() {
                     notEmpty: {
                         message: 'Nama harus diisi'
                     },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'Nama harus minimal 6 karakter dan maksimal 30 karakter'
-                    },
                     regexp: {
                         regexp: /^[a-zA-Z\s]+$/,
                         message: 'Nama hanya boleh diisi dengan huruf dan spasi'
@@ -585,11 +579,10 @@ $(document).ready(function() {
                     }
                 }
             },
-						dob: {
+			dob: {
                 validators: {
                     notEmpty: {
                         message: 'Tanggal lahir harus diisi'
-                    },
                     },
                     date: {
                         format: 'YYYY-MM-DD',
@@ -598,7 +591,7 @@ $(document).ready(function() {
                     }
                 }
             },
-            indentity_number: {
+            identity_number: {
                 validators: {
                     notEmpty: {
                         message: 'Nomor identitas harus diisi'
@@ -608,7 +601,7 @@ $(document).ready(function() {
                     }
                 }
             },
-						phone_number: {
+			phone_number: {
                 validators: {
                     notEmpty: {
                         message: 'Nomor telepon harus diisi'
@@ -636,7 +629,7 @@ $(document).ready(function() {
                 validators: {
                     stringLength: {
                         message: 'Maaf anda tidak bisa lanjut karena memiliki anggota keluarga yang bekerja di BAPPEBTI/Bursa Berjangka/Kliring Berjangka',
-                        min: 5;
+                        min: 5,
                     }
                 }
             },
@@ -644,7 +637,7 @@ $(document).ready(function() {
                 validators: {
                     stringLength: {
                         message: 'Maaf anda tidak bisa lanjut karena telah dinyatakan pailit oleh Pengadilan',
-                        min: 5;
+                        min: 5,
                     }
                 }
             },
@@ -652,7 +645,7 @@ $(document).ready(function() {
                 validators: {
                     stringLength: {
                         message: 'Anda harus menyetujui dan menerima pernyataan diatas',
-                        max: 2;
+                        max: 2,
                     }
                 }
             },
@@ -739,10 +732,10 @@ $(document).ready(function() {
 									message : 'Identitas diperlukan'
 								},
 								file: {
-                    extension: 'jpg,jpeg,png',
-                    type: 'image/png,/image/jpg,image/jpeg',
-                    message: 'Hanya file gambar'
-                }
+									extension: 'jpg,jpeg,png',
+									type: 'image/png,/image/jpg,image/jpeg',
+									message: 'Hanya file gambar'
+								}
 							}
 						},
 						rek_koran : {
@@ -751,10 +744,10 @@ $(document).ready(function() {
 									message : 'Identitas diperlukan'
 								},
 								file: {
-                    extension: 'jpg,jpeg,png',
-                    type: 'image/png,/image/jpg,image/jpeg',
-                    message: 'Hanya file gambar'
-                }
+									extension: 'jpg,jpeg,png',
+									type: 'image/png,/image/jpg,image/jpeg',
+									message: 'Hanya file gambar'
+								}
 							}
 						},
 						foto : {
@@ -763,13 +756,14 @@ $(document).ready(function() {
 									message : 'Identitas diperlukan'
 								},
 								file: {
-                    extension: 'jpg,jpeg,png',
-                    type: 'image/png,/image/jpg,image/jpeg',
-                    message: 'Hanya file gambar'
-                }
+									extension: 'jpg,jpeg,png',
+									type: 'image/png,/image/jpg,image/jpeg',
+									message: 'Hanya file gambar'
+								}
 							}
 						}
-        }).on('change', '[name="status_perkawinan"]', function(e) {
+		}
+    }).on('change', '[name="status_perkawinan"]', function(e) {
 
             $('#form-real').formValidation('updateOption', 'dob', 'date', 'max', limit);
         });
