@@ -248,6 +248,11 @@
                     <span class="site-menu-title">Real Account List</span>
                   </a>
                 </li>
+				<li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'approve-update-account') active @endif">
+                  <a class="animsition-link" href="{{ url('admin/account/approve-update-account') }}">
+                    <span class="site-menu-title">Approve Account Update</span>
+                  </a>
+                </li>
               @endif
             </ul>
             </li>

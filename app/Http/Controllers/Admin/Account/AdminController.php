@@ -16,6 +16,7 @@ use App\Models\Mt4User;
 use App\User;
 use App\Models\RequestAccount;
 use App\Models\AccountType;
+use App\Models\RequestUpdateAccount;
 
 class AdminController extends Controller
 {
@@ -57,8 +58,89 @@ class AdminController extends Controller
 	public function list_real()
     {
 	  $reals = Mt4User::where('is_real','yes')->get();
-	  $datas = RequestAccount::where('status','approved')->get();
       return view('admin.account.real-account-list',['reals'=> $reals]);
+    }
+	
+	public function approve_update()
+    {
+	  $datas = RequestUpdateAccount::where('status','pending')->get();
+      return view('admin.account.approve-update-account',['datas'=> $datas]);
+    }
+	
+	public function approve_update_detail($id){
+        $accountType = accountType::all();
+        $account = RequestUpdateAccount::find($id);
+        return view('admin.account.admin-approve-update-account-detail', ['order' => $account, 'accountType' => $accountType]);
+    }
+	
+	public function approve_update_post(Request $request)
+    {
+	  if($request->account_status == "approved"){
+		  $data = RequestUpdateAccount::where('id',$request->request_id)->first();
+		  RequestAccount::where('order_number', $data->order_number)->update([
+            'user_id' => Auth::user()->id,
+			      'account_type_id' => 1,
+            'nama' => $data->nama,
+            'tempat_lahir' => $data->tempat_lahir,
+      			'dob' => $data->dob,
+      			'alamat' => $data->alamat,
+      			'tipe_id' => $data->tipe_id,
+      			'no_id' => $data->no_id,
+      			'phone_number' => $data->phone_number,
+      			'pengalaman' => $data->pengalaman,
+      			'tujuan' => $data->tujuan,
+      			'npwp' => $data->npwp,
+      			'jenis_kelamin' => $data->jenis_kelamin,
+      			'status_perkawinan' => $data->status_perkawinan,
+      			'nama_ibu' => $data->ibu,
+      			'kode_pos' => $data->postcode,
+      			'status_rumah' => $data->status_rumah,
+      			'telp_rumah' => $data->telpon_rumah,
+      			'keluarga_kbi' => $data->keluarga_kbi,
+      			'pailit' => $data->pailit,
+      			'nama_darurat' => $data->nama_darurat,
+      			'telp_darurat' => $data->telp_darurat,
+      			'hubungan' => $data->hubungan,
+      			'alamat_darurat' => $data->alamat_darurat,
+      			'pekerjaan' => $data->pekerjaan,
+      			'nama_perusahaan' => $data->nama_perusahaan,
+      			'bidang_usaha' => $data->bidang_usaha,
+      			'jabatan' => $data->jabatan,
+      			'lama_bekerja' => $data->lama_bekerja,
+      			'alamat_kantor' => $data->alamat_kantor,
+      			'kode_pos_kantor' => $data->postcode_kantor,
+      			'telp_kantor' => $data->telp_kantor,
+      			'kantor_sebelum' => $data->kantor_sebelum,
+      			'nama_bank' => $data->nama_bank,
+      			'cabang' => $data->cabang,
+      			'telp_bank' => $data->telp_bank,
+      			'no_rek' => $data->no_rek,
+      			'nama_rek' => $data->nama_rek,
+      			'jenis_tabungan' => $data->jenis_tabungan,
+      			'id_card' => $data->id_card,
+      			'rek_koran' => $data->rek_koran,
+      			'foto' => $data->foto
+        ]);
+		 RequestUpdateAccount::where('id',$request->request_id)->update([
+			'status' => 'approved'
+		 ]);
+          return redirect()->route('approve.update.account');
+      }
+
+      if($request->account_status == "rejected"){
+          $this->validate($request, [
+            'account_status' => 'required',
+            'reason' => 'required'
+          ]);
+
+          $sql = RequestAccount::find($request->request_id);
+          $sql->status = "rejected";
+          $sql->rejected_reason = $request->reason;
+          $sql->save();
+
+          return redirect()->route('approve.update.account');
+      }
+
     }
 	
 	public function approve_demo_post(Request $request)

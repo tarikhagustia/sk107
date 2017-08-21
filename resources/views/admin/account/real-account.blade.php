@@ -60,7 +60,7 @@
 						@if($real->agreement == 'tidak')
 							<div class="btn btn-primary btn-block buttons" data-toggle="modal" data-order="{{$real->order_number}}" data-name="{{$real->nama}}" data-tempat="{{$real->tempat_lahir}}" data-dob="{{$real->dob}}" data-alamat="{{$real->alamat}}" data-tipe_id="{{$real->tipe_id}}" data-no_id="{{$real->no_id}}" data-account="{{$real->account_number}}" data-target="#agreement">Persetujuan</div>
 						@else
-							
+							<a class="btn btn-primary btn-block buttons" href="{{url('admin/account/update-data-account/'.$real->id)}}" style="text-decoration:none">Update Data</a>
 						@endif
 						</td>
                       </tr>

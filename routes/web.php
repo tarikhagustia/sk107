@@ -67,7 +67,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::post('admin/account/approve-demo-account', 'Admin\Account\AdminController@approve_demo_post');
   Route::get('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
   Route::post('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
-  Route::get('admin/account/real-account-user', 'Admin\Account\RealAccountController@index');
+  Route::get('admin/account/real-account-user', 'Admin\Account\RealAccountController@index')->name('real.account.user');
   Route::post('admin/account/real-account-user', 'Admin\Account\RealAccountController@agreement_post');
   Route::get('admin/account/real-account', 'AccountController@index')->middleware('demo')->name('create.account.real');
   Route::post('admin/account/real-account', 'AccountController@post_request_account_real')->name('create.account.real.post');
@@ -75,8 +75,13 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::get('admin/account/manage-real-account', 'Admin\Account\AdminController@manage_real_account')->name('manage.real.account');
   Route::post('admin/account/manage-real-account', 'Admin\Account\AdminController@manage_real_account_post')->name('manage.real.account.post');
   Route::get('admin/account/manage-real-account/{id}', 'Admin\Account\AdminController@manage_real_account')->name('account.real.manage');
-  Route::get('admin/account/demo-account-list', 'Admin\Account\AdminController@list_demo');
-  Route::get('admin/account/real-account-list', 'Admin\Account\AdminController@list_real');
+  Route::get('admin/account/update-data-account/{id}', 'Admin\Account\RealAccountController@update_data_account')->name('update.account.real');
+  Route::post('admin/account/update-data-account', 'Admin\Account\RealAccountController@update_data_account_do')->name('update.account.real.post');
+  Route::get('admin/account/demo-account-list', 'Admin\Account\AdminController@list_demo')->name('demo.account.list');
+  Route::get('admin/account/real-account-list', 'Admin\Account\AdminController@list_real')->name('real.account.list');
+  Route::get('admin/account/approve-update-account', 'Admin\Account\AdminController@approve_update')->name('approve.update.account');
+  Route::post('admin/account/approve-update-account-detail/{id}', 'Admin\Account\AdminController@approve_update_detail')->name('approve.update.account.detail');
+  Route::post('admin/account/approve-update-account', 'Admin\Account\AdminController@approve_update_post')->name('approve.update.account.post');
 
 
 

@@ -4,9 +4,6 @@
 @section('content')
 <!-- Page -->
 <div class="page animsition" style="animation-duration: 800ms; opacity: 1;">
-	<div class="page-header">
-		<h1 class="page-title">Aplikasi Pembukaan Rekening Transaksi secara Elektronik On-line</h1>
-	</div>
 	<div class="page-content container-fluid">
 		<div class="row">
       <div class="col-sm-12">
@@ -477,7 +474,7 @@
 
 							<hr/>
 
-							<legend class="text-center"><strong>KONFIRMASI PERMINTAAN AKUN</strong></legend>
+							<legend class="text-center"><strong>KONFIRMASI PERMINTAAN UPDATE AKUN</strong></legend>
 							@if ($errors->all())
 
 							<div class="alert alert-danger">
@@ -486,7 +483,7 @@
 								@endforeach
 							</div>
 						@endif
-							<form class="" action="{{route('manage.real.account.post')}}" method="post">
+							<form class="" action="{{route('approve.update.account.post')}}" method="post">
 								<input type="hidden" name="request_id" value="{{$order->id}}">
 								{{ csrf_field() }}
 								<div class="row">
@@ -564,14 +561,11 @@ $(document).ready(function() {
 	$('select[name=account_status]').on('change', function(e){
 		console.log(e);
 		if(e.target.value == "approved"){
-			APPROVED.show();
 			REJECTED.hide();
 		}else if(e.target.value == "rejected"){
-			APPROVED.hide();
 			REJECTED.show();
 
 		}else{
-			APPROVED.hide();
 			REJECTED.hide();
 		}
 	});

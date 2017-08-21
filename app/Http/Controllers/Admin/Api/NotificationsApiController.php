@@ -9,7 +9,7 @@ class NotificationsApiController extends Controller
 {
     //
     public function get_notifications(){
-      $query = RequestAccount::select('id', 'updated_at', 'nama')->where('status', 'filling')->orderBy('updated_at', 'DESC')->get();
+      $query = RequestAccount::select('id', 'updated_at', 'nama')->where('status', 'request')->orderBy('updated_at', 'DESC')->get();
       $response = [];
       foreach($query as $key => $row){
             $response[$key] = [

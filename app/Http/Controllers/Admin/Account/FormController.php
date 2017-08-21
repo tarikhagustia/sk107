@@ -83,9 +83,10 @@ class FormController extends Controller
 	}
 	public function bpk_02_1_check(Request $request)
 	{
+		$order = Auth::user()->lastRequestAccount();
 		$date=date_create($request->dob);
 		$dob= date_format($date,"Y-m-d");
-		RequestAccount::where('user_id', Auth::user()->id)->update([
+		RequestAccount::where('order_number', $order->order_number)->update([
             'user_id' => Auth::user()->id,
             'nama' => $request->name,
             'tempat_lahir' => $request->place,
@@ -182,7 +183,8 @@ class FormController extends Controller
 		}
 		
         // dd($request->approval_yes);
-	  RequestAccount::where('user_id', Auth::user()->id)->update([
+		$order = Auth::user()->lastRequestAccount();
+	  RequestAccount::where('order_number', $order->order_number)->update([
             'user_id' => Auth::user()->id,
 			      'account_type_id' => 1,
             'nama' => $request->name,

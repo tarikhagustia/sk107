@@ -33,7 +33,7 @@ class AccountController extends Controller
 	  }
 	  $files = glob($path.'/*');
 	  Zipper::make($filepath)->add($files)->close();
-	  RequestAccount::where('order_number',$order['order_number'])->update(['docs' => $filepath]);
+	  RequestAccount::where('order_number',$order['order_number'])->update(['docs' => $filepath,'status' => 'request']);
 	  Mt4User::where('order_number', $order['order_number'])->update(['docs' => $filepath]);
 	  Mail::to(env('OPENREAL_EMAIL'))->send(new RealAccount($order, $filepath));
 
