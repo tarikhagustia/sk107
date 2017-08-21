@@ -378,9 +378,10 @@ $(function () {
   });
 });
 	$(":checkbox").change(function(){
-		var index = $( ":checkbox" ).index( this ) + 1;
-		alert(index);
-		$(":checkbox:eq("+ index +")").attr("disabled", false);
+		var index = $( ":checkbox" ).index( this );
+		var index2 = $( ":checkbox" ).index( this ) + 1;
+		$(":checkbox:eq("+ index +")").attr("disabled", true);
+		$(":checkbox:eq("+ index2 +")").attr("disabled", false);
 	});
 </script>
 <script>

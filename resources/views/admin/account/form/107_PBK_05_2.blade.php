@@ -80,7 +80,7 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
+														<td>
 															<input type="checkbox" class="tick" name="check1"></td>
 													</tr>
 													<tr>
@@ -104,8 +104,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check2"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check2" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -131,8 +131,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check3"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check3" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -164,8 +164,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check4"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check4" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -181,8 +181,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check5"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check5" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -198,8 +198,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check6"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check6" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -215,8 +215,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check7"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check7" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -243,8 +243,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check8"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check8" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -267,8 +267,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check9"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check9" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -284,8 +284,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check10"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check10" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -301,8 +301,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check11"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check11" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -334,8 +334,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check12"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check12" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -351,8 +351,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check13"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check13" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -368,8 +368,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check14"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check14" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -385,8 +385,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check15"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check15" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -402,8 +402,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check16"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check16" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -546,8 +546,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check16"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check16" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -563,8 +563,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check17"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check17" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -590,8 +590,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check18"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check18" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -627,8 +627,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check19"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check19" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -644,8 +644,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check20"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check20" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -661,8 +661,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check21"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check21" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -704,8 +704,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check22"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check22" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop">
@@ -721,8 +721,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check23"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check23" disabled></td>
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:center">
@@ -736,8 +736,8 @@
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check24"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check24" disabled></td>
 													</tr>
 													</tbody>
 													</table>
@@ -794,6 +794,13 @@ $(function () {
     $.magnificPopup.close();
   });
 });
+
+$(":checkbox").change(function(){
+		var index = $( ":checkbox" ).index( this );
+		var index2 = $( ":checkbox" ).index( this ) + 1;
+		$(":checkbox:eq("+ index +")").attr("disabled", true);
+		$(":checkbox:eq("+ index2 +")").attr("disabled", false);
+	});
 </script>
 <script>
 $(document).ready(function() {
