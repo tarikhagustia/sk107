@@ -38,7 +38,7 @@ class FormController extends Controller
     }
 	public function bpk_02_2()
     {
-		$task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 2)->first();
+		$task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->first();
 	    $datas = Auth::user()->lastRequestAccount();
 		$demos = Mt4User::where('user_id',Auth::user()->id)->get();	
       return view('admin.account.form.107_PBK_02_2', ['datas'=> $datas, 'demos'=>$demos[0], 'task' => $task]);
