@@ -12,6 +12,7 @@ use App\Mail\RealAccount;
 use App\Models\RequestAccount;
 use App\Models\Mt4User;
 use App\Models\UserTask;
+use App\Models\Notification;
 use App\Models\AccountType;
 class AccountController extends Controller
 {
@@ -47,6 +48,11 @@ class AccountController extends Controller
 	  RequestAccount::where('order_number',$order['order_number'])->update(['docs' => $filepath,'status' => 'request']);
 	  Mt4User::where('order_number', $order['order_number'])->update(['docs' => $filepath]);
 	  Mail::to(env('OPENREAL_EMAIL'))->send(new RealAccount($order, $filepath));
+	  Notification::create([
+        'user_id' => 1,
+        'title' => 'Permintaan pembukaan akun A/N ' . $order->nama,
+        'url' => route('account.real.manage', ['id' => $order->id])
+      ]);
 
     return redirect()->route('create.account.real.finish');
 

@@ -22,7 +22,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
       return view('admin.index');
   });
 
-
+  Route::get('api2/notifications', 'Admin\Api\NotificationsApiController@get_notifications');
   /*
   |--------------------------------------------------------------------------
   | Article Router Admin
@@ -58,7 +58,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
   |--------------------------------------------------------------------------
   */
 
-  Route::get('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@index');
+  Route::get('admin/account/demo-account', 'Admin\Account\OpenDemoAccountController@index')->name('demo.account');
   Route::post('admin/account/pengalaman', 'AccountController@pengalaman_check');
   Route::get('admin/account/create-demo', 'Admin\Account\OpenDemoAccountController@create_account')->name('create.account.demo');
   Route::get('admin/account/manage-demo-account', 'Admin\Account\AdminController@index');

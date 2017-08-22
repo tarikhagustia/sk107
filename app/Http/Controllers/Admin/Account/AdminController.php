@@ -17,6 +17,7 @@ use App\User;
 use App\Models\RequestAccount;
 use App\Models\AccountType;
 use App\Models\RequestUpdateAccount;
+use App\Models\Notification;
 
 class AdminController extends Controller
 {
@@ -39,6 +40,11 @@ class AdminController extends Controller
 		$login = $request->login;
 		$password = $request->password;
 		Mail::to($demos->email)->send(new DemoAccountActivated($name, $login, $password));
+		Notification::create([
+            'user_id' => $data->user_id,
+            'title' => 'pembuatan demo akun anda berhasil',
+            'url' => route('demo.account')
+        ]);
 		return back();
 	  }
     }
@@ -124,6 +130,11 @@ class AdminController extends Controller
 		 RequestUpdateAccount::where('id',$request->request_id)->update([
 			'status' => 'approved'
 		 ]);
+		 Notification::create([
+            'user_id' => $data->user_id,
+            'title' => 'permintaan update data pribadi akun real anda diterima',
+            'url' => route('real.account.user')
+        ]);
           return redirect()->route('approve.update.account');
       }
 
@@ -137,7 +148,11 @@ class AdminController extends Controller
           $sql->status = "rejected";
           $sql->rejected_reason = $request->reason;
           $sql->save();
-
+		  Notification::create([
+            'user_id' => $data->user_id,
+            'title' => 'permintaan update data pribadi akun real anda ditolak',
+            'url' => route('real.account.user')
+        ]);
           return redirect()->route('approve.update.account');
       }
 
@@ -146,6 +161,12 @@ class AdminController extends Controller
 	public function approve_demo_post(Request $request)
     {
 		Mt4User::where('id', $request->id)->update(['is_approved' => 'yes']);
+		$data = Mt4User::where('id', $request->id)->first();
+		Notification::create([
+            'user_id' => $data->user_id,
+            'title' => 'demo akun anda sudah diapprove oleh admin',
+            'url' => route('account.real.manage')
+        ]);
 		return back();
     }
 	
@@ -207,6 +228,11 @@ class AdminController extends Controller
             'status' => ($row->task_form_number == '107.PBK.01') ? "current" : "disabled",
           ]);
         }
+		Notification::create([
+            'user_id' => $data->user_id,
+            'title' => 'pembuatan real akun anda berhasil',
+            'url' => route('real.account.user')
+        ]);
           return redirect()->route('manage.real.account')->with(['success' => 'Berhasil input data']);
       }
 
@@ -220,7 +246,12 @@ class AdminController extends Controller
           $sql->status = "rejected";
           $sql->rejected_reason = $request->reason;
           $sql->save();
-
+		  
+		  Notification::create([
+            'user_id' => $data->user_id,
+            'title' => 'pembuatan real akun anda ditolak, silahkan update data pribadi anda',
+            'url' => route('create.account.real')
+        ]);
           return redirect()->route('manage.real.account')->with(['success' => 'Berhasil input data']);
       }
 

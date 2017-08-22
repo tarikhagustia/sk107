@@ -415,7 +415,6 @@
         notifications : []
       },
       mounted : function() {
-        @if(Auth::user()->role == "admin")
         this.getNotify();
 
         // this.playAlarm();
@@ -424,14 +423,13 @@
         //   this.playAlarm();
         // }
         setInterval(this.getNotify, 3000);
-        @endif
 
       },
       methods : {
         getNotify(){
 
           $.ajax({
-            url : "{{url('api/notifications')}}",
+            url : "{{url('api2/notifications')}}",
             success: (response) => {
                 this.notifications = response;
             }

@@ -497,11 +497,31 @@
                       <select class="form-control" name="account_status" required>
 												<option disabled readonly selected>-- Pilih status --</option>
 												<option value="approved" >Diterima</option>
+												<option value="pending" >Ditunda (Pending)</option>
 												<option value="rejected" >Ditolak</option>
                       </select>
                     </div>
                   </div>
+									
+									<div id="approved" hidden>
 
+										<div class="form-group @if($errors->has('login_number')) has-error @endif">
+											<label class="col-sm-3 control-label">Login Number <span class="text-danger">*)</span></label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" name="login_number" value="" placeholder="Login Number">
+												<p class="help-block">{{$errors->first("login_number")}}</p>
+											</div>
+										</div>
+										<div class="form-group  @if($errors->has('login_password')) has-error @endif">
+											<label class="col-sm-3 control-label">Password <span class="text-danger">*)</span></label>
+											<div class="col-sm-4">
+												<input type="text" class="form-control" name="login_password" value="" placeholder="Password">
+												<p class="help-block">{{$errors->first("login_password")}}</p>
+											</div>
+										</div>
+
+									</div>
+									
 									<div id="rejected" hidden>
 
 										<div class="form-group">
