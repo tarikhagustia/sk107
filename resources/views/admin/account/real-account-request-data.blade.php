@@ -477,53 +477,8 @@
 
 							<hr/>
 
-							<legend class="text-center"><strong>KONFIRMASI PERMINTAAN AKUN</strong></legend>
-							@if ($errors->all())
+							<legend class="text-center"><strong>Permintaan Pembukaan akun anda sedang diproses oleh Wakil Pialang kami</strong></legend>
 
-							<div class="alert alert-danger">
-								@foreach ($errors->all() as $key => $value)
-									<p>{{$value}}</p>
-								@endforeach
-							</div>
-						@endif
-							<form class="" action="{{route('manage.real.account.post')}}" method="post">
-								<input type="hidden" name="request_id" value="{{$order->id}}">
-								{{ csrf_field() }}
-								<div class="row">
-								<div class="col-sm-8 col-sm-offset-4">
-									<div class="form-group">
-                    <label class="col-sm-3 control-label">Status Akun <span class="text-danger">*)</span></label>
-                    <div class="col-sm-4">
-                      <select class="form-control" name="account_status" required>
-												<option disabled readonly selected>-- Pilih status --</option>
-												<option value="approved" >Diterima</option>
-												<option value="rejected" >Ditolak</option>
-                      </select>
-                    </div>
-                  </div>
-
-									<div id="rejected" hidden>
-
-										<div class="form-group">
-											<label class="col-sm-3 control-label">Alasan <span class="text-danger">*)</span></label>
-											<div class="col-sm-4">
-												<textarea name="reason" class="form-control" rows="8" cols="80"></textarea>
-											</div>
-										</div>
-
-									</div>
-
-
-									<div class="form-group">
-										<div class="col-sm-4 col-sm-offset-3">
-											<button type="submit" name="button" class="btn btn-primary">Simpan</button>
-										</div>
-									</div>
-
-								</div>
-							</div>
-
-							</form>
 
           </div>
 					<div class="panel-footer">
@@ -536,46 +491,4 @@
 	</div>
 </div>
 <!-- End Page -->
-@endsection
-
-
-
-
-@section('css')
-<link rel="stylesheet" href="{{ asset('css/admin/formValidation.min.css') }}">
-<link rel="stylesheet" href="{{asset('css/admin/bootstrap-datepicker.min.css')}}" media="screen" title="no title" charset="utf-8">
-<style media="screen">
-	b, strong {
-		font-weight: bold !important;
-	}
-</style>
-@endsection
-
-@section('js')
-<script src="{{asset('js/admin/bootstrap-datepicker.min.js')}}" charset="utf-8"></script>
-<script src="{{asset('js/admin/formValidation.min.js')}}" charset="utf-8"></script>
-<script src="{{asset('js/admin/formvalidation-bootstrap.min.js')}}" charset="utf-8"></script>
-<script>
-$(document).ready(function() {
-
-	var APPROVED = $('#approved');
-	var REJECTED = $('#rejected');
-
-	$('select[name=account_status]').on('change', function(e){
-		console.log(e);
-		if(e.target.value == "approved"){
-			APPROVED.show();
-			REJECTED.hide();
-		}else if(e.target.value == "rejected"){
-			APPROVED.hide();
-			REJECTED.show();
-
-		}else{
-			APPROVED.hide();
-			REJECTED.hide();
-		}
-	});
-
-});
-</script>
 @endsection

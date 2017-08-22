@@ -377,11 +377,11 @@ $(function () {
     $.magnificPopup.close();
   });
 });
-	$(":checkbox").change(function(){
-		var index = $( ":checkbox" ).index( this );
-		var index2 = $( ":checkbox" ).index( this ) + 1;
-		$(":checkbox:eq("+ index +")").attr("disabled", true);
-		$(":checkbox:eq("+ index2 +")").attr("disabled", false);
+$(".tick").change(function(){
+		var index = $( ".tick" ).index( this );
+		var index2 = $( ".tick" ).index( this ) + 1;
+		$(".tick:eq("+ index +")").attr("disabled", true);
+		$(".tick:eq("+ index2 +")").attr("disabled", false);
 	});
 </script>
 <script>

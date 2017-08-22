@@ -43,9 +43,9 @@
 												</td>
 												<td>
 													@if ($demo->status == "pending")
-														<a type="submit" href="{{route('account.real.manage', ['id' => $demo->id])}}" class="btn btn-primary btn-block">Tampilkan</a>
+														<a type="submit" href="{{route('account.real.manage', ['id' => $demo->id])}}" class="btn btn-primary btn-block" style="text-decoration:none">Tampilkan</a>
 													@elseif ($demo->status == "request")
-														<a type="submit" href="{{route('account.real.manage', ['id' => $demo->id])}}" class="btn btn-primary btn-block">Tampilkan</a>
+														<a type="submit" href="{{route('account.real.manage', ['id' => $demo->id])}}" class="btn btn-primary btn-block" style="text-decoration:none">Tampilkan</a>
 													@endif
 
 												</td>

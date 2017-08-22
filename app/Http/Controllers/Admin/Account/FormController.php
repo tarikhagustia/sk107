@@ -86,12 +86,18 @@ class FormController extends Controller
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK01.pdf'), $output);  
 	  }
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 1)->update(['status' => 'active']);
-	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 2)->update(['status' => 'current']);
+	  $usertask = UserTask::where('user_id', Auth::user()->id)->where('task_id', 2)->first();
+	  if($usertask->status == 'active'){
+		
+	  }else{
+		UserTask::where('user_id', Auth::user()->id)->where('task_id', 2)->update(['status' => 'current']);
+	  }
+	  
 	  return back();
 	}
 	public function bpk_02_1_check(Request $request)
 	{
-		$request->flash();
+		
 		$order = Auth::user()->lastRequestAccount();
 		$date=date_create($request->dob);
 		$dob= date_format($date,"Y-m-d");
@@ -120,17 +126,26 @@ class FormController extends Controller
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK02-1.pdf'), $output);  
 	  }
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 2)->update(['status' => 'active']);
-	  $task3 = UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->first();
-	  if($task3->is_active == 'yes'){
-		UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->update(['status' => 'current']);  
-	  }else{
-		UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'current']);  
-	  }
+	  $usertask = UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->first();
+	  $usertask2 = UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->first();
+		if($usertask->is_active == 'yes'){
+		  if($usertask->status == 'active'){
+		
+		  }else{
+		    UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->update(['status' => 'current']);
+		  }			
+	    }else{
+		  if($usertask2->status == 'active'){
+		
+		  }else{
+		    UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'current']);  
+		  }	
+	    }
 	  return back();
 	}
 	public function bpk_02_2_check(Request $request)
 	{
-		$request->flash();
+		
 		$today = Carbon::now();	
 	  $data = Auth::user()->lastRequestAccount();	
 	  $data['today'] = $today;
@@ -147,12 +162,18 @@ class FormController extends Controller
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK02-2.pdf'), $output);  
 	  }
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->update(['status' => 'active']);
-	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'current']);
+	  $usertask = UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->first();
+	  if($usertask->status == 'active'){
+		
+	  }else{
+		UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'current']);
+	  }
 	  return back();
 	}
 	public function bpk_03_check(Request $request)
 	{
-		$request->flash();
+		
+		$order = Auth::user()->lastRequestAccount();
 		if(!empty(Input::file('id_card'))){
 			$image = Input::file('id_card');
 			$input['imagename'] = 'id_card.'.$image->getClientOriginalExtension();
@@ -164,6 +185,8 @@ class FormController extends Controller
 			$image->move($destinationPath, $input['imagename']);
 			$fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
 			$id_card = $fullpath;	
+		}else{
+			$id_card = $order->id_card;
 		}
         
 		if(!empty(Input::file('rek_koran'))){
@@ -177,6 +200,8 @@ class FormController extends Controller
 			$image->move($destinationPath, $input['imagename']);
 			$fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
 			$rek_koran = $fullpath;
+		}else{
+			$rek_koran = $order->rek_koran;
 		}
 		
 		if(!empty(Input::file('foto'))){
@@ -190,10 +215,12 @@ class FormController extends Controller
 			$image->move($destinationPath, $input['imagename']);
 			$fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
 			$foto = $fullpath;
+		}else{
+			$foto = $order->foto;
 		}
 		
         // dd($request->approval_yes);
-		$order = Auth::user()->lastRequestAccount();
+		
 	  RequestAccount::where('order_number', $order->order_number)->update([
             'user_id' => Auth::user()->id,
 			      'account_type_id' => 1,
@@ -272,7 +299,12 @@ class FormController extends Controller
 	  }
 	  
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->update(['status' => 'active']);
-	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->update(['status' => 'current']);
+	  $usertask = UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->first();
+	  if($usertask->status == 'active'){
+		
+	  }else{
+		UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->update(['status' => 'current']);
+	  }
 	  return redirect()->route('create.account.real');
 	}
 	public function bpk_04_2_check()
@@ -291,7 +323,12 @@ class FormController extends Controller
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK04-2.pdf'), $output);  
 	  }
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->update(['status' => 'active']);
-	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 6)->update(['status' => 'current']);
+	  $usertask = UserTask::where('user_id', Auth::user()->id)->where('task_id', 6)->first();
+	  if($usertask->status == 'active'){
+		
+	  }else{
+		UserTask::where('user_id', Auth::user()->id)->where('task_id', 6)->update(['status' => 'current']);
+	  }
 	  return back();
 	}
 	public function bpk_05_2_check()
@@ -310,7 +347,12 @@ class FormController extends Controller
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK05-2.pdf'), $output);  
 	  }
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 6)->update(['status' => 'active']);
-	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 7)->update(['status' => 'current']);
+	  $usertask = UserTask::where('user_id', Auth::user()->id)->where('task_id', 7)->first();
+	  if($usertask->status == 'active'){
+		
+	  }else{
+		UserTask::where('user_id', Auth::user()->id)->where('task_id', 7)->update(['status' => 'current']);
+	  }
 	  return back();
 	}
 	public function bpk_06_check()
@@ -329,12 +371,17 @@ class FormController extends Controller
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK06.pdf'), $output);  
 	  }
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 7)->update(['status' => 'active']);
-	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 8)->update(['status' => 'current']);
+	  $usertask = UserTask::where('user_id', Auth::user()->id)->where('task_id', 8)->first();
+	  if($usertask->status == 'active'){
+		
+	  }else{
+		UserTask::where('user_id', Auth::user()->id)->where('task_id', 8)->update(['status' => 'current']);
+	  }
 	  return back();
 	}
 	public function bpk_07_check(Request $request)
 	{
-	  $request->flash();
+	  
 	  $today = Carbon::now();	
 	  $data = Auth::user()->lastRequestAccount();	
 	  $data['today'] = $today;
