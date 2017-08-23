@@ -443,7 +443,7 @@
 								<div class="col-sm-8 col-sm-offset-4">
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Peryataan Kebenaran dan tanggung jawab <span class="text-danger">*)</span></label>
-										<div class="col-sm-9">
+										<div class="col-sm-3">
 
 												<div class="radio-custom radio-primary">
 													<input type="radio" id="aproval_yes" name="approval_yes" value="ya" @if($order->aproval_yes == "ya") checked="true" @endif>

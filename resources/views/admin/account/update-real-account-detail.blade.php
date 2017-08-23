@@ -102,7 +102,7 @@
                           </select>
                         </div>
                         <div class="col-sm-8">
-                          <input  type="text" class="form-control" name="indentity_number" value="{{$order->no_id}}">
+                          <input  type="text" class="form-control" name="identity_number" value="{{$order->no_id}}">
                         </div>
                       </div>
                     </div>
@@ -531,32 +531,32 @@
 <script src="{{asset('js/admin/formvalidation-bootstrap.min.js')}}" charset="utf-8"></script>
 <script>
 $(document).ready(function() {
-				var today = new Date();
-		var date = new Date();
-		date.setFullYear( date.getFullYear() - 21 );
-		date.setMonth( date.getMonth() + 1 );
-		var stat = document.getElementById("status_perkawinan");
-		var status = stat.options[stat.selectedIndex].value;
-		if(date.getMonth()<10){var limit_month = '0'+date.getMonth();}else{var limit_month = date.getMonth();}
-		if(today.getMonth()<10){var today_month = '0'+today.getMonth();}else{var today_month = today.getMonth();}
-		if(date.getDate()<10){var limit_date = '0'+date.getDate();}else{var limit_date = date.getDate();}
-		if(today.getDate()<10){var today_date = '0'+today.getDate();}else{var today_date = today.getDate();}
-		if(status=='tidak kawin'){
-			var limit = (date.getFullYear() ) + '-' + (limit_month) + '-' + (limit_date);
-		}else{
-			var limit = (today.getFullYear() ) + '-' + (today_month) + '-' + (today_date);
-		}
+	var today = new Date();
+	var date = new Date();
+	date.setFullYear( date.getFullYear() - 21 );
+	date.setMonth( date.getMonth() + 1 );
+	var stat = document.getElementById("status_perkawinan");
+	var status = stat.options[stat.selectedIndex].value;
+	if(date.getMonth()<10){var limit_month = '0'+date.getMonth();}else{var limit_month = date.getMonth();}
+	if(today.getMonth()<10){var today_month = '0'+today.getMonth();}else{var today_month = today.getMonth();}
+	if(date.getDate()<10){var limit_date = '0'+date.getDate();}else{var limit_date = date.getDate();}
+	if(today.getDate()<10){var today_date = '0'+today.getDate();}else{var today_date = today.getDate();}
+	if(status=='tidak kawin'){
+		var limit = (date.getFullYear() ) + '-' + (limit_month) + '-' + (limit_date);
+	}else{
+		var limit = (today.getFullYear() ) + '-' + (today_month) + '-' + (today_date);
+	}
 	
-		const DATEPICKER = $('.datepicker');
-		DATEPICKER.each(function(key, item){
-			$(item).datepicker({
-				format: 'yyyy-mm-dd',
-			})
-			.on('changeDate', function(e) {
-            // Revalidate the date field
-            $('#form-update').formValidation('revalidateField', 'dob');
-        });
+	const DATEPICKER = $('.datepicker');
+	DATEPICKER.each(function(key, item){
+		$(item).datepicker({
+			format: 'yyyy-mm-dd',
 		})
+		.on('changeDate', function(e) {
+            // Revalidate the date field
+            $('#form-register').formValidation('revalidateField', 'dob');
+		});
+	});
 		
 	$('#status_perkawinan').change(function () {
 		var stat = document.getElementById("status_perkawinan");
@@ -571,24 +571,13 @@ $(document).ready(function() {
 			 limit = (today.getFullYear() ) + '-' + (today_month) + '-' + (today_date);
 		}
     });	
-		
-    $('#form-real').formValidation({
+		$('#form-real').formValidation({
         framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
         fields: {
             name: {
                 validators: {
                     notEmpty: {
                         message: 'Nama harus diisi'
-                    },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'Nama harus minimal 6 karakter dan maksimal 30 karakter'
                     },
                     regexp: {
                         regexp: /^[a-zA-Z\s]+$/,
@@ -617,11 +606,10 @@ $(document).ready(function() {
                     }
                 }
             },
-						dob: {
+			dob: {
                 validators: {
                     notEmpty: {
                         message: 'Tanggal lahir harus diisi'
-                    },
                     },
                     date: {
                         format: 'YYYY-MM-DD',
@@ -630,7 +618,7 @@ $(document).ready(function() {
                     }
                 }
             },
-            indentity_number: {
+            identity_number: {
                 validators: {
                     notEmpty: {
                         message: 'Nomor identitas harus diisi'
@@ -640,11 +628,67 @@ $(document).ready(function() {
                     }
                 }
             },
-						phone_number: {
+			phone_number: {
                 validators: {
                     notEmpty: {
                         message: 'Nomor telepon harus diisi'
                     },
+                    numeric: {
+                        message: 'Nomor telepon hanya boleh angka'
+                    }
+                }
+            },
+			npwp: {
+                validators: {
+                    numeric: {
+                        message: 'NPWP hanya boleh angka'
+                    }
+                }
+            },
+			postcode: {
+                validators: {
+                    numeric: {
+                        message: 'Kode pos hanya boleh angka'
+                    }
+                }
+            },
+			telp_darurat: {
+                validators: {
+                    numeric: {
+                        message: 'Nomor telepon hanya boleh angka'
+                    }
+                }
+            },
+			telp_kantor: {
+                validators: {
+                    numeric: {
+                        message: 'Nomor telepon kantor hanya boleh angka'
+                    }
+                }
+            },
+			postcode_kantor: {
+                validators: {
+                    numeric: {
+                        message: 'Kode post kantor hanya boleh angka'
+                    }
+                }
+            },
+			lama_bekerja: {
+                validators: {
+                    numeric: {
+                        message: 'Lama bekerja hanya boleh angka'
+                    }
+                }
+            },
+			kantor_sebelum: {
+                validators: {
+                    numeric: {
+                        message: 'Lama bekerja di kantor sebelumnya hanya boleh angka'
+                    }
+                }
+            },
+			telp_bank: {
+                validators: {
                     numeric: {
                         message: 'Nomor telepon hanya boleh angka'
                     }
@@ -665,18 +709,20 @@ $(document).ready(function() {
                 }
             },
 			keluarga_kbi: {
+				enabled: false,
                 validators: {
                     stringLength: {
                         message: 'Maaf anda tidak bisa lanjut karena memiliki anggota keluarga yang bekerja di BAPPEBTI/Bursa Berjangka/Kliring Berjangka',
-                        min: 5;
+                        min: 5,
                     }
                 }
             },
 			pailit: {
+				enabled: false,
                 validators: {
                     stringLength: {
                         message: 'Maaf anda tidak bisa lanjut karena telah dinyatakan pailit oleh Pengadilan',
-                        min: 5;
+                        min: 5,
                     }
                 }
             },
@@ -684,7 +730,7 @@ $(document).ready(function() {
                 validators: {
                     stringLength: {
                         message: 'Anda harus menyetujui dan menerima pernyataan diatas',
-                        max: 2;
+                        max: 2,
                     }
                 }
             },
@@ -712,7 +758,10 @@ $(document).ready(function() {
 						telp_darurat : {
 							validators : {
 								notEmpty : {
-									message : 'Nomor telphon harap disi'
+									message : 'Nomor telepon harap disi'
+								},
+								numeric: {
+									message: 'Nomor telepon hanya boleh angka'
 								}
 							}
 						},
@@ -748,6 +797,9 @@ $(document).ready(function() {
 							validators : {
 								notEmpty : {
 									message : 'Harap isi nomor rekening'
+								},
+								numeric: {
+									message: 'Nomor rekening hanya boleh angka'
 								}
 							}
 						},
@@ -766,46 +818,63 @@ $(document).ready(function() {
 							}
 						},
 						id_card : {
+							enabled: false,
 							validators : {
 								notEmpty : {
 									message : 'Identitas diperlukan'
 								},
 								file: {
-                    extension: 'jpg,jpeg,png',
-                    type: 'image/png,/image/jpg,image/jpeg',
-                    message: 'Hanya file gambar'
-                }
+									extension: 'jpg,jpeg,png',
+									type: 'image/png,/image/jpg,image/jpeg',
+									message: 'Hanya file gambar'
+								}
 							}
 						},
 						rek_koran : {
+							enabled: false,
 							validators : {
 								notEmpty : {
 									message : 'Identitas diperlukan'
 								},
 								file: {
-                    extension: 'jpg,jpeg,png',
-                    type: 'image/png,/image/jpg,image/jpeg',
-                    message: 'Hanya file gambar'
-                }
+									extension: 'jpg,jpeg,png',
+									type: 'image/png,/image/jpg,image/jpeg',
+									message: 'Hanya file gambar'
+								}
 							}
 						},
 						foto : {
+							enabled: false,
 							validators : {
 								notEmpty : {
 									message : 'Identitas diperlukan'
 								},
 								file: {
-                    extension: 'jpg,jpeg,png',
-                    type: 'image/png,/image/jpg,image/jpeg',
-                    message: 'Hanya file gambar'
-                }
+									extension: 'jpg,jpeg,png',
+									type: 'image/png,/image/jpg,image/jpeg',
+									message: 'Hanya file gambar'
+								}
 							}
 						}
-        }).on('change', '[name="status_perkawinan"]', function(e) {
+		}
+    }).on('change', '[name="status_perkawinan"]', function(e) {
 
-            $('#form-update').formValidation('updateOption', 'dob', 'date', 'max', limit);
-        });
-    });
+           $('#form-real').formValidation('updateOption', 'dob', 'date', 'max', limit);
+    }).on('change', '[name="keluarga_kbi"]', function(e) {
+           $('#form-real').data('formValidation').enableFieldValidators('keluarga_kbi', true);
+    }).on('change', '[name="pailit"]', function(e) {
+
+           $('#form-real').data('formValidation').enableFieldValidators('pailit', true);
+    }).on('change', '[name="id_card"]', function(e) {
+
+           $('#form-real').data('formValidation').enableFieldValidators('id_card', true);
+    }).on('change', '[name="rek_koran"]', function(e) {
+
+           $('#form-real').data('formValidation').enableFieldValidators('rek_koran', true);
+    }).on('change', '[name="foto"]', function(e) {
+
+           $('#form-real').enableFieldValidators('foto', true);
+    });    
 });
 </script>
 @endsection

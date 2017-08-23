@@ -8,12 +8,16 @@ use Auth;
 use Mail;
 use Zipper;
 use File;
+use Carbon;
+use PDF;
+use DB;
 use App\Mail\RealAccount;
 use App\Models\RequestAccount;
 use App\Models\Mt4User;
 use App\Models\UserTask;
 use App\Models\Notification;
 use App\Models\AccountType;
+use Illuminate\Support\Facades\Input;
 class AccountController extends Controller
 {
   public function index()
@@ -72,8 +76,8 @@ class AccountController extends Controller
     return view('admin.account.create-account-finish');
   }
   
-  public function update_rejected_request(Request $request){
-	$order = RequestAccount::where('order_number',$request->order_number)->first();
+  public function update_rejected_request_do(Request $request){
+		$order = RequestAccount::where('order_number',$request->order_number)->first();
 		if(!empty(Input::file('id_card'))){
 			$image = Input::file('id_card');
 			$input['imagename'] = 'id_card.'.$image->getClientOriginalExtension();
@@ -168,7 +172,7 @@ class AccountController extends Controller
             'aproval_yes' => $request->approval_yes
         ]);
 		$today = Carbon::now();	
-	  $data = Auth::user()->lastRequestAccount();	
+	  $data = RequestAccount::where('order_number',$request->order_number)->first();
 	  $data['today'] = $today;
 	  
 	  $tipe = DB::table('request_accounts')

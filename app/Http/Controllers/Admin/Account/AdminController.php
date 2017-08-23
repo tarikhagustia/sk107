@@ -41,11 +41,11 @@ class AdminController extends Controller
 		$password = $request->password;
 		Mail::to($demos->email)->send(new DemoAccountActivated($name, $login, $password));
 		Notification::create([
-            'user_id' => $data->user_id,
+            'user_id' => $demos->user_id,
             'title' => 'pembuatan demo akun anda berhasil',
             'url' => route('demo.account')
         ]);
-		return back();
+		return redirect()->route('manage.demo');
 	  }
     }
 	
@@ -81,8 +81,8 @@ class AdminController extends Controller
 	
 	public function approve_update_post(Request $request)
     {
+	  $data = RequestUpdateAccount::where('id',$request->request_id)->first();	
 	  if($request->account_status == "approved"){
-		  $data = RequestUpdateAccount::where('id',$request->request_id)->first();
 		  RequestAccount::where('order_number', $data->order_number)->update([
             'user_id' => Auth::user()->id,
 			      'account_type_id' => 1,
@@ -165,9 +165,9 @@ class AdminController extends Controller
 		Notification::create([
             'user_id' => $data->user_id,
             'title' => 'demo akun anda sudah diapprove oleh admin',
-            'url' => route('account.real.manage')
+            'url' => route('demo.account')
         ]);
-		return back();
+		return redirect()->route('approve.demo');
     }
 	
     public function manage_real_account($id = false){
@@ -182,7 +182,7 @@ class AdminController extends Controller
       endif;
     }
     public function manage_real_account_post(Request $request){
-
+	  $data = RequestAccount::where('id',$request->request_id)->first();
       if($request->account_status == "approved"){
           $this->validate($request, [
             'account_status' => 'required',
@@ -196,8 +196,6 @@ class AdminController extends Controller
           $sql->account_password = $request->login_password;
           $sql->save();
 		  
-		  
-		  $data = RequestAccount::where('id',$request->request_id)->first();
 		  $user = User::where('id',$data['user_id'])->first();
 		  Mt4User::create([
             'user_id' => $data['user_id'],

@@ -20,7 +20,8 @@
                         <th>Tanggal Order</th>
                         <th>Nama</th>
                         <th>Status</th>
-												<th></th>
+						<th></th>
+						<th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -40,6 +41,9 @@
 													@elseif ($demo->status == "rejected")
 														<span class="label label-danger">Ditolak</span>
 													@endif
+												</td>
+												<td>
+													<a class="btn btn-primary" href="{{asset($demo->docs)}}" style="text-decoration: none;">Preview</a>
 												</td>
 												<td>
 													@if ($demo->status == "pending")
