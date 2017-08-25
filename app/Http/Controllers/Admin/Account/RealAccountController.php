@@ -120,7 +120,7 @@ class RealAccountController extends Controller
       			'dob' => $request->dob,
       			'alamat' => $request->alamat,
       			'tipe_id' => $request->identity_type,
-      			'no_id' => $request->indentity_number,
+      			'no_id' => $request->identity_number,
       			'phone_number' => $request->phone_number,
       			'pengalaman' => $request->pengalaman,
       			'tujuan' => $request->tujuan,
@@ -156,7 +156,8 @@ class RealAccountController extends Controller
       			'id_card' => $id_card,
       			'rek_koran' => $rek_koran,
       			'foto' => $foto,
-				'phone_number' => $request->phone_number
+				'phone_number' => $request->phone_number,
+				'aproval_yes' => $request->approval_yes
         ]);
 	  return redirect()->route('real.account.user');
     }

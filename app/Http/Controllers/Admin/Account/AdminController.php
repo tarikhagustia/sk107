@@ -51,7 +51,7 @@ class AdminController extends Controller
 	
 	public function approve_demo()
     {
-	  $demos = Mt4User::where('is_approved','no')->where('is_active','yes')->get();
+	  $demos = Mt4User::where('is_approved','no')->where('is_real','no')->where('is_active','yes')->get();
       return view('admin.account.approve-demo',['demos'=> $demos]);
     }
 	
@@ -84,7 +84,6 @@ class AdminController extends Controller
 	  $data = RequestUpdateAccount::where('id',$request->request_id)->first();	
 	  if($request->account_status == "approved"){
 		  RequestAccount::where('order_number', $data->order_number)->update([
-            'user_id' => Auth::user()->id,
 			      'account_type_id' => 1,
             'nama' => $data->nama,
             'tempat_lahir' => $data->tempat_lahir,
@@ -144,7 +143,7 @@ class AdminController extends Controller
             'reason' => 'required'
           ]);
 
-          $sql = RequestAccount::find($request->request_id);
+          $sql = RequestUpdateAccount::find($request->request_id);
           $sql->status = "rejected";
           $sql->rejected_reason = $request->reason;
           $sql->save();

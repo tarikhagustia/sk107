@@ -571,7 +571,7 @@ $(document).ready(function() {
 			 limit = (today.getFullYear() ) + '-' + (today_month) + '-' + (today_date);
 		}
     });	
-		$('#form-real').formValidation({
+		$('#form-update').formValidation({
         framework: 'bootstrap',
         fields: {
             name: {
@@ -859,21 +859,21 @@ $(document).ready(function() {
 		}
     }).on('change', '[name="status_perkawinan"]', function(e) {
 
-           $('#form-real').formValidation('updateOption', 'dob', 'date', 'max', limit);
+           $('#form-update').formValidation('updateOption', 'dob', 'date', 'max', limit);
     }).on('change', '[name="keluarga_kbi"]', function(e) {
-           $('#form-real').data('formValidation').enableFieldValidators('keluarga_kbi', true);
+           $('#form-update').data('formValidation').enableFieldValidators('keluarga_kbi', true);
     }).on('change', '[name="pailit"]', function(e) {
 
-           $('#form-real').data('formValidation').enableFieldValidators('pailit', true);
+           $('#form-update').data('formValidation').enableFieldValidators('pailit', true);
     }).on('change', '[name="id_card"]', function(e) {
 
-           $('#form-real').data('formValidation').enableFieldValidators('id_card', true);
+           $('#form-update').data('formValidation').enableFieldValidators('id_card', true);
     }).on('change', '[name="rek_koran"]', function(e) {
 
-           $('#form-real').data('formValidation').enableFieldValidators('rek_koran', true);
+           $('#form-update').data('formValidation').enableFieldValidators('rek_koran', true);
     }).on('change', '[name="foto"]', function(e) {
 
-           $('#form-real').enableFieldValidators('foto', true);
+           $('#form-update').enableFieldValidators('foto', true);
     });    
 });
 </script>

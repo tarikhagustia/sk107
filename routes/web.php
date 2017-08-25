@@ -21,6 +21,10 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::get('/admin', function () {
       return view('admin.index');
   });
+  
+  Route::get('/home', function () {
+      return view('admin.index');
+  });
 
   Route::get('api2/notifications', 'Admin\Api\NotificationsApiController@get_notifications');
   /*
