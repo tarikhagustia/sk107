@@ -7,26 +7,34 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Auth;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Input;
 use Carbon;
 use File;
 use Mail;
 use App\Mail\Deposit;
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 class DepositController extends Controller
 {
   public function index()
   {
     $data = DB::table('mt4_users')
                   ->where('user_id', Auth::user()->id)
+<<<<<<< HEAD
 				  ->where('is_real', 'yes')
 				  ->where('is_active', 'yes')
                   ->first();
+=======
+                  ->get();
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     // dd($data);
     return view('admin.deposit.deposit', ['account'=>$data]);
   }
 
   public function deposit(Request $r)
   {
+<<<<<<< HEAD
 	$mytime = Carbon\Carbon::now();
 	$mytime = $mytime->toDateTimeString();
 	$mytime = str_replace('-','',$mytime);
@@ -46,10 +54,13 @@ class DepositController extends Controller
 	}else{
 		$bukti = $order->bukti;
 	}
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     $cre = date("Y-m-d h:i:s");
     DB::table('deposit')->insert ([
       'account_id'=>$r->noaccount,
       'amount'=>$r->amount,
+<<<<<<< HEAD
 	  'currency'=>$r->currency,
       'status'=>'pending',
 	  'bukti'=>$bukti,
@@ -59,6 +70,12 @@ class DepositController extends Controller
 	Mail::to(env('DEFAULT'))->send(new Deposit(Auth::user()->name,Auth::user()->email,$r->noaccount,$bukti));
 	Mail::to(env('EMAIL1'))->send(new Deposit(Auth::user()->name,Auth::user()->email,$r->noaccount,$bukti));
 	Mail::to(env('EMAIL2'))->send(new Deposit(Auth::user()->name,Auth::user()->email,$r->noaccount,$bukti));
+=======
+      'status'=>'pending',
+      'created_at'=>$cre,
+      'updated_at'=>$cre
+    ]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     return redirect()->back()->with('success', 'Success Request Deposit');
   }
 }

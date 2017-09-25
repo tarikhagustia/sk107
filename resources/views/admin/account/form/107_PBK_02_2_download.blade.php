@@ -13,6 +13,11 @@
 				<div class="row row-lg">
 					<div class="col-sm-12">
 						<div class="example-wrap">
+<<<<<<< HEAD
+=======
+							<p style="font-size=11px;">Surat Pernyataan Telah Berpengalaman Melaksanakan Transaksi Perdagangan Berjangka Komoditi sebagaimana yang ada di Formulir Nomor : 107.PBK.02.2 hanya dapat diberikan kepada Nasabah yang telah berpengalaman melakukan transaksi Perdagangan Berjangka Komoditi.</p>
+							<br>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 							<h4 class="example-title" style="font-weight:700;text-align:center;font-size:14px;">SURAT PERNYATAAN TELAH BERPENGALAMAN MELAKSANAKAN TRANSAKSI PERDAGANGAN BERJANGKA KOMODITI</h4>
 							<hr>
 							<div class="example" style="margin-left:40px;">
@@ -53,6 +58,7 @@
 				</div>
 			</div>
 			<hr>
+<<<<<<< HEAD
 			<br>
 			<div class="form-group form-material" style="text-align:center;">
 				Dengan mengisi kolom "YA" di bawah ini, Saya menyatakan bahwa saya telah memiliki pengalaman yang mencukupi dalam melaksanakan transaksi Perdagangan Berjangka karena pernah bertransaksi pada Perusahaan Pialang Berjangka {{$data->perusahaan}}, dan telah memahami tentang tata cara bertransaksi Perdagangan Berjangka. <br><br>Demikian Pernyataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.
@@ -65,6 +71,26 @@
 				<div class="form-group form-material" style="text-align:justified;">
 					Menyatakan pada Tanggal {{$data->today->formatLocalized('%d %B %Y')}}
 				</div>
+=======
+			<div class="modal-footer">
+				<div class="form-group form-material" style="text-align:center;">
+					Saya menyatakan bahwa saya telah memiliki pengalaman yang mencukupi dalam melaksanakan transaksi Perdagangan Berjangka karena pernah bertransaksi pada Perusahaan Pialang Berjangka {{config('settings.company_name')}}, dan telah memahami tentang tata cara bertransaksi Perdagangan Berjangka. <br><br>Demikian Pernyataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.
+				</div>
+				<br>
+				<br>
+				<br>
+				<div class="pull-right" style="text-align:right;">
+					{{$data->today->formatLocalized('%A %d %B %Y')}}
+					<br>
+					Menyatakan,
+					<br>
+					<br>
+					<br>
+					<br>
+					({{$data->nama}})
+				</div>
+			</div>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 		</div>
 </div>
 

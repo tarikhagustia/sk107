@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth','admin']], function(){
       return view('admin.index');
   });
   
+<<<<<<< HEAD
   Route::get('admin/already-approved', function () {
       return view('admin.account.check');
   });
@@ -32,6 +33,13 @@ Route::group(['middleware' => ['auth','admin']], function(){
 
   Route::get('api2/notifications', 'Admin\Api\NotificationsApiController@get_notifications');
   Route::get('api2/notifications/{id}', 'Admin\Api\NotificationsApiController@check_notifications')->name('check.notifications');
+=======
+  Route::get('/home', function () {
+      return view('admin.index');
+  });
+
+  Route::get('api2/notifications', 'Admin\Api\NotificationsApiController@get_notifications');
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
   /*
   |--------------------------------------------------------------------------
   | Article Router Admin
@@ -71,9 +79,15 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::post('admin/account/pengalaman', 'AccountController@pengalaman_check');
   Route::get('admin/account/create-demo', 'Admin\Account\OpenDemoAccountController@create_account')->name('create.account.demo');
   Route::get('admin/account/manage-demo-account', 'Admin\Account\AdminController@index')->name('manage.demo');
+<<<<<<< HEAD
   Route::post('admin/account/manage-demo-account', 'Admin\Account\AdminController@update')->middleware('duplicatedemo');
   Route::get('admin/account/approve-demo-account', 'Admin\Account\AdminController@approve_demo')->name('approve.demo');
   Route::post('admin/account/approve-demo-account', 'Admin\Account\AdminController@approve_demo_post')->middleware('duplicate');
+=======
+  Route::post('admin/account/manage-demo-account', 'Admin\Account\AdminController@update');
+  Route::get('admin/account/approve-demo-account', 'Admin\Account\AdminController@approve_demo')->name('approve.demo');
+  Route::post('admin/account/approve-demo-account', 'Admin\Account\AdminController@approve_demo_post');
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
   Route::get('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
   Route::post('admin/account/create-demo-manual', 'Admin\Account\OpenDemoAccountController@create_account_manual')->name('create.account.demo.manual');
   Route::get('admin/account/real-account-user', 'Admin\Account\RealAccountController@index')->name('real.account.user');
@@ -83,14 +97,23 @@ Route::group(['middleware' => ['auth','admin']], function(){
   Route::get('admin/account/real-account/finish', 'AccountController@request_finish')->name('create.account.real.finish');
   Route::post('admin/account/real-account/update-rejected-request', 'AccountController@update_rejected_request_do')->name('update.rejected.request.do');
   Route::get('admin/account/manage-real-account', 'Admin\Account\AdminController@manage_real_account')->name('manage.real.account');
+<<<<<<< HEAD
   Route::post('admin/account/manage-real-account', 'Admin\Account\AdminController@manage_real_account_post')->middleware('duplicate')->name('manage.real.account.post');
   Route::get('admin/account/manage-real-account/{id}', 'Admin\Account\AdminController@manage_real_account')->middleware('checkreal')->name('account.real.manage');
+=======
+  Route::post('admin/account/manage-real-account', 'Admin\Account\AdminController@manage_real_account_post')->name('manage.real.account.post');
+  Route::get('admin/account/manage-real-account/{id}', 'Admin\Account\AdminController@manage_real_account')->name('account.real.manage');
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
   Route::get('admin/account/update-data-account/{id}', 'Admin\Account\RealAccountController@update_data_account')->name('update.account.real');
   Route::post('admin/account/update-data-account', 'Admin\Account\RealAccountController@update_data_account_do')->name('update.account.real.post');
   Route::get('admin/account/demo-account-list', 'Admin\Account\AdminController@list_demo')->name('demo.account.list');
   Route::get('admin/account/real-account-list', 'Admin\Account\AdminController@list_real')->name('real.account.list');
   Route::get('admin/account/approve-update-account', 'Admin\Account\AdminController@approve_update')->name('approve.update.account');
+<<<<<<< HEAD
   Route::post('admin/account/approve-update-account-detail/{id}', 'Admin\Account\AdminController@approve_update_detail')->middleware('checkupdate')->name('approve.update.account.detail');
+=======
+  Route::post('admin/account/approve-update-account-detail/{id}', 'Admin\Account\AdminController@approve_update_detail')->name('approve.update.account.detail');
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
   Route::post('admin/account/approve-update-account', 'Admin\Account\AdminController@approve_update_post')->name('approve.update.account.post');
 
 

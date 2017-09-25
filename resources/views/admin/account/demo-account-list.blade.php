@@ -32,7 +32,11 @@
                         <td>{{$key+1}}</td>
                         <td>{{$demo->name}}</td>
                         <td>{{$demo->email}}</td>
+<<<<<<< HEAD
                         <td>{{Carbon::parse($demo->created_at)->format('d-m-Y H:i:s')}}</td>
+=======
+                        <td>{{$demo->created_at}}</td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 						<td>{{$demo->login}}</td>
 						<td>{{$demo->password}}</td>
 						<td>

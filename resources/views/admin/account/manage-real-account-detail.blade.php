@@ -19,6 +19,7 @@
 					<div class="form-horizontal">
 
 						{{ csrf_field() }}
+<<<<<<< HEAD
 						<input type="hidden" name="order_number" id="order_number" value="{{$order->order_number}}">
           <div class="panel-body">
               <div class="row">
@@ -30,6 +31,14 @@
 								@endforeach
 							</div>
 						@endif
+=======
+          <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-6">
+
+                  <span><strong>Formulir Nomor : 107.PBK.03</strong></span>
+                </div>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                 <div class="col-sm-6">
                   <p class="pull-right">Lampiran Peraturan Kepala Badan Pengawas Perdagangan Berjangka Komoditi <br/> Nomor : 107/BAPPEBTI/PER/11/2013</p>
                 </div>
@@ -37,6 +46,48 @@
 
               <hr/>
 
+<<<<<<< HEAD
+=======
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Nomor Order : </label>
+                    <div class="col-sm-9">
+                      <p class="form-control-static">{{$order->order_number}}</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Jenis akun : </label>
+                    <div class="col-sm-9">
+											@foreach ($accountType as $key => $value)
+	                      <div class="radio-custom radio-primary">
+	                        <input disabled type="radio" id="account_type_mini" name="account_type" value="{{$value->id}}" @if ($value->id == $order->account_type_id) checked="true" @endif />
+	                        <label for="account_type_mini">{{$value->account_name}}</label>
+	                      </div>
+											@endforeach
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">Tanggal :</label>
+                    <div class="col-sm-8">
+                      <p class="form-control-static"> {{$order->created_at->toDateTimeString()}}</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label">Platform : </label>
+                    <div class="col-sm-8">
+                      <p class="form-control-static">MetaTrader</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr/>
+
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
               <p class="text-center"><em>––– List 1 of 3 » Data Pribadi & Keluarga yang Dapat Dihubungi –––</em></p>
 
               <legend>Data Pribadi</legend>
@@ -94,7 +145,11 @@
                     <label class="col-sm-3 control-label">Tuj. Buka Rekening <span class="text-danger">*)</span></label>
                     <div class="col-sm-4">
                       <select disabled class="form-control" name="tujuan" id="tujuan">
+<<<<<<< HEAD
 												<option value="lindung nilai" @if($order->tujuan == "lindung nilai") selected @endif>Lindung Nilai</option>
+=======
+												<option value="hedging" @if($order->tujuan == "hedging") selected @endif>Hedging</option>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 												<option value="gain" @if($order->tujuan == "gain") selected @endif>Gain</option>
 												<option value="spekulasi" @if($order->tujuan == "spekulasi") selected @endif>Spekulasi</option>
                       </select>
@@ -116,11 +171,19 @@
                     </div>
                   </div>
                   <div class="form-group">
+<<<<<<< HEAD
                     <label class="col-sm-3 control-label">Status Pernikahan</label>
                     <div class="col-sm-4">
                       <select disabled class="form-control" name="status_perkawinan" id="status_perkawinan">
 													<option value="tidak kawin" @if($order->status_perkawinan == "tidak kawin") selected @endif>Tidak Menikah</option>
 													<option value="kawin" @if($order->status_perkawinan == "kawin") selected @endif>Menikah</option>
+=======
+                    <label class="col-sm-3 control-label">Status Perkawinan</label>
+                    <div class="col-sm-4">
+                      <select disabled class="form-control" name="status_perkawinan" id="status_perkawinan">
+													<option value="tidak kawin" @if($order->status_perkawinan == "tidak kawin") selected @endif>Tidak Kawin</option>
+													<option value="kawin" @if($order->status_perkawinan == "kawin") selected @endif>Kawin</option>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													<option value="janda" @if($order->status_perkawinan == "janda") selected @endif>Janda</option>
 													<option value="duda" @if($order->status_perkawinan == "duda") selected @endif>Duda</option>
                       </select>
@@ -139,7 +202,11 @@
                           <input disabled type="text" class="form-control" name="place" value="{{$order->tempat_lahir}}">
                         </div>
                         <div class="col-sm-6">
+<<<<<<< HEAD
                           <input disabled type="text" class="form-control datepicker" name="dob" id="dob" value="{{Carbon::parse($order->dob)->format('d-m-Y')}}">
+=======
+                          <input disabled type="text" class="form-control datepicker" name="dob" id="dob" value="{{$order->dob}}">
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                         </div>
                       </div>
                     </div>
@@ -178,12 +245,15 @@
                       <input disabled type="text" class="form-control" name="telpon_rumah" value="{{$order->telp_rumah}}">
                     </div>
                   </div>
+<<<<<<< HEAD
 				  <div class="form-group" id="pasangan" @if($order->status_perkawinan == 'kawin')@else style="display:none;"@endif>
                     <label class="col-sm-3 control-label">Nama Suami/Istri</label>
                     <div class="col-sm-9">
                       <input disabled type="text" class="form-control" name="pasangan" value="{{$order->pasangan}}" @if($order->status == 'approved')disabled @endif >
                     </div>
                   </div>
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                 </div>
               </div>
 
@@ -255,12 +325,15 @@
                       <textarea disabled name="alamat_darurat" class="form-control" rows="3" cols="80">{{$order->alamat_darurat}}</textarea>
                     </div>
                   </div>
+<<<<<<< HEAD
 				  <div class="form-group">
                     <label class="col-sm-3 control-label">Kode POS </label>
                     <div class="col-sm-4">
                       <input disabled type="text" class="form-control" name="postcode_darurat" value="{{$order->kode_pos_darurat}}" @if($order->status == 'approved')disabled @endif >
                     </div>
                   </div>
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                 </div>
               </div>
 
@@ -305,11 +378,16 @@
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Lama Bekerja</label>
+<<<<<<< HEAD
                     <div class="col-sm-2">
                       <input disabled type="text" class="form-control" name="lama_bekerja" value="{{$order->lama_bekerja}}" @if($order->status == 'approved')disabled @endif>
                     </div>
 					 <div class="col-sm-2 control-label">
                       tahun
+=======
+                    <div class="col-sm-9">
+                      <input disabled type="text" class="form-control" name="lama_bekerja" value="{{$order->lama_bekerja}}">
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                     </div>
                   </div>
                 </div>
@@ -334,15 +412,21 @@
                   </div>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Kantor Sebelumnya </label>
+<<<<<<< HEAD
                     <div class="col-sm-2">
                       <input disabled type="text" class="form-control" name="kantor_sebelum" value="{{$order->kantor_sebelum}}" @if($order->status == 'approved')disabled @endif>
                     </div>
 					<div class="col-sm-2 control-label">
                       tahun
+=======
+                    <div class="col-sm-9">
+                      <input disabled type="text" class="form-control" name="kantor_sebelum" value="{{$order->kantor_sebelum}}">
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                     </div>
                   </div>
                 </div>
               </div>
+<<<<<<< HEAD
 			  
 			  <legend>DAFTAR KEKAYAAN</legend>
 
@@ -402,6 +486,9 @@
 				</div>
               </div>
 			  <hr>
+=======
+
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 							<p class="text-center"><em>––– List 3 of 3 » Data Rekening Bank & Dokumen yang Dilampirkan –––</em></p>
 
               <legend>REKENING BANK NASABAH UNTUK PENYETORAN DAN PENARIKAN MARGIN</legend>
@@ -462,6 +549,7 @@
                     <div class="col-sm-9">
                       <input disabled type="file" name="id_card" id="id_card" value="" data-fv-file-extension="jpg,jpeg,png">
 											<img src="{{asset($order->id_card)}}" class="img-responsive" alt="" />
+<<<<<<< HEAD
 											<a href="{{asset($order->id_card)}}" download="id_card">Download</a>
                     </div>
                   </div>
@@ -476,6 +564,15 @@
 												<img src="{{asset($order->rek_koran)}}" class="img-responsive" alt="" />
 												<a href="{{asset($order->rek_koran)}}" download="rek_koran">Download</a>
 											@endif
+=======
+                    </div>
+                  </div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Rekening Koran Bank <span class="text-danger">*)</span></label>
+										<div class="col-sm-9">
+											<input disabled type="file" name="rek_koran" id="rek_koran" value="">
+											<img src="{{asset($order->rek_koran)}}" class="img-responsive" alt="" />
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 											<span class="help-block">Rekening Koran Bank 3 Bulan terakhir / Surat Keterangan Bekerja / Surat Keterangan Pendapatan atau Laporan Keuangan 3 Bulan Terakhir / Tagihan Kartu Kredit / Rekening Listrik atau Telepon *)</span>
 										</div>
 									</div>
@@ -486,7 +583,10 @@
 										<div class="col-sm-9">
 											<input disabled type="file" name="foto" id="foto" value="">
 											<img src="{{asset($order->foto)}}" class="img-responsive" alt="" />
+<<<<<<< HEAD
 											<a href="{{asset($order->foto)}}" download="foto">Download</a>
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 										</div>
 									</div>
 								</div>
@@ -518,7 +618,11 @@
 
 										<label class="col-sm-3 control-label">Menyatakan Tanggal</label>
 										<div class="col-sm-9">
+<<<<<<< HEAD
 											<p class="form-control-static" id="date">{{$order->created_at->formatLocalized('%d %B %Y')}}</p>
+=======
+											<p class="form-control-static" id="date">{{$order->created_at->formatLocalized('%A %d %B %Y')}}</p>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 										</div>
 									</div>
 								</div>
@@ -528,7 +632,18 @@
 							<hr/>
 
 							<legend class="text-center"><strong>KONFIRMASI PERMINTAAN AKUN</strong></legend>
+<<<<<<< HEAD
 
+=======
+							@if ($errors->all())
+
+							<div class="alert alert-danger">
+								@foreach ($errors->all() as $key => $value)
+									<p>{{$value}}</p>
+								@endforeach
+							</div>
+						@endif
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 							<form class="" action="{{route('manage.real.account.post')}}" method="post">
 								<input type="hidden" name="request_id" value="{{$order->id}}">
 								{{ csrf_field() }}
@@ -562,6 +677,7 @@
 												<p class="help-block">{{$errors->first("login_password")}}</p>
 											</div>
 										</div>
+<<<<<<< HEAD
 										<div class="form-group  @if($errors->has('wp')) has-error @endif">
 											<label class="col-sm-3 control-label">Wakil Pialang <span class="text-danger">*)</span></label>
 											<div class="col-sm-4">
@@ -569,6 +685,9 @@
 												<p class="help-block">{{$errors->first("wp")}}</p>
 											</div>
 										</div>
+=======
+
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 									</div>
 									
 									<div id="rejected" hidden>

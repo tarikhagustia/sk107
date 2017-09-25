@@ -21,6 +21,7 @@
 										Yang mengisi formulir di bawah ini;
 										<div class="row">
 										<br>
+<<<<<<< HEAD
 											<div class="form-group form-material">
 												<label class="col-sm-3 control-label">Nama: </label>
 												<div class="col-sm-3">
@@ -58,6 +59,41 @@
 												<p>Terhadap apa yang saya jalankan dalam  transaksi ini berikut segala risiko yang akan timbul akibat transaksi sepenuhnya akan menjadi tanggung jawab saya.</p>
 												<p>Bersama ini saya menyatakan bahwa dana yang saya gunakan untuk bertransaksi di {{config('setting.company_name')}} adalah milik saya pribadi dan bukan dana pihak lain, serta tidak diperoleh dari hasil penipuan, penggelapan, hasil pencucian uang maupun tindak pidana korupsi dan perbuatan melawan hukum lainnya serta tidak dimaksudkan untuk melakukan pencucian uang.</p>
 											</div>
+=======
+										<table>
+											<tbody>
+												<tr>
+													<td>Nama</td>
+													<td>: {{$datas->nama}}</td>
+												</tr>
+												<tr>
+													<td>Tempat/Tanggal Lahir</td>
+													<td>: {{$datas->tempat_lahir}}, {{$datas->dob}}</td>
+												</tr>
+												<tr>
+													<td>Alamat</td>
+													<td>: {{$datas->alamat}}</td>
+												</tr>
+												<tr>
+													<td>No {{$datas->tipe_id}}</td>
+													<td>: {{$datas->no_id}}</td>
+												</tr>
+												<tr>
+													<td>No Account</td>
+													<td>
+														 : <em>« menyusul »</em>
+													</td>
+												</tr>
+												<!--
+												<tr>
+													<td>No Demo Account</td>
+													<td> :
+													<em>&laquo; No Account Demo &raquo;</em>		</td>
+												</tr>
+												-->
+											</tbody>
+										</table>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 									</div>
 								</div>
 						</div>	
@@ -68,6 +104,7 @@
 		<div class="modal-footer">
 			<form class="form-horizontal" method="POST" id="pbk07Form" action="{{ url('admin/account/real-account/form/107-PBK-07-check') }}">
 			{{ csrf_field() }}
+<<<<<<< HEAD
 				<p class="text-justify">Dengan mengisi kolom “YA” di bawah, saya menyatakan setuju untuk membuka rekening transaksi pada {{config('settings.company_name')}}  dan karenanya saya  melepaskan {{config('settings.company_name')}}  dari segala tuntutan hukum dan  tanggungjawab yang timbul daripadanya. </p>
 
 				<div class="row">
@@ -95,15 +132,31 @@
 								<p class="form-control-static pull-left" id="date">{{$datas->created_at->formatLocalized('%A %d %B %Y')}}</p>
 							</div>
 						</div>
+=======
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="agree" value="agree" @if($task->status == 'active')checked @endif /> Saya menyatakan bahwa saya bertanggungjawab sepenuhnya terhadap kode akses transaksi Nasabah (Personal Access Password) dan tidak menyerahkan kode akses transaksi Nasabah (Personal Access Password) ke pihak lain, terutama kepada pegawai Pialang Berjangka atau pihak yang memiliki kepentingan dengan Pialang Berjangka.
+						</label>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 					</div>
 
 				</div>
+<<<<<<< HEAD
 				@if($datas->status == 'approved')
 				
 				@else
 				<div class="form-group form-material" style="text-align:center;">
 					<div class="col-sm-12">
 						<button type="submit" class="btn btn-primary" disabled>Submit </button>
+=======
+				<div class="form-group form-material" style="text-align:center;">	
+					Menyatakan pada Tanggal <span id="date"></span>
+				</div>
+				<div class="form-group form-material" style="text-align:center;">	
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary">Submit </button>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 					</div>
 				</div>	
 				@endif

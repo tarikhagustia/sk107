@@ -32,7 +32,11 @@
                         <td>{{$key+1}}</td>
                         <td>{{$data->nama}}</td>
                         <td>{{$data->order_number}}</td>
+<<<<<<< HEAD
                         <td>{{Carbon::parse($data->created_at)->format('d-m-Y H:i:s')}}</td>
+=======
+                        <td>{{$data->created_at}}</td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 						<td>
 							<button class="btn btn-primary btn-block buttons" type="submit">Lihat Data</a>
 						</td>

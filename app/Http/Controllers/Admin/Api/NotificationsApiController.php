@@ -20,11 +20,16 @@ class NotificationsApiController extends Controller
                 "id" => $row->id,
                 "title" => $row->title,
                 "timestamp" => $row->created_at->diffForHumans(),
+<<<<<<< HEAD
 				"url" => route('check.notifications',['id' => $row->id])
+=======
+                "url" => $row->url,
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
             ];
       }
       return response()->json($response);
     }
+<<<<<<< HEAD
 	
 	public function check_notifications($id){
       $data = Notification::where('id',$id)->first();
@@ -33,4 +38,6 @@ class NotificationsApiController extends Controller
 	  ]);
       return redirect($data->url);
     }
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 }

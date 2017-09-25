@@ -14,6 +14,7 @@ class ManagedepositController extends Controller
     $data = DB::table('deposit')
                   ->Join('mt4_users', 'deposit.account_id', '=', 'mt4_users.login')
                   ->join('users', 'mt4_users.user_id', '=', 'users.id')
+<<<<<<< HEAD
                   ->select('deposit.id', 'mt4_users.name', 'mt4_users.email', 'account_id', 'amount', 'currency', 'status', 'bukti', 'deposit.created_at', 'deposit.updated_at')
                   ->where('status', $status)
                   ->get();
@@ -25,6 +26,13 @@ class ManagedepositController extends Controller
                   ->where('status', 'approve')
                   ->get();
     return view('admin.deposit.managedeposit', ['deposit' => $data,'history' => $history]);
+=======
+                  ->select('deposit.id', 'name', 'email', 'account_id', 'amount', 'status', 'deposit.created_at')
+                  ->where('status', $status)
+                  ->get();
+      // dd($data);
+    return view('admin.deposit.managedeposit', ['deposit' => $data]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
   }
 
   public function submanagedeposit(Request $r)

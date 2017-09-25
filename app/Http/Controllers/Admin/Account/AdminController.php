@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Account;
 
 use Auth;
 use Carbon;
+<<<<<<< HEAD
 use PDF;
 use Mail;
 use File;
@@ -13,6 +14,10 @@ use App\Mail\DemoAccountActivated;
 use App\Mail\RealAccountActivated;
 use App\Mail\RealAccountRejected;
 use App\Mail\UpdateAccount;
+=======
+use Mail;
+use App\Mail\DemoAccountActivated;
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 use App\Models\Task;
 use App\Models\UserTask;
 use App\Models\RequestData;
@@ -42,7 +47,11 @@ class AdminController extends Controller
 		  return back()->withErrors($err);
 	  }else{
 		Mt4User::where('id', $request->id)->update(['is_active' => 'yes','login' => $request->login,'password' => $request->password]);
+<<<<<<< HEAD
 		$demos = Mt4User::where('id',$request->id)->where('is_real','no')->first();
+=======
+		$demos = Mt4User::where('id',$request->id)->first();
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 		$name = $demos->name;
 		$login = $request->login;
 		$password = $request->password;
@@ -83,14 +92,19 @@ class AdminController extends Controller
 	public function approve_update_detail($id){
         $accountType = accountType::all();
         $account = RequestUpdateAccount::find($id);
+<<<<<<< HEAD
 		$temp = array();
 		$temp = explode('.',$account->rek_koran);
 		$ext = $temp[1];
         return view('admin.account.admin-approve-update-account-detail', ['order' => $account, 'accountType' => $accountType, 'ext'=>$ext]);
+=======
+        return view('admin.account.admin-approve-update-account-detail', ['order' => $account, 'accountType' => $accountType]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
 	
 	public function approve_update_post(Request $request)
     {
+<<<<<<< HEAD
 	  $data = RequestUpdateAccount::where('id',$request->request_id)->first();
 	  $task = UserTask::where('user_id', $data->user_id)->where('task_id', 3)->first();
 	  if($request->account_status == "approved"){
@@ -106,6 +120,10 @@ class AdminController extends Controller
 		  if(file_exists($filepath)){
 			File::delete($filepath);
 		  }
+=======
+	  $data = RequestUpdateAccount::where('id',$request->request_id)->first();	
+	  if($request->account_status == "approved"){
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 		  RequestAccount::where('order_number', $data->order_number)->update([
 			      'account_type_id' => 1,
             'nama' => $data->nama,
@@ -120,10 +138,17 @@ class AdminController extends Controller
       			'npwp' => $data->npwp,
       			'jenis_kelamin' => $data->jenis_kelamin,
       			'status_perkawinan' => $data->status_perkawinan,
+<<<<<<< HEAD
       			'nama_ibu' => $data->nama_ibu,
       			'kode_pos' => $data->kode_pos,
       			'status_rumah' => $data->status_rumah,
       			'telp_rumah' => $data->telp_rumah,
+=======
+      			'nama_ibu' => $data->ibu,
+      			'kode_pos' => $data->postcode,
+      			'status_rumah' => $data->status_rumah,
+      			'telp_rumah' => $data->telpon_rumah,
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       			'keluarga_kbi' => $data->keluarga_kbi,
       			'pailit' => $data->pailit,
       			'nama_darurat' => $data->nama_darurat,
@@ -136,7 +161,11 @@ class AdminController extends Controller
       			'jabatan' => $data->jabatan,
       			'lama_bekerja' => $data->lama_bekerja,
       			'alamat_kantor' => $data->alamat_kantor,
+<<<<<<< HEAD
       			'kode_pos_kantor' => $data->kode_pos_kantor,
+=======
+      			'kode_pos_kantor' => $data->postcode_kantor,
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       			'telp_kantor' => $data->telp_kantor,
       			'kantor_sebelum' => $data->kantor_sebelum,
       			'nama_bank' => $data->nama_bank,
@@ -147,6 +176,7 @@ class AdminController extends Controller
       			'jenis_tabungan' => $data->jenis_tabungan,
       			'id_card' => $data->id_card,
       			'rek_koran' => $data->rek_koran,
+<<<<<<< HEAD
       			'foto' => $data->foto,
 				'kode_pos_darurat' => $data->kode_pos_darurat,
             'penghasilan' => $data->penghasilan,
@@ -312,6 +342,13 @@ class AdminController extends Controller
 		  RequestAccount::where('order_number',$data['order_number'])->update(['docs' => $filepath]);
 		  Mt4User::where('order_number', $data['order_number'])->update(['docs' => $filepath]);
 		  
+=======
+      			'foto' => $data->foto
+        ]);
+		 RequestUpdateAccount::where('id',$request->request_id)->update([
+			'status' => 'approved'
+		 ]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 		 Notification::create([
             'user_id' => $data->user_id,
             'title' => 'permintaan update data pribadi akun real anda diterima',
@@ -321,21 +358,31 @@ class AdminController extends Controller
       }
 
       if($request->account_status == "rejected"){
+<<<<<<< HEAD
 		  $user = Mt4User::where('order_number', $data->order_number)->first();
 		  $today = Carbon::now();
 		  $data = RequestAccount::where('order_number', $data->order_number)->first();
 		  $data['today'] = $today;
 		  $date = date_create($data->dob);
 		  $data->dob = date_format($date,"d-m-Y");
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
           $this->validate($request, [
             'account_status' => 'required',
             'reason' => 'required'
           ]);
+<<<<<<< HEAD
+=======
+
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
           $sql = RequestUpdateAccount::find($request->request_id);
           $sql->status = "rejected";
           $sql->rejected_reason = $request->reason;
           $sql->save();
+<<<<<<< HEAD
 		  Mail::to($user->email)->send(new UpdateAccount($data->nama));
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 		  Notification::create([
             'user_id' => $data->user_id,
             'title' => 'permintaan update data pribadi akun real anda ditolak',
@@ -362,6 +409,7 @@ class AdminController extends Controller
 
       if(!$id):
         $accounts = RequestAccount::where('status','pending')->orWhere('status','request')->orderBy('updated_at')->paginate();
+<<<<<<< HEAD
 		$temp = array();
 		$temp = explode('.',$accounts->rek_koran);
 		$ext = $temp[1];
@@ -373,10 +421,18 @@ class AdminController extends Controller
 		$temp = explode('.',$account->rek_koran);
 		$ext = $temp[1];
         return view('admin.account.manage-real-account-detail', ['order' => $account, 'accountType' => $accountType, 'ext'=>$ext]);
+=======
+        return view('admin.account.manage-real-account', ['accounts' => $accounts]);
+      else:
+        $accountType = accountType::all();
+        $account = RequestAccount::find($id);
+        return view('admin.account.manage-real-account-detail', ['order' => $account, 'accountType' => $accountType]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       endif;
     }
     public function manage_real_account_post(Request $request){
 	  $data = RequestAccount::where('id',$request->request_id)->first();
+<<<<<<< HEAD
 	  $user = User::where('id',$data['user_id'])->first();
       if($request->account_status == "approved"){
           $this->validate($request, [
@@ -384,16 +440,29 @@ class AdminController extends Controller
             'login_number' => 'required',
             'login_password' => 'required',
 			'wp' => 'required'
+=======
+      if($request->account_status == "approved"){
+          $this->validate($request, [
+            'account_status' => 'required',
+            'login_number' => 'required|numeric',
+            'login_password' => 'required'
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
           ]);
 
           $sql = RequestAccount::find($request->request_id);
           $sql->account_number = $request->login_number;
           $sql->status = "approved";
           $sql->account_password = $request->login_password;
+<<<<<<< HEAD
 		  $sql->wp = $request->wp;
           $sql->save();
 		  
 		  
+=======
+          $sql->save();
+		  
+		  $user = User::where('id',$data['user_id'])->first();
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 		  Mt4User::create([
             'user_id' => $data['user_id'],
             'order_number' => $data['order_number'],
@@ -404,6 +473,7 @@ class AdminController extends Controller
 			'is_real' => 'yes',
 			'is_active' => 'yes',
 			'docs' => $data['docs']
+<<<<<<< HEAD
 		  ]);
 		
 		  $data = RequestAccount::where('id',$request->request_id)->first();
@@ -429,6 +499,27 @@ class AdminController extends Controller
 		  $files = glob($path.'/*');
 		  Zipper::make($filepath)->add($files)->close();
 	    Mail::to($user->email)->send(new RealAccountActivated($data->nama));
+=======
+        ]);
+		
+		$requests = RequestAccount::create([
+          'user_id' => $data['user_id'],
+          'account_type_id' => 1,
+          'order_number' => Carbon::now()->timestamp,
+          'account' => null,
+          'status' => 'filling'
+        ]);
+		UserTask::where('request_account_id',$request->request_id)->delete();
+        $tasks = Task::all();
+        foreach($tasks as $row){
+          UserTask::create([
+            'user_id' => $data['user_id'],
+            'request_account_id' => $requests->id,
+            'task_id' => $row->id,
+            'status' => ($row->task_form_number == '107.PBK.01') ? "current" : "disabled",
+          ]);
+        }
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 		Notification::create([
             'user_id' => $data->user_id,
             'title' => 'pembuatan real akun anda berhasil',
@@ -436,6 +527,7 @@ class AdminController extends Controller
         ]);
           return redirect()->route('manage.real.account')->with(['success' => 'Berhasil input data']);
       }
+<<<<<<< HEAD
 	  
 	    if($request->account_status == "pending"){
           $this->validate($request, [
@@ -448,6 +540,8 @@ class AdminController extends Controller
 		  
           return redirect()->route('manage.real.account')->with(['success' => 'Berhasil input data']);
       }
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 
       if($request->account_status == "rejected"){
           $this->validate($request, [
@@ -459,7 +553,11 @@ class AdminController extends Controller
           $sql->status = "rejected";
           $sql->rejected_reason = $request->reason;
           $sql->save();
+<<<<<<< HEAD
 		  Mail::to($user->email)->send(new RealAccountRejected($data->nama));
+=======
+		  
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 		  Notification::create([
             'user_id' => $data->user_id,
             'title' => 'pembuatan real akun anda ditolak, silahkan update data pribadi anda',

@@ -35,9 +35,12 @@
 
   </table>
   <br>
+<<<<<<< HEAD
   <p>Please download our trading platform here :</p>
   <p>http://www.phillipfutures.co.id/download/PTASIM.exe</p>
   <br>
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
   thankyou
   <p>
 

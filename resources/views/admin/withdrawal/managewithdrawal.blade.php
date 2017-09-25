@@ -18,6 +18,7 @@
                       <tr>
                         <th>No</th>
                         <th>Name</th>
+<<<<<<< HEAD
 						<th>Email</th>
                         <th>Login</th>
 						<th>Currency</th>
@@ -28,6 +29,14 @@
             			<th>Status</th>
             			<th>Created At</th>
             			<th>Action</th>
+=======
+                        <th>Email</th>
+												<th>Mt4 Login</th>
+                        <th>Amount</th>
+            						<th>Status</th>
+            						<th>Created At</th>
+            						<th>Action</th>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                       </tr>
                     </thead>
                     <tbody>
@@ -40,6 +49,7 @@
 						<input type="hidden" value="{{ $row->name }}" name="name">
 						<input type="hidden" value="{{ $row->email }}" name="email">
 						<input type="hidden" value="{{ $row->account_id }}" name="account_id">
+<<<<<<< HEAD
 						<input type="hidden" value="{{ $row->currency }}" name="currency">
 						<input type="hidden" value="{{ $row->amount }}" name="amount">
 						<input type="hidden" value="{{ $row->bank }}" name="amount">
@@ -56,6 +66,16 @@
 						<td>{{ $row->nama_rek }}</td>
             		    <td>{{ $row->status }}</td>
             			<td>{{ $row->created_at }}</td>
+=======
+						<input type="hidden" value="{{ $row->amount }}" name="amount">
+											<td>{{ $no++ }}</td>
+											<td>{{ $row->name }}</td>
+											<td>{{ $row->email }}</td>
+											<td>{{ $row->account_id }}</td>
+											<td>{{ $row->amount }}</td>
+											<td>{{ $row->status }}</td>
+											<td>{{ $row->created_at }}</td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
             						<td>
             							<button type="submit" class="btn btn-primary btn-block">Update</button>
             						</td>
@@ -70,6 +90,7 @@
                         <strong></strong>
                     </span>
 				</div>
+<<<<<<< HEAD
 				<br>
 				<br>
 				<h4 class="example-title">History Withdrawal Nasabah</h4>
@@ -112,6 +133,8 @@
                     </tbody>
                   </table>
                 </div>
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
               </div>
               <!-- End Example Basic -->
             </div>

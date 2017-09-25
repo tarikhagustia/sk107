@@ -28,7 +28,11 @@
 					@foreach($accounts as $key => $demo)
                       <tr>
                         <td>{{$demo->order_number}}</td>
+<<<<<<< HEAD
                         <td>{{Carbon::parse($demo->updated_at)->format('d-m-Y H:i:s')}}</td>
+=======
+                        <td>{{$demo->updated_at}}</td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                         <td>{{$demo->nama}}</td>
                         <td>
 

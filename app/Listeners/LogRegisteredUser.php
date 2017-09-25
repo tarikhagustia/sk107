@@ -45,7 +45,10 @@ class LogRegisteredUser
 		  'dob' => $data->dob,
 		  'nama' => $user->name,
 		  'phone_number' => $data->phone
+<<<<<<< HEAD
 		  
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
         ]);
 
         $tasks = Task::all();
@@ -55,6 +58,7 @@ class LogRegisteredUser
             'request_account_id' => $request->id,
             'task_id' => $row->id,
             'status' => ($row->task_form_number == '107.PBK.01') ? "current" : "disabled",
+			'is_active' => 'yes'
           ]);
         }
 

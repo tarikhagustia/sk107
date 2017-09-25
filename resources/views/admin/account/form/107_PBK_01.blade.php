@@ -317,6 +317,7 @@
 		<div class="modal-footer">
 			<form class="form-horizontal" method="POST" id="pbk01Form" action="{{ url('admin/account/real-account/form/107-PBK-01-check') }}">
 				{{ csrf_field() }}
+<<<<<<< HEAD
 						<p align="center">Dengan mengisi kolom “YA” di bawah ini, saya menyatakan bahwa saya telah membaca dan menerima informasi <span style="font-weight:700;">PROFIL PERUSAHAAN PIALANG BERJANGKA</span>, mengerti dan memahami isinya</p>
 
 							<div class="row">
@@ -351,6 +352,22 @@
 				<div class="form-group form-material" style="text-align:center;">
 					<div class="col-sm-12">
 						<button type="submit" class="btn btn-primary" disabled>Submit </button>
+=======
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="agree" value="agree" @if($task->status == 'active')checked @endif /> Saya menyatakan bahwa saya telah membaca dan menerima informasi <b>PROFIL PERUSAHAAN PIALANG BERJANGKA, </b> mengerti dan memahami isinya.
+						</label>
+					</div>
+				</div>
+
+				<div class="form-group form-material" style="text-align:center;">
+					Menyatakan pada Tanggal <span id="date"></span>
+				</div>
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary">Submit </button>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 					</div>
 				</div>	
 				@endif

@@ -19,11 +19,15 @@ class OpenDemoAccountController extends Controller
 	  $approved = 'false';
 	  $user_id = Auth::user()->id;
 	  $logins = Mt4User::where('user_id',$user_id)->where('is_real','no')->get();
+<<<<<<< HEAD
 
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  if(empty($logins[0])){
 		  $create = 'true';
 	  }else{
 		  $create = 'false';
+<<<<<<< HEAD
 		if($logins[0]->is_approved == 'yes'){
 		  $approved = 'true';
 	  	}else{
@@ -32,6 +36,10 @@ class OpenDemoAccountController extends Controller
 	  }
 	  
       return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create,'approved'=> $approved]);
+=======
+	  }
+      return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
 
 	public function create_account(Request $request)
@@ -42,14 +50,15 @@ class OpenDemoAccountController extends Controller
 		$names = explode(" ",$name);
 		$rng = str_pad(rand(0, pow(10,3)-1),3, '0', STR_PAD_LEFT);
 		$password = $names[0].$rng;
-		$investor_pass = 'abc123';
+		$investor_pass = 'abcd1234';
 		$leverage = 100;
 		$deposit = 5000;
 		$host = config('settings.mt4_host');
 		$port = config('settings.mt4_port');
 
         $data = [
-            "IP" => $request->ip(),
+            //"IP" => $request->ip(),
+			"IP" => '203.173.92.102',
             "GROUP" => 1,
             "NAME" => $name,
             "PASSWORD"  => $password,
@@ -103,8 +112,12 @@ class OpenDemoAccountController extends Controller
 			$email = Auth::user()->email;
 			$active = 'no';
 			$real = 'no';
+<<<<<<< HEAD
 			$approved = 'no';
 			
+=======
+			Mail::to(env('REGISTER_EMAIL'))->send(new DemoAccount($name, $email));
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 			Mt4User::create([
 					'user_id' => Auth::user()->id,
 					'login' => '',
@@ -113,6 +126,7 @@ class OpenDemoAccountController extends Controller
 					'email' => $email,
 					'group' => 'demoforex',
 					'is_active' => $active,
+<<<<<<< HEAD
 					'is_real' => $real,
 					'is_approved' => $approved
 				  ]);
@@ -124,6 +138,10 @@ class OpenDemoAccountController extends Controller
 				'title' => 'permintaan pembuatan demo akun a/n '.Auth::user()->name,
 				'url' => route('manage.demo')
 			]);
+=======
+					'is_real' => $real
+				  ]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 			return back();
 
     }

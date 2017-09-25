@@ -11,22 +11,31 @@ use Carbon;
 use PDF;
 use DB;
 use File;
+<<<<<<< HEAD
 use App\Mail\UpdateAccount;
+=======
+use App\Mail\DemoAccount;
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 use App\User;
 use App\Models\Mt4User;
 use App\Models\Mt4Setting;
 use App\Models\RequestAccount;
 use App\Models\RequestUpdateAccount;
 use App\Models\AccountType;
+<<<<<<< HEAD
 use App\Models\UserTask;
 use Illuminate\Support\Facades\Input;
 use App\Models\Notification;
+=======
+use Illuminate\Support\Facades\Input;
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 class RealAccountController extends Controller
 {
     public function index()
     {
 	  $user_id = Auth::user()->id;
 	  $email = Auth::user()->email;
+<<<<<<< HEAD
 	  $task = UserTask::where('user_id', $user_id)->where('task_id', 3)->first();
 	  $is_active = $task->is_active;
 	  $reals = RequestAccount::where('user_id',$user_id)->where('status','approved')->first();
@@ -50,6 +59,10 @@ class RealAccountController extends Controller
 	  }
 	  
       
+=======
+	  $reals = RequestAccount::where('user_id',$user_id)->where('status','approved')->get();
+      return view('admin.account.real-account',['reals'=> $reals,'email'=>$email]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
 	
 	public function agreement_post(Request $request)
@@ -57,6 +70,7 @@ class RealAccountController extends Controller
 	  $today = Carbon::now();	
 	  $data = Auth::user()->approvedRequestAccount();
 	  $data['today'] = $today;
+<<<<<<< HEAD
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
       $pdf = PDF::loadView('admin.account.pernyataan',compact('data'));
@@ -68,6 +82,17 @@ class RealAccountController extends Controller
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$request->order.'/PBK08.pdf'), $output);  
 	  }else{
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$request->order.'/PBK08.pdf'), $output);  
+=======
+      $pdf = PDF::loadView('admin.account.form.107_PBK_07_download',compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$request->order);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/'.$request->order.'/PBK07.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$request->order.'/PBK07.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$request->order.'/PBK07.pdf'), $output);  
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  }
 	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$request->order);
 
@@ -85,10 +110,14 @@ class RealAccountController extends Controller
 	public function update_data_account($id = false){
         $accountType = accountType::all();
         $account = RequestAccount::find($id);
+<<<<<<< HEAD
 		$temp = array();
 		$temp = explode('.',$account->rek_koran);
 		$ext = $temp[1];
         return view('admin.account.update-real-account-detail', ['order' => $account, 'accountType' => $accountType, 'ext'=>$ext]);
+=======
+        return view('admin.account.update-real-account-detail', ['order' => $account, 'accountType' => $accountType]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
 	
 	public function update_data_account_do(Request $request){
@@ -139,15 +168,22 @@ class RealAccountController extends Controller
 		}
 		
         // dd($request->approval_yes);
+<<<<<<< HEAD
 		$dob = strtotime($request->dob);
 		$dob = date('Y-m-d',$dob);
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  RequestUpdateAccount::create([
             'user_id' => Auth::user()->id,
 			'account_type_id' => 1,
             'order_number' => $request->order_number,
 			'nama' => $request->name,
             'tempat_lahir' => $request->place,
+<<<<<<< HEAD
       			'dob' => $dob,
+=======
+      			'dob' => $request->dob,
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       			'alamat' => $request->alamat,
       			'tipe_id' => $request->identity_type,
       			'no_id' => $request->identity_number,
@@ -187,6 +223,7 @@ class RealAccountController extends Controller
       			'rek_koran' => $rek_koran,
       			'foto' => $foto,
 				'phone_number' => $request->phone_number,
+<<<<<<< HEAD
 				'aproval_yes' => $request->approval_yes,
 				'kode_pos_darurat' => $request->postcode_darurat,
 				'penghasilan' => $request->penghasilan,
@@ -205,6 +242,10 @@ class RealAccountController extends Controller
 		Mail::to(env('DEFAULT'))->send(new UpdateAccountRequest($request));
 		Mail::to(env('EMAIL1'))->send(new UpdateAccountRequest($request));
 		Mail::to(env('EMAIL2'))->send(new UpdateAccountRequest($request));
+=======
+				'aproval_yes' => $request->approval_yes
+        ]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  return redirect()->route('real.account.user');
     }
 }

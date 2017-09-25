@@ -14,7 +14,11 @@
      <!-- Panel Full Example -->
      <div class="panel">
        <div class="panel-body">
+<<<<<<< HEAD
          <form id="exampleFullForm" autocomplete="on" action="{{ url('admin/subdeposit') }}" method="post" enctype="multipart/form-data">
+=======
+         <form id="exampleFullForm" autocomplete="on" action="{{ url('admin/subdeposit') }}" method="post">
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
             {{ csrf_field() }}
            <div class="row row-lg">
              <div class="col-lg-6">
@@ -45,6 +49,7 @@
              </div>
              <div class="col-lg-6">
                <div class="form-group form-material">
+<<<<<<< HEAD
                  <label class="col-lg-12 col-sm-3 control-label">Nomor Account : @if(!empty($account)){{ $account->login }}@else @endif</label>
 				 <div class="col-lg-12 col-sm-9">
 				   <input type="hidden" class="form-control" name="noaccount" value="@if(!empty($account)){{ $account->login }}@else @endif">
@@ -59,9 +64,28 @@
 					</select>
 				  </div>
 				</div>
+=======
+                 <label class="col-lg-12 col-sm-3 control-label">Nomor Account
+                   <span class="required">*</span>
+                 </label>
+                 <div class="col-lg-12 col-sm-9">
+                   <div class="input-group">
+                     @foreach ($account as $row)
+                     <div>
+                       <div class="radio-custom radio-primary">
+                         <input type="radio" id="inputUltraAwesome" name="noaccount" value="{{ $row->login }}" required="">
+                         <label for="inputUltraAwesome">{{ $row->login }}</label>
+                       </div>
+                     </div>
+                     @endforeach
+                   </div>
+                 </div>
+               </div>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                <div class="form-group form-material">
                 <label class="col-lg-12 col-sm-3 control-label">Jumlah</label>
                 <div class="col-lg-12 col-sm-9">
+<<<<<<< HEAD
                   <input type="text" class="form-control" name="amount" data-fv-field="type_numberic" required="">
                 <small class="help-block" data-fv-validator="integer" data-fv-for="type_numberic" data-fv-result="VALID" style="display: none;">The value is not an number</small></div>
               </div>
@@ -71,6 +95,11 @@
 					<input type="file" name="bukti" id="bukti" value="" accept="image/png,image/jpg,image/jpeg">					
 				  </div>
 				</div>
+=======
+                  <input type="text" class="form-control" name="amount" placeholder="Rp." data-fv-field="type_numberic" required="">
+                <small class="help-block" data-fv-validator="integer" data-fv-for="type_numberic" data-fv-result="VALID" style="display: none;">The value is not an number</small></div>
+              </div>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
              </div>
              <div class="form-group form-material col-lg-12 text-right"><br>
                <span style="padding-right:1em"><button type="submit" class="btn btn-primary" id="validateButton1">Request Deposit</button></span>

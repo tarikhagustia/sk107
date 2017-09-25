@@ -48,7 +48,7 @@ class MetaService {
         $request = "W" . $this->request_type . " " . $line . "\nQUIT\n";
         $ptr = $this->socket;
         if($ptr)
-        {
+        {	
             if(fputs($ptr,  $request) != FALSE)
             {
                 $ret = '';

@@ -72,6 +72,7 @@
              </div>
 
              <div class="col-lg-6">
+<<<<<<< HEAD
                               <div class="form-group form-material">
                  <label class="col-lg-12 col-sm-3 control-label">Nomor Account : @if(!empty($account)){{ $account->login }}@else @endif</label>
 				 <div class="col-lg-12 col-sm-9">
@@ -87,10 +88,33 @@
 					</select>
 				  </div>
 				</div>
+=======
+               <div class="form-group form-material">
+                 <label class="col-lg-12 col-sm-3 control-label">No Account
+                   <span class="required">*</span>
+                 </label>
+                 <div class="col-lg-12 col-sm-9">
+                   <div class="input-group">
+                     @foreach ($account as $row)
+                     <div>
+                       <div class="radio-custom radio-primary">
+                         <input type="radio" id="inputUltraAwesome" name="noaccount" value="{{ $row->login }}" required="">
+                         <label for="inputUltraAwesome">{{ $row->login }}</label>
+                       </div>
+                     </div>
+                     @endforeach
+                   </div>
+                 </div>
+               </div>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                <div class="form-group form-material">
                 <label class="col-lg-12 col-sm-3 control-label">Jumlah</label>
                 <div class="col-lg-12 col-sm-9">
+<<<<<<< HEAD
                   <input type="text" class="form-control" name="amount" data-fv-field="type_numberic" required="">
+=======
+                  <input type="text" class="form-control" name="amount" placeholder="Rp." data-fv-field="type_numberic" required="">
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                 <small class="help-block" data-fv-validator="integer" data-fv-for="type_numberic" data-fv-result="VALID" style="display: none;">The value is not an number</small></div>
               </div>
              </div>

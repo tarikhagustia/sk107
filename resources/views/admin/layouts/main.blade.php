@@ -203,6 +203,14 @@
               </a>
               <ul class="site-menu-sub ">
               @if (Auth::user()->role == "user")
+<<<<<<< HEAD
+=======
+				  <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'real-account') active @endif">
+                    <a class="animsition-link" href="{{ url('admin/account/real-account') }}">
+                      <span class="site-menu-title">Request Real Account</span>
+                    </a>
+                  </li>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                   <li class="site-menu-item @if(Request::segment(2) == 'account' && Request::segment(3) == 'real-account-user') active @endif">
                     <a class="animsition-link" href="{{ url('admin/account/real-account-user') }}">
                       <span class="site-menu-title">Real Account</span>

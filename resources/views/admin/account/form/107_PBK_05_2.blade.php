@@ -109,7 +109,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check1" @if($task->status == 'active')checked disabled @endif ></td>
+=======
+															<input type="checkbox" class="tick" name="check1"></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -133,7 +137,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check2" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check2" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -160,7 +168,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check3" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check3" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -217,7 +229,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check5" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check4" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -234,7 +250,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check6" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check5" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -251,7 +271,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check7" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check6" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -268,7 +292,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check8" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check7" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -313,7 +341,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check10" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check8" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -337,7 +369,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check11" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check9" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -354,7 +390,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check12" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check10" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -371,7 +411,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check13" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check11" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -404,7 +448,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check14" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check12" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -421,7 +469,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check15" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check13" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -438,7 +490,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check16" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check14" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -458,7 +514,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check17" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check15" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -475,7 +535,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check18" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check16" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -566,7 +630,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check19" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check16" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -583,7 +651,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check20" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check17" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -610,7 +682,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check21" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check18" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -644,7 +720,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check22" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check19" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -661,7 +741,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check23" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check20" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -678,7 +762,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check24" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check21" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -708,7 +796,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check25" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check22" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -725,15 +817,31 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check26" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check23" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:center">
 															<span class="normal">Demikian Perjanjian Pemberian Amanat ini dibuat oleh Para Pihak dalam keadaan sadar, sehat jasmani rohani dan tanpa unsur paksaan dari pihak manapun. </span>
 															<br>
 															<br>
+<<<<<<< HEAD
 															<span style="font-weight:700;">“ Saya telah membaca, mengerti dan setuju terhadap semua ketentuan yang tercantum dalam perjanjian ini ”.</span>
 														</td>
+=======
+															<b>“ Saya telah membaca, mengerti dan setuju terhadap semua ketentuan yang tercantum dalam perjanjian ini ”.</b>
+														</td>
+													</tr>
+													<tr>
+														<td class="right">
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
+														</td>
+														<td>
+															<input type="checkbox" class="tick" name="check24" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													</tbody>
 													</table>
@@ -746,6 +854,7 @@
 			</div>
 		</div>
 		<div class="modal-footer">
+<<<<<<< HEAD
 				<p class="text-justify">Dengan mengisi kolom “YA” di bawah, saya menyatakan bahwa saya telah menerima <span style="font-weight:700;">“PERJANJIAN PEMBERIAN AMANAT TRANSAKSI KONTRAK BERJANGKA”</span> mengerti dan menyetujui isinya. </p>
 
 							<div class="row">
@@ -782,6 +891,21 @@
 				<div class="form-group form-material" style="text-align:center;">
 					<div class="col-sm-12">
 						<button type="submit" class="btn btn-primary" disabled>Submit </button>
+=======
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="agree" value="agree" @if($task->status == 'active')checked @endif /> saya menyatakan bahwa saya telah menerima, <b>“PERJANJIAN PEMBERIAN AMANAT TRANSAKSI KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF”, </b> mengerti dan menyetujui isinya.
+						</label>
+					</div>
+				</div>
+				<div class="form-group form-material" style="text-align:center;">	
+					Menyatakan pada Tanggal <span id="date"></span>
+				</div>
+				<div class="form-group form-material" style="text-align:center;">	
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary">Submit </button>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 					</div>
 				</div>	
 				@endif

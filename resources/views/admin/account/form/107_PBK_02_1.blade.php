@@ -28,35 +28,58 @@
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Nama: </label>
 												<div class="col-sm-7">
+<<<<<<< HEAD
 													<input maxlength="30" type="text" class="form-control" name="name" id="name" autocomplete="off" placeholder="Nama Lengkap" value="{{$order->nama}}" @if($order->status == 'approved')disabled @endif />
+=======
+													<input type="text" class="form-control" name="name" id="name" autocomplete="off" placeholder="Nama Lengkap" value="{{$order->nama}}" />
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 												</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Tempat/Tanggal Lahir: </label>
 													<div class="col-sm-4">
+<<<<<<< HEAD
 														<input maxlength="30" type="text" class="form-control" name="place" id="place" placeholder="Tempat Lahir" autocomplete="off" value="{{$order->tempat_lahir}}" @if($order->status == 'approved')disabled @endif />
 													</div>
 													<div class="col-sm-3">
 															<input type="text" class="form-control" name="dob" id="dob" placeholder="dd-mm-yyyy" value="{{$order->dob}}" @if($order->status == 'approved')disabled @endif >
+=======
+														<input type="text" class="form-control" name="place" id="place" placeholder="Tempat Lahir" autocomplete="off" value="{{$order->tempat_lahir}}" />
+													</div>
+													<div class="col-sm-3">
+															<input type="text" class="form-control" name="dob" id="dob" placeholder="dd-mm-yyyy" value="{{$order->dob}}">
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Alamat: </label>
 												<div class="col-sm-7">
+<<<<<<< HEAD
 													<textarea class="form-control" placeholder="Alamat" name="alamat" id="alamat" @if($order->status == 'approved')disabled @endif >{{$order->alamat}}</textarea>
+=======
+													<textarea class="form-control" placeholder="Alamat" name="alamat" id="alamat">{{$order->alamat}}</textarea>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 												</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Nomor Identitas: </label>
 												<div class="col-sm-3">
+<<<<<<< HEAD
 													<select class="form-control" name="id" @if($order->status == 'approved')disabled @endif >
+=======
+													<select class="form-control" name="id">
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 														<option value="ktp" @if($order->tipe_id == "KTP") selected @endif >KTP</option>
 														<option value="sim" @if($order->tipe_id == "SIM") selected @endif >SIM</option>
 														<option value="passport" @if($order->tipe_id == "Passport") selected @endif >Passport</option>
 													</select>
 												</div>	
 												<div class="col-sm-4">
+<<<<<<< HEAD
 													<input maxlength="20" type="text" class="form-control" name="noid" id="noid" placeholder="Nomor Identitas" autocomplete="off" value="{{$order->no_id}}" @if($order->status == 'approved')disabled @endif />
+=======
+													<input type="text" class="form-control" name="noid" id="noid" placeholder="Nomor Identitas" autocomplete="off" value="{{$order->no_id}}"/>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 												</div>
 											</div>
 											<div class="form-group form-material">
@@ -72,6 +95,7 @@
 					</div>
 				</div>
 			</div>
+<<<<<<< HEAD
 			<div class="modal-footer">
 				<p class="text-justify">Dengan mengisi kolom “YA” di bawah ini, saya menyatakan bahwa saya telah melakukan simulasi bertransaksi di bidang Perdagangan Berjangka Komoditi pada {{config('settings.company_name')}}, dan telah memahami tentang tata cara bertransaksi di bidang Perdagangan Berjangka Komoditi.</p>
                 <p class="text-justify">Demikian Peryataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.</p>
@@ -110,6 +134,22 @@
 				<div class="form-group form-material" style="text-align:center;">
 					<div class="col-sm-12">
 						<button type="submit" class="btn btn-primary" disabled>Submit </button>
+=======
+			<div class="modal-footer">	
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="agree" value="agree" @if($task->status == 'active')checked @endif /> Saya menyatakan bahwa saya telah melakukan simulasi bertransaksi di bidang Perdagangan Berjangka Komoditi pada {{config('settings.company_name')}}, dan telah memahami tentang tata cara bertransaksi di bidang Perdagangan Berjangka Komoditi.
+						</label>
+					</div>
+				</div>
+				<div class="form-group form-material" style="text-align:center;">	
+					Menyatakan pada Tanggal <span id="date"></span>
+				</div>
+				<div class="form-group form-material" style="text-align:center;">	
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary" >Submit </button>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 					</div>
 				</div>	
 				@endif

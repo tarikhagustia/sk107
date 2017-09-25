@@ -50,7 +50,11 @@ li.list-group-item.disabled {
 				</p>
 				<br>
 				<div class="form-group">
+<<<<<<< HEAD
 					<div class="col-sm-12">
+=======
+					<div class="col-sm-9">
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 						<div class="radio-custom radio-primary">
 							<input type="radio" name="pengalaman" value="ya">
 							<label for="pengalaman">Ya</label>
@@ -61,6 +65,7 @@ li.list-group-item.disabled {
 						</div>
 					</div>
 				</div>
+<<<<<<< HEAD
 				<br>
 				<br>
                 <div id="perusahaan" class="form-group" style="display:none;">
@@ -71,6 +76,8 @@ li.list-group-item.disabled {
                 </div>
 				<br>
 				<br>
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-main">Lanjutkan </button>
@@ -143,11 +150,15 @@ li.list-group-item.disabled {
         </div>
         <div class="panel-footer">
           @if($order->tasks()->where('task_id', 8)->first()->status == "active")
+<<<<<<< HEAD
 			@if($order->status == 'approved')
 				
 			@else
             <button type="submit" class="btn btn-primary btn-lg" name="button">Lanjutkan</button>
 			@endif
+=======
+            <button type="submit" class="btn btn-primary btn-lg" name="button">Lanjutkan</button>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
           @endif
         </div>
       </form>
@@ -183,6 +194,7 @@ $(document).ready(function() {
             }
         }
     });
+<<<<<<< HEAD
 	
    $('input[type="radio"]').click(function() {
        if($(this).attr('value') == 'ya') {
@@ -193,6 +205,8 @@ $(document).ready(function() {
             $('#perusahaan').hide();   
        }
    });
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 });
 </script>
 <script src="{{ asset('js/admin/open-real-account.js') }}"></script>

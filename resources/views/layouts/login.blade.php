@@ -9,17 +9,14 @@
   <meta name="author" content="">
     @yield('meta')
 
-  <link rel="apple-touch-icon" href="{{ asset('img/admin/apple-touch-icon.png') }}">
-  <link rel="shortcut icon" href="{{ asset('img/admin/favicon.ico') }}">
+	
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="{{ asset('css/admin/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin/bootstrap-extend.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin/site.min.css') }}">
-
-  <!-- Skin tools (demo site only) -->
-  <link rel="stylesheet" href="{{ asset('css/admin/skintools.min.css') }}">
-  <script src="{{ asset('js/admin/sections/skintools.min.js') }}"></script>
+  
+  
 
   <!-- Plugins -->
   <link rel="stylesheet" href="{{ asset('css/admin/animsition.min.css') }}">
@@ -29,10 +26,16 @@
   <link rel="stylesheet" href="{{ asset('css/admin/slidePanel.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin/flag-icon.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin/waves.min.css') }}">
+  <link rel="stylesheet" href="{{asset('css/admin/toastr.min.css?v2.2.0')}}">
 
+  <!-- Page Level -->
+  <link rel="stylesheet" href="{{asset('css/admin/custom/toastr.min.css?v2.2.0')}}">
+  @yield('css')
+	
   <!-- Fonts -->
   <link rel="stylesheet" href="{{ asset('fonts/material-design.min.css') }}">
-
+  <link rel="stylesheet" href="{{ asset('fonts/brand-icons.min.css') }}">
+  
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,700'>
 
   <!--[if lt IE 9]>
@@ -44,7 +47,7 @@
     <script src="../../global/vendor/respond/respond.min.js"></script>
     <![endif]-->
 
-  @yield('css')
+
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
   <script src="{{ asset('js/admin/breakpoints.min.js') }}"></script>

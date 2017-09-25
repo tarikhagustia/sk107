@@ -32,15 +32,32 @@
 														</td>
 													</tr>
 													<tr>
+<<<<<<< HEAD
 														<td colspan="2" class="just notop" style="text-align:justify;">
 															Maksud dokumen ini adalah memberitahukan bahwa kemungkinan kerugian atau keuntungan dalam perdagangan Kontrak Berjangka bisa mencapai jumlah yang sangat besar. Oleh karena itu, Anda harus berhati-hati dalam memutuskan untuk melakukan transaksi, apakah kondisi keuangan Anda mencukupi.														</td>
+=======
+														<td class="right">
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
+														</td>
+														<td>
+															<input type="checkbox" class="tick" name="check0"></td>
+													</tr>
+													<tr>
+														<td colspan="2" class="just notop">
+															Maksud dokumen ini adalah memberitahukan bahwa kemungkinan kerugian atau keuntungan dalam perdagangan Kontrak Derivatif dalam Sistem Perdagangan Alternatif bisa mencapai jumlah yang sangat besar. Oleh karena itu, Anda harus berhati-hati dalam memutuskan untuk melakukan transaksi, apakah kondisi keuangan Anda mencukupi.
+														</td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td class="right">
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check1" @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check1" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -66,7 +83,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check2" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check2" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -88,7 +109,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check3" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check3" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -109,7 +134,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check4" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check4" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -130,7 +159,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check5" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check5" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -151,7 +184,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check6" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check6" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -171,7 +208,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check7" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check7" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -192,7 +233,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check8" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check8" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -213,7 +258,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check9" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check9" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -234,7 +283,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check10" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check10" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -255,7 +308,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check11" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check11" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -276,7 +333,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check12" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check12" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -294,7 +355,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check13" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check13" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													<tr>
 														<td colspan="2" class="just notop" style="text-align:justify;">
@@ -330,7 +395,11 @@
 															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
 														<td>
+<<<<<<< HEAD
 															<input type="checkbox" class="tick" name="check15" disabled @if($task->status == 'active')checked @endif></td>
+=======
+															<input type="checkbox" class="tick" name="check14" disabled></td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 													</tr>
 													</tbody>
 													</table>
@@ -343,6 +412,7 @@
 			</div>
 		</div>
 		<div class="modal-footer">
+<<<<<<< HEAD
 				<p align="center">Dengan mengisi kolom “YA” di bawah, saya menyatakan bahwa saya telah menerima <b>“DOKUMEN PEMBERITAHUAN ADANYA RISIKO”</b> mengerti dan menyetujui isinya. </p>
 
 							<div class="row">
@@ -379,6 +449,21 @@
 				<div class="form-group form-material" style="text-align:center;">
 					<div class="col-sm-12">
 						<button type="submit" class="btn btn-primary" disabled>Submit </button>
+=======
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="agree" value="agree" @if($task->status == 'active')checked @endif /> saya menyatakan bahwa saya telah membaca dan menerima informasi <b>ADANYA RISIKO TRANSAKSI KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF, </b> mengerti dan memahami isinya.
+						</label>
+					</div>
+				</div>
+				<div class="form-group form-material" style="text-align:center;">	
+					Menyatakan pada Tanggal <span id="date"></span>
+				</div>
+				<div class="form-group form-material" style="text-align:center;">	
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary">Submit </button>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 					</div>
 				</div>	
 				@endif
@@ -406,12 +491,14 @@ document.getElementById("date").innerHTML = today;
 
 $(function () {
   $(document).on('click', '.popup-modal-dismiss', function (e) {
-		console.log(e);
     e.preventDefault();
     $.magnificPopup.close();
   });
 });
+<<<<<<< HEAD
 
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 $(".tick").change(function(){
 		var index = $( ".tick" ).index( this );
 		var index2 = $( ".tick" ).index( this ) + 1;
@@ -424,7 +511,11 @@ $(document).ready(function() {
     $('#pbk04Form').formValidation({
         framework: 'bootstrap',
         fields: {
+<<<<<<< HEAD
 			check1: {
+=======
+            check0: {
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 1'

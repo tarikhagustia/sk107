@@ -182,7 +182,10 @@ return [
         App\Providers\RouteServiceProvider::class,
 		Barryvdh\DomPDF\ServiceProvider::class,
 		Chumper\Zipper\ZipperServiceProvider::class,
+<<<<<<< HEAD
 		Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     ],
 
     /*
@@ -238,7 +241,10 @@ return [
         'Carbon' => Carbon\Carbon::class,
 		'PDF' => Barryvdh\DomPDF\Facade::class,
 		'Zipper' => Chumper\Zipper\Zipper::class,
+<<<<<<< HEAD
 		'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     ],
 
 ];

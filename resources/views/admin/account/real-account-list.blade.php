@@ -31,7 +31,11 @@
                         <td>{{$key+1}}</td>
                         <td>{{$real->name}}</td>
                         <td>{{$real->email}}</td>
+<<<<<<< HEAD
                         <td>{{Carbon::parse($real->created_at)->format('d-m-Y H:i:s')}}</td>
+=======
+                        <td>{{$real->created_at}}</td>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 						<td>{{$real->login}}</td>
 						<td>
 						@if($real->is_active == 'yes')

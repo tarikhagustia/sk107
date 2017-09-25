@@ -26,18 +26,24 @@ class AccountController extends Controller
 	$accountType = accountType::all();
 	$order2 = RequestAccount::where('user_id',Auth::user()->id)->where('status','request')->first();
 	$order3 = RequestAccount::where('user_id',Auth::user()->id)->where('status','rejected')->first();
+<<<<<<< HEAD
 	$order4 = RequestAccount::where('user_id',Auth::user()->id)->where('status','approved')->first();
 	$order5 = RequestAccount::where('user_id',Auth::user()->id)->where('status','pending')->first();
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	if(!empty($order)){
 		return view('admin.account.open_account', ['order' => $order]);
 	}elseif(!empty($order2)){
 		return view('admin.account.real-account-request-data',['order' => $order2, 'accountType' => $accountType]);
 	}elseif(!empty($order3)){
 		return view('admin.account.real-account-update-rejected',['order' => $order3, 'accountType' => $accountType]);
+<<<<<<< HEAD
 	}elseif(!empty($order4)){
 		return view('admin.account.open_account', ['order' => $order4]);
 	}elseif(!empty($order5)){
 		return view('admin.account.real-account-request-data',['order' => $order5, 'accountType' => $accountType]);
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	}
     
   }
@@ -57,9 +63,13 @@ class AccountController extends Controller
 	  Zipper::make($filepath)->add($files)->close();
 	  RequestAccount::where('order_number',$order['order_number'])->update(['docs' => $filepath,'status' => 'request']);
 	  Mt4User::where('order_number', $order['order_number'])->update(['docs' => $filepath]);
+<<<<<<< HEAD
 	  Mail::to(env('DEFAULT'))->send(new RealAccount($order, $filepath));
 	  Mail::to(env('EMAIL1'))->send(new RealAccount($order, $filepath));
 	  Mail::to(env('EMAIL2'))->send(new RealAccount($order, $filepath));
+=======
+	  Mail::to(env('OPENREAL_EMAIL'))->send(new RealAccount($order, $filepath));
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  Notification::create([
         'user_id' => 1,
         'title' => 'Permintaan pembukaan akun A/N ' . $order->nama,
@@ -76,8 +86,11 @@ class AccountController extends Controller
 	RequestAccount::where('id',$request->request_id)->update(['pengalaman_yes' => $request->pengalaman]);	  
 	if($request->pengalaman == 'tidak'){
 	  UserTask::where('request_account_id',$request->request_id)->where('task_id','3')->update(['is_active' => 'no']);
+<<<<<<< HEAD
 	}else{
 		RequestAccount::where('id',$request->request_id)->update(['perusahaan' => $request->perusahaan]);	  
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	}
 	return redirect()->route('create.account.real');
   }
@@ -134,15 +147,23 @@ class AccountController extends Controller
 		}
 		
         // dd($request->approval_yes);
+<<<<<<< HEAD
 		$dob = strtotime($request->dob);
 		$dob = date('Y-m-d',$dob);
+=======
+		
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  RequestAccount::where('order_number', $order->order_number)->update([
             'user_id' => Auth::user()->id,
 			      'account_type_id' => 1,
 				  'status' => 'request',
             'nama' => $request->name,
             'tempat_lahir' => $request->place,
+<<<<<<< HEAD
       			'dob' => $dob,
+=======
+      			'dob' => $request->dob,
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       			'alamat' => $request->alamat,
       			'tipe_id' => $request->identity_type,
       			'no_id' => $request->identity_number,
@@ -180,6 +201,7 @@ class AccountController extends Controller
       			'id_card' => $id_card,
       			'rek_koran' => $rek_koran,
       			'foto' => $foto,
+<<<<<<< HEAD
             'aproval_yes' => $request->approval_yes,
 			'kode_pos_darurat' => $request->postcode_darurat,
             'penghasilan' => $request->penghasilan,
@@ -188,6 +210,9 @@ class AccountController extends Controller
             'deposito_bank' => $request->deposito_bank,
             'deposito' => $request->deposito,
 			'daftar_kekayaan' => $request->daftar_kekayaan
+=======
+            'aproval_yes' => $request->approval_yes
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
         ]);
 		$today = Carbon::now();	
 	  $data = RequestAccount::where('order_number',$request->order_number)->first();
@@ -208,11 +233,16 @@ class AccountController extends Controller
 	  $data['id_card'] = public_path($data['id_card']);
 	  $data['rek_koran'] = public_path($data['rek_koran']);
 	  $data['foto'] = public_path($data['foto']);
+<<<<<<< HEAD
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
 	  $temp = explode('.',$data->rek_koran);
 	  $ext = $temp[1];
 	  $data['ext'] = $ext;
+=======
+	  $dob = strtotime($data['dob']);
+	  $data['dob'] = date('j F Y',$dob);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       $pdf = PDF::loadView('admin.account.form.107_PBK_03_download',compact('data'));
 	  $output = $pdf->output();
 	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
@@ -223,11 +253,14 @@ class AccountController extends Controller
 	  }else{
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK03.pdf'), $output);  
 	  }
+<<<<<<< HEAD
 	  	  Notification::create([
         'user_id' => 1,
         'title' => 'Permintaan pembukaan akun A/N ' . $order->nama,
         'url' => route('account.real.manage', ['id' => $order->id])
       ]);
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     return view('admin.account.create-account-finish');
   }
 }

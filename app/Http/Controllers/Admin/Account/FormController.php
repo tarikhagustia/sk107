@@ -25,6 +25,7 @@ class FormController extends Controller
 	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 4)->first();	
       $accountType = AccountType::all();
       $order = Auth::user()->lastRequestAccount();
+<<<<<<< HEAD
 	  $order2 = RequestAccount::where('user_id',Auth::user()->id)->where('status','approved')->first();
 	  if(!empty($order)){
 		$temp = array();
@@ -38,10 +39,14 @@ class FormController extends Controller
 		return view('admin.account.form.107_PBK_03', ['order' => $order2, 'accountType' => $accountType, 'task' => $task, 'ext'=>$ext]);
 	  }
       
+=======
+      return view('admin.account.form.107_PBK_03', ['order' => $order, 'accountType' => $accountType, 'task' => $task]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
 	public function bpk_02_1()
     {
 	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 2)->first();
+<<<<<<< HEAD
 	  $demos = Mt4User::where('user_id',Auth::user()->id)->where('is_real','no')->get();	
 	  $order = Auth::user()->lastRequestAccount();
 	  
@@ -57,11 +62,19 @@ class FormController extends Controller
 		return view('admin.account.form.107_PBK_02_1',['demos' => $demos[0],'order' => $order2, 'task' => $task]);
 	  }
       
+=======
+	  $demos = Mt4User::where('user_id',Auth::user()->id)->get();	
+	  $order = Auth::user()->lastRequestAccount();
+	  $date = date_create($order->dob);
+	  $order->dob = date_format($date,"d-m-Y");
+      return view('admin.account.form.107_PBK_02_1',['demos' => $demos[0],'order' => $order, 'task' => $task]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
 	public function bpk_02_2()
     {
 		$task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 3)->first();
 	    $datas = Auth::user()->lastRequestAccount();
+<<<<<<< HEAD
 		$demos = Mt4User::where('user_id',Auth::user()->id)->where('is_real','no')->get();
 		$datas2 = RequestAccount::where('user_id',Auth::user()->id)->where('status','approved')->first();
 	  if(!empty($datas)){
@@ -74,10 +87,15 @@ class FormController extends Controller
 		return view('admin.account.form.107_PBK_02_2', ['datas'=> $datas2, 'demos'=>$demos[0], 'task' => $task]);
 	  }
       
+=======
+		$demos = Mt4User::where('user_id',Auth::user()->id)->get();	
+      return view('admin.account.form.107_PBK_02_2', ['datas'=> $datas, 'demos'=>$demos[0], 'task' => $task]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
     public function bpk_01()
     {
 	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 1)->first();
+<<<<<<< HEAD
 	  $order = Auth::user()->lastRequestAccount();
 	  $order2 = RequestAccount::where('user_id',Auth::user()->id)->where('status','approved')->first();
 	  if(!empty($order)){
@@ -85,10 +103,14 @@ class FormController extends Controller
 	  }else{
 		return view('admin.account.form.107_PBK_01',['task' => $task, 'order' => $order2]);
 	  }
+=======
+      return view('admin.account.form.107_PBK_01',['task' => $task]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
     public function bpk_04_2()
     {
 	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->first();
+<<<<<<< HEAD
 	  $order = Auth::user()->lastRequestAccount();
 	  $order2 = RequestAccount::where('user_id',Auth::user()->id)->where('status','approved')->first();
 	  if(!empty($order)){
@@ -96,10 +118,14 @@ class FormController extends Controller
 	  }else{
 		return view('admin.account.form.107_PBK_04_2',['task' => $task, 'order' => $order2]);
 	  }
+=======
+      return view('admin.account.form.107_PBK_04_2',['task' => $task]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
     public function bpk_05_2()
     {
 	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 6)->first();
+<<<<<<< HEAD
 	  $datas = Auth::user()->lastRequestAccount();
 	  $datas2 = RequestAccount::where('user_id',Auth::user()->id)->where('status','approved')->first();
 	  if(!empty($datas)){
@@ -108,10 +134,15 @@ class FormController extends Controller
 		return view('admin.account.form.107_PBK_05_2', ['datas'=> $datas2,'task' => $task]);
 	  }
       
+=======
+	  $datas = Auth::user()->lastRequestAccount();	
+      return view('admin.account.form.107_PBK_05_2', ['datas'=> $datas,'task' => $task]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
     public function bpk_06()
     {
 	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 7)->first();
+<<<<<<< HEAD
 	  $order = Auth::user()->lastRequestAccount();
 	  $order2 = RequestAccount::where('user_id',Auth::user()->id)->where('status','approved')->first();
 	  if(!empty($order)){
@@ -119,17 +150,24 @@ class FormController extends Controller
 	  }else{
 		return view('admin.account.form.107_PBK_06',['task' => $task, 'order' => $order2]);
 	  }
+=======
+      return view('admin.account.form.107_PBK_06',['task' => $task]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
     public function bpk_07()
     {
 	  $task = UserTask::where('user_id', Auth::user()->id)->where('task_id', 8)->first();
 	  $datas = Auth::user()->lastRequestAccount();
+<<<<<<< HEAD
 	  $datas2 = RequestAccount::where('user_id',Auth::user()->id)->where('status','approved')->first();
 	  if(!empty($datas)){
 	    return view('admin.account.form.107_PBK_07', ['datas'=> $datas,'task' => $task]);
 	  }else{
 		return view('admin.account.form.107_PBK_07', ['datas'=> $datas2,'task' => $task]);
 	  }
+=======
+      return view('admin.account.form.107_PBK_07', ['datas'=> $datas,'task' => $task]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
 	public function bpk_01_check()
 	{
@@ -172,11 +210,17 @@ class FormController extends Controller
 			'no_id' => $request->noid,
         ]);
 		$today = Carbon::now();	
+<<<<<<< HEAD
 	  $data = Auth::user()->lastRequestAccount();
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
 	  $data['today'] = $today;
 	  $demos = Mt4User::where('user_id',Auth::user()->id)->where('is_real','no')->get();
+=======
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+	  $demos = Mt4User::where('user_id',Auth::user()->id)->get();
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  $demo	= $demos[0];
 	  $pdf = PDF::loadView('admin.account.form.107_PBK_02_1_download',compact('demo'),compact('data'));
 	  $output = $pdf->output();
@@ -212,9 +256,13 @@ class FormController extends Controller
 		$today = Carbon::now();	
 	  $data = Auth::user()->lastRequestAccount();	
 	  $data['today'] = $today;
+<<<<<<< HEAD
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
 	  $demos = Mt4User::where('user_id',Auth::user()->id)->where('is_real','no')->get();
+=======
+	  $demos = Mt4User::where('user_id',Auth::user()->id)->get();
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  $demo	= $demos[0];
 	  $pdf = PDF::loadView('admin.account.form.107_PBK_02_2_download',compact('demo'),compact('data'));
 	  $output = $pdf->output();
@@ -268,6 +316,7 @@ class FormController extends Controller
 		}else{
 			$rek_koran = $order->rek_koran;
 		}
+<<<<<<< HEAD
 		
 		if(!empty(Input::file('foto'))){
 			$image = Input::file('foto');
@@ -287,12 +336,36 @@ class FormController extends Controller
         // dd($request->approval_yes);
 		$dob = strtotime($request->dob);
 		$dob = date('Y-m-d',$dob);
+=======
+		
+		if(!empty(Input::file('foto'))){
+			$image = Input::file('foto');
+			$input['imagename'] = 'foto.'.$image->getClientOriginalExtension();
+			$destinationPath = public_path('/uploads/'.Auth::user()->id);
+			if(!file_exists($destinationPath)){
+				$result = File::makeDirectory($destinationPath, 0775, true);
+			}else{
+			}
+			$image->move($destinationPath, $input['imagename']);
+			$fullpath = '/uploads/'.Auth::user()->id.'/'.$input['imagename'];
+			$foto = $fullpath;
+		}else{
+			$foto = $order->foto;
+		}
+		
+        // dd($request->approval_yes);
+		
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  RequestAccount::where('order_number', $order->order_number)->update([
             'user_id' => Auth::user()->id,
 			      'account_type_id' => 1,
             'nama' => $request->name,
             'tempat_lahir' => $request->place,
+<<<<<<< HEAD
       			'dob' => $dob,
+=======
+      			'dob' => $request->dob,
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       			'alamat' => $request->alamat,
       			'tipe_id' => $request->identity_type,
       			'no_id' => $request->identity_number,
@@ -330,6 +403,7 @@ class FormController extends Controller
       			'id_card' => $id_card,
       			'rek_koran' => $rek_koran,
       			'foto' => $foto,
+<<<<<<< HEAD
             'aproval_yes' => $request->approval_yes,
 			'kode_pos_darurat' => $request->postcode_darurat,
             'penghasilan' => $request->penghasilan,
@@ -339,6 +413,9 @@ class FormController extends Controller
             'deposito' => $request->deposito,
 			'daftar_kekayaan' => $request->daftar_kekayaan,
 			'pasangan' => $request->pasangan
+=======
+            'aproval_yes' => $request->approval_yes
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
         ]);
 		$today = Carbon::now();	
 	  $data = Auth::user()->lastRequestAccount();	
@@ -359,12 +436,17 @@ class FormController extends Controller
 	  $data['id_card'] = public_path($data['id_card']);
 	  $data['rek_koran'] = public_path($data['rek_koran']);
 	  $data['foto'] = public_path($data['foto']);
+<<<<<<< HEAD
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
 	  $temp = array();
 	  $temp = explode('.',$data->rek_koran);
 	  $ext = $temp[1];
 	  $data['ext'] = $ext;
+=======
+	  $dob = strtotime($data['dob']);
+	  $data['dob'] = date('j F Y',$dob);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       $pdf = PDF::loadView('admin.account.form.107_PBK_03_download',compact('data'));
 	  $output = $pdf->output();
 	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
@@ -389,6 +471,7 @@ class FormController extends Controller
 	{
 		$today = Carbon::now();	
 	  $data = Auth::user()->lastRequestAccount();	
+<<<<<<< HEAD
 	  $data['today'] = $today;
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
@@ -401,6 +484,18 @@ class FormController extends Controller
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK04-1.pdf'), $output);  
 	  }else{
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK04-1.pdf'), $output);  
+=======
+	  $data['today'] = $today;	
+      $pdf = PDF::loadView('admin.account.form.107_PBK_04_2_download',compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK04-2.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK04-2.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK04-2.pdf'), $output);  
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  }
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 5)->update(['status' => 'active']);
 	  $usertask = UserTask::where('user_id', Auth::user()->id)->where('task_id', 6)->first();
@@ -413,6 +508,7 @@ class FormController extends Controller
 	}
 	public function bpk_05_2_check(Request $request)
 	{
+<<<<<<< HEAD
 	  $today = Carbon::now();	
 	  $data = Auth::user()->lastRequestAccount();
 	  RequestAccount::where('order_number', $data->order_number)->update([
@@ -430,6 +526,20 @@ class FormController extends Controller
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK05-1.pdf'), $output);  
 	  }else{
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK05-1.pdf'), $output);  
+=======
+		$today = Carbon::now();	
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+      $pdf = PDF::loadView('admin.account.form.107_PBK_05_2_download',compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK05-2.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK05-2.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK05-2.pdf'), $output);  
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  }
 	  UserTask::where('user_id', Auth::user()->id)->where('task_id', 6)->update(['status' => 'active']);
 	  $usertask = UserTask::where('user_id', Auth::user()->id)->where('task_id', 7)->first();
@@ -445,8 +555,11 @@ class FormController extends Controller
 		$today = Carbon::now();	
 	  $data = Auth::user()->lastRequestAccount();	
 	  $data['today'] = $today;
+<<<<<<< HEAD
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       $pdf = PDF::loadView('admin.account.form.107_PBK_06_download',compact('data'));
 	  $output = $pdf->output();
 	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
@@ -472,8 +585,11 @@ class FormController extends Controller
 	  $today = Carbon::now();	
 	  $data = Auth::user()->lastRequestAccount();	
 	  $data['today'] = $today;
+<<<<<<< HEAD
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
+=======
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       $pdf = PDF::loadView('admin.account.form.107_PBK_07_download',compact('data'));
 	  $output = $pdf->output();
 	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
@@ -491,7 +607,11 @@ class FormController extends Controller
 	public function bpk_03_download()
     {
 		$today = Carbon::now();	
+<<<<<<< HEAD
 	  $data = RequestAccount::where('user_id',Auth::user()->id)->first();
+=======
+	  $data = Auth::user()->lastRequestAccount();	
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  $data['today'] = $today;
 	  
 	  $tipe = DB::table('request_accounts')
@@ -509,12 +629,17 @@ class FormController extends Controller
 	  $data['id_card'] = public_path($data['id_card']);
 	  $data['rek_koran'] = public_path($data['rek_koran']);
 	  $data['foto'] = public_path($data['foto']);
+<<<<<<< HEAD
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
 	  $temp = array();
 	  $temp = explode('.',$data->rek_koran);
 	  $ext = $temp[1];
 	  $data['ext'] = $ext;
+=======
+	  $dob = strtotime($data['dob']);
+	  $data['dob'] = date('j F Y',$dob);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       $pdf = PDF::loadView('admin.account.form.107_PBK_03_download',compact('data'));
 	  $output = $pdf->output();
 	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
@@ -530,11 +655,17 @@ class FormController extends Controller
 	public function bpk_02_1_download()
     {
 	  $today = Carbon::now();	
+<<<<<<< HEAD
 	  $data = RequestAccount::where('user_id',Auth::user()->id)->first();
 	  $data['today'] = $today;
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
 	  $demos = Mt4User::where('user_id',Auth::user()->id)->where('is_real','no')->get();
+=======
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+	  $demos = Mt4User::where('user_id',Auth::user()->id)->get();
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  $demo	= $demos[0];
 	  $pdf = PDF::loadView('admin.account.form.107_PBK_02_1_download',compact('demo'),compact('data'));
 	  $output = $pdf->output();
@@ -551,11 +682,17 @@ class FormController extends Controller
 	public function bpk_02_2_download()
     {
 	  $today = Carbon::now();	
+<<<<<<< HEAD
 	  $data = RequestAccount::where('user_id',Auth::user()->id)->first();
 	  $data['today'] = $today;
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
 	  $demos = Mt4User::where('user_id',Auth::user()->id)->where('is_real','no')->get();
+=======
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+	  $demos = Mt4User::where('user_id',Auth::user()->id)->get();
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 	  $demo	= $demos[0];
 	  $pdf = PDF::loadView('admin.account.form.107_PBK_02_2_download',compact('demo'),compact('data'));
 	  $output = $pdf->output();
@@ -572,10 +709,15 @@ class FormController extends Controller
     public function bpk_01_download()
     {
 	  $today = Carbon::now();	
+<<<<<<< HEAD
 	  $data = RequestAccount::where('user_id',Auth::user()->id)->first();
 	  $data['today'] = $today;
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
+=======
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       $pdf = PDF::loadView('admin.account.form.107_PBK_01_download',compact('data'));
 	  $output = $pdf->output();
 	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
@@ -592,6 +734,7 @@ class FormController extends Controller
     public function bpk_04_2_download()
     {
 	  $today = Carbon::now();	
+<<<<<<< HEAD
 	  $data = RequestAccount::where('user_id',Auth::user()->id)->first();
 	  $data['today'] = $today;
 	  $date = date_create($data->dob);
@@ -607,10 +750,26 @@ class FormController extends Controller
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK04-1.pdf'), $output);  
 	  }
 	  return $pdf->download('PBK04-1.pdf');
+=======
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;	
+      $pdf = PDF::loadView('admin.account.form.107_PBK_04_2_download',compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK04-2.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK04-2.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK04-2.pdf'), $output);  
+	  }
+	  return $pdf->download('PBK04-2.pdf');
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
     public function bpk_05_2_download()
     {
 	  $today = Carbon::now();	
+<<<<<<< HEAD
 	  $data = RequestAccount::where('user_id',Auth::user()->id)->first();
 	  $data['today'] = $today;
 	  $date = date_create($data->dob);
@@ -626,14 +785,34 @@ class FormController extends Controller
 		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK05-1.pdf'), $output);  
 	  }
 	  return $pdf->download('PBK05-1.pdf');
+=======
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+      $pdf = PDF::loadView('admin.account.form.107_PBK_05_2_download',compact('data'));
+	  $output = $pdf->output();
+	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
+	  $fullpath = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK05-2.pdf');
+	  if(!file_exists($path)){
+	    $result = File::makeDirectory($path, 0775, true);
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK05-2.pdf'), $output);  
+	  }else{
+		file_put_contents(public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number'].'/PBK05-2.pdf'), $output);  
+	  }
+	  return $pdf->download('PBK05-2.pdf');
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
     }
     public function bpk_06_download()
     {
 	  $today = Carbon::now();	
+<<<<<<< HEAD
 	  $data = RequestAccount::where('user_id',Auth::user()->id)->first();
 	  $data['today'] = $today;
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
+=======
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       $pdf = PDF::loadView('admin.account.form.107_PBK_06_download',compact('data'));
 	  $output = $pdf->output();
 	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);
@@ -649,10 +828,15 @@ class FormController extends Controller
     public function bpk_07_download()
     {
 	  $today = Carbon::now();	
+<<<<<<< HEAD
 	  $data = RequestAccount::where('user_id',Auth::user()->id)->first();
 	  $data['today'] = $today;
 	  $date = date_create($data->dob);
 	  $data->dob = date_format($date,"d-m-Y");
+=======
+	  $data = Auth::user()->lastRequestAccount();	
+	  $data['today'] = $today;
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
       $pdf = PDF::loadView('admin.account.form.107_PBK_07_download',compact('data'));
 	  $output = $pdf->output();
 	  $path = public_path('/pdf/'.Auth::user()->id.'/'.$data['order_number']);

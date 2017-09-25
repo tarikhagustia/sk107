@@ -14,6 +14,7 @@ class ManagewithdrawalController extends Controller
     $data = DB::table('Withdrawal')
                   ->Join('mt4_users', 'Withdrawal.account_id', '=', 'mt4_users.login')
                   ->join('users', 'mt4_users.user_id', '=', 'users.id')
+<<<<<<< HEAD
                   ->select('Withdrawal.id', 'mt4_users.name', 'mt4_users.email', 'account_id', 'currency', 'amount', 'status', 'bank', 'no_rek', 'nama_rek', 'Withdrawal.created_at', 'Withdrawal.updated_at')
                   ->where('status', $status)
                   ->get();
@@ -25,6 +26,13 @@ class ManagewithdrawalController extends Controller
                   ->where('status', 'approve')
                   ->get();
     return view('admin.withdrawal.managewithdrawal', ['Withdrawal' => $data,'history' => $history ]);
+=======
+                  ->select('Withdrawal.id', 'name', 'email', 'account_id', 'amount', 'status', 'Withdrawal.created_at')
+                  ->where('status', $status)
+                  ->get();
+      // dd($data);
+    return view('admin.Withdrawal.manageWithdrawal', ['Withdrawal' => $data]);
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
   }
 
   public function submanagewithdrawal(Request $r)

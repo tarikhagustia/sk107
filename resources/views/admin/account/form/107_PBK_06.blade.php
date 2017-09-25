@@ -53,6 +53,7 @@
 		<div class="modal-footer">
 			<form class="form-horizontal" method="POST" id="pbk06Form" action="{{ url('admin/account/real-account/form/107-PBK-06-check') }}">
 			{{ csrf_field() }}
+<<<<<<< HEAD
 				<p class="text-justify">Dengan mengisi kolom “YA” di bawah ini, saya menyatakan bahwa saya telah membaca tentang <b>PERATURAN PERDAGANGAN (TRADING RULES)</b>, mengerti dan menerima ketentuan dalam bertransaksi.</p>
 
 							<div class="row">
@@ -89,6 +90,21 @@
 				<div class="form-group form-material" style="text-align:center;">
 					<div class="col-sm-12">
 						<button type="submit" class="btn btn-primary" disabled>Submit </button>
+=======
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="agree" value="agree" @if($task->status == 'active')checked @endif /> Saya menyatakan bahwa saya telah membaca, <b>PERATURAN PERDAGANGAN (TRADING RULES), </b> mengerti dan menerima ketentuan dalam bertransaksi.
+						</label>
+					</div>
+				</div>
+				<div class="form-group form-material" style="text-align:center;">	
+					Menyatakan pada Tanggal <span id="date"></span>
+				</div>
+				<div class="form-group form-material" style="text-align:center;">	
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary">Submit </button>
+>>>>>>> ebe53c6e9c26021da2bbd66aae2444e0190afc04
 					</div>
 				</div>	
 				@endif
