@@ -8,6 +8,11 @@
 	<link rel="stylesheet" href="{{ asset('css/admin/login.min.css') }}">
 @endsection
 
+<style typle="text/css">
+	.page-login:before{background-image:url({{asset('img/admin/login.jpg')}})
+</style>
+
+
 @section('content')
 <body class="page-login layout-full page-dark">
   <div class="page animsition vertical-align text-center" data-animsition-in="fade-in"
@@ -50,7 +55,7 @@
 			</div>
 			<button type="submit" class="btn btn-primary btn-block">Masuk</button>
 		  </form>
-		  <p>Belum punya akun ? silahkan <a href="{{ route('register') }}">Mendaftar</a></p>
+		  <p style="color:white;">Belum punya akun ? silahkan <a href="{{ route('register') }}">Mendaftar</a></p>
 
 
 		  <footer class="page-copyright page-copyright-inverse">

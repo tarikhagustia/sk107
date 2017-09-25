@@ -4,7 +4,7 @@
 			<a class="popup-modal-dismiss pull-right" href="#">x</a>
 			<br><br>
 			<div class="pull-left" style="font-size:11px;font-weight:700;">
-				<p>Formulir Nomor : 107.PBK.01</p>
+				<p>Formulir Nomor : 107.PBK.07</p>
 			</div>
 			<div class="pull-right" style="font-size:11px;text-align:right;">
 				Lampiran Peraturan Kepala Badan Pengawas<br>Perdagangan Berjangka Komoditi<br>Nomor : 107/BAPPEBTI/PER/11/2013
@@ -14,47 +14,50 @@
 			<div class="row row-lg">
 				<div class="col-sm-12">
 					<div class="example-wrap">
-						<!--<p style="font-size=11px;">Nasabah wajib mengisi Surat Pernyataan Telah Melakukan Simulasi Perdagangan Berjangka yang dilakukan setelah Nasabah dinyatakan lulus melakukan simulasi Perdagangan Berjangka oleh Pialang Berjangka sebagaimana yang ada di Formulir Nomor : 107.PBK.02.1</p>-->
-						<h4 class="example-title" style="font-weight:700;text-align:center;font-size:14px;">PERNYATAAN BERTANGGUNGJAWAB ATAS KODE AKSES TRANSAKSI NASABAH (Personal Access Password)</h4>
 						<hr>
 						<div class="example">
-								<div data-role="container" class="scrollable-container" style="height: 100px;">
-									<div data-role="content" class="scrollable-content" style="height: 100px;">
-										Yang mengisi formulir di bawah ini ;<br>
+								<div data-role="container" class="scrollable-container" style="height: 400px;">
+									<div data-role="content" class="scrollable-content" style="height: 400px;">
+										Yang mengisi formulir di bawah ini;
+										<div class="row">
 										<br>
-										<table>
-											<tbody>
-												<tr>
-													<td>Nama</td>
-													<td>: Tarikh</td>
-												</tr>
-												<tr>
-													<td>Tempat/Tanggal Lahir</td>
-													<td>: sukabumi, 1 Januari 1996</td>
-												</tr>
-												<tr>
-													<td>Alamat</td>
-													<td>: sukabumi 0</td>
-												</tr>
-												<tr>
-													<td>No KTP</td>
-													<td>: 10191291201201</td>
-												</tr>
-												<tr>
-													<td>No Account</td>
-													<td>
-														 : <em>« menyusul »</em>
-													</td>
-												</tr>
-												<!--
-												<tr>
-													<td>No Demo Account</td>
-													<td> :
-													<em>&laquo; No Account Demo &raquo;</em>		</td>
-												</tr>
-												-->
-											</tbody>
-										</table>
+											<div class="form-group form-material">
+												<label class="col-sm-3 control-label">Nama: </label>
+												<div class="col-sm-3">
+													<input disabled type="text" class="form-control" name="name" id="name" autocomplete="off" placeholder="Nama Lengkap" value="{{$datas->nama}}" @if($datas->status == 'approved')disabled @endif />
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="form-group form-material">
+												<label class="col-sm-3 control-label">Alamat: </label>
+												<div class="col-sm-3">
+													<textarea disabled class="form-control" placeholder="Alamat" name="alamat" id="alamat" @if($datas->status == 'approved')disabled @endif >{{$datas->alamat}}</textarea>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="form-group form-material">
+												<label class="col-sm-3 control-label">Nomor Identitas: </label>
+												<div class="col-sm-3">
+													<select disabled class="form-control" name="id" @if($datas->status == 'approved')disabled @endif >
+														<option value="ktp" @if($datas->tipe_id == "KTP") selected @endif >KTP</option>
+														<option value="sim" @if($datas->tipe_id == "SIM") selected @endif >SIM</option>
+														<option value="passport" @if($datas->tipe_id == "Passport") selected @endif >Passport</option>
+													</select>
+												</div>	
+												<div class="col-sm-3">
+													<input disabled type="text" class="form-control" name="noid" id="noid" placeholder="Nomor Identitas" autocomplete="off" value="{{$datas->no_id}}" @if($datas->status == 'approved')disabled @endif />
+												</div>
+											</div>
+										</div>	
+										<br>
+										<br>
+											<div class="row" style="text-align:justify;">
+												<p>Dengan ini menerangkan dan menyatakan dengan sebenar-benarnya bahwa saya telah mendapatkan penjelasan dari {{config('setting.company_name')}} yang berkedudukan di {{config('setting.company_address')}}, melalui Wakil Pialang Berjangka yang bernama @if(!empty($datas->wp)){{$datas->wp}}@else menyusul @endif. mengenai mekanisme transaksi Perdagangan Berjangka yang akan saya lakukan sendiri. Saya juga telah sepenuhnya membaca, mengerti, serta memahami penjelasan mengenai isi dokumen Perjanjian Pemberian Amanat, dokumen Pemberitahuan Adanya Risiko, serta semua ketentuan dan peraturan perdagangan (trading rules).</p>
+												<p>Terhadap apa yang saya jalankan dalam  transaksi ini berikut segala risiko yang akan timbul akibat transaksi sepenuhnya akan menjadi tanggung jawab saya.</p>
+												<p>Bersama ini saya menyatakan bahwa dana yang saya gunakan untuk bertransaksi di {{config('setting.company_name')}} adalah milik saya pribadi dan bukan dana pihak lain, serta tidak diperoleh dari hasil penipuan, penggelapan, hasil pencucian uang maupun tindak pidana korupsi dan perbuatan melawan hukum lainnya serta tidak dimaksudkan untuk melakukan pencucian uang.</p>
+											</div>
 									</div>
 								</div>
 						</div>	
@@ -63,33 +66,47 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<div class="alert dark alert-primary alert-dismissible text-center" role="alert">
-								<!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                  </button> -->
-								 PERINGATAN !!!<br>
-								 Pialang Berjangka, Wakil Pialang Berjangka,pegawai Pialang Berjangka, atau pihak yang memiliki kepentingan dengan Pialang Berjangka dilarang menerima kode akses transaksi Nasabah (Personal Access Password).
-							</div>
-							<p class="text-center">
-								<b>Demikian Pernyataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.</b>
-							</p>
 			<form class="form-horizontal" method="POST" id="pbk07Form" action="{{ url('admin/account/real-account/form/107-PBK-07-check') }}">
 			{{ csrf_field() }}
-				<div class="form-group form-material">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya bertanggungjawab sepenuhnya terhadap kode akses transaksi Nasabah (Personal Access Password) dan tidak menyerahkan kode akses transaksi Nasabah (Personal Access Password) ke pihak lain, terutama kepada pegawai Pialang Berjangka atau pihak yang memiliki kepentingan dengan Pialang Berjangka.
-						</label>
+				<p class="text-justify">Dengan mengisi kolom “YA” di bawah, saya menyatakan setuju untuk membuka rekening transaksi pada {{config('settings.company_name')}}  dan karenanya saya  melepaskan {{config('settings.company_name')}}  dari segala tuntutan hukum dan  tanggungjawab yang timbul daripadanya. </p>
+
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-4">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Peryataan Kebenaran dan tanggung jawab <span class="text-danger">*)</span></label>
+							<div class="col-sm-3">
+
+								<div class="radio-custom radio-primary pull-left">
+													<input type="radio" id="approval_yes" name="approval_yes" value="ya" @if($task->status == 'active')checked @endif @if($datas->status == 'approved') disabled @endif>
+													<label for="aproval_yes">Ya</label>
+												</div>
+												<br>
+												<br>
+												<div class="radio-custom radio-primary pull-left">
+													<input type="radio" id="approval_yes" name="approval_yes" value="tidak" @if($datas->status == 'approved')disabled @endif>
+													<label for="aproval_no">Tidak</label>
+												</div>
+							</div>
+						</div>
+						<div class="form-group">
+
+							<label class="col-sm-3 control-label">Menyatakan Tanggal</label>
+							<div class="col-sm-9">
+								<p class="form-control-static pull-left" id="date">{{$datas->created_at->formatLocalized('%A %d %B %Y')}}</p>
+							</div>
+						</div>
 					</div>
+
 				</div>
-				<div class="form-group form-material">	
-					Menyatakan pada Tanggal <span id="date"></span>
-				</div>
-				<div class="form-group form-material">	
-					<div class="col-sm-9 col-sm-offset-3">
-						<button type="submit" class="btn btn-primary">Submit </button>
+				@if($datas->status == 'approved')
+				
+				@else
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary" disabled>Submit </button>
 					</div>
-				</div>
+				</div>	
+				@endif
 			</form>
 		</div>
 	</div>
@@ -123,16 +140,15 @@ $(function () {
 $(document).ready(function() {
     $('#pbk07Form').formValidation({
         framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
         fields: {
-			agree: {
+						approval_yes: {
                 validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan pada form ini'
+					notEmpty: {
+                        message: '<br><br><br>Anda harus menyetujui dan menerima pernyataan diatas'
+                    },
+                    stringLength: {
+                        message: '<br><br><br>Anda harus menyetujui dan menerima pernyataan diatas',
+                        max: 2,
                     }
                 }
             }

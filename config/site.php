@@ -9,7 +9,7 @@ return [
     |
     */
 
-    'name' => 'IMS',
+    'name' => 'PT. Phillip Futures',
 
 
     /*

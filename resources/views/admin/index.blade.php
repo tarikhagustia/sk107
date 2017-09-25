@@ -6,6 +6,8 @@
   <div class="page">
     <div class="page-content container-fluid">
       <h2>Hallo {{Auth::user()->name}} !</h2>
+	  @if(Auth::user()->role == "admin")
+	  @else
       @include('admin.includes.dashboard-status')
       @include('admin.includes.message')
       <div class="alert alert-warning">
@@ -14,6 +16,7 @@
       <div class="alert alert-info">
         <p>{{__('admin.alert.info.welcome-message')}}</p>
       </div>
+	  @endif
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="widget widget-shadow">
@@ -60,11 +63,11 @@
               {{-- <div class="cover-background height-200" style="background-image: url('{{asset("img/admin/open-account.png")}}')"></div> --}}
             </div>
             <div class="widget-footer text-center bg-blue-400 padding-30 height-100">
-              <a href="#">
+              <a href="http://www.phillipfutures.co.id/download/PTASIM.exe">
                 <div class="row no-space">
                 <div class="col-xs-12">
                   <div class="counter counter-inverse">
-                    <span class="counter-number">{{ __('admin.downloadmt4') }}</span>
+                    <span class="counter-number">Unduh Platform Trading</span>
                   </div>
                 </div>
               </div>

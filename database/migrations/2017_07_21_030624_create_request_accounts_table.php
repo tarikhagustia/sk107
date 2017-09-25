@@ -16,18 +16,61 @@ class CreateRequestAccountsTable extends Migration
         Schema::create('request_accounts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('account_type_id')->unsigned();
+            $table->integer('account_type_id')->nullable()->unsigned();
             $table->string('order_number')->nullable();
             $table->integer('account_number')->nullable();
             $table->string('account_password', 50)->nullable();
-            $table->enum('status', ['approved', 'pending', 'request']);
+            $table->enum('status', ['approved', 'pending', 'request', 'rejected', 'filling']);
+            $table->text('rejected_reason')->nullable();
+            $table->string('nama', 30)->default('');
+      			$table->string('tempat_lahir', 30)->default('');
+      			$table->date('dob')->nullable();
+      			$table->text('alamat')->nullable();
+      			$table->enum('tipe_id', ['KTP', 'SIM', 'Passport'])->nullable();
+      			$table->string('no_id', 20)->default('');
+      			$table->enum('pengalaman', ['ya', 'tidak'])->default('tidak');
+      			$table->string('tujuan', 50)->default('');
+      			$table->string('npwp', 30)->default('');
+      			$table->enum('jenis_kelamin', ['laki-laki', 'perempuan']);
+      			$table->enum('status_perkawinan', ['tidak kawin', 'kawin', 'duda', 'janda']);
+      			$table->string('nama_ibu', 30)->default('');
+      			$table->enum('status_rumah', ['pribadi', 'keluarga', 'sewa/kontrak']);
+      			$table->string('telp_rumah', 20)->default('');
+      			$table->string('kode_pos', 6)->default('');
+      			$table->enum('keluarga_kbi', ['tidak', 'ya']);
+      			$table->enum('pailit', ['tidak', 'ya']);
+      			$table->string('nama_darurat', 30)->default('');
+      			$table->string('telp_darurat', 20)->default('');
+      			$table->string('hubungan', 50)->default('');
+      			$table->text('alamat_darurat')->nullable();
+      			$table->enum('pekerjaan', ['swasta', 'wiraswasta', 'irt', 'negeri', 'mahasiswa']);
+      			$table->string('nama_perusahaan', 100)->default('');
+      			$table->string('bidang_usaha', 100)->default('');
+      			$table->string('jabatan', 100)->default('');
+            $table->integer('lama_bekerja')->nullable();
+            $table->text('alamat_kantor')->nullable();
+            $table->string('kode_pos_kantor',6)->nullable();
+      			$table->string('telp_kantor',20)->nullable();
+      			$table->string('kantor_sebelum', 50)->nullable();
+      			$table->string('nama_bank',100)->nullable();
+      			$table->string('cabang',100)->nullable();
+      			$table->string('telp_bank',20)->nullable();
+      			$table->string('no_rek',20)->nullable();
+      			$table->string('nama_rek',30)->nullable();
+      			$table->string('jenis_tabungan',50)->nullable();
+      			$table->string('id_card',100)->default('/public/img/placeholder.jpg')->nullable();
+      			$table->string('rek_koran',100)->default('/public/img/placeholder.jpg')->nullable();
+      			$table->string('foto',100)->default('/public/img/placeholder.jpg')->nullable();
+            $table->string('phone_number', 50)->nullable();
+            $table->enum('aproval_yes', ['ya', 'tidak']);
+
             $table->timestamps();
         });
 
-        Schema::table('request_accounts', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-
-        });
+        // Schema::table('request_accounts', function (Blueprint $table) {
+        //     $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+        //
+        // });
     }
 
     /**

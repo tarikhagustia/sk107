@@ -57,6 +57,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
 			'phone' => 'required|string|min:5|max:20',
+			'g-recaptcha-response' => 'required|captcha',
         ]);
     }
 
@@ -68,11 +69,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+		$dob = strtotime($data['dob']);
+		$dob = date('Y-m-d',$dob);
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
 			'phone' => $data['phone'],
+			'dob' => $dob
         ]);
     }
 

@@ -28,41 +28,41 @@
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Nama: </label>
 												<div class="col-sm-7">
-													<input type="text" class="form-control" name="name" id="name" autocomplete="off" placeholder="Nama Lengkap" />
+													<input maxlength="30" type="text" class="form-control" name="name" id="name" autocomplete="off" placeholder="Nama Lengkap" value="{{$order->nama}}" @if($order->status == 'approved')disabled @endif />
 												</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Tempat/Tanggal Lahir: </label>
 													<div class="col-sm-4">
-														<input type="text" class="form-control" name="place" id="place" placeholder="Tempat Lahir" autocomplete="off" />
+														<input maxlength="30" type="text" class="form-control" name="place" id="place" placeholder="Tempat Lahir" autocomplete="off" value="{{$order->tempat_lahir}}" @if($order->status == 'approved')disabled @endif />
 													</div>
 													<div class="col-sm-3">
-															<input type="text" class="form-control" name="dob" id="dob" placeholder="dd-mm-yyyy">
+															<input type="text" class="form-control" name="dob" id="dob" placeholder="dd-mm-yyyy" value="{{$order->dob}}" @if($order->status == 'approved')disabled @endif >
 													</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Alamat: </label>
 												<div class="col-sm-7">
-													<textarea class="form-control" placeholder="Alamat" name="alamat" id="alamat"></textarea>
+													<textarea class="form-control" placeholder="Alamat" name="alamat" id="alamat" @if($order->status == 'approved')disabled @endif >{{$order->alamat}}</textarea>
 												</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Nomor Identitas: </label>
 												<div class="col-sm-3">
-													<select class="form-control" name="id">
-														<option value="ktp">KTP</option>
-														<option value="sim">SIM</option>
-														<option value="passport">Passport</option>
+													<select class="form-control" name="id" @if($order->status == 'approved')disabled @endif >
+														<option value="ktp" @if($order->tipe_id == "KTP") selected @endif >KTP</option>
+														<option value="sim" @if($order->tipe_id == "SIM") selected @endif >SIM</option>
+														<option value="passport" @if($order->tipe_id == "Passport") selected @endif >Passport</option>
 													</select>
 												</div>	
 												<div class="col-sm-4">
-													<input type="text" class="form-control" name="noid" id="noid" placeholder="Nomor Identitas" autocomplete="off" />
+													<input maxlength="20" type="text" class="form-control" name="noid" id="noid" placeholder="Nomor Identitas" autocomplete="off" value="{{$order->no_id}}" @if($order->status == 'approved')disabled @endif />
 												</div>
 											</div>
 											<div class="form-group form-material">
 												<label class="col-sm-5 control-label">Nomor Demo Acccount: </label>
 												<div class="col-sm-7">
-													12321312312
+												{{$demos->login}}
 												</div>
 											</div>
 									</div>
@@ -72,22 +72,47 @@
 					</div>
 				</div>
 			</div>
-			<div class="modal-footer">	
-				<div class="form-group form-material">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah melakukan simulasi bertransaksi di bidang Perdagangan Berjangka Komoditi pada PT. ASKAP FUTURES, dan telah memahami tentang tata cara bertransaksi di bidang Perdagangan Berjangka Komoditi.
-						</label>
+			<div class="modal-footer">
+				<p class="text-justify">Dengan mengisi kolom “YA” di bawah ini, saya menyatakan bahwa saya telah melakukan simulasi bertransaksi di bidang Perdagangan Berjangka Komoditi pada {{config('settings.company_name')}}, dan telah memahami tentang tata cara bertransaksi di bidang Perdagangan Berjangka Komoditi.</p>
+                <p class="text-justify">Demikian Peryataan ini dibuat dengan sebenarnya dalam keadaan sadar, sehat jasmani dan rohani serta tanpa paksaan apapun dari pihak manapun.</p>
+
+							<div class="row">
+								<div class="col-sm-8 col-sm-offset-4">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Peryataan Kebenaran dan tanggung jawab <span class="text-danger">*)</span></label>
+										<div class="col-sm-3">
+
+												<div class="radio-custom radio-primary pull-left">
+													<input type="radio" id="approval_yes" name="approval_yes" value="ya" @if($task->status == 'active')checked @endif @if($order->status == 'approved') disabled @endif>
+													<label for="aproval_yes">Ya</label>
+												</div>
+												<br>
+												<br>
+												<div class="radio-custom radio-primary pull-left">
+													<input type="radio" id="approval_yes" name="approval_yes" value="tidak" @if($order->status == 'approved')disabled @endif>
+													<label for="aproval_no">Tidak</label>
+												</div>
+											</div>
+									</div>
+									<div class="form-group">
+
+										<label class="col-sm-3 control-label">Menyatakan Tanggal</label>
+										<div class="col-sm-9">
+											<p class="form-control-static pull-left" id="date">{{$order->created_at->formatLocalized('%A %d %B %Y')}}</p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+				@if($order->status == 'approved')
+				
+				@else
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary" disabled>Submit </button>
 					</div>
-				</div>
-				<div class="form-group form-material">	
-					Menyatakan pada Tanggal <span id="date"></span>
-				</div>
-				<div class="form-group form-material">	
-					<div class="col-sm-9 col-sm-offset-3">
-						<button type="submit" class="btn btn-primary" >Submit </button>
-					</div>
-				</div>
+				</div>	
+				@endif
 			</div>
 			  </form>
 		</div>
@@ -123,11 +148,6 @@ $(function () {
 $(document).ready(function() {
     $('#pbk02Form').formValidation({
         framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
         fields: {
             name: {
                 validators: {
@@ -165,13 +185,20 @@ $(document).ready(function() {
                 validators: {
                     notEmpty: {
                         message: 'Nomor Identitas harus diisi'
+                    },
+					numeric: {
+                        message: 'Nomor Identitas harus angka'
                     }
                 }
             },
-			agree: {
+			approval_yes: {
                 validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan pada form ini'
+					notEmpty: {
+                        message: '<br><br><br>Anda harus menyetujui dan menerima pernyataan diatas'
+                    },
+                    stringLength: {
+                        message: '<br><br><br>Anda harus menyetujui dan menerima pernyataan diatas',
+                        max: 2
                     }
                 }
             }

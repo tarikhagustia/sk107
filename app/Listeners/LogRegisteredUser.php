@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\RequestAccount;
 use App\Models\Task;
 use App\Models\UserTask;
+use App\User;
 use App\Services\ActivationService;
 use Carbon\Carbon;
 class LogRegisteredUser
@@ -33,13 +34,18 @@ class LogRegisteredUser
     public function handle(Registered $event)
     {
         $user = $event->user;
-
+		$data = User::where('id',$user->id)->first();
         /* Register User Real Account */
         $request = RequestAccount::create([
           'user_id' => $user->id,
+          'account_type_id' => 1,
           'order_number' => Carbon::now()->timestamp,
           'account' => null,
-          'status' => 'request'
+          'status' => 'filling',
+		  'dob' => $data->dob,
+		  'nama' => $user->name,
+		  'phone_number' => $data->phone
+		  
         ]);
 
         $tasks = Task::all();

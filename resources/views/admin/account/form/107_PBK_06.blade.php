@@ -3,9 +3,6 @@
 		<div class="modal-header">
 			<a class="popup-modal-dismiss pull-right" href="#">x</a>
 			<br><br>
-			<div class="pull-left" style="font-size:11px;font-weight:700;">
-				<p>Formulir Nomor : 107.PBK.06</p>
-			</div>
 			<div class="pull-right" style="font-size:11px;text-align:right;">
 				Lampiran Peraturan Kepala Badan Pengawas<br>Perdagangan Berjangka Komoditi<br>Nomor : 107/BAPPEBTI/PER/11/2013
 			</div>
@@ -25,43 +22,26 @@
 												<b>TRADING RULES KONTRAK BERJANGKA :</b><br>
 												<ul>
 													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/TRADING RULES KONTRAK GULIR EMAS US DOLLAR.pdf" target="_blank">TRADING RULES KONTRAK GULIR EMAS US DOLLAR</a>
+														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="http://sk107.si.co.id/download/TRADING_RULES.pdf" target="_blank">TRADING RULES DOWNLOAD</a>
 													</li>
 													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/TRADING RULES KONTRAK GULIR MINI EMAS US DOLLAR.pdf" target="_blank">TRADING RULES KONTRAK GULIR MINI EMAS US DOLLAR</a>
+														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="http://sk107.si.co.id/download/CONTRACT_SPECIFICATION.pdf" target="_blank">CONTRACT SPECIFICATION DOWNLOAD</a>
 													</li>
 													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/TRADING RULES KONTRAK BERJANGKA EMAS 100 GRAM.pdf" target="_blank">TRADING RULES KONTRAK BERJANGKA EMAS 100 GRAM</a>
+														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="http://sk107.si.co.id/download/SGX_MSCI_INDONESIA.pdf" target="_blank">SGX MSCI INDONESIA DOWNLOAD</a>
 													</li>
 													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/TRADING RULES KONTRAK KOPI ARABIKA.pdf" target="_blank">TRADING RULES KONTRAK KOPI ARABIKA</a>
+														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="http://sk107.si.co.id/download/SGX_CHINA_A50.pdf" target="_blank">SGX CHINA A50 DOWNLOAD</a>
 													</li>
 													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/TRADING RULES KONTRAK KOPI ROBUSTA.pdf" target="_blank">TRADING RULES KONTRAK KOPI ROBUSTA</a>
+														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="http://sk107.si.co.id/download/SGX_TAIWAN_INDEX.pdf" target="_blank">SGX TAIWAN INDEX RULES DOWNLOAD</a>
+													</li>
+													<li>
+														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="http://sk107.si.co.id/download/SGX_NIKKEI_255.pdf" target="_blank">SGX NIKKEI 255 RULES DOWNLOAD</a>
 													</li>
 												</ul>
-												<br>
-												<b>TRADING RULES KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF :</b><br>
-												<ul>
-													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/TRADING-RULES-FOREX-dan-LLG-ONLINE-Reguler-Online-Summer-Time-Revisi-13062017.pdf" target="_blank">TRADING RULES FOREIGN EXCHANGE (MATA UANG ASING) &amp; LOCO LONDON GOLD (EMAS LOCO LONDON)</a>
-													</li>
-													<!--<li><img class="doc2pdf" src="/images/pdf-icon.png"><a href="/docs/FOREX-dan-LLG-ONLINE-Reguler-Online-Summer-Time-10032017.pdf" target="_blank">TRADING RULES FOREIGN EXCHANGE (MATA UANG ASING) & LOCO LONDON GOLD (EMAS LOCO LONDON)</a></li>-->
-													<!--<li><img class="doc2pdf" src="/images/pdf-icon.png"><a href="/docs/TRADING RULES STOCK INDEX (INDEKS SAHAM) REGULER.pdf" target="_blank">TRADING RULES STOCK INDEX (INDEKS SAHAM)</a></li>-->
-													<!--<li><img class="doc2pdf" src="/images/pdf-icon.png"><a href="/docs/TRADING-RULES-LLG-Reguler-Winter-Time-REVISI-27012015.pdf" target="_blank">TRADING RULES LOCO LONDON GOLD (EMAS LOCO LONDON)</a></li>-->
-												</ul>
-												<br>
-												<b>TRADING RULES KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF :<br>
-												 Dengan volume 0,1 (nol koma satu) lot yang diperdagangkan :<br></b>
-												<ul>
-													<li>
-														<img class="doc2pdf" src="{{ asset('img/pdf-icon.png') }}"><a href="/docs/WINTER-TRADING-RULES-FOREX-dan-LLG-ONLINE-Lot-kecil-Online-Summer-Time-13062017.pdf" target="_blank">TRADING RULES FOREIGN EXCHANGE (MATA UANG ASING) &amp; LOCO LONDON GOLD (EMAS LOCO LONDON)</a>
-													</li>
-													<!--<li><img class="doc2pdf" src="/images/pdf-icon.png"><a href="/docs/FOREX-dan-LLG-ONLINE-Lot-Kecil-Online-Summer-Time-10032017.pdf" target="_blank">TRADING RULES FOREIGN EXCHANGE (MATA UANG ASING) & LOCO LONDON GOLD (EMAS LOCO LONDON)</a></li>-->
-													<!--<li><img class="doc2pdf" src="/images/pdf-icon.png"><a href="/docs/TRADING RULES STOCK INDEX (INDEKS SAHAM) MINI.pdf" target="_blank">TRADING RULES STOCK INDEX (INDEKS SAHAM)</a></li>-->
-													<!--<li><img class="doc2pdf" src="/images/pdf-icon.png"><a href="/docs/TRADING-RULES-LLG-Lot-Kecil-Winter-Time-Revisi-27012015.pdf" target="_blank">TRADING RULES LOCO LONDON GOLD (EMAS LOCO LONDON)</a></li>-->
-												</ul>
-											</div>
+												<p>*)Perusahaan berhak untuk merubah segala ketentuan/ peraturan yang ada dalam peraturan transaksi ini tanpa pemberitahuan terlebih dahulu</p>
+										  </div>
 										</div>
 									</div>
 								</div>
@@ -73,21 +53,45 @@
 		<div class="modal-footer">
 			<form class="form-horizontal" method="POST" id="pbk06Form" action="{{ url('admin/account/real-account/form/107-PBK-06-check') }}">
 			{{ csrf_field() }}
-				<div class="form-group form-material">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" name="agree" value="agree" /> Saya menyatakan bahwa saya telah membaca, <b>PERATURAN PERDAGANGAN (TRADING RULES), </b> mengerti dan menerima ketentuan dalam bertransaksi.
-						</label>
+				<p class="text-justify">Dengan mengisi kolom “YA” di bawah ini, saya menyatakan bahwa saya telah membaca tentang <b>PERATURAN PERDAGANGAN (TRADING RULES)</b>, mengerti dan menerima ketentuan dalam bertransaksi.</p>
+
+							<div class="row">
+								<div class="col-sm-8 col-sm-offset-4">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Peryataan Kebenaran dan tanggung jawab <span class="text-danger">*)</span></label>
+										<div class="col-sm-3">
+
+												<div class="radio-custom radio-primary pull-left">
+													<input type="radio" id="approval_yes" name="approval_yes" value="ya" @if($task->status == 'active')checked @endif @if($order->status == 'approved') disabled @endif>
+													<label for="aproval_yes">Ya</label>
+												</div>
+												<br>
+												<br>
+												<div class="radio-custom radio-primary pull-left">
+													<input type="radio" id="approval_yes" name="approval_yes" value="tidak" @if($order->status == 'approved')disabled @endif>
+													<label for="aproval_no">Tidak</label>
+												</div>
+											</div>
+									</div>
+									<div class="form-group">
+
+										<label class="col-sm-3 control-label">Menyatakan Tanggal</label>
+										<div class="col-sm-9">
+											<p class="form-control-static pull-left" id="date">{{$order->created_at->formatLocalized('%A %d %B %Y')}}</p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+				@if($order->status == 'approved')
+				
+				@else
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary" disabled>Submit </button>
 					</div>
-				</div>
-				<div class="form-group form-material">	
-					Menyatakan pada Tanggal <span id="date"></span>
-				</div>
-				<div class="form-group form-material">	
-					<div class="col-sm-9 col-sm-offset-3">
-						<button type="submit" class="btn btn-primary">Submit </button>
-					</div>
-				</div>
+				</div>	
+				@endif
 			</form>
 		</div>
 	</div>
@@ -121,20 +125,20 @@ $(function () {
 $(document).ready(function() {
     $('#pbk06Form').formValidation({
         framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
         fields: {
-			agree: {
+						approval_yes: {
                 validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan pada form ini'
+                    stringLength: {
+						notEmpty: {
+                        message: '<br><br><br>Anda harus menyetujui dan menerima pernyataan diatas'
+                    },
+                        message: '<br><br><br>Anda harus menyetujui dan menerima pernyataan diatas',
+                        max: 2,
                     }
                 }
             }
         }
     });
+	$("input:radio").change(function () {$("#approval_yes").prop("disabled", false);});
 });
 </script>

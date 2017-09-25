@@ -17,6 +17,7 @@ class CreateTaskSeeder extends Seeder
           'task_form_number' => '107.PBK.01',
           'task_action' => 'ajax',
           'task_url' => 'admin/account/real-account/form/107-PBK-01',
+		  'download_url' => 'admin/account/real-account/form/107-PBK-01-download',
           'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.01)'
         ],
         [
@@ -24,6 +25,7 @@ class CreateTaskSeeder extends Seeder
           'task_form_number' => '107.PBK.02.1',
           'task_action' => 'ajax',
           'task_url' => '/admin/account/real-account/form/107-PBK-02-1',
+		  'download_url' => 'admin/account/real-account/form/107-PBK-02-1-download',
           'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.02.1)'
         ],
         [
@@ -31,6 +33,7 @@ class CreateTaskSeeder extends Seeder
           'task_form_number' => '107.PBK.02.2',
           'task_action' => 'ajax',
           'task_url' => '/admin/account/real-account/form/107-PBK-02-2',
+		  'download_url' => 'admin/account/real-account/form/107-PBK-02-2-download',
           'task_description' => 'Baca Lebih Lanjut (Formulir Nomor :107.PBK.02.2)'
         ],
         [
@@ -38,6 +41,7 @@ class CreateTaskSeeder extends Seeder
           'task_form_number' => '107.PBK.03',
           'task_action' => 'http',
           'task_url' => '/admin/account/real-account/form/107-PBK-03',
+		  'download_url' => 'admin/account/real-account/form/107-PBK-03-download',
           'task_description' => 'Baca Lebih Lanjut (Formulir Nomor :107.PBK.03)'
         ],
         [
@@ -45,6 +49,7 @@ class CreateTaskSeeder extends Seeder
           'task_form_number' => '107.PBK.04.2',
           'task_action' => 'ajax',
           'task_url' => '/admin/account/real-account/form/107-PBK-04-2',
+		  'download_url' => 'admin/account/real-account/form/107-PBK-04-2-download',
           'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.04.2)'
         ],
         [
@@ -53,6 +58,7 @@ class CreateTaskSeeder extends Seeder
           'task_form_number' => '107.PBK.05.2',
           'task_action' => 'ajax',
           'task_url' => '/admin/account/real-account/form/107-PBK-05-2',
+		  'download_url' => 'admin/account/real-account/form/107-PBK-05-2-download',
           'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.05.2)'
         ],
         [
@@ -61,6 +67,7 @@ class CreateTaskSeeder extends Seeder
           'task_form_number' => '107.PBK.06',
           'task_action' => 'ajax',
           'task_url' => '/admin/account/real-account/form/107-PBK-06',
+		  'download_url' => 'admin/account/real-account/form/107-PBK-06-download',
           'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.06)'
         ],
         [
@@ -68,6 +75,7 @@ class CreateTaskSeeder extends Seeder
           'task_form_number' => '107.PBK.07',
           'task_action' => 'ajax',
           'task_url' => '/admin/account/real-account/form/107-PBK-07',
+		  'download_url' => 'admin/account/real-account/form/107-PBK-07-download',
           'task_description' => 'Baca Lebih Lanjut (Formulir Nomor : 107.PBK.07)'
         ],
       ];

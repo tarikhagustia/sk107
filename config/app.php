@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Jakarta',
 
     /*
     |--------------------------------------------------------------------------
@@ -180,7 +180,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+		Barryvdh\DomPDF\ServiceProvider::class,
+		Chumper\Zipper\ZipperServiceProvider::class,
+		Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
     ],
 
     /*
@@ -234,7 +236,9 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Carbon' => Carbon\Carbon::class,
-
+		'PDF' => Barryvdh\DomPDF\Facade::class,
+		'Zipper' => Chumper\Zipper\Zipper::class,
+		'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
     ],
 
 ];

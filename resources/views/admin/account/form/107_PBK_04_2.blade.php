@@ -1,11 +1,10 @@
-
- <div class="lightbox-block" id="custom-content">
+<div class="lightbox-block" id="custom-content">
 	<div>
 		<div class="modal-header">
 			<a class="popup-modal-dismiss pull-right" href="#">x</a>
 			<br><br>
 			<div class="pull-left" style="font-size:11px;font-weight:700;">
-				<p>Formulir Nomor : 107.PBK.04.2</p>
+				<p>Formulir Nomor : 107.PBK.04.1</p>
 			</div>
 			<div class="pull-right" style="font-size:11px;text-align:right;">
 				Lampiran Peraturan Kepala Badan Pengawas<br>Perdagangan Berjangka Komoditi<br>Nomor : 107/BAPPEBTI/PER/11/2013
@@ -18,7 +17,7 @@
 				<div class="col-sm-12">
 					<div class="example-wrap">
 						<!--<p style="font-size=11px;">Nasabah wajib mengisi Surat Pernyataan Telah Melakukan Simulasi Perdagangan Berjangka yang dilakukan setelah Nasabah dinyatakan lulus melakukan simulasi Perdagangan Berjangka oleh Pialang Berjangka sebagaimana yang ada di Formulir Nomor : 107.PBK.02.1</p>-->
-						<h4 class="example-title" style="font-weight:700;text-align:center;font-size:14px;">DOKUMEN PEMBERITAHUAN ADANYA RISIKO YANG HARUS DISAMPAIKAN OLEH PIALANG BERJANGKA UNTUK TRANSAKSI KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF</h4>
+						<h4 class="example-title" style="font-weight:700;text-align:center;font-size:14px;">DOKUMEN PEMBERITAHUAN ADANYA RISIKO YANG HARUS DISAMPAIKAN OLEH PIALANG BERJANGKA UNTUK TRANSAKSI KONTRAK BERJANGKA</h4>
 						<hr>
 						<div class="example">
 							<div class="height-400 scrollable scrollable-shadow is-enabled scrollable-vertical" data-skin="scrollable-shadow" data-plugin="scrollable" style="position: relative;">
@@ -28,270 +27,263 @@
 										<table class="risk" cellspacing="0">
 													<tbody>
 													<tr>
-														<td colspan="2" class="just">
+														<td colspan="2" class="just" style="text-align:justify;">
 															Dokumen Pemberitahuan Adanya Risiko ini disampaikan kepada Anda sesuai dengan Pasal 50 ayat (2) Undang-Undang Nomor 32 Tahun 1997 tentang Perdagangan Berjangka Komoditi sebagaimana telah diubah dengan Undang-Undang Nomor 10 Tahun 2011 tentang Perubahan Atas Undang-Undang Nomor 32 Tahun 1997 Tentang Perdagangan Berjangka Komoditi.
 														</td>
 													</tr>
 													<tr>
-														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
-														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check"></td>
-													</tr>
-													<tr>
-														<td colspan="2" class="just notop">
-															Maksud dokumen ini adalah memberitahukan bahwa kemungkinan kerugian atau keuntungan dalam perdagangan Kontrak Derivatif dalam Sistem Perdagangan Alternatif bisa mencapai jumlah yang sangat besar. Oleh karena itu, Anda harus berhati-hati dalam memutuskan untuk melakukan transaksi, apakah kondisi keuangan Anda mencukupi.
-														</td>
+														<td colspan="2" class="just notop" style="text-align:justify;">
+															Maksud dokumen ini adalah memberitahukan bahwa kemungkinan kerugian atau keuntungan dalam perdagangan Kontrak Berjangka bisa mencapai jumlah yang sangat besar. Oleh karena itu, Anda harus berhati-hati dalam memutuskan untuk melakukan transaksi, apakah kondisi keuangan Anda mencukupi.														</td>
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check1"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check1" @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="1">
-																<li>
-																	Perdagangan Kontrak Derivatif dalam Sistem Perdagangan Alternatif belum tentu layak bagi semua investor.
+																<li style="font-weight:700;">
+																	<u>Perdagangan  Kontrak  Berjangka  belum  tentu    layak    bagi  semua investor.</u>
 																</li>
+															</b>	
+																<p>
+																Anda dapat menderita kerugian dalam jumlah besar dan dalam jangka waktu singkat. Jumlah kerugian uang dimungkinkan dapat melebihi jumlah  uang  yang  pertama  kali  Anda  setor  (Margin  awal)  ke  Pialang Berjangka Anda. 															</p>
+															<p>
+																Anda  mungkin  menderita  kerugian  seluruh  Margin  dan  Margin  tambahan yang ditempatkan pada Pialang Berjangka untuk mempertahankan posisi Kontrak Berjangka Anda.															</p>
+															<p>
+																Hal  ini  disebabkan  Perdagangan  Berjangka  sangat  dipengaruhi  oleh mekanisme  <i>leverage</i>,  dimana  dengan  jumlah  investasi  dalam  bentuk yang  relatif  kecil  dapat  digunakan  untuk  membuka  posisi  dengan  aset yang  bernilai  jauh  lebih  tinggi.  Apabila  Anda  tidak  siap  dengan risiko seperti  ini,  sebaiknya  Anda  tidak  melakukan  perdagangan  kontrak Berjangka. 															</p>
 															</ol>
-															</b>
-															<p>
-																Anda dapat menderita kerugian dalam jumlah besar dan dalam jangka waktu singkat. Jumlah kerugian uang dimungkinkan dapat melebihi jumlah uang yang pertama kali Anda setor (Margin awal) ke Pialang Berjangka Anda.
-															</p>
-															<p>
-																Anda mungkin menderita kerugian seluruh Margin dan Margin tambahan yang ditempatkan pada Pialang Berjangka untuk mempertahankan posisi Kontrak Derivatif dalam Sistem Perdagangan Alternatif Anda.
-															</p>
-															<p>
-																Hal ini disebabkan Perdagangan Berjangka sangat dipengaruhi oleh mekanisme leverage, dimana dengan jumlah investasi dalam bentuk yang relatif kecil dapat digunakan untuk membuka posisi dengan aset yang bernilai jauh lebih tinggi. Apabila Anda tidak siap dengan risiko seperti ini, sebaiknya Anda tidak melakukan perdagangan Kontrak Derivatif dalam Sistem Perdagangan Alternatif.
-															</p>
+															
+															
 														</td>
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check2"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check2" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="2">
-																<li>
-																	Perdagangan Kontrak Berjangka mempunyai risiko dan mempunyai kemungkinan kerugian yang tidak terbatas yang jauh lebih besar dari jumlah uang yang disetor (Margin) ke Pialang Berjangka.
-																</li>
-															</ol>
+																<li style="font-weight:700;">
+																	<u>Perdagangan  Kontrak  Berjangka  mempunyai  risiko  dan  mempunyai kemungkinan kerugian yang tidak terbatas yang jauh lebih besar dari jumlah  uang  yang  disetor  (Margin)  ke  Pialang  Berjangka.</u>																</li>
 															</b>
 															<p>
-																Kontrak Derivatif dalam Sistem Perdagangan Alternatif sama dengan produk keuangan lainnya yang mempunyai risiko tinggi, Anda sebaiknya tidak menaruh risiko terhadap dana yang Anda tidak siap untuk menderita rugi, seperti tabungan pensiun, dana kesehatan atau dana untuk keadaan darurat, dana yang disediakan untuk pendidikan atau kepemilikan rumah, dana yang diperoleh dari pinjaman pendidikan atau gadai, atau dana yang digunakan untuk memenuhi kebutuhan sehari-hari.
-															</p>
+																Kontrak Berjangka sama dengan produk keuangan lainnya yang mempunyai risiko tinggi,  Anda  sebaiknya  tidak  menaruh  risiko  terhadap  dana  yang  Anda tidak  siap  untuk  menderita  rugi,  seperti  tabungan  pensiun,  dana kesehatan atau dana untuk keadaan darurat, dana yang disediakan untuk pendidikan  atau  kepemilikan  rumah,  dana  yang  diperoleh  dari  pinjaman pendidikan  atau  gadai,  atau  dana  yang  digunakan  untuk  memenuhi kebutuhan sehari-hari.															</p>
+															</ol>
+															
+															
+															
 														</td>
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check3"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check3" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="3">
-																<li>
-																	Berhati-hatilah terhadap pernyataan bahwa Anda pasti mendapatkan keuntungan besar dari perdagangan Kontrak Derivatif dalam Sistem Perdagangan Alternatif.
-																</li>
-															</ol>
+																<li style="font-weight:700;">
+																	<u>Berhati-hatilah terhadap pernyataan bahwa Anda pasti mendapatkan keuntungan  besar  dari  perdagangan  Kontrak  Berjangka.</u>																</li>
 															</b>
 															<p>
-																Meskipun perdagangan Kontrak Derivatif dalam Sistem Perdagangan Alternatif dapat memberikan keuntungan yang besar dan cepat, namun hal tersebut tidak pasti, bahkan dapat menimbulkan kerugian yang besar dan cepat juga. Seperti produk keuangan lainnya, tidak ada yang dinamakan “pasti untung”.
-															</p>
+																Meskipun perdagangan  Kontrak  Berjangka  dapat  memberikan  keuntungan  yang besar  dan  cepat,  namun  hal  tersebut  tidak  pasti,  bahkan  dapat menimbulkan  kerugian  yang  besar  dan  cepat  juga.  Seperti  produk keuangan lainnya, tidak ada yang dinamakan “pasti untung”.															</p>
+															</ol>
+															
+															
 														</td>
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check4"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check4" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="4">
-																<li>
-																	Disebabkan adanya mekanisme leverage dan sifat dari transaksi Kontrak Berjangka, Anda dapat merasakan dampak bahwa Anda menderita kerugian dalam waktu cepat.
-																</li>
-															</ol>
+																<li style="font-weight:700;">
+																	<u>Disebabkan  adanya  mekanisme  <i>leverage</i>  dan  sifat  dari  transaksi Kontrak  Berjangka,  Anda  dapat  merasakan  dampak  bahwa  anda menderita  kerugian  dalam  waktu  cepat.</u>																</li>
 															</b>
 															<p>
-																Keuntungan maupun kerugian dalam transaksi Kontrak Derivatif dalam Sistem Perdagangan Alternatif akan langsung dikredit atau didebet ke rekening Anda, paling lambat secara harian. Apabila pergerakan di pasar terhadap Kontrak Berjangka menurunkan nilai posisi Anda dalam Kontrak Derivatif dalam Sistem Perdagangan Alternatif, Anda diwajibkan untuk menambah dana untuk pemenuhan kewajiban Margin ke Pialang Berjangka. Apabila rekening Anda berada dibawah minimum Margin yang telah ditetapkan Lembaga Kliring Berjangka atau Pialang Berjangka, maka posisi Anda dapat dilikuidasi pada saat rugi, dan Anda wajib menyelesaikan defisit (jika ada) dalam rekening Anda.
-															</p>
+																Keuntungan maupun kerugian dalam transaksi Kontrak Berjangka akan langsung dikredit atau didebet ke rekening Anda, paling lambat secara harian. Apabila pergerakan di pasar terhadap Kontrak Berjangka menurunkan nilai posisi Anda dalam Kontrak Berjangka,  Anda  diwajibkan  untuk  menambah  dana  untuk  pemenuhan kewajiban  Margin  ke  Pialang  Berjangka.  Apabila  rekening  Anda  berada dibawah  minimum  Margin  yang  telah  ditetapkan  Lembaga  Kliring Berjangka  atau  Pialang  Berjangka,  maka  posisi  Anda  dapat  dilikuidasi pada  saat  rugi,  dan  Anda  wajib  menyelesaikan  defisit  (jika  ada)  dalam rekening Anda. 															</p>
+															</ol>
+															
+															
 														</td>
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check5"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check5" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="5">
-																<li>
-																	Pada saat pasar dalam keadaan tertentu, Anda mungkin akan sulit atau tidak mungkin melikuidasi posisi.
-																</li>
-															</ol>
+																<li style="font-weight:700;">
+																	<u>Pada  saat  pasar  dalam  keadaan  tertentu,  Anda  mungkin  akan  sulit atau  tidak  mungkin  melikuidasi  posisi.</u>  																</li>
 															</b>
 															<p>
-																Pada umumnya Anda harus melakukan transaksi mengambil posisi yang berlawanan dengan maksud melikuidasi posisi (offset) jika ingin melikuidasi posisi dalam Kontrak Derivatif dalam Sistem Perdagangan Alternatif. Apabila Anda tidak dapat melikuidasi posisi Kontrak Derivatif dalam Sistem Perdagangan Alternatif, Anda tidak dapat merealisasikan keuntungan pada nilai posisi tersebut atau mencegah kerugian yang lebih tinggi. Kemungkinan tidak dapat melikuidasi dapat terjadi, antara lain : jika perdagangan berhenti dikarenakan aktivitas perdagangan yang tidak lazim pada Kontrak Derivatif atau subjek Kontrak Derivatif atau terjadi kerusakan sistem pada Pialang Berjangka Peserta Sistem Perdagangan Alternatif atau Pedagang Berjangka Penyelenggara Sistem Perdagangan Alternatif. Bahkan apabila Anda dapat melikuidasi posisi tersebut, Anda mungkin terpaksa melakukannya pada harga yang menimbulkan kerugian besar.
-															</p>
+																Pada  umumnya  Anda  harus melakukan  transaksi  <i>offset</i>  jika  ingin  melikuidasi  posisi  dalam  Kontrak Berjangka. Apabila Anda tidak dapat melikuidasi posisi Kontrak Berjangka, Anda  tidak  dapat  merealisasikan  keuntungan  pada  nilai  posisi  tersebut atau  mencegah  kerugian  yang  lebih  tinggi.  Kemungkinan  tidak  dapat melikuidasi  dapat  terjadi,  antara  lain:  jika  perdagangan  berhenti dikarenakan  aktivitas  perdagangan  yang  tidak  lazim  pada  Kontrak Berjangka  atau  subjek  Kontrak  Berjangka,  terjadi  kerusakan  sistem  pada Bursa Berjangka atau Pialang Berjangka, atau posisi Anda berada dalam pasar  yang  tidak  likuid.  Bahkan  apabila  Anda  dapat  melikuidasi  posisi tersebut,  Anda  mungkin  terpaksa  melakukannya  pada  harga  yang menimbulkan kerugian besar.															</p>
+															</ol>
+															
+															
 														</td>
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check6"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check6" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="6">
-																<li>
-																	Pada saat pasar dalam keadaan tertentu, Anda mungkin akan sulit atau tidak mungkin mengelola risiko atas posisi terbuka Kontrak Derivatif dalam Sistem Perdagangan Alternatif dengan cara membuka posisi dengan nilai yang sama namun dengan posisi yang berlawanan dalam kontrak bulan yang berbeda, dalam pasar yang berbeda atau dalam “subjek Kontrak Derivatif dalam Sistem Perdagangan Alternatif” yang berbeda.
-																</li>
-															</ol>
+																<li style="font-weight:700;">
+																	<u>Pada  saat  pasar  dalam  keadaan  tertentu,  Anda  mungkin  akan  sulit atau  tidak  mungkin  mengelola  risiko  atas  posisi  terbuka  Kontrak Berjangka  dengan  cara  membuka  posisi  dengan  nilai  yang  sama namun  dengan  posisi  yang  berlawanan  dalam  kontrak  bulan  yang berbeda,  dalam  pasar  yang  berbeda  atau  dalam  subjek  Kontrak Berjangka  yang  berbeda.</u>																</li>
 															</b>
 															<p>
-																Kemungkinan untuk tidak dapat mengambil posisi dalam rangka membatasi risiko yang timbul, contohnya : jika perdagangan dihentikan pada pasar yang berbeda disebabkan aktivitas perdagangan yang tidak lazim pada Kontrak Derivatif dalam Sistem Perdagangan Alternatif atau “subjek Kontrak Derivatif dalam Sistem Perdagangan Alternatif”.
-															</p>
+																Kemungkinan  untuk  tidak  dapat  mengambil posisi  dalam  rangka  membatasi  risiko  yang  timbul,  contohnya:  jika perdagangan  dihentikan  pada  pasar  yang  berbeda  disebabkan  aktivitas perdagangan  yang  tidak  lazim  pada  Kontrak  Berjangka  atau  “subjek Kontrak Berjangka”.															</p>
+															</ol>
+															
 														</td>
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check7"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check7" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="7">
-																<li>
-																	Anda dapat menderita kerugian yang disebabkan kegagalan sistem informasi.
-																</li>
-															</ol>
+																<li style="font-weight:700;">
+																	<u>Anda  dapat  diwajibkan  untuk  menyelesaikan  Kontrak  Berjangka dengan penyerahan fisik dari “subjek Kontrak Berjangka”.</u> 																</li>
 															</b>
 															<p>
-																Sebagaimana yang terjadi pada setiap transaksi keuangan, Anda dapat menderita kerugian jika amanat untuk melaksanakan transaksi Kontrak Berjangka tidak dapat dilakukan karena kegagalan sistem informasi di Bursa Berjangka, penyelenggara maupun sistim informasi di Pialang Berjangka yang mengelola posisi Anda. Kerugian Anda akan semakin besar jika Pialang Berjangka yang mengelola posisi Anda tidak memiliki sistem informasi cadangan atau prosedur yang layak.
-															</p>
+																Jika Anda mempertahankan  posisi  penyelesaian  fisik  dalam  Kontrak  Berjangka sampai  hari  terakhir  perdagangan  berdasarkan  tanggal  jatuh  tempo Kontrak  berjangka,  Anda  akan  diwajibkan  menyerahkan  atau  menerima penyerahan  subjek  Kontrak  Berjangka  yang  dapat  mengakibatkan adanya  penambahan  biaya.  Pengertian  penyelesaian  dapat  berbeda untuk  suatu  Kontrak  Berjangka  dengan  Kontrak  Berjangka  lainnya  atau  suatu  Bursa  Berjangka  dengan  Bursa  Berjangka  lainnya.  Anda  harus melihat  secara  teliti  mengenai  penyelesaian  dan  kondisi  penyerahan sebelum membeli atau menjual Kontrak Berjangka.															</p>
+															</ol>
+															
+															
 														</td>
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check8"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check8" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="8">
-																<li>
-																	Semua Kontrak Derivatif dalam Sistem Perdagangan Alternatif mempunyai risiko, dan tidak ada strategi berdagang yang dapat menjamin untuk menghilangkan risiko tersebut.
-																</li>
-															</ol>
+																<li style="font-weight:700;">
+																	<u>Anda  dapat  menderita  kerugian  yang  disebabkan  kegagalan  sistem informasi.</u> 																</li>
 															</b>
 															<p>
-																Strategi dengan menggunakan kombinasi posisi seperti <i>spread</i>, dapat sama berisiko seperti posisi <i>long</i> atau <i>short</i>. Melakukan Perdagangan Berjangka memerlukan pengetahuan mengenai Kontrak Derivatif dalam Sistem Perdagangan Alternatif dan pasar berjangka.
-															</p>
+																Sebagaimana  yang  terjadi  pada  setiap  transaksi  keuangan, Anda  dapat  menderita  kerugian  jika  amanat  untuk  melaksanakan transaksi  Kontrak  Berjangka  tidak  dapat  dilakukan  karena  kegagalan sistem  informasi  di  Bursa  Berjangka,  penyelenggara  maupun  sistem informasi  di  Pialang  Berjangka  yang  mengelola  posisi  Anda.  Kerugian Anda  akan  semakin  besar  jika  Pialang  Berjangka  yang  mengelola  posisi Anda tidak memiliki sistem informasi cadangan atau prosedur yang layak.															</p>
+															</ol>
+															
+															
 														</td>
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check9"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check9" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="9">
-																<li>
-																	Strategi perdagangan harian dalam Kontrak Derivatif dalam Sistem Perdagangan Alternatif dan produk lainnya memiliki risiko khusus.
-																</li>
-															</ol>
+																<li style="font-weight:700;">
+																	<u>Semua  Kontrak  Berjangka  mempunyai  risiko,  dan  tidak  ada  strategi berdagang  yang  dapat  menjamin  untuk  menghilangkan  risiko tersebut.</u>																</li>
 															</b>
 															<p>
-																Seperti pada produk keuangan lainnya, pihak yang ingin membeli atau menjual Kontrak Derivatif dalam Sistem Perdagangan Alternatif yang sama dalam satu hari untuk mendapat keuntungan dari perubahan harga pada hari tersebut <i>(“day traders”)</i> akan memiliki beberapa risiko tertentu antara lain jumlah komisi yang besar, risiko terkena efek pengungkit <i>(“exposure to leverage”)</i>, dan persaingan dengan pedagang profesional. Anda harus mengerti risiko tersebut dan memiliki pengalaman yang memadai sebelum melakukan perdagangan harian <i>(“day trading”)</i>.
-															</p>
+																Strategi dengan menggunakan kombinasi posisi seperti <i><i>spread</i></i>, dapat  sama  berisiko  seperti  posisi <i><i>long</i></i> atau <i><i>short</i></i>. Melakukan Perdagangan  Berjangka  memerlukan  pengetahuan  mengenai  Kontrak Berjangka dan pasar berjangka.															</p>
+															</ol>
+															
+															
 														</td>
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check10"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check10" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="10">
-																<li>
-																	Menetapkan amanat bersyarat, seperti Kontra Berjangka dilikuidasi pada keadaan tertentu untuk membatasi rugi (stop loss), mungkin tidak akan dapat membatasi kerugian Anda sampai jumlah tertentu saja.
-																</li>
-															</ol>
+																<li style="font-weight:700;">
+																	<u>Strategi  perdagangan  harian  dalam  Kontrak  Berjangka  dan  produk lainnya  memiliki  risiko  khusus.</u>																</li>
 															</b>
 															<p>
-																Amanat bersyarat tersebut mungkin tidak dapat dilaksanakan karena terjadi kondisi pasar yang tidak memungkinkan melikuidasi Kontrak Derivatif dalam Sistem Perdagangan Alternatif.
-															</p>
+																Seperti pada produk keuangan lainnya, pihak  yang  ingin  membeli  atau  menjual  Kontrak  Berjangka  yang  sama dalam  satu  hari  untuk  mendapat  keuntungan  dari  perubahan  harga  pada hari tersebut <i>(“day traders”)</i> akan memiliki beberapa risiko tertentu antara lain  jumlah  komisi  yang  besar,  risiko  terkena  efek  pengungkit  (<i>“exposure to leverage”</i>), dan  persaingan  dengan  pedagang  profesional. Anda  harus mengerti risiko tersebut dan memiliki pengalaman yang memadai sebelum melakukan perdagangan harian (<i>“day trading”</i>).															</p>
+															</ol>
+															
+															
 														</td>
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check11"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check11" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="11">
-																<li>
-																	Anda harus membaca dengan seksama dan memahami perjanjian Pemberian Amanat dengan Pialang Berjangka Anda sebelum melakukan transaksi Kontrak Derivatif dalam Sistem Perdagangan Alternatif.
-																</li>
-															</ol>
+																<li style="font-weight:700;">
+																	<u>Menetapkan amanat bersyarat, seperti Kontrak Berjangka dilikuidasi pada  keadaan  tertentu  untuk  membatasi  rugi  (<i>stop  loss</i>),  mungkin tidak  akan  dapat  membatasi  kerugian  Anda  sampai  jumlah  tertentu saja.</u> 																</li>
 															</b>
+															<p>
+																Amanat bersyarat tersebut mungkin tidak dapat dilaksanakan karena terjadi  kondisi  pasar  yang  tidak  memungkinkan  melikuidasi  Kontrak Berjangka. </p>
+															</ol>
+															
+															
 														</td>
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check12"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check12" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="12">
-																<li>
-																	Pernyataan singkat ini tidak dapat memuat secara rinci seluruh risiko atau aspek penting lainnya tentang Perdagangan Berjangka. Oleh karena itu Anda harus mempelajari kegiatan Perdagangan Berjangka secara cermat sebelum memutuskan melakukan transaksi.
-																</li>
+																<li style="font-weight:700;">
+																	<u>Anda  harus  membaca  dengan  seksama  dan  memahami  Perjanjian Pemberian  Amanat  dengan  Pialang  Berjangka  Anda  sebelum melakukan transaksi Kontrak Berjangka.</u>																</li>
 															</ol>
 															</b>
 															<p></p>
@@ -299,18 +291,17 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check13"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check13" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													<tr>
-														<td colspan="2" class="just notop">
+														<td colspan="2" class="just notop" style="text-align:justify;">
 															<b>
 															<ol start="13">
-																<li>
-																	Dokumen Pemberitahuan Adanya Risiko <i>(Risk Disclosure)</i> ini buat dalam Bahasa Indonesia.
-																</li>
+																<li style="font-weight:700;">
+																	<u>Pernyataan singkat ini tidak dapat memuat secara rinci seluruh risiko atau  aspek  penting  lainnya  tentang  Perdagangan  Berjangka.  Oleh karena itu Anda harus mempelajari kegiatan Perdagangan Berjangka secara cermat sebelum memutuskan melakukan transaksi.</u>																</li>
 															</ol>
 															</b>
 															<p></p>
@@ -318,10 +309,28 @@
 													</tr>
 													<tr>
 														<td class="right">
-															Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span>
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
 														</td>
-														<td class="tick">
-															<input type="checkbox" class="tick" name="check14"></td>
+														<td>
+															<input type="checkbox" class="tick" name="check14" disabled @if($task->status == 'active')checked @endif></td>
+													</tr>
+													<tr>
+														<td colspan="2" class="just notop" style="text-align:justify;">
+															<b>
+															<ol start="14">
+																<li style="font-weight:700;">
+																	<u>Dokumen Pemberitahuan  Adanya Risiko (<i>Risk Disclosure</i>) ini dibuat dan ditandatangani dalam Bahasa Indonesia.</u> 																</li>
+															</ol>
+															</b>
+															<p></p>
+														</td>
+													</tr>
+													<tr>
+														<td class="right">
+															<div style="color:black;padding-right:5px;" class="pull-right">Saya sudah membaca dan memahami <span style="color:red;font-size:11px">*)</span></div></td>
+														</td>
+														<td>
+															<input type="checkbox" class="tick" name="check15" disabled @if($task->status == 'active')checked @endif></td>
 													</tr>
 													</tbody>
 													</table>
@@ -334,21 +343,45 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-				<div class="form-group form-material">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" name="agree" value="agree" /> saya menyatakan bahwa saya telah membaca dan menerima informasi <b>ADANYA RISIKO TRANSAKSI KONTRAK DERIVATIF DALAM SISTEM PERDAGANGAN ALTERNATIF, </b> mengerti dan memahami isinya.
-						</label>
+				<p align="center">Dengan mengisi kolom “YA” di bawah, saya menyatakan bahwa saya telah menerima <b>“DOKUMEN PEMBERITAHUAN ADANYA RISIKO”</b> mengerti dan menyetujui isinya. </p>
+
+							<div class="row">
+								<div class="col-sm-8 col-sm-offset-4">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Peryataan Kebenaran dan tanggung jawab <span class="text-danger">*)</span></label>
+										<div class="col-sm-3">
+
+												<div class="radio-custom radio-primary pull-left">
+													<input type="radio" id="approval_yes" name="approval_yes" value="ya" @if($task->status == 'active')checked @endif @if($order->status == 'approved') disabled @endif>
+													<label for="aproval_yes">Ya</label>
+												</div>
+												<br>
+												<br>
+												<div class="radio-custom radio-primary pull-left">
+													<input type="radio" id="approval_yes" name="approval_yes" value="tidak" @if($order->status == 'approved')disabled @endif>
+													<label for="aproval_no">Tidak</label>
+												</div>
+											</div>
+									</div>
+									<div class="form-group">
+
+										<label class="col-sm-3 control-label">Menyatakan Tanggal</label>
+										<div class="col-sm-9">
+											<p class="form-control-static pull-left" id="date">{{$order->created_at->formatLocalized('%A %d %B %Y')}}</p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+				@if($order->status == 'approved')
+				
+				@else
+				<div class="form-group form-material" style="text-align:center;">
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary" disabled>Submit </button>
 					</div>
-				</div>
-				<div class="form-group form-material">	
-					Menyatakan pada Tanggal <span id="date"></span>
-				</div>
-				<div class="form-group form-material">	
-					<div class="col-sm-9 col-sm-offset-3">
-						<button type="submit" class="btn btn-primary">Submit </button>
-					</div>
-				</div>
+				</div>	
+				@endif
 			</form>
 		</div>
 	</div>
@@ -378,126 +411,132 @@ $(function () {
     $.magnificPopup.close();
   });
 });
+
+$(".tick").change(function(){
+		var index = $( ".tick" ).index( this );
+		var index2 = $( ".tick" ).index( this ) + 1;
+		$(".tick:eq("+ index +")").attr("disabled", true);
+		$(".tick:eq("+ index2 +")").attr("disabled", false);
+	});
 </script>
 <script>
 $(document).ready(function() {
     $('#pbk04Form').formValidation({
         framework: 'bootstrap',
-        icon: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
         fields: {
-            check: {
+			check1: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 1'
                     }
                 }
             },
-			check1: {
+			check2: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 2'
                     }
                 }
             },
-			check2: {
+			check3: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 3'
                     }
                 }
             },
-			check3: {
+			check4: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 4'
                     }
                 }
             },
-			check4: {
+			check5: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 5'
                     }
                 }
             },
-			check5: {
+			check6: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 6'
                     }
                 }
             },
-			check6: {
+			check7: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 7'
                     }
                 }
             },
-			check7: {
+			check8: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 8'
                     }
                 }
             },
-			check8: {
+			check9: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 9'
                     }
                 }
             },
-			check9: {
+			check10: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 10'
                     }
                 }
             },
-			check10: {
+			check11: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 11'
                     }
                 }
             },
-			check11: {
+			check12: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 12'
                     }
                 }
             },
-			check12: {
+			check13: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 13'
                     }
                 }
             },
-			check13: {
+			check14: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 14'
                     }
                 }
             },
-			check14: {
+	    	check15: {
                 validators: {
                     notEmpty: {
                         message: 'Anda harus menyetujui pernyataan 15'
                     }
                 }
             },
-			agree: {
+						approval_yes: {
                 validators: {
-                    notEmpty: {
-                        message: 'Anda harus menyetujui pernyataan pada form ini'
+					notEmpty: {
+                        message: '<br><br><br>Anda harus menyetujui dan menerima pernyataan diatas'
+                    },
+                    stringLength: {
+                        message: '<br><br><br>Anda harus menyetujui dan menerima pernyataan diatas',
+                        max: 2,
                     }
                 }
             }

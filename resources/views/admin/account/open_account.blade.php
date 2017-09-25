@@ -14,6 +14,10 @@ li.active>table>tbody>tr>td>h3>a {
   color : white !important;
 
 }
+li.active>table>tbody>tr>td>a {
+  color : white !important;
+
+}
 .table a {
     text-decoration: none;
 }
@@ -27,6 +31,59 @@ li.list-group-item.disabled {
 @endsection
 
 @section('content')
+<!-- Trigger the modal with a button -->
+@if($order->pengalaman_yes == 'undefined')
+<!-- Modal -->
+<div id="pengalamanModal" class="modal fade" role="dialog">
+	<form id="pengalamanForm" action="{{ url('admin/account/pengalaman') }}" method="post">
+	<input type="hidden" name="request_id" value="{{$order->id}}">
+		{{ csrf_field() }}
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Pernyataan Berpengalaman</h4>
+      </div>
+      <div class="modal-body">
+				<p>
+					Berpengalaman Dalam Melaksanakan Transaksi Perdagangan Berjangka ?
+				</p>
+				<br>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<div class="radio-custom radio-primary">
+							<input type="radio" name="pengalaman" value="ya">
+							<label for="pengalaman">Ya</label>
+						</div>
+						<div class="radio-custom radio-primary">
+							<input type="radio" name="pengalaman" value="tidak">
+							<label for="pengalaman">Tidak</label>
+						</div>
+					</div>
+				</div>
+				<br>
+				<br>
+                <div id="perusahaan" class="form-group" style="display:none;">
+					<label class="col-sm-8 control-label">Perusahaan Tempat Bertransaksi Perdagangan Berjangka Sebelumnya</label>
+                    <div class="col-sm-4">
+						<input type="text" class="form-control" name="perusahaan" value="{{$order->perusahaan}}" id="perusahaan" >
+                    </div>
+                </div>
+				<br>
+				<br>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-main">Lanjutkan </button>
+
+      </div>
+    </div>
+
+  </div>
+	</form>
+</div>
+<!-- Approve Modal -->
+@endif
+
 <!-- Page -->
   <div class="page animsition" style="animation-duration: 800ms; opacity: 1;" id="open-account-real">
     <div class="page-header">
@@ -35,6 +92,9 @@ li.list-group-item.disabled {
     <div class="page-content">
       <!-- Panle List -->
       <div class="panel">
+        <form class="" action="{{route('create.account.real.post')}}" method="post">
+          <input type="hidden" name="order_id" value="{{$order->id}}">
+        {{ csrf_field() }}
         <div class="panel-heading">
           <h3 class="panel-title">Aplikasi Pembukaan Rekening Transaksi secara Elektronik On-line</h3>
         </div>
@@ -68,7 +128,7 @@ li.list-group-item.disabled {
                             <td>
                               <Modal :data-title="job.title" :data-url="job.action_url" :data-action="job.action" />
                             </td>
-                            <td class="text-right">Print & Download</td>
+                            <td class="text-right"><a v-bind:href="job.download_url">Print & Download</a></td>
                           </tr>
                         </tbody>
                       </table>
@@ -81,7 +141,17 @@ li.list-group-item.disabled {
             </div>
           </div>
         </div>
-      </div>
+        <div class="panel-footer">
+          @if($order->tasks()->where('task_id', 8)->first()->status == "active")
+			@if($order->status == 'approved')
+				
+			@else
+            <button type="submit" class="btn btn-primary btn-lg" name="button">Lanjutkan</button>
+			@endif
+          @endif
+        </div>
+      </form>
+
       <!-- End Panle List -->
     </div>
   </div>
@@ -92,8 +162,38 @@ li.list-group-item.disabled {
 <script src="{{ asset('vendor/formvalidation/formValidation.min.js') }}"></script>
 <script src="{{ asset('vendor/formvalidation/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ mix('js/admin/open-real-account.js') }}" charset="utf-8"></script>
 <script type="text/javascript">
+$(document).ready(function() {
+	@if($order->pengalaman_yes == 'undefined')
+	$('#pengalamanModal').modal({
+		backdrop: 'static',
+ 		keyboard: false,
+		show : true
+	});
+	@endif
+    $('#pengalamanForm').formValidation({
+        framework: 'bootstrap',
+        fields: {
+            pengalaman: {
+                validators: {
+                    notEmpty: {
+                        message: 'Silahkan pilih salah satu'
+                    }
+                }
+            }
+        }
+    });
+	
+   $('input[type="radio"]').click(function() {
+       if($(this).attr('value') == 'ya') {
+            $('#perusahaan').show();           
+       }
 
+       else {
+            $('#perusahaan').hide();   
+       }
+   });
+});
 </script>
+<script src="{{ asset('js/admin/open-real-account.js') }}"></script>
 @endsection

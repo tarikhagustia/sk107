@@ -1,38 +1,25 @@
 @extends('admin.layouts.main');
 
 @section('css')
-<link rel="stylesheet" href="{{asset('css/admin/formValidation.min.css')}}">
+<link rel="stylesheet" href="{{asset('vendor/formvalidation/formValidation.min.css')}}">
 @endsection
 
 @section('content')
 <!-- Page -->
+<!-- <?php
+// var_dump($account);
+?> -->
+
  <div class="page">
    <div class="page-header">
      <h1 class="page-title">Permintaan Withdraw</h1>
-     <!-- <ol class="breadcrumb">
-       <li><a href="../index.html">Home</a></li>
-       <li><a href="javascript:void(0)">Forms</a></li>
-       <li class="active">Validation</li>
-     </ol> -->
-     <!-- <div class="page-header-actions">
-       <a class="btn btn-sm btn-primary btn-round" href="http://formvalidation.io" target="_blank">
-         <i class="icon md-link" aria-hidden="true"></i>
-         <span class="hidden-xs">Official Website</span>
-       </a>
-     </div> -->
    </div>
    <div class="page-content container-fluid">
      <!-- Panel Full Example -->
      <div class="panel">
-       <!-- <div class="panel-heading">
-         <h3 class="panel-title">Full Example
-           <span class="panel-desc">Basic validation will display a label with the error after the form
-             control. </span>
-         </h3>
-       </div> -->
        <div class="panel-body">
-
-         <form id="exampleFullForm" autocomplete="off">
+         <form id="exampleFullForm" autocomplete="on" action="{{ url('admin/subwithdrawal') }}" method="post">
+           {{ csrf_field() }}
            <div class="row row-lg">
              <div class="col-lg-6">
                <div class="form-group form-material">
@@ -40,7 +27,7 @@
                    <span class="required">*</span>
                  </label>
                  <div class=" col-lg-12 col-sm-9">
-                   <input type="text" class="form-control" name="username" placeholder="John Fish"
+                   <input type="text" class="form-control" name="username" value="{{ Auth::user()->name }}"
                    required="">
                  </div>
                </div>
@@ -50,117 +37,62 @@
                    <span class="required">*</span>
                  </label>
                  <div class="col-lg-12 col-sm-9">
-                     <input type="email" class="form-control" name="email" placeholder="email@email.com"
+                     <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}"
                      required="">
                  </div>
                </div>
-
-               <!-- <div class="form-group form-material">
-                 <label class="col-lg-12 col-sm-3 control-label">Company</label>
-                 <div class="col-lg-12 col-sm-9">
-                   <select class="form-control" id="company" name="company" required="">
-                     <option value="">Choose a Company</option>
-                     <option value="apple">Apple</option>
-                     <option value="google">Google</option>
-                     <option value="microsoft">Microsoft</option>
-                     <option value="yahoo">Yahoo</option>
-                   </select>
-                 </div>
-               </div> -->
                <div class="form-group form-material">
-                <label class="col-lg-12 col-sm-3 control-label">No Tlp</label>
+                <label class="col-lg-12 col-sm-3 control-label">No Telepon/Hp
+                <span class="required">*</span></label>
                 <div class="col-lg-12 col-sm-9">
-                  <input type="text" class="form-control" name="type_phone" placeholder="(XXX) XXXX XXX" data-fv-field="type_phone">
+                  <input type="text" class="form-control" name="type_phone" value="{{ Auth::user()->phone }}" data-fv-field="type_phone" required="">
                 <small class="help-block" data-fv-validator="phone" data-fv-for="type_phone" data-fv-result="NOT_VALIDATED" style="display: none;">The value is not an phone(US)</small></div>
+              </div>
+			  <div class="form-group form-material">
+                <label class="col-lg-12 col-sm-3 control-label">Bank
+                <span class="required">*</span></label>
+                <div class="col-lg-12 col-sm-9">
+                  <input type="text" class="form-control" name="bank" value="{{ $datas->nama_bank }}">
+                </div>
+              </div>
+			  <div class="form-group form-material">
+                <label class="col-lg-12 col-sm-3 control-label">No Rekening
+                <span class="required">*</span></label>
+                <div class="col-lg-12 col-sm-9">
+                  <input type="text" class="form-control" name="no_rek" value="{{ $datas->no_rek }}">
+                </div>
+              </div>
+			  <div class="form-group form-material">
+                <label class="col-lg-12 col-sm-3 control-label">Nama Pemilik Rekening
+                <span class="required">*</span></label>
+                <div class="col-lg-12 col-sm-9">
+                  <input type="text" class="form-control" name="nama_rek" value="{{ $datas->nama_rek }}">
+                </div>
               </div>
              </div>
 
              <div class="col-lg-6">
-               <!-- <div class="form-group form-material">
-                 <label class="col-lg-12 col-sm-3 control-label">Account Number</label>
-                 <div class="col-lg-12 col-sm-9">
-                   <select class="form-control" id="company" name="company" required="">
-                     <option value="">Choose a Account</option>
-                     <option value="apple">123</option>
-                     <option value="google">456</option>
-                     <option value="microsoft">789</option>
-                     <option value="yahoo">147</option>
-                   </select>
-                 </div>
-               </div> -->
-               <div class="form-group form-material">
-                 <label class="col-lg-12 col-sm-3 control-label">No Account
-                   <span class="required">*</span>
-                 </label>
-                 <div class="col-lg-12 col-sm-9">
-                   <div class="input-group">
-                     <div>
-                       <div class="radio-custom radio-primary">
-                         <input type="radio" id="inputAwesome" name="porto_is" value="awesome" required="">
-                         <label for="inputAwesome">123</label>
-                       </div>
-                     </div>
-                     <div>
-                       <div class="radio-custom radio-primary">
-                         <input type="radio" id="inputVeryAwesome" name="porto_is" value="very-awesome">
-                         <label for="inputVeryAwesome">456</label>
-                       </div>
-                     </div>
-                     <div>
-                       <div class="radio-custom radio-primary">
-                         <input type="radio" id="inputUltraAwesome" name="porto_is" value="ultra-awesome">
-                         <label for="inputUltraAwesome">789</label>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
+                              <div class="form-group form-material">
+                 <label class="col-lg-12 col-sm-3 control-label">Nomor Account : @if(!empty($account)){{ $account->login }}@else @endif</label>
+				 <div class="col-lg-12 col-sm-9">
+				   <input type="hidden" class="form-control" name="noaccount" value="@if(!empty($account)){{ $account->login }}@else @endif">
+				 </div>
                </div>
-               <!-- <div class="form-group form-material">
-                 <label class="col-lg-12 col-sm-3 control-label">I will use it for
-                   <span class="required">*</span>
-                 </label>
-                 <div class="col-lg-12 col-sm-9">
-                   <div class="input-group">
-                     <div>
-                       <div class="checkbox-custom checkbox-primary">
-                         <input type="checkbox" id="inputForProject" name="for[]" value="project" required="">
-                         <label for="inputForProject">My Project</label>
-                       </div>
-                     </div>
-                     <div>
-                       <div class="checkbox-custom checkbox-primary">
-                         <input type="checkbox" id="inputForWebsite" name="for[]" value="website">
-                         <label for="inputForWebsite">My Website</label>
-                       </div>
-                     </div>
-                     <div>
-                       <div class="checkbox-custom checkbox-primary">
-                         <input type="checkbox" id="inputForAll" name="for[]" value="all">
-                         <label for="inputForAll">All things I do</label>
-                       </div>
-                     </div>
-                   </div>
-                 </div>
-               </div> -->
-
+				<div class="form-group form-material">
+				  <label class="col-lg-12 col-sm-3 control-label">Mata Uang</label>
+				  <div class="col-lg-12 col-sm-9">
+					<select class="form-control" name="currency" id="currency">
+					  <option value="IDR" selected>Indonesian Rupiah</option>
+					  <option value="USD">US Dollar</option>
+					</select>
+				  </div>
+				</div>
                <div class="form-group form-material">
-                <label class="col-lg-12 col-sm-3 control-label">Saya Ingin Withdraw Sebanyak</label>
+                <label class="col-lg-12 col-sm-3 control-label">Jumlah</label>
                 <div class="col-lg-12 col-sm-9">
-                  <input type="text" class="form-control" name="type_numberic" placeholder="Rp." data-fv-field="type_numberic">
+                  <input type="text" class="form-control" name="amount" data-fv-field="type_numberic" required="">
                 <small class="help-block" data-fv-validator="integer" data-fv-for="type_numberic" data-fv-result="VALID" style="display: none;">The value is not an number</small></div>
               </div>
-               <!-- <div class="form-group form-material">
-                 <label class="col-lg-12 col-sm-3 control-label">Browsers</label>
-                 <div class="col-lg-12 col-sm-9">
-                   <select class="form-control" id="browsers" name="browsers" title="Please select at least one browser"
-                   size="5" multiple="multiple" required="">
-                     <option value="chrome">Chrome / Safari</option>
-                     <option value="ff">Firefox</option>
-                     <option value="ie">Internet Explorer</option>
-                     <option value="opera">Opera</option>
-                   </select>
-                 </div>
-               </div> -->
              </div>
 
              <div class="form-group form-material col-lg-12 text-right"><br>
@@ -174,10 +106,43 @@
    </div>
  </div>
  <!-- End Page -->
-
 @endsection
 
 
 @section('js')
-<link rel="stylesheet" href="{{ asset('js/admin/formValidation.min.js') }}">
+<script src="{{ asset('vendor/formvalidation/formValidation.min.js') }}"></script>
+<script src="{{ asset('vendor/formvalidation/bootstrap.min.js') }}"></script>
+<script>
+$(document).ready(function() {	
+		$('#exampleFullForm').formValidation({
+        framework: 'bootstrap',
+        fields: {
+						bank : {
+							validators : {
+								notEmpty : {
+									message : 'Bank harus diisi'
+								}
+							}
+						},
+						no_rek : {
+							validators : {
+								notEmpty : {
+									message : 'Nomor rekening harus diisi'
+								},
+								numeric: {
+									message: 'Nomor rekening hanya boleh angka'
+								}
+							}
+						},
+						nama_rek : {
+							validators : {
+								notEmpty : {
+									message : 'Nama pemegang rekening harus diisi'
+								}
+							}
+						}
+		}
+    })	
+});
+</script>
 @endsection

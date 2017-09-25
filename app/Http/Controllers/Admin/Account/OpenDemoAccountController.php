@@ -10,24 +10,33 @@ use App\Mail\DemoAccount;
 use App\User;
 use App\Models\Mt4User;
 use App\Models\Mt4Setting;
+use Carbon;
+use App\Models\Notification;
 class OpenDemoAccountController extends Controller
 {
     public function index()
     {
+	  $approved = 'false';
 	  $user_id = Auth::user()->id;
-	  $logins = Mt4User::where('user_id',$user_id)->get();
-	  if($logins){
-		  $create = 'false';
-	  }else{
+	  $logins = Mt4User::where('user_id',$user_id)->where('is_real','no')->get();
+
+	  if(empty($logins[0])){
 		  $create = 'true';
+	  }else{
+		  $create = 'false';
+		if($logins[0]->is_approved == 'yes'){
+		  $approved = 'true';
+	  	}else{
+
+	  	}
 	  }
-	  $manual = config('settings.demo_manual');
-      return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create],['manual'=> $manual]);
+	  
+      return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create,'approved'=> $approved]);
     }
-	
+
 	public function create_account(Request $request)
     {
-		
+
 		$name = Auth::user()->name;
 		$email = Auth::user()->email;
 		$names = explode(" ",$name);
@@ -38,7 +47,7 @@ class OpenDemoAccountController extends Controller
 		$deposit = 5000;
 		$host = config('settings.mt4_host');
 		$port = config('settings.mt4_port');
-		
+
         $data = [
             "IP" => $request->ip(),
             "GROUP" => 1,
@@ -63,13 +72,15 @@ class OpenDemoAccountController extends Controller
         ];
         $run = app('MetaService')->setHost($host, $port)->createAccount($data);
 		if($run['status'] == true){
-			$login = '';		
+			$login = '';
 			foreach($run['result'] as $result){
 					$login = $result;
 					$active = 'yes';
 					$real = 'no';
 					Mt4User::create([
 					'user_id' => Auth::user()->id,
+					'name' => $name,
+					'email' => $email,
 					'login' => $login,
 					'password' => $password,
 					'group' => 'demoforex',
@@ -79,27 +90,41 @@ class OpenDemoAccountController extends Controller
 			}
 			return $this->index();
 		}else{
-			$user_id = Auth::user()->id;
-			$logins = Mt4User::where('user_id',$user_id)->get();
-			if($logins){
-				$create = 'false';
-			}else{
-				$create = 'true';
-			}
+
 			$err = 'Terlalu banyak request, silahkan coba lagi setelah 60 detik.';
-		    $manual = config('settings.demo_manual');
-			return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create],['manual'=> $manual]);
+
+			return back()->withErrors([$err]);
 		}		
     }
-	
-	public function create_account_manual(Request $request)
+
+	public function create_account_manual()
     {
 			$name = Auth::user()->name;
 			$email = Auth::user()->email;
-			Mail::to(env('REGISTER_EMAIL'))->send(new DemoAccount($name, $email));
-
-			$manual = config('settings.demo_manual');
-			return view('admin.account.open-demo-account',['logins'=> $logins],['create'=> $create],['manual'=> $manual]);
+			$active = 'no';
+			$real = 'no';
+			$approved = 'no';
+			
+			Mt4User::create([
+					'user_id' => Auth::user()->id,
+					'login' => '',
+					'password' => '',
+					'name' => $name,
+					'email' => $email,
+					'group' => 'demoforex',
+					'is_active' => $active,
+					'is_real' => $real,
+					'is_approved' => $approved
+				  ]);
+			Mail::to(env('DEFAULT'))->send(new DemoAccount($name, $email));	  
+			Mail::to(env('EMAIL1'))->send(new DemoAccount($name, $email));
+			Mail::to(env('EMAIL2'))->send(new DemoAccount($name, $email));
+				Notification::create([
+				'user_id' => '1',
+				'title' => 'permintaan pembuatan demo akun a/n '.Auth::user()->name,
+				'url' => route('manage.demo')
+			]);
+			return back();
 
     }
 }
